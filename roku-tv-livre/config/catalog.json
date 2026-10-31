@@ -4866,8 +4866,8 @@
           ]
         },
         {
-          "id": "teste_card4",
-          "title": "teste_card4",
+          "id": "bigbang",
+          "title": "Big Bang - A teoria",
           "poster": "pkg:/images/placeholder.png",
           "seasons": [
             {
@@ -4875,7 +4875,7 @@
               "episodes": [
                 {
                   "title": "Episódio 1",
-                  "url": ""
+                  "url": "https://cdn.hermesplayplus.com/series/play/d4df4cdb-7ab0-4d4a-824a-51c8d9f01ab0/5551/245796.mp4"
                 },
                 {
                   "title": "Episódio 2",
@@ -4887,66 +4887,6 @@
                 },
                 {
                   "title": "Episódio 4",
-                  "url": ""
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "teste_card5",
-          "title": "teste_card5",
-          "poster": "pkg:/images/placeholder.png",
-          "seasons": [
-            {
-              "title": "Temporada 1",
-              "episodes": [
-                {
-                  "title": "Episódio 1",
-                  "url": ""
-                },
-                {
-                  "title": "Episódio 2",
-                  "url": ""
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "teste_card6",
-          "title": "teste_card6",
-          "poster": "pkg:/images/placeholder.png",
-          "seasons": [
-            {
-              "title": "Temporada 1",
-              "episodes": [
-                {
-                  "title": "Episódio 1",
-                  "url": ""
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "teste_card7",
-          "title": "teste_card7",
-          "poster": "pkg:/images/placeholder.png",
-          "seasons": [
-            {
-              "title": "Temporada 1",
-              "episodes": [
-                {
-                  "title": "Episódio 1",
-                  "url": ""
-                },
-                {
-                  "title": "Episódio 2",
-                  "url": ""
-                },
-                {
-                  "title": "Episódio 3",
                   "url": ""
                 }
               ]
