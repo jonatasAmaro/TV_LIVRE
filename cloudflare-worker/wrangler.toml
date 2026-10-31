@@ -1,0 +1,7 @@
+name = "tv-livre-catalog"
+main = "src/worker.js"
+compatibility_date = "2024-01-01"
+
+[vars]
+CATALOG_URL = "https://raw.githubusercontent.com/jonatasAmaro/TV_LIVRE/main/roku-tv-livre/config/catalog.json"
+CACHE_TTL = "300"
