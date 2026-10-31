@@ -247,10 +247,21 @@ end function
 
 function Grid_FindItem(key as String) as Dynamic
     for each s in Cfg_Load().sections
-        if s.kind = "grid" and s.items <> invalid
-            for each it in s.items
-                if Grid_Key(it) = key then return it
-            end for
+        if s.kind = "grid"
+            if s.items <> invalid
+                for each it in s.items
+                    if Grid_Key(it) = key then return it
+                end for
+            end if
+            if s.categories <> invalid
+                for each cat in s.categories
+                    if cat.items <> invalid
+                        for each it in cat.items
+                            if Grid_Key(it) = key then return it
+                        end for
+                    end if
+                end for
+            end if
         end if
     end for
     return invalid

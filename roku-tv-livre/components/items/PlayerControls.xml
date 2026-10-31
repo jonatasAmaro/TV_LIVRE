@@ -12,6 +12,8 @@
     <field id="live" type="boolean"/>
     <!-- false hides the bar and cancels a seek in progress. -->
     <field id="active" type="boolean" onChange="onActive"/>
+    <!-- Episode info shown on the OSD (e.g. "Big Bang - T2 EP5") -->
+    <field id="episodeInfo" type="string" value=""/>
   </interface>
   <script type="text/brightscript" uri="pkg:/components/utils.brs"/>
   <script type="text/brightscript" uri="pkg:/components/items/PlayerControls.brs"/>
@@ -26,6 +28,9 @@
         <Poster id="btnIcon1" uri="pkg:/images/media_pause.png" translation="[928,816]" width="64" height="64"/>
         <Poster id="btnIcon2" uri="pkg:/images/media_ff.png" translation="[1072,816]" width="64" height="64"/>
       </Group>
+      <Label id="epInfoLbl" translation="[80,830]" width="1760" color="0xC8D0DCFF" visible="false">
+        <Font role="font" uri="font:SystemFontFile" size="26"/>
+      </Label>
       <Label id="stateLbl" translation="[80,890]" width="1100" color="0xFFFFFFFF">
         <Font role="font" uri="font:BoldSystemFontFile" size="36"/>
       </Label>

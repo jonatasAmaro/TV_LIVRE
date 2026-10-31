@@ -13,6 +13,7 @@ sub init()
     m.bg = m.top.findNode("bg")
     m.buttons = m.top.findNode("buttons")
     m.hintLbl = m.top.findNode("hintLbl")
+    m.epInfoLbl = m.top.findNode("epInfoLbl")
     m.btnBg = []
     m.btnIcon = []
     for i = 0 to 2
@@ -115,11 +116,12 @@ sub openPanel()
     m.panel = true
     m.btn = 1
     m.hideTimer.control = "stop"
-    m.bg.translation = [0, 770]
-    m.bg.height = 310
+    m.bg.translation = [0, 740]
+    m.bg.height = 340
     m.stateLbl.visible = false
     m.hintLbl.visible = false
     m.buttons.visible = true
+    m.epInfoLbl.translation = [80, 760]
     paused = m.top.video.state = "paused"
     updateButtons(paused)
     showOsd(Int(m.top.video.position), "")
@@ -134,6 +136,7 @@ sub closePanel()
     m.bg.height = 220
     m.stateLbl.visible = true
     m.hintLbl.visible = true
+    m.epInfoLbl.translation = [80, 830]
     if m.top.video <> invalid and m.top.video.state = "paused"
         showOsd(Int(m.top.video.position), "Pausado")
     else
@@ -215,6 +218,13 @@ end sub
 sub showOsd(secs as Integer, state as String)
     dur = Int(m.top.video.duration)
     m.stateLbl.text = state
+    info = m.top.episodeInfo
+    if info <> "" and info <> invalid
+        m.epInfoLbl.text = info
+        m.epInfoLbl.visible = true
+    else
+        m.epInfoLbl.visible = false
+    end if
     if dur > 0
         m.timeLbl.text = Fmt_Time(secs) + " / " + Fmt_Time(dur)
         w = Int(1760 * secs / dur)

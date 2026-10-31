@@ -222,6 +222,8 @@ sub playEpisode(idx as Integer, startAt as Integer)
     end if
     m.videoStatus.text = "Carregando EP " + (idx + 1).ToStr() + "..."
     m.videoStatus.visible = true
+    epInfo = To_Str(m.top.item.title) + "  |  " + To_Str(m.seasonData[m.currentSeason].title) + " - EP " + (idx + 1).ToStr()
+    m.controls.episodeInfo = epInfo
     c = CreateObject("roSGNode", "ContentNode")
     c.url = url
     c.title = To_Str(m.top.item.title) + " - EP " + (idx + 1).ToStr()
