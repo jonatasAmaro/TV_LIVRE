@@ -45,15 +45,55 @@ function checkUrl(url as String, port as Object) as Object
     xfer.SetCertificatesFile("common:/certs/ca-bundle.crt")
     xfer.InitClientCertificates()
     xfer.EnableEncodings(true)
-    xfer.AddHeader("User-Agent", "TVLivre-Roku/1.0")
+    xfer.AddHeader("User-Agent", "Mozilla/5.0 (Roku; StreamCheck)")
     xfer.SetUrl(url)
     xfer.SetPort(port)
+    xfer.EnableFreshConnection(true)
+
+    if not xfer.AsyncHead()
+        result = checkUrlFallback(url, port)
+        return result
+    end if
+
+    msg = wait(15000, port)
+    if msg = invalid
+        xfer.AsyncCancel()
+        result = checkUrlFallback(url, port)
+        return result
+    end if
+
+    if type(msg) = "roUrlEvent"
+        code = msg.GetResponseCode()
+        if code >= 200 and code < 400
+            return { status: "online", code: code }
+        end if
+        if code = 405 or code = 403
+            result = checkUrlFallback(url, port)
+            return result
+        end if
+        return { status: "offline", code: code }
+    end if
+
+    xfer.AsyncCancel()
+    return { status: "offline", code: 0 }
+end function
+
+function checkUrlFallback(url as String, port as Object) as Object
+    xfer = CreateObject("roUrlTransfer")
+    xfer.SetCertificatesFile("common:/certs/ca-bundle.crt")
+    xfer.InitClientCertificates()
+    xfer.EnableEncodings(true)
+    xfer.AddHeader("User-Agent", "Mozilla/5.0 (Roku; StreamCheck)")
+    xfer.AddHeader("Range", "bytes=0-1023")
+    xfer.SetUrl(url)
+    xfer.SetPort(port)
+    xfer.EnableFreshConnection(true)
 
     if not xfer.AsyncGetToString()
         return { status: "offline", code: 0 }
     end if
 
-    msg = wait(8000, port)
+    msg = wait(15000, port)
     if msg = invalid
         xfer.AsyncCancel()
         return { status: "timeout", code: 0 }
