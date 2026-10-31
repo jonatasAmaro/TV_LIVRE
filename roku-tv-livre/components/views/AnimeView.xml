@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component name="AnimeView" extends="BaseView">
+  <script type="text/brightscript" uri="pkg:/components/utils.brs"/>
+  <script type="text/brightscript" uri="pkg:/components/views/AnimeView.brs"/>
+  <children>
+    <Label id="title" text="Animes: novos episódios" translation="[80,56]" color="0xFFFFFFFF">
+      <Font role="font" uri="font:BoldSystemFontFile" size="60"/>
+    </Label>
+    <Label id="subtitle" text="Calendário AniList. OK mostra onde assistir oficialmente.   * atualiza" translation="[82,136]" color="0x9AA4B2FF">
+      <Font role="font" uri="font:SystemFontFile" size="28"/>
+    </Label>
+    <Label id="status" text="Procurando episódios novos..." translation="[80,500]" width="1760" horizAlign="center" color="0xC8D0DCFF">
+      <Font role="font" uri="font:SystemFontFile" size="34"/>
+    </Label>
+    <RowList id="rows" translation="[80,250]" itemComponentName="PosterItem"
+        numRows="2" itemSize="[1840,395]" itemSpacing="[0,70]"
+        rowItemSize="[[230,395]]" rowItemSpacing="[[24,0]]"
+        showRowLabel="[true]" rowLabelOffset="[[0,14]]" rowLabelColor="0xFFFFFFFF"
+        rowFocusAnimationStyle="floatingFocus" drawFocusFeedback="false" focusXOffset="[0]">
+      <Font role="rowLabelFont" uri="font:BoldSystemFontFile" size="32"/>
+    </RowList>
+  </children>
+</component>

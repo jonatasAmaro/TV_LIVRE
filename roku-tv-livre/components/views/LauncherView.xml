@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Start screen: wallpaper + carousel at the bottom (gear, TV ao vivo, TV Livre,
+     Conexões, installed apps, Central de Apps). Hold OK on a card to move or hide it. -->
+<component name="LauncherView" extends="BaseView">
+  <script type="text/brightscript" uri="pkg:/components/utils.brs"/>
+  <script type="text/brightscript" uri="pkg:/components/views/LauncherView.brs"/>
+  <children>
+    <Poster uri="pkg:/images/launcher_wallpaper.jpg" width="1920" height="1080"/>
+    <Poster uri="pkg:/images/launcher_shade.png" translation="[0,520]" width="1920" height="560"/>
+    <!-- Full-width band behind the carousel. -->
+    <Rectangle translation="[0,804]" width="1920" height="276" color="0x000000FF" opacity="0.55"/>
+
+    <Label id="clock" translation="[1560,48]" width="280" horizAlign="right" color="0xFFFFFFFF">
+      <Font role="font" uri="font:BoldSystemFontFile" size="64"/>
+    </Label>
+    <Label id="date" translation="[1240,128]" width="600" horizAlign="right" color="0xDDE3EAFF">
+      <Font role="font" uri="font:SystemFontFile" size="28"/>
+    </Label>
+
+    <!-- Conexões: TV inputs, shown above the carousel. -->
+    <Group id="inputs" visible="false">
+      <Poster uri="pkg:/images/panel.9.png" translation="[60,452]" width="1800" height="290" blendColor="0x0B0F1AFF" opacity="0.82"/>
+      <Label text="CONEXÕES" translation="[96,470]" color="0x9AA4B2FF">
+        <Font role="font" uri="font:BoldSystemFontFile" size="24"/>
+      </Label>
+      <Group id="inputRow" translation="[96,514]"/>
+    </Group>
+
+    <Label id="title" translation="[96,760]" width="1100" color="0xFFFFFFFF">
+      <Font role="font" uri="font:BoldSystemFontFile" size="34"/>
+    </Label>
+    <Label id="hint" translation="[1120,766]" width="720" horizAlign="right" color="0x9AA4B2FF"
+        text="Segure OK para mover ou ocultar">
+      <Font role="font" uri="font:SystemFontFile" size="24"/>
+    </Label>
+
+    <!-- Gear: opens the Roku home screen, where the TV settings are. -->
+    <Group id="gear" translation="[96,880]">
+      <Poster id="gearBg" uri="pkg:/images/circle.png" width="104" height="104" blendColor="0x1B2233FF" opacity="0.9"/>
+      <Poster id="gearRing" uri="pkg:/images/circle_ring.png" translation="[-8,-8]" width="120" height="120" visible="false"/>
+      <Poster uri="pkg:/images/gear.png" translation="[24,24]" width="56" height="56"/>
+    </Group>
+
+    <Group id="track" translation="[240,834]"/>
+
+    <!-- Hold-OK menu over the focused card. -->
+    <Group id="menu" visible="false">
+      <Rectangle id="menuBg" color="0x2A2A2AF2"/>
+      <Rectangle id="menuSel" color="0x000000FF"/>
+      <Group id="menuItems"/>
+    </Group>
+
+    <!-- Move mode: arrows on both sides of the lifted card. -->
+    <Group id="moveHint" visible="false">
+      <Poster id="arrowLeft" uri="pkg:/images/arrow_left.png" width="48" height="48"/>
+      <Poster id="arrowRight" uri="pkg:/images/arrow_right.png" width="48" height="48"/>
+    </Group>
+
+    <Animation id="scrollAnim" duration="0.18" easeFunction="outQuad">
+      <Vector2DFieldInterpolator id="scrollInterp" key="[0.0, 1.0]" fieldToInterp="track.translation"/>
+    </Animation>
+
+    <Timer id="holdTimer" duration="0.6"/>
+    <Timer id="clockTimer" repeat="true" duration="20"/>
+  </children>
+</component>

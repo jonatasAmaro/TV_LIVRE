@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component name="DetailsView" extends="BaseView">
+  <interface>
+    <field id="item" type="assocarray" onChange="onItem"/>
+  </interface>
+  <script type="text/brightscript" uri="pkg:/components/utils.brs"/>
+  <script type="text/brightscript" uri="pkg:/components/views/DetailsView.brs"/>
+  <children>
+    <Poster id="backdrop" width="1920" height="1080" opacity="0.15" loadDisplayMode="scaleToZoom"/>
+    <Rectangle id="posterBg" translation="[100,120]" width="720" height="405" color="0x1C2333FF"/>
+    <Poster id="poster" translation="[100,120]" width="720" height="405" loadDisplayMode="scaleToFit"
+        loadingBitmapUri="pkg:/images/placeholder.png" failedBitmapUri="pkg:/images/placeholder.png"/>
+    <LabelList id="actions" translation="[100,580]" itemSize="[720,66]" itemSpacing="[0,10]" numRows="5"
+        color="0xFFFFFFFF" focusedColor="0x0B0F1AFF">
+      <Font role="font" uri="font:SystemFontFile" size="30"/>
+      <Font role="focusedFont" uri="font:BoldSystemFontFile" size="30"/>
+    </LabelList>
+    <Label id="title" translation="[880,110]" width="940" wrap="true" maxLines="2" color="0xFFFFFFFF">
+      <Font role="font" uri="font:BoldSystemFontFile" size="54"/>
+    </Label>
+    <Label id="meta" translation="[880,260]" width="940" color="0xF4A261FF">
+      <Font role="font" uri="font:SystemFontFile" size="28"/>
+    </Label>
+    <Label id="desc" translation="[880,315]" width="940" height="300" wrap="true" maxLines="8" color="0xC8D0DCFF">
+      <Font role="font" uri="font:SystemFontFile" size="26"/>
+    </Label>
+    <Label id="epTitle" text="Episódios / partes   (direita para escolher)" translation="[880,650]" color="0xFFFFFFFF" visible="false">
+      <Font role="font" uri="font:BoldSystemFontFile" size="28"/>
+    </Label>
+    <LabelList id="episodes" translation="[880,700]" itemSize="[940,56]" itemSpacing="[0,6]" numRows="5"
+        color="0xC8D0DCFF" focusedColor="0x0B0F1AFF" visible="false">
+      <Font role="font" uri="font:SystemFontFile" size="26"/>
+      <Font role="focusedFont" uri="font:BoldSystemFontFile" size="26"/>
+    </LabelList>
+  </children>
+</component>

@@ -1,0 +1,112 @@
+StartComplete ---------> Duration(1400 ms)
+10-23 21:51:42.802 [beacon.report] |LiveChannelChangeInitiate -> TimeBase(6636 ms)
+10-23 21:51:42.802 [beacon.report] |LiveChannelChangeComplete -> Duration(1436 ms)
+10-23 21:51:42.802 [beacon.report] |AppExitInitiate -----------> TimeBase(47877 ms)
+10-23 21:51:42.802 [beacon.report] |AppExitComplete -----------> Duration(4 ms)
+10-23 21:51:42.803 [beacon.footer] __________________________________________
+10-23 21:51:45.804 [beacon.signal] |AppLaunchInitiate ---------> TimeBase(0 ms)
+10-23 21:51:45.804 [beacon.signal] |AppCompileInitiate --------> TimeBase(1 ms)
+10-23 21:51:45.806 [scrpt.cmpl] Compiling 'TV Livre', id 'dev'
+10-23 21:51:45.809 [scrpt.load.mkup] Loading markup dev 'TV Livre'
+10-23 21:51:45.812 [scrpt.unload.mkup] Unloading markup dev 'TV Livre'
+10-23 21:51:45.827 [scrpt.parse.mkup.time] Parsed markup dev 'TV Livre' in 17 milliseconds
+
+------ Compiling dev 'TV Livre' ------
+BRIGHTSCRIPT: WARNING: unused variable 'args' in function 'main' in pkg:/source/main.brs(1)
+Displayed 1 of 1 warnings
+10-23 21:51:45.913 [scrpt.ctx.cmpl.time] Compiled 'TV Livre', id 'dev' in 85 milliseconds (BCVer:0)
+10-23 21:51:45.914 [scrpt.proc.mkup.time] Processed markup dev 'TV Livre' in 0 milliseconds
+10-23 21:51:45.920 [beacon.signal] |AppCompileComplete --------> Duration(115 ms)
+10-23 21:51:45.944 [beacon.signal] |AppSplashInitiate ---------> TimeBase(4 ms)
+10-23 21:51:46.888 [beacon.signal] |AppSplashComplete ---------> Duration(945 ms)
+10-23 21:51:47.060 [scrpt.ctx.run.enter] UI: Entering 'TV Livre', id 'dev'
+
+------ Running dev 'TV Livre' main ------
+10-23 21:51:49.660 [beacon.signal] |LiveStartInitiate ---------> TimeBase(2337 ms)
+10-23 21:51:49.661 [beacon.signal] |LiveStartComplete ---------> Duration(1333 ms)
+10-23 21:51:55.405 [beacon.signal] |LiveChannelChangeInitiate -> TimeBase(5078 ms)
+10-23 21:51:55.406 [beacon.signal] |LiveChannelChangeComplete -> Duration(4370 ms)
+10-23 21:55:50.913 [beacon.signal] |LiveStartInitiate ---------> TimeBase(240043 ms)
+10-23 21:55:50.913 [beacon.signal] |LiveStartComplete ---------> Duration(4923 ms)
+10-23 21:55:58.106 [beacon.signal] |LiveChannelChangeInitiate -> TimeBase(250729 ms)
+10-23 21:55:58.107 [beacon.signal] |LiveChannelChangeComplete -> Duration(1425 ms)
+10-23 21:56:20.500 [beacon.signal] |LiveStartInitiate ---------> TimeBase(271900 ms)
+10-23 21:56:20.502 [beacon.signal] |LiveStartComplete ---------> Duration(2658 ms)
+10-23 22:04:02.847 [beacon.signal] |LiveChannelChangeInitiate -> TimeBase(735259 ms)
+10-23 22:04:02.847 [beacon.signal] |LiveChannelChangeComplete -> Duration(1642 ms)
+10-23 22:04:05.825 [beacon.signal] |LiveChannelChangeInitiate -> TimeBase(738427 ms)
+10-23 22:04:05.825 [beacon.signal] |LiveChannelChangeComplete -> Duration(1447 ms)
+10-23 22:04:13.613 [beacon.signal] |LiveChannelChangeInitiate -> TimeBase(746026 ms)
+10-23 22:04:13.613 [beacon.signal] |LiveChannelChangeComplete -> Duration(1599 ms)
+10-23 22:04:25.771 [beacon.signal] |LiveStartInitiate ---------> TimeBase(757580 ms)
+10-23 22:04:25.771 [beacon.signal] |LiveStartComplete ---------> Duration(2242 ms)
+10-23 22:04:29.676 [beacon.signal] |LiveChannelChangeInitiate -> TimeBase(762445 ms)
+10-23 22:04:29.678 [beacon.signal] |LiveChannelChangeComplete -> Duration(1276 ms)
+10-23 22:04:35.278 [beacon.signal] |LiveChannelChangeInitiate -> TimeBase(766330 ms)
+10-23 22:04:35.279 [beacon.signal] |LiveChannelChangeComplete -> Duration(3001 ms)
+10-23 22:08:17.146 [beacon.signal] |AppExitInitiate -----------> TimeBase(991207 ms)
+10-23 22:08:17.150 [beacon.header] __________________________________________
+10-23 22:08:17.150 [beacon.report] |AppLaunchInitiate ---------> TimeBase(0 ms)
+10-23 22:08:17.151 [beacon.report] |AppSplashInitiate ---------> TimeBase(4 ms)
+10-23 22:08:17.151 [beacon.report] |AppSplashComplete ---------> Duration(945 ms)
+10-23 22:08:17.151 [beacon.report] |LiveStartInitiate ---------> TimeBase(240043 ms)
+10-23 22:08:17.152 [beacon.report] |LiveStartComplete ---------> Duration(4923 ms)
+10-23 22:08:17.152 [beacon.report] |LiveChannelChangeInitiate -> TimeBase(5078 ms)
+10-23 22:08:17.152 [beacon.report] |LiveChannelChangeComplete -> Duration(4370 ms)
+10-23 22:08:17.153 [beacon.report] |AppExitInitiate -----------> TimeBase(991207 ms)
+10-23 22:08:17.153 [beacon.report] |AppExitComplete -----------> Duration(3 ms)
+10-23 22:08:17.153 [beacon.footer] __________________________________________
+10-23 22:08:20.148 [beacon.signal] |AppLaunchInitiate ---------> TimeBase(0 ms)
+10-23 22:08:20.148 [beacon.signal] |AppCompileInitiate --------> TimeBase(0 ms)
+10-23 22:08:20.150 [scrpt.cmpl] Compiling 'TV Livre', id 'dev'
+10-23 22:08:20.153 [scrpt.load.mkup] Loading markup dev 'TV Livre'
+10-23 22:08:20.156 [scrpt.unload.mkup] Unloading markup dev 'TV Livre'
+10-23 22:08:20.171 [scrpt.parse.mkup.time] Parsed markup dev 'TV Livre' in 17 milliseconds
+
+------ Compiling dev 'TV Livre' ------
+BRIGHTSCRIPT: WARNING: unused variable 'args' in function 'main' in pkg:/source/main.brs(1)
+Displayed 1 of 1 warnings
+10-23 22:08:20.254 [scrpt.ctx.cmpl.time] Compiled 'TV Livre', id 'dev' in 82 milliseconds (BCVer:0)
+10-23 22:08:20.255 [scrpt.proc.mkup.time] Processed markup dev 'TV Livre' in 0 milliseconds
+10-23 22:08:20.261 [beacon.signal] |AppCompileComplete --------> Duration(112 ms)
+10-23 22:08:20.279 [beacon.signal] |AppSplashInitiate ---------> TimeBase(4 ms)
+10-23 22:08:21.209 [beacon.signal] |AppSplashComplete ---------> Duration(929 ms)
+10-23 22:08:21.382 [scrpt.ctx.run.enter] UI: Entering 'TV Livre', id 'dev'
+
+------ Running dev 'TV Livre' main ------
+10-23 22:08:23.907 [beacon.signal] |LiveStartInitiate ---------> TimeBase(2324 ms)
+10-23 22:08:23.907 [beacon.signal] |LiveStartComplete ---------> Duration(1299 ms)
+10-23 22:14:16.174 [beacon.signal] |AppExitInitiate -----------> TimeBase(355898 ms)
+10-23 22:14:16.177 [beacon.header] __________________________________________
+10-23 22:14:16.177 [beacon.report] |AppLaunchInitiate ---------> TimeBase(0 ms)
+10-23 22:14:16.177 [beacon.report] |AppSplashInitiate ---------> TimeBase(4 ms)
+10-23 22:14:16.177 [beacon.report] |AppSplashComplete ---------> Duration(929 ms)
+10-23 22:14:16.177 [beacon.report] |LiveStartInitiate ---------> TimeBase(2324 ms)
+10-23 22:14:16.177 [beacon.report] |LiveStartComplete ---------> Duration(1299 ms)
+10-23 22:14:16.177 [beacon.report] |AppExitInitiate -----------> TimeBase(355898 ms)
+10-23 22:14:16.177 [beacon.report] |AppExitComplete -----------> Duration(3 ms)
+10-23 22:14:16.177 [beacon.footer] __________________________________________
+10-23 22:14:19.181 [beacon.signal] |AppLaunchInitiate ---------> TimeBase(0 ms)
+10-23 22:14:19.181 [beacon.signal] |AppCompileInitiate --------> TimeBase(0 ms)
+10-23 22:14:19.183 [scrpt.cmpl] Compiling 'TV Livre', id 'dev'
+10-23 22:14:19.187 [scrpt.load.mkup] Loading markup dev 'TV Livre'
+10-23 22:14:19.189 [scrpt.unload.mkup] Unloading markup dev 'TV Livre'
+10-23 22:14:19.202 [scrpt.parse.mkup.time] Parsed markup dev 'TV Livre' in 15 milliseconds
+
+------ Compiling dev 'TV Livre' ------
+BRIGHTSCRIPT: WARNING: unused variable 'args' in function 'main' in pkg:/source/main.brs(1)
+Displayed 1 of 1 warnings
+10-23 22:14:19.285 [scrpt.ctx.cmpl.time] Compiled 'TV Livre', id 'dev' in 82 milliseconds (BCVer:0)
+10-23 22:14:19.286 [scrpt.proc.mkup.time] Processed markup dev 'TV Livre' in 0 milliseconds
+10-23 22:14:19.292 [beacon.signal] |AppCompileComplete --------> Duration(111 ms)
+10-23 22:14:19.317 [beacon.signal] |AppSplashInitiate ---------> TimeBase(5 ms)
+10-23 22:14:20.242 [beacon.signal] |AppSplashComplete ---------> Duration(925 ms)
+
+------ Running dev 'TV 1Liv0re-'2 3m ai2n 2-:-14-:20-.4-0-9 [sc
+rpt.ctx.run.enter] UI: Entering 'TV Livre', id 'dev'
+10-23 22:14:23.070 [beacon.signal] |LiveStartInitiate ---------> TimeBase(2310 ms)
+10-23 22:14:23.071 [beacon.signal] |LiveStartComplete ---------> Duration(1419 ms)
+10-23 22:14:39.709 [beacon.signal] |LiveStartInitiate ---------> TimeBase(19001 ms)
+10-23 22:14:39.709 [beacon.signal] |LiveStartComplete ---------> Duration(1377 ms)
+10-23 22:18:16.050 [beacon.signal] |LiveStartInitiate ---------> TimeBase(235471 ms)
+10-23 22:18:16.051 [beacon.signal] |LiveStartComplete ---------> Duration(1246 ms)

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Full-screen remote handling, focused instead of the Video node:
+     OK (or Play/Pause) pauses and resumes; holding Left/Right (or Rew/FF) seeks
+     continuously, faster the longer it is held, and jumps on release.
+     Up opens the media panel (rewind / play-pause / forward buttons + progress bar);
+     Left/Right pick a button, OK uses it (hold OK on rewind/forward to seek), Down or Back closes it.
+     Other keys bubble to the screen that owns the player. -->
+<component name="PlayerControls" extends="Group">
+  <interface>
+    <field id="video" type="node"/>
+    <!-- Live streams: pause only, no seeking. -->
+    <field id="live" type="boolean"/>
+    <!-- false hides the bar and cancels a seek in progress. -->
+    <field id="active" type="boolean" onChange="onActive"/>
+  </interface>
+  <script type="text/brightscript" uri="pkg:/components/utils.brs"/>
+  <script type="text/brightscript" uri="pkg:/components/items/PlayerControls.brs"/>
+  <children>
+    <Group id="osd" visible="false">
+      <Rectangle id="bg" translation="[0,860]" width="1920" height="220" color="0x000000FF" opacity="0.65"/>
+      <Group id="buttons" visible="false">
+        <Poster id="btnBg0" uri="pkg:/images/circle.png" translation="[768,800]" width="96" height="96"/>
+        <Poster id="btnBg1" uri="pkg:/images/circle.png" translation="[912,800]" width="96" height="96"/>
+        <Poster id="btnBg2" uri="pkg:/images/circle.png" translation="[1056,800]" width="96" height="96"/>
+        <Poster id="btnIcon0" uri="pkg:/images/media_rew.png" translation="[784,816]" width="64" height="64"/>
+        <Poster id="btnIcon1" uri="pkg:/images/media_pause.png" translation="[928,816]" width="64" height="64"/>
+        <Poster id="btnIcon2" uri="pkg:/images/media_ff.png" translation="[1072,816]" width="64" height="64"/>
+      </Group>
+      <Label id="stateLbl" translation="[80,890]" width="1100" color="0xFFFFFFFF">
+        <Font role="font" uri="font:BoldSystemFontFile" size="36"/>
+      </Label>
+      <Label id="timeLbl" translation="[1240,894]" width="600" horizAlign="right" color="0xDDE3EAFF">
+        <Font role="font" uri="font:SystemFontFile" size="32"/>
+      </Label>
+      <Rectangle translation="[80,968]" width="1760" height="12" color="0xFFFFFF55"/>
+      <Rectangle id="barFill" translation="[80,968]" width="0" height="12" color="0x9B5DE5FF"/>
+      <Rectangle id="knob" translation="[74,956]" width="12" height="36" color="0xFFFFFFFF"/>
+      <Label id="hintLbl" translation="[80,1004]" width="1760" color="0x9AA4B2FF"
+          text="OK pausa / continua   |   Segure Esquerda ou Direita para voltar ou avançar">
+        <Font role="font" uri="font:SystemFontFile" size="24"/>
+      </Label>
+    </Group>
+    <Timer id="seekTimer" duration="0.25" repeat="true"/>
+    <Timer id="hideTimer" duration="3"/>
+    <Timer id="panelTimer" duration="6"/>
+  </children>
+</component>

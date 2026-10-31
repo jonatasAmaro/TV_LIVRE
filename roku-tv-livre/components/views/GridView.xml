@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Grid of portrait poster cards (same size as the Filmes rows). Used by sections with kind="grid". -->
+<component name="GridView" extends="BaseView">
+  <interface>
+    <field id="section" type="assocarray" onChange="onSection"/>
+  </interface>
+  <script type="text/brightscript" uri="pkg:/components/utils.brs"/>
+  <script type="text/brightscript" uri="pkg:/components/views/GridView.brs"/>
+  <children>
+    <Label id="title" translation="[80,56]" color="0xFFFFFFFF">
+      <Font role="font" uri="font:BoldSystemFontFile" size="60"/>
+    </Label>
+    <Label id="subtitle" translation="[82,136]" color="0x9AA4B2FF">
+      <Font role="font" uri="font:SystemFontFile" size="28"/>
+    </Label>
+    <Label id="status" text="" translation="[80,500]" width="1760" horizAlign="center" color="0xC8D0DCFF" visible="false">
+      <Font role="font" uri="font:SystemFontFile" size="34"/>
+    </Label>
+    <MarkupGrid id="grid" translation="[80,250]" itemComponentName="PosterItem"
+        numColumns="8" numRows="2" itemSize="[200,370]" itemSpacing="[22,50]"
+        vertFocusAnimationStyle="floatingFocus" drawFocusFeedback="false">
+    </MarkupGrid>
+  </children>
+</component>

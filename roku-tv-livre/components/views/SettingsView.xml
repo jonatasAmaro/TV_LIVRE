@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- CONFIGURAÇÕES screen (gear in the Home header): options left, details/result right. -->
+<component name="SettingsView" extends="BaseView">
+  <interface>
+    <field id="config" type="assocarray"/>
+  </interface>
+  <script type="text/brightscript" uri="pkg:/components/utils.brs"/>
+  <script type="text/brightscript" uri="pkg:/components/views/SettingsView.brs"/>
+  <children>
+    <Rectangle width="1920" height="200" color="0x101626FF"/>
+    <Rectangle translation="[80,52]" width="12" height="52" color="0x9B5DE5FF"/>
+    <Label text="Configurações" translation="[106,46]" color="0xFFFFFFFF">
+      <Font role="font" uri="font:BoldSystemFontFile" size="52"/>
+    </Label>
+    <Label text="Voltar: retorna ao menu" translation="[106,128]" color="0x9AA4B2FF">
+      <Font role="font" uri="font:SystemFontFile" size="26"/>
+    </Label>
+    <Rectangle translation="[80,270]" width="600" height="730" color="0x141A29FF"/>
+    <LabelList id="options" translation="[92,282]" itemSize="[576,62]" itemSpacing="[0,4]" numRows="11"
+        vertFocusAnimationStyle="floatingFocus" color="0xC8D0DCFF" focusedColor="0x0B0F1AFF">
+      <Font role="font" uri="font:SystemFontFile" size="28"/>
+      <Font role="focusedFont" uri="font:BoldSystemFontFile" size="28"/>
+    </LabelList>
+
+    <Rectangle translation="[720,270]" width="1120" height="730" color="0x141A29FF"/>
+    <Label id="detailTitle" translation="[760,306]" width="1040" color="0xFFFFFFFF">
+      <Font role="font" uri="font:BoldSystemFontFile" size="40"/>
+    </Label>
+    <Label id="detailBody" translation="[760,376]" width="1040" height="420" wrap="true" lineSpacing="8" color="0xC8D0DCFF">
+      <Font role="font" uri="font:SystemFontFile" size="28"/>
+    </Label>
+    <Label id="result" translation="[760,820]" width="1040" wrap="true" color="0x43AA8BFF">
+      <Font role="font" uri="font:BoldSystemFontFile" size="28"/>
+    </Label>
+    <Label id="hint" translation="[760,948]" width="1040" color="0x6C7686FF">
+      <Font role="font" uri="font:SystemFontFile" size="24"/>
+    </Label>
+  </children>
+</component>

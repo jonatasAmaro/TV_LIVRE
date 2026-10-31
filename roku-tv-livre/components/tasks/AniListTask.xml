@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component name="AniListTask" extends="Task">
+  <interface>
+    <field id="daysBack" type="integer" value="7"/>
+    <field id="daysAhead" type="integer" value="7"/>
+    <field id="entries" type="array" alwaysNotify="true"/>
+  </interface>
+  <script type="text/brightscript" uri="pkg:/components/utils.brs"/>
+  <script type="text/brightscript" uri="pkg:/components/tasks/AniListTask.brs"/>
+</component>

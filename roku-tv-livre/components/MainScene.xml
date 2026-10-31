@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component name="MainScene" extends="Scene">
+  <interface>
+    <field id="exitApp" type="boolean" alwaysNotify="true"/>
+  </interface>
+  <script type="text/brightscript" uri="pkg:/components/utils.brs"/>
+  <script type="text/brightscript" uri="pkg:/components/MainScene.brs"/>
+  <children>
+    <Rectangle id="bg" width="1920" height="1080" color="0x0B0F1AFF"/>
+    <Group id="views"/>
+  </children>
+</component>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component name="HomeView" extends="BaseView">
+  <interface>
+    <field id="config" type="assocarray" onChange="onConfig"/>
+    <!-- Set by MainScene when the settings screen asks for a new anime check. -->
+    <field id="refreshAnime" type="boolean" alwaysNotify="true" onChange="checkAnime"/>
+    <!-- Opened from the launcher: Back on the tab bar returns there instead of asking to exit. -->
+    <field id="canGoBack" type="boolean"/>
+  </interface>
+  <script type="text/brightscript" uri="pkg:/components/utils.brs"/>
+  <script type="text/brightscript" uri="pkg:/components/views/HomeView.brs"/>
+  <children>
+    <Rectangle width="1920" height="200" color="0x101626FF"/>
+    <Rectangle translation="[80,52]" width="12" height="52" color="0x9B5DE5FF"/>
+    <Label text="TV Livre" translation="[106,46]" color="0xFFFFFFFF">
+      <Font role="font" uri="font:BoldSystemFontFile" size="52"/>
+    </Label>
+    <Label id="date" translation="[960,62]" width="560" horizAlign="right" color="0x9AA4B2FF">
+      <Font role="font" uri="font:SystemFontFile" size="26"/>
+    </Label>
+    <Label id="clock" translation="[1560,48]" width="200" horizAlign="right" color="0xFFFFFFFF">
+      <Font role="font" uri="font:BoldSystemFontFile" size="46"/>
+    </Label>
+    <Group id="tabs" translation="[80,128]"/>
+    <Group id="content"/>
+    <Timer id="tabTimer" duration="0.35"/>
+    <Timer id="clockTimer" repeat="true" duration="20"/>
+    <Timer id="animeTimer" repeat="true" duration="21600"/>
+  </children>
+</component>

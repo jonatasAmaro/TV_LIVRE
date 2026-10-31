@@ -1,0 +1,4 @@
+*.zip
+*.apk
+out/
+.roku-deploy-password

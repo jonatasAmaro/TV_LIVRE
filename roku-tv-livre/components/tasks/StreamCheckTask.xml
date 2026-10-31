@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component name="StreamCheckTask" extends="Task">
+  <interface>
+    <field id="channels" type="array"/>
+    <field id="progress" type="assocarray"/>
+    <field id="result" type="assocarray"/>
+  </interface>
+  <script type="text/brightscript" uri="pkg:/components/utils.brs"/>
+  <script type="text/brightscript" uri="pkg:/components/tasks/StreamCheckTask.brs"/>
+</component>

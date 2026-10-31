@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- TV AO VIVO tab: channel list on the left, live preview on the right. -->
+<component name="LiveTab" extends="BaseView">
+  <interface>
+    <field id="channels" type="array" onChange="onChannels"/>
+    <field id="epgUrl" type="string" value=""/>
+  </interface>
+  <script type="text/brightscript" uri="pkg:/components/utils.brs"/>
+  <script type="text/brightscript" uri="pkg:/components/views/LiveTab.brs"/>
+  <children>
+    <Label id="listTitle" text="Lista de canais" translation="[80,222]" width="600" color="0xFFFFFFFF">
+      <Font role="font" uri="font:BoldSystemFontFile" size="30"/>
+    </Label>
+    <Rectangle translation="[80,270]" width="600" height="730" color="0x141A29FF"/>
+    <LabelList id="list" translation="[92,282]" itemSize="[576,62]" itemSpacing="[0,4]" numRows="11"
+        vertFocusAnimationStyle="floatingFocus" color="0xC8D0DCFF" focusedColor="0x0B0F1AFF">
+      <Font role="font" uri="font:SystemFontFile" size="28"/>
+      <Font role="focusedFont" uri="font:BoldSystemFontFile" size="28"/>
+    </LabelList>
+
+    <Label text="* Pesquisar" translation="[80,1012]" color="0x6C7686FF">
+      <Font role="font" uri="font:SystemFontFile" size="24"/>
+    </Label>
+
+    <Rectangle id="ring" translation="[713,263]" width="1134" height="644" color="0xFFFFFFFF" visible="false"/>
+    <Rectangle translation="[720,270]" width="1120" height="630" color="0x000000FF"/>
+    <Group id="info">
+      <Rectangle translation="[720,900]" width="1120" height="150" color="0x141A29FF"/>
+      <Label id="chName" translation="[748,914]" width="700" color="0xFFFFFFFF">
+        <Font role="font" uri="font:BoldSystemFontFile" size="34"/>
+      </Label>
+      <Label id="chInfo" translation="[748,958]" width="700" color="0x9AA4B2FF">
+        <Font role="font" uri="font:SystemFontFile" size="24"/>
+      </Label>
+      <Label id="epgNow" translation="[748,988]" width="700" color="0x4ADE80FF" visible="false">
+        <Font role="font" uri="font:BoldSystemFontFile" size="22"/>
+      </Label>
+      <Label id="epgNext" translation="[748,1014]" width="700" color="0x6C7686FF" visible="false">
+        <Font role="font" uri="font:SystemFontFile" size="20"/>
+      </Label>
+      <Label id="hint" translation="[1380,934]" width="436" horizAlign="right" color="0x9AA4B2FF">
+        <Font role="font" uri="font:SystemFontFile" size="24"/>
+      </Label>
+    </Group>
+
+    <Video id="video" translation="[720,270]" width="1120" height="630" enableUI="false"/>
+    <!-- Shortcut entries (another installed app) show a card instead of a stream. -->
+    <Poster id="appArt" translation="[720,270]" width="1120" height="630" loadDisplayMode="scaleToFit" visible="false"/>
+    <Label id="status" translation="[720,560]" width="1120" horizAlign="center" wrap="true" color="0xFFFFFFFF" visible="false">
+      <Font role="font" uri="font:SystemFontFile" size="30"/>
+    </Label>
+    <Group id="osd" visible="false">
+      <Rectangle translation="[60,50]" width="900" height="160" color="0x0B0F1ACC"/>
+      <Label id="osdName" translation="[90,66]" width="840" color="0xFFFFFFFF">
+        <Font role="font" uri="font:BoldSystemFontFile" size="42"/>
+      </Label>
+      <Label id="osdInfo" translation="[90,122]" width="840" color="0xC8D0DCFF">
+        <Font role="font" uri="font:SystemFontFile" size="26"/>
+      </Label>
+      <Label id="osdEpg" translation="[90,156]" width="840" color="0x4ADE80FF">
+        <Font role="font" uri="font:BoldSystemFontFile" size="24"/>
+      </Label>
+    </Group>
+
+    <Timer id="zapTimer" duration="0.7"/>
+    <Timer id="osdTimer" duration="4"/>
+  </children>
+</component>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component name="YouTubeTask" extends="Task">
+  <interface>
+    <!-- mode "live": find the channel's current live video and open it; "launch": open videoId -->
+    <field id="mode" type="string" value="live"/>
+    <field id="channelId" type="string"/>
+    <field id="videoId" type="string"/>
+    <field id="mediaType" type="string" value="live"/>
+    <!-- mode "info": result.infos = { <channel id>: { videoId, live } } for card art -->
+    <field id="channels" type="array"/>
+    <!-- mode "app": open another installed channel by its Roku app id -->
+    <field id="appId" type="string"/>
+    <field id="result" type="assocarray"/>
+  </interface>
+  <script type="text/brightscript" uri="pkg:/components/utils.brs"/>
+  <script type="text/brightscript" uri="pkg:/components/tasks/YouTubeTask.brs"/>
+</component>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component name="PlayerView" extends="BaseView">
+  <interface>
+    <field id="params" type="assocarray" onChange="onParams"/>
+  </interface>
+  <script type="text/brightscript" uri="pkg:/components/utils.brs"/>
+  <script type="text/brightscript" uri="pkg:/components/views/PlayerView.brs"/>
+  <children>
+    <Rectangle width="1920" height="1080" color="0x000000FF"/>
+    <Video id="video" width="1920" height="1080" enableUI="false"/>
+    <PlayerControls id="controls"/>
+    <Label id="error" translation="[160,440]" width="1600" wrap="true" horizAlign="center" color="0xFFFFFFFF" visible="false">
+      <Font role="font" uri="font:SystemFontFile" size="34"/>
+    </Label>
+  </children>
+</component>

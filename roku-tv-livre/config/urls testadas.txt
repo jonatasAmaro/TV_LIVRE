@@ -1,0 +1,12 @@
+listas de acessos GitHub:
+https://github.com/search?q=iptv+br&type=repositories&s=updated&o=desc
+
+url 1 muito boa:
+https://github.com/josemtocco/ketv-m3u/blob/main/ketv.m3u
+
+url 2:
+https://github.com/SamuelSantos-R/cattv-playlist/blob/main/playlist/br.m3u
+
+
+URL 3:
+https://github.com/walacesssantos-TCX/iptv-brasil/blob/main/canais.m3u

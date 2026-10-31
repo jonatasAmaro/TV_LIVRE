@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component name="LauncherTask" extends="Task">
+  <interface>
+    <!-- mode "apps": result.apps = [{ id, type, name, icon }] (installed apps and TV inputs)
+         mode "launch": open appId (app id or "tvinput.hdmi1"...)
+         mode "key": press remote key "key" (e.g. "Home") -->
+    <field id="mode" type="string" value="apps"/>
+    <field id="appId" type="string"/>
+    <field id="key" type="string"/>
+    <field id="result" type="assocarray"/>
+  </interface>
+  <script type="text/brightscript" uri="pkg:/components/utils.brs"/>
+  <script type="text/brightscript" uri="pkg:/components/tasks/LauncherTask.brs"/>
+</component>

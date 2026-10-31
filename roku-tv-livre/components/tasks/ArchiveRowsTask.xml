@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component name="ArchiveRowsTask" extends="Task">
+  <interface>
+    <field id="rows" type="array"/>
+    <field id="rowCount" type="integer" value="40"/>
+    <field id="row" type="node" alwaysNotify="true"/>
+    <field id="done" type="boolean" alwaysNotify="true"/>
+  </interface>
+  <script type="text/brightscript" uri="pkg:/components/utils.brs"/>
+  <script type="text/brightscript" uri="pkg:/components/tasks/ArchiveRowsTask.brs"/>
+</component>

@@ -1,0 +1,2953 @@
+{	
+  "versionUrl": "",
+  "animeRefreshHours": 6,
+  "sections": [
+    {
+      "id": "live",
+      "kind": "live",
+      "title": "Ao Vivo",
+      "subtitle": "Canais Importados",
+      "glyph": "TV",
+      "color": "0xE63946FF",
+      "tab": "TV AO VIVO",
+      "channels": [
+	
+{
+  "id": "ch_converted_00001",
+  "info": "Canal Ao Vivo",
+  "logo": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/mTAvngbkW9eSLfxbmazJLk8J4mP.jpg",
+  "group": "Brasil: cristianismo",
+  "title": "Rede Vida",
+  "url": "http://186.219.52.187/rede_vida/index.m3u8"
+},
+        {
+          "id": "ch_converted_0255",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/NJCEHbQ.png",
+          "group": "Brasil: cristianismo",
+          "title": "teste",
+          "url": "https://vod3.cf.dmcdn.net/sec2(wauDpORwzvLnzJqaKhsW6CCMqPcmfb8YK_5KrjIKmoMYMOyEWll6oXYJQwf0tX1_m_uflpGz3d81d7gzFWL28wNLv8_nQ3sf7jX4geosKbQEHl4-7Pt4LlvfC-L9W__ywHB2ScxzaloGgjnOF7NUxOtQnd4KPArTAxqMN9ZGQh8)/video/147/477/385774741_mp4_h264_aac.m3u8"
+        }, 
+		{
+          "id": "ch_converted_023",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/NJCEHbQ.png",
+          "group": "Brasil: cristianismo",
+          "title": "TV Aparecida",
+          "url": "https://cdn.jmvstream.com/w/LVW-9716/LVW9716_HbtQtezcaw/master.m3u8"
+        },
+		{
+          "id": "ch_converted_023_1",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/NJCEHbQ.png",
+          "group": "Brasil: cristianismo",
+          "title": "Canção Nova",
+          "url": "http://45.162.64.114/CANCAO_NOVA/index.m3u8"
+        },
+        {
+          "id": "ch_converted_027",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/H5zWaCa.png",
+          "group": "Brasil: cristianismo",
+          "title": "TV Pai Eterno",
+          "url": "http://45.162.64.114/TV_PAI_ETERNO/index.m3u8"
+        }, 
+		{
+          "id": "ch_converted_000027",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/H5zWaCa.png",
+          "group": "Brasil: cristianismo",
+          "title": "Rede Gospel",
+          "url": "https://cdn.live.br1.jmvstream.com/w/LVW-8719/LVW8719_AcLVAxWy5J/playlist.m3u8"
+        },
+		{
+          "id": "ch_converted_000028",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/H5zWaCa.png",
+          "group": "Brasil: cristianismo",
+          "title": "Novo Tempo",
+          "url": "http://45.162.64.114/NOVO_TEMPO/index.m3u8"
+        },
+		{
+          "id": "ch_converted_000029",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/H5zWaCa.png",
+          "group": "Brasil: cristianismo",
+          "title": "RIT TV",
+          "url": "https://acesso.ecast.site:3648/live/ritlive.m3u8"
+        },
+		{
+          "id": "ch_converted_000030",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/H5zWaCa.png",
+          "group": "Brasil: cristianismo",
+          "title": "NOVO TEMPO",
+          "url": "http://45.162.64.114/NOVO_TEMPO/index.m3u8"
+        },
+        {
+          "id": "ch_converted_035",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/zmheeSl.png",
+          "group": "Brasil: educativos e documentários",
+          "title": "TV Cultura",
+          "url": "https://player-tvcultura.stream.uol.com.br/live/tvcultura_lsd.m3u8"
+        },
+		{
+          "id": "ch_converted_035_2",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/zmheeSl.png",
+          "group": "Brasil: educativos e documentários",
+          "title": "SBT",
+          "url": "https://6836041ea1117.streamlock.net/cverde/cverde/playlist.m3u8"
+        },
+		{
+          "id": "ch_converted_035_11",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/zmheeSl.png",
+          "group": "Brasil: educativos e documentários",
+          "title": "GLOBO RJ",
+          "url": "https://wcs-tv.walacesssantos.chatgpt.site/stream/2008264542.m3u8"
+        },
+		{
+          "id": "ch_converted_035_111",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/zmheeSl.png",
+          "group": "Brasil: educativos e documentários",
+          "title": "REDE RECORD",
+          "url": "https://wcs-tv.walacesssantos.chatgpt.site/stream/1843789765.m3u8"
+        },		
+		 {
+          "id": "ch_converted_089",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/6048fc47a44e540007745d2b/colorLogoPNG.png",
+          "group": "Brasil: variedades",
+          "title": "Rede TV",
+          "url": "http://45.162.64.114/REDE_TV/index.m3u8"
+        },
+		{
+          "id": "ch_converted_035_1",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/zmheeSl.png",
+          "group": "Brasil: educativos e documentários",
+          "title": "TV Gazeta",
+          "url": "http://45.162.64.114/TV_GAZETA/index.m3u8"
+        },
+		{
+          "id": "ch_converted_035_4",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/zmheeSl.png",
+          "group": "Brasil: educativos e documentários",
+          "title": "Band",
+          "url": "https://vipwaytvcdn.multtv.tv.br:5444/TVThathi_Band/720p/index.m3u8"
+        },
+	    {
+          "id": "ch_converted_102",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/LuvJMBp.png",
+          "group": "Jornalismo",
+          "title": "Jovem Pan News",
+          "url": "http://170.83.49.66:8083/JOVEMPANNEWSHD/index.m3u8"
+        }, {
+          "id": "ch_converted_102",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/LuvJMBp.png",
+          "group": "Brasil: variedades",
+          "title": "Top Mix TV",
+          "url": "https://video03.logicahost.com.br/topmixtv/topmixtv/chunklist.m3u8"
+        },       
+{
+"id": "ch_converted_028",
+"info": "Canal Ao Vivo",
+"logo": "",
+"group": "Geral",
+"title": "ge Fast",
+"url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8"
+},
+        {
+          "id": "ch_converted_057",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/6077045b6031bd00078de127/colorLogoPNG.png",
+          "group": "Brasil: lifestyle e realities",
+          "title": "MasterChef Brasil | RunTime TV",
+          "url": "https://amg00627-amg00627c9-runtime-latam-2613.playouts.now.amagi.tv/playlist/amg00627-banijayfast-masterchefbrazil-runtimelatam/playlist.m3u8"
+        },
+        {
+          "id": "ch_5ya5z2e5",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.ibb.co/ZRDvqJcf/Logo-Mais-Um-original-sem-fundo.png",
+          "group": "Entertainment;General;Movies;Music",
+          "title": "+MaisUm (720p)",
+          "url": "https://stream.ichibansys.com:3230/hybrid/play.m3u8"
+        },
+        {
+          "id": "ch_oieo9bv8",
+          "info": "Canal Ao Vivo",
+          "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/A%26E_Network_logo.svg/960px-A%26E_Network_logo.svg.png",
+          "group": "Entertainment",
+          "title": "A&E Latin America Brazil (720p)",
+          "url": "http://170.83.16.50/AeE/index.m3u8"
+        },
+        {
+          "id": "ch_rtb83nw3",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/KgetM8j.png",
+          "group": "General",
+          "title": "Adesso TV (720p)",
+          "url": "https://cdn.jmvstream.com/w/LVW-9715/LVW9715_12B26T62tm/playlist.m3u8"
+        },
+        {
+          "id": "ch_6llw14qf",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/Pvid2iH.png",
+          "group": "Movies",
+          "title": "Adrenalina Pura TV Brazil",
+          "url": "https://jmp2.uk/plu-61b790b985706b00072cb797.m3u8"
+        },
+        {
+          "id": "ch_n0d21d5k",
+          "info": "Canal Ao Vivo",
+          "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Adult_Swim_2003_logo.svg/960px-Adult_Swim_2003_logo.svg.png",
+          "group": "Entertainment",
+          "title": "Adult Swim Latin America Brazil (720p)",
+          "url": "http://168.197.104.22/ADULT_SWIM/index.m3u8"
+        },
+        {
+          "id": "ch_58tzhsdx",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/aNkP7Zd.png",
+          "group": "Outdoor",
+          "title": "AgroBrasil TV (720p) [Not 24/7]",
+          "url": "http://45.162.230.234:1935/agrobrasiltv/agrobrasiltv/playlist.m3u8"
+        },
+        {
+          "id": "ch_jvx5o7sp",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/5XyopHf.png",
+          "group": "Education;Outdoor",
+          "title": "AgroCanal (720p)",
+          "url": "http://45.162.64.114/AGRO_CANAL/index.m3u8"
+        },
+        {
+          "id": "ch_0lly9jf5",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/sFcOZeo.png",
+          "group": "News",
+          "title": "AgroMais (720p)",
+          "url": "http://45.162.64.114/AGROMAIS/index.m3u8"
+        },
+        {
+          "id": "ch_jkxb0msb",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/c1QqslA.png",
+          "group": "General",
+          "title": "Alpha Channel (720p)",
+          "url": "https://5b01a3d32b65c.streamlock.net:1936/tvalpha/tvalpha/playlist.m3u8"
+        },
+        {
+          "id": "ch_6gl6i87s",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/7rjCS5i.png",
+          "group": "Undefined",
+          "title": "Amazon Sat (1080p)",
+          "url": "https://amazonsat.brasilstream.com.br/hls/amazonsat/index.m3u8"
+        },
+        {
+          "id": "ch_o4a7g3vm",
+          "info": "Canal Ao Vivo",
+          "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/AMC_logo_2019.svg/960px-AMC_logo_2019.svg.png",
+          "group": "Movies",
+          "title": "AMC Latin America Brazil (720p)",
+          "url": "http://170.83.49.66:8083/AMCHD/index.m3u8"
+        },
+        {
+          "id": "ch_3ye5i87e",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/qKLEGU7.png",
+          "group": "Religious",
+          "title": "Angel TV Portuguese (720p)",
+          "url": "https://janya-digimix.akamaized.net/vglive-sk-382409/portuese/ngrp:angelportuguese_all/playlist.m3u8"
+        },
+        {
+          "id": "ch_676dbjrm",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/jl39ula.png",
+          "group": "General",
+          "title": "Araruna TV",
+          "url": "https://video05.logicahost.com.br/ararunatv/ararunatv/playlist.m3u8"
+        },
+        {
+          "id": "ch_tx1ul3pf",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/Ht4jCab.png",
+          "group": "News",
+          "title": "Aratu On",
+          "url": "https://cdn.live.br1.jmvstream.com/w/LVW-9359/LVW9359_XSyReL0QVf/playlist.m3u8"
+        },
+        {
+          "id": "ch_hhjp20qh",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/Ivnk7A6.png",
+          "group": "Culture",
+          "title": "Arte 1 (720p)",
+          "url": "http://45.162.64.114/ARTE1/index.m3u8"
+        },
+        {
+          "id": "ch_jc48uwyi",
+          "info": "Canal Ao Vivo",
+          "logo": "https://m.media-amazon.com/images/I/81UMY8nlXHL.SL500.png",
+          "group": "General",
+          "title": "Auge TV (720p)",
+          "url": "https://cdn-tiva-video01-logicahost-com-br.smartbit.co/canalaugetv/canalaugetv/playlist.m3u8"
+        },        
+        {
+          "id": "ch_tpnkvuvm",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/2tdMyef.png",
+          "group": "Classic;Series",
+          "title": "AWTV (1080p) [Geo-blocked]",
+          "url": "https://awtv.nuvemplay.live/hls/stream.m3u8"
+        },
+        {
+          "id": "ch_uanlljke",
+          "info": "Canal Ao Vivo",
+          "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/AXN_logo_%282015%29.svg/960px-AXN_logo_%282015%29.svg.png",
+          "group": "Movies",
+          "title": "AXN (Brazil) (720p)",
+          "url": "http://170.83.16.50/AXN/index.m3u8"
+        },
+        {
+          "id": "ch_6mj8gww3",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/WxLHBwu.png",
+          "group": "Kids",
+          "title": "BabyFirst Brazil",
+          "url": "https://jmp2.uk/plu-5f4fb4cf605ddf000748e16f.m3u8"
+        },
+        {
+          "id": "ch_xpdyhehj",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/1r5T6Pw.png",
+          "group": "General",
+          "title": "Band (720p)",
+          "url": "http://170.84.165.204/BAND_HD/index.m3u8"
+        },
+        {
+          "id": "ch_rlw7kk3e",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/EuPvzJe.png",
+          "group": "Sports",
+          "title": "Band Sports (1080p)",
+          "url": "https://cdn-5.nxplay.com.br/BAND_SPORTS/index.m3u8"
+        },
+        {
+          "id": "ch_3kzahmp8",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.ibb.co/0jVZBFp/u8ya-iw-R-400x400.jpg",
+          "group": "News",
+          "title": "BandNews (1080p)",
+          "url": "https://cdn-5.nxplay.com.br/BAND_NEWS/index.m3u8"
+        },
+        {
+          "id": "ch_kllh3n7r",
+          "info": "Canal Ao Vivo",
+          "logo": "https://bemmaistv.com.br/wp-content/uploads/2025/08/0LASAmOtt4-150x150.jpg",
+          "group": "Culture;Education",
+          "title": "Bem Mais TV (1080p)",
+          "url": "https://video09.logicahost.com.br/bemmaistv01/bemmaistv01/playlist.m3u8"
+        },
+        {
+          "id": "ch_pkww0tdb",
+          "info": "Canal Ao Vivo",
+          "logo": "https://www.ubplay.com.br/wp-content/uploads/sites/67/2025/10/capa-site-bemmelhor.png",
+          "group": "General",
+          "title": "Bem Melhor (720p)",
+          "url": "https://cdn-tiva-video01-logicahost-com-br.smartbit.co/bemmelhor/bemmelhor/playlist.m3u8"
+        },
+        {
+          "id": "ch_kkvqnxwh",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/5ff768b6a4c8b80008498610/colorLogoPNG_1756804608228.png",
+          "group": "Entertainment",
+          "title": "BET Pluto TV BR",
+          "url": "https://jmp2.uk/plu-5ff768b6a4c8b80008498610.m3u8"
+        },
+        {
+          "id": "ch_eq2cf5so",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/FO4QTRf.jpeg",
+          "group": "Entertainment",
+          "title": "Blitstv",
+          "url": "https://stmv1.transmissaodigital.com/blitstv/blitstv/playlist.m3u8"
+        },
+        {
+          "id": "ch_bnepgmhq",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/pOUY2Uz.png",
+          "group": "News",
+          "title": "BM&C News (720p)",
+          "url": "https://jmp2.uk/plu-666c9c60a7efd40008f552f0.m3u8"
+        },
+        {
+          "id": "ch_rf7qmznj",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/ZqhizdP.png",
+          "group": "Undefined",
+          "title": "Boas Novas (1080p)",
+          "url": "https://cdn.jmvstream.com/w/LVW-9375/LVW9375_6i0wPBCHYc/playlist.m3u8"
+        },
+        
+        {
+          "id": "ch_ou9z9qp2",
+          "info": "Canal Ao Vivo",
+          "logo": "https://upload.wikimedia.org/wikipedia/commons/1/18/Boxkidstv.png",
+          "group": "Kids",
+          "title": "Box Kids TV (720p)",
+          "url": "http://170.83.49.66:8083/BOXKIDSHD/index.m3u8"
+        },
+        {
+          "id": "ch_gbi9v4gu",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.ibb.co/1QZv2q1/Br8-fb-graph.png",
+          "group": "News",
+          "title": "BR8 TV",
+          "url": "https://cdn.live.br1.jmvstream.com/w/LVW-11668/ngrp:LVW11668_wiJpjbMrks_all/playlist.m3u8"
+        },
+        {
+          "id": "ch_byx970c7",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/mPi6Wp3.png",
+          "group": "Entertainment",
+          "title": "Cabo Frio TV (720p)",
+          "url": "https://59f2354c05961.streamlock.net:1443/ararutv/definst/ararutv/playlist.m3u8"
+        },
+        {
+          "id": "ch_74kd0xfc",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/7igGMwH.png",
+          "group": "Undefined",
+          "title": "Canal 25 Jundiai (720p)",
+          "url": "https://cdn-tiva-stream01-msolutionbrasil-com-br.smartbit.co/hls/canal25/live.m3u8"
+        },
+        {
+          "id": "ch_dcuf5ago",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/co7TCWC.png",
+          "group": "News",
+          "title": "Canal 38 (720p)",
+          "url": "https://cdn.jmvstream.com/w/LVW-8503/LVW8503_d0V5oduFlK/playlist.m3u8"
+        },
+        {
+          "id": "ch_6vjkgmo1",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/pVM5MhS.png",
+          "group": "Undefined",
+          "title": "Canal do Boi (720p)",
+          "url": "http://45.162.64.114/CANAL_DO_BOI/index.m3u8"
+        },
+        {
+          "id": "ch_61ytktjb",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/k29So6X.png",
+          "group": "Outdoor",
+          "title": "Canal do Criador (1080p)",
+          "url": "https://607d2a1a47b1f.streamlock.net/crur/smil:canaldocriador.smil/playlist.m3u8"
+        },
+        {
+          "id": "ch_3wwgh1l7",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/TQFWEIS.png",
+          "group": "Sports",
+          "title": "Canal do Inter (720p) [Not 24/7]",
+          "url": "https://video01.soultv.com.br/internacional/internacional/playlist.m3u8"
+        },
+        {
+          "id": "ch_t7imq1l2",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/OOB7nrS.png",
+          "group": "Education",
+          "title": "Canal Educacao (720p)",
+          "url": "http://45.162.64.114/CANAL_EDUCACAO/index.m3u8"
+        },
+        {
+          "id": "ch_9cm579cw",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/7SE4CkE.png",
+          "group": "Education;General",
+          "title": "Canal FDR",
+          "url": "https://v-us-01.wisestream.io/memfs/e4ade538-7924-4359-81ef-b9d4dd229e91.m3u8"
+        },
+        {
+          "id": "ch_hq5kd0eb",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/LgynEBC.png",
+          "group": "Education",
+          "title": "Canal Futura (720p)",
+          "url": "http://45.162.64.114/FUTURA/index.m3u8"
+        },
+        {
+          "id": "ch_f9ufyccd",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/rHPY0Yv.png",
+          "group": "Legislative",
+          "title": "Canal Gov (720p)",
+          "url": "http://45.177.114.115/TV_BRASIL_2/index.m3u8"
+        },
+        {
+          "id": "ch_71h37s5d",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/LnWWKzP.png",
+          "group": "General",
+          "title": "Canal Libras (720p)",
+          "url": "https://canallibras-stream.ebc.com.br/mux_video_ts/index-1.m3u8"
+        },
+        {
+          "id": "ch_no0wohon",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/G0x4xqa.png",
+          "group": "News",
+          "title": "Canal Metropolitano de Noticias",
+          "url": "https://stmv5.samcast.com.br/claudio8701/claudio8701/playlist.m3u8"
+        },
+        {
+          "id": "ch_v2hdj5m8",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/1biaLgJ.png",
+          "group": "Undefined",
+          "title": "Canal Off (1080p)",
+          "url": "http://170.82.202.31/OFF/index.m3u8"
+        },
+        {
+          "id": "ch_xah0bon6",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/hs2YVJ3.png",
+          "group": "General",
+          "title": "Canal Ricos (480p)",
+          "url": "https://5d82644094cc0.streamlock.net/ricostv/ricostv/playlist.m3u8"
+        },
+        {
+          "id": "ch_z0rv3syt",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/w9R9IIX.png",
+          "group": "Outdoor",
+          "title": "Canal Rural (720p)",
+          "url": "http://170.83.49.66:8083/CANALRURALHD/index.m3u8"
+        },
+        {
+          "id": "ch_gqkfeu5v",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/ht4tUOc.png",
+          "group": "Education;Lifestyle",
+          "title": "Canal Saude",
+          "url": "https://eitv7.cdn.broadpeak.io/account351-i1495/event/canalsaude/format720p.m3u8"
+        },
+        {
+          "id": "ch_i23dcdft",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/0cq0BPp.png",
+          "group": "General",
+          "title": "Canal Sete",
+          "url": "http://play.canalsete.com.br:1935/canalsete/xpl-c7_source/playlist.m3u8"
+        },
+        {
+          "id": "ch_xab0y2ib",
+          "info": "Canal Ao Vivo",
+          "logo": "https://storage.googleapis.com/soultv-prod-media/media/brand/Logomarca_CANAL_START_100X100_PNG_CrAzZzP.png",
+          "group": "General",
+          "title": "Canal START (720p)",
+          "url": "https://cdn-tiva-srv5-zcast-com-br.smartbit.co/canalstart/canalstart/playlist.m3u8"
+        },
+        {
+          "id": "ch_u8v5vj7t",
+          "info": "Canal Ao Vivo",
+          "logo": "https://conteudo.imguol.com.br/c/play/logo_canaluol_2024.svg",
+          "group": "General",
+          "title": "Canal UOL (1080p)",
+          "url": "https://video24.mais.uol.com.br/live/6146.m3u8"
+        },      
+        {
+          "id": "ch_kqhd42nm",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/qiVfsfB.png",
+          "group": "General",
+          "title": "Catve2 (720p)",
+          "url": "https://5b33b873179a2.streamlock.net:1443/catve2/catve2/playlist.m3u8"
+        },
+        {
+          "id": "ch_a7290jf4",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/w89yw36.png",
+          "group": "General",
+          "title": "Catve FM (720p) [Not 24/7]",
+          "url": "https://5b33b873179a2.streamlock.net:1443/radiocamera/livestream/playlist.m3u8"
+        },
+        {
+          "id": "ch_gv1v1xaq",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/4m7Iazm.png",
+          "group": "General",
+          "title": "Catve Master TV (720p) [Not 24/7]",
+          "url": "https://5b33b873179a2.streamlock.net:1443/mastertv/livestream/playlist.m3u8"
+        },
+        {
+          "id": "ch_0ym90k94",
+          "info": "Canal Ao Vivo",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/6/64/Caz%C3%A9TV_logo.svg/1280px-Caz%C3%A9TV_logo.svg.png",
+          "group": "Sports",
+          "title": "CazeTV",
+          "url": "http://138.204.86.4:8080/CAZE_TV/playlist.m3u8"
+        },
+        {
+          "id": "ch_0u9giw2n",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/UYksTee.png",
+          "group": "Cooking",
+          "title": "Chef TV (720p)",
+          "url": "http://168.197.104.22/CHEF_TV/index.m3u8"
+        },
+        {
+          "id": "ch_xgpldyg9",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/SnaIMgj.png",
+          "group": "Entertainment",
+          "title": "Chroma TV (480p)",
+          "url": "https://5c483b9d1019c.streamlock.net/8054/8054/playlist.m3u8"
+        },
+        {
+          "id": "ch_c5a3waz3",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/5f12111c9e6c2c00078ef3bb/colorLogoPNG.png",
+          "group": "Movies",
+          "title": "Cine Terror BR",
+          "url": "https://jmp2.uk/plu-5f12111c9e6c2c00078ef3bb.m3u8"
+        },
+        {
+          "id": "ch_7sspz65m",
+          "info": "Canal Ao Vivo",
+          "logo": "https://eswqkrogupaisirwcsys.supabase.co/storage/v1/object/public/mbc-media/canais/1775688612576-u0628igjimf.png",
+          "group": "General",
+          "title": "Cinturao Verde",
+          "url": "https://play.redecinturaoverde.com.br/playlist.m3u8"
+        },
+        {
+          "id": "ch_bf7ocrle",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/rHxcraT.png",
+          "group": "Movies",
+          "title": "Classique TV (360p)",
+          "url": "https://stmv1.srvif.com/classique/classique/playlist.m3u8"
+        },
+        {
+          "id": "ch_gavr7nks",
+          "info": "Canal Ao Vivo",
+          "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/CNN_Brasil.svg/960px-CNN_Brasil.svg.png",
+          "group": "News",
+          "title": "CNN Brasil (1080p)",
+          "url": "https://d25usgadhphvwi.cloudfront.net/hls/main.m3u8"
+        },
+        {
+          "id": "ch_zq8eq9iw",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/GrjGwKM.png",
+          "group": "General",
+          "title": "COM Brasil (720p)",
+          "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/NewCo/New_Brasil_BR/New_Brasil.m3u8"
+        },
+        {
+          "id": "ch_scxdjcuu",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/ZPYK5jr.png",
+          "group": "Sports",
+          "title": "Combate (720p)",
+          "url": "http://143.14.134.107/167/index.m3u8"
+        },
+        {
+          "id": "ch_tvz9g5ci",
+          "info": "Canal Ao Vivo",
+          "logo": "https://comcastadvertising.com/wp-content/uploads/2021/10/Comedy-Central-White.png",
+          "group": "Comedy",
+          "title": "Comedy Central Brasil (480p)",
+          "url": "https://stmv2.srvif.com/gafeab/gafeab/playlist.m3u8"
+        },
+        {
+          "id": "ch_2891kkhc",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/5f357e91b18f0b00073583d2/colorLogoPNG.png",
+          "group": "Comedy",
+          "title": "Comedy Central Pluto TV BR",
+          "url": "https://jmp2.uk/plu-5f357e91b18f0b00073583d2.m3u8"
+        },
+        {
+          "id": "ch_x4er4cyg",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/qHwTWlz.png",
+          "group": "Entertainment",
+          "title": "Conecta Mais TV (720p)",
+          "url": "https://adylnet.streampool.net/10324/live/hls/Conecta/index.m3u8"
+        },
+        {
+          "id": "ch_0ls3l78q",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/XN6jjMR.png",
+          "group": "General",
+          "title": "ConecTV Brasil (720p)",
+          "url": "https://stream01.msolutionbrasil.com.br/hls/conectv/live.m3u8"
+        },
+        {
+          "id": "ch_gmkj3fy8",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/CJ9SPsZ.png",
+          "group": "General",
+          "title": "Conexao TV (720p)",
+          "url": "https://5a57bda70564a.streamlock.net/conexaotv/conexaotv.sdp/playlist.m3u8"
+        },
+       
+        {
+          "id": "ch_zdmnqmba",
+          "info": "Canal Ao Vivo",
+          "logo": "https://eitv6.cdn.broadpeak.io/account351-i1438/channel/53/quadrada_-3-pequeno-1723832301.png",
+          "group": "General",
+          "title": "Cultura Fast (720p)",
+          "url": "https://fpa-gateway.tvcultura.com.br:8181/memfs/606caef0-a290-413d-9f1f-8fcdb3a73831.m3u8"
+        },
+        {
+          "id": "ch_lslq52rb",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/5jPEI5c.png",
+          "group": "General",
+          "title": "Cultura Para (720p)",
+          "url": "http://170.84.165.204/CANAL_21_HD/index.m3u8"
+        },
+        {
+          "id": "ch_4ppki19s",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/Md3xibE.png",
+          "group": "General",
+          "title": "Demais TV (720p)",
+          "url": "https://cdn-tiva-stmv1-samcast-com-br.smartbit.co/demaistv6503/demaistv6503/playlist.m3u8"
+        },
+        {
+          "id": "ch_ui10cj7t",
+          "info": "Canal Ao Vivo",
+          "logo": "https://res.cloudinary.com/dpkehkbpv/image/upload/v1721839192/logo/mixtv/despertar_tv_ieb2l3.png",
+          "group": "Religious",
+          "title": "Despertar TV (720p)",
+          "url": "https://br.conectmy.com.br/DespertarTV/index.m3u8"
+        },
+        {
+          "id": "ch_t9ohx6q8",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/638df93ae2f2a3000737c168/colorLogoPNG.png",
+          "group": "Documentary",
+          "title": "Detetives Medicos",
+          "url": "https://jmp2.uk/plu-638df93ae2f2a3000737c168.m3u8"
+        },
+       
+        {
+          "id": "ch_uz6pcb71",
+          "info": "Canal Ao Vivo",
+          "logo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7f/Discovery_Kids_2021_2D_sin_wordmark.svg/960px-Discovery_Kids_2021_2D_sin_wordmark.svg.png",
+          "group": "Kids",
+          "title": "Discovery Kids Latin America Brazil (720p) [Geo-blocked]",
+          "url": "http://15.204.246.24:8080/DiscoveryKidsHD/index.m3u8"
+        },
+        {
+          "id": "ch_3rsbtzgs",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/yNFmUkE.png",
+          "group": "Entertainment",
+          "title": "Discovery World Brazil (720p) [Geo-blocked]",
+          "url": "http://15.204.246.24:8080/DiscoveryWorldHD/index.m3u8"
+        },
+        {
+          "id": "ch_i4rpscmn",
+          "info": "Canal Ao Vivo",
+          "logo": "https://upload.wikimedia.org/wikipedia/commons/c/c0/DumDum_logo.svg",
+          "group": "Kids",
+          "title": "DumDum (720p)",
+          "url": "http://45.162.64.114/ZOOMOO_KIDS/index.m3u8"
+        },
+        {
+          "id": "ch_n6tm0vbc",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/8upyApg.png",
+          "group": "Entertainment",
+          "title": "Elemental Channel (1080p)",
+          "url": "https://5d82644094cc0.streamlock.net/8116/8116/playlist.m3u8"
+        },
+        {
+          "id": "ch_t0xa72xj",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/1eHNe91.png",
+          "group": "Entertainment",
+          "title": "ElyTV (360p)",
+          "url": "https://stmv1.srvsite.com/ely/ely/playlist.m3u8"
+        },
+        {
+          "id": "ch_txnelnsn",
+          "info": "Canal Ao Vivo",
+          "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/ESPN3_Logo.png/960px-ESPN3_Logo.png",
+          "group": "Sports",
+          "title": "ESPN 3 (Brazil) (1080p)",
+          "url": "http://190.83.2.182:8090/ESPN3/index.m3u8"
+        },
+        {
+          "id": "ch_11eftz2x",
+          "info": "Canal Ao Vivo",
+          "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/ESPN_4_logo.svg/960px-ESPN_4_logo.svg.png",
+          "group": "Sports",
+          "title": "ESPN 4 (Brazil) (1080p)",
+          "url": "http://181.78.197.59:8000/play/a07n/index.m3u8"
+        },
+        {
+          "id": "ch_13jsu7od",
+          "info": "Canal Ao Vivo",
+          "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/ESPN_wordmark.svg/960px-ESPN_wordmark.svg.png",
+          "group": "Sports",
+          "title": "ESPN (Brazil) (1080p)",
+          "url": "http://181.78.197.59:8000/play/a07z/index.m3u8"
+        },
+        {
+          "id": "ch_taqvp7mv",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/8PxpamC.png",
+          "group": "General",
+          "title": "EUTV (720p)",
+          "url": "https://cdn.jmvstream.com/w/LVW-8719/LVW8719_AcLVAxWy5J/playlist.m3u8"
+        },
+        {
+          "id": "ch_e0nvewqx",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/VIpQJxL.png",
+          "group": "Comedy",
+          "title": "FailArmy Brazil",
+          "url": "https://jmp2.uk/plu-5f5141c1605ddf000748eb1b.m3u8"
+        },
+        {
+          "id": "ch_t6c92611",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/NF6PL8O.png",
+          "group": "General",
+          "title": "Fala Litoral (480p)",
+          "url": "https://5c483b9d1019c.streamlock.net/falalitoraltv/falalitoraltv/playlist.m3u8"
+        },
+        {
+          "id": "ch_4v75f5cz",
+          "info": "Canal Ao Vivo",
+          "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/FIFA%2B(2025).svg/960px-FIFA%2B_(2025).svg.png",
+          "group": "Sports",
+          "title": "FIFA+ Portuguese (720p)",
+          "url": "https://e3be9ac5.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/TEctYnJfRklGQVBsdXNQb3J0UGVndWVzZV9HTFM/playlist.m3u8"
+        },
+        {
+          "id": "ch_k15vpghq",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/5f171d3442a0500007362f22/colorLogoPNG.png",
+          "group": "Movies",
+          "title": "Filmes Suspense",
+          "url": "https://jmp2.uk/plu-5f171d3442a0500007362f22.m3u8"
+        },
+        {
+          "id": "ch_148x0ou2",
+          "info": "Canal Ao Vivo",
+          "logo": "https://www.fishtv.com/public/site/images/logos/fishtv.svg",
+          "group": "Outdoor",
+          "title": "Fish TV (1080p)",
+          "url": "http://190.128.214.97:64333/play/a006/index.m3u8"
+        },
+        {
+          "id": "ch_sdg7g42j",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/7q2BmNc.png",
+          "group": "Religious",
+          "title": "Fonte TV",
+          "url": "https://59fb88a1b1108.streamlock.net/fonte/definst/fontetv/chunklist_w1224511652.m3u8"
+        },
+        {
+          "id": "ch_oy0xet69",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/R9ul4T1.png",
+          "group": "Comedy",
+          "title": "Fora Tedio TV (720p)",
+          "url": "https://stmv2.srvif.com/foratedio/foratedio/playlist.m3u8"
+        },
+        {
+          "id": "ch_z8pzvn5a",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.ibb.co/Pz6Nqk7w/logo-futura-vazado.png",
+          "group": "Education",
+          "title": "Futura (720p)",
+          "url": "http://170.83.49.66:8083/FUTURAHD/index.m3u8"
+        },
+        {
+          "id": "ch_ijupv4tj",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/jML1u4O.png",
+          "group": "Animation",
+          "title": "Geekdot (720p)",
+          "url": "https://stream.ichibantv.com:3764/hybrid/play.m3u8"
+        },
+        {
+          "id": "ch_qy2eljq5",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/ZVO8GVI.png",
+          "group": "Movies",
+          "title": "Ghost TV (712p) [Not 24/7]",
+          "url": "https://stmv.video.expressolider.com.br/ghostv/ghostv/playlist.m3u8"
+        },
+        {
+          "id": "ch_icg63yzs",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/3yZyaCm.png",
+          "group": "News",
+          "title": "GloboNews (1080p)",
+          "url": "http://79.127.238.228:14093"
+        },
+        {
+          "id": "ch_mqv1ejgn",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.ibb.co/m5TBCDL2/Globoplay-Novelas-1.png",
+          "group": "Undefined",
+          "title": "Globoplay Novelas (1080p)",
+          "url": "http://170.82.202.31/Viva/index.m3u8"
+        },
+        {
+          "id": "ch_k4f1nmnc",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/N1BUULh.png",
+          "group": "Kids",
+          "title": "Gloob (576p)",
+          "url": "http://45.235.0.78/Gloob/playlist.m3u8"
+        },
+        {
+          "id": "ch_6o4n72t6",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.ibb.co/wrQZXZ01/C-pia-de-Blue-Modern-Simple-Logo.png",
+          "group": "Kids",
+          "title": "Gloob Web [Not 24/7]",
+          "url": "https://vs20.live.opencaster.com/globiosat_73a904af/index.m3u8"
+        },
+        {
+          "id": "ch_ct9bn191",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/XymcvMy.png",
+          "group": "News",
+          "title": "GNT (1080p)",
+          "url": "http://170.82.202.31/GNT/index.m3u8"
+        },       
+        {
+          "id": "ch_m8igjw70",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/cQN3nWt.png",
+          "group": "Religious",
+          "title": "Gospel Movie TV (360p)",
+          "url": "https://stmv1.srvif.com/gospelf/gospelf/playlist.m3u8"
+        },
+        {
+          "id": "ch_dkjcw2nx",
+          "info": "Canal Ao Vivo",
+          "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/History2_logo_%282022%29.svg/500px-History2_logo_%282022%29.svg.png",
+          "group": "Documentary",
+          "title": "History 2 Latin America Brazil (720p)",
+          "url": "http://45.177.114.114/HISTORY_2/index.m3u8"
+        },
+        {
+          "id": "ch_et30zydo",
+          "info": "Canal Ao Vivo",
+          "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/History_%282021%29.svg/500px-History_%282021%29.svg.png",
+          "group": "Documentary",
+          "title": "History (Brazil) (720p)",
+          "url": "http://45.177.114.114/HISTORY/index.m3u8"
+        },
+        
+        {
+          "id": "ch_s2sh1k9t",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/RUKVrOH.png",
+          "group": "Education",
+          "title": "ISTV (Brazil) (720p) [Not 24/7]",
+          "url": "https://stmv1.srvstm.com/sistema7933/sistema7933/playlist.m3u8"
+        },
+        {
+          "id": "ch_hn2sto6b",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/lezIQyL.png",
+          "group": "News",
+          "title": "J3NEWS TV",
+          "url": "https://video01.brascast.com/d92ebb4f/d92ebb4f/playlist.m3u8"
+        },
+       
+        {
+          "id": "ch_4tqtq1ug",
+          "info": "Canal Ao Vivo",
+          "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Jovem_Pan_logo_2018.svg/960px-Jovem_Pan_logo_2018.svg.png",
+          "group": "News",
+          "title": "Jovem Pan News (720p)",
+          "url": "http://170.83.49.66:8083/JOVEMPANNEWSHD/index.m3u8"
+        },
+        
+        {
+          "id": "ch_6zxc692a",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/Tf0vweF.png",
+          "group": "Music",
+          "title": "KpopTV Play (576p)",
+          "url": "https://giatv.bozztv.com/giatv/giatv-kpoptvplay/kpoptvplay/playlist.m3u8"
+        },
+        {
+          "id": "ch_v121oqep",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/SRX6EPY.png",
+          "group": "Animation;Kids;Religious",
+          "title": "Kuriakos Kids (1080p)",
+          "url": "https://w2.manasat.com/kkids/smil:kkids.smil/playlist.m3u8"
+        },
+        {
+          "id": "ch_bb1zgcdu",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/chHsCzB.png",
+          "group": "Undefined",
+          "title": "L!ke (1080p)",
+          "url": "https://cnl-cl.otteravision.com/cnl/cl_h265/cl_h265.m3u8"
+        },
+        {
+          "id": "ch_om8l6omb",
+          "info": "Canal Ao Vivo",
+          "logo": "https://tv.laboralsst.com.br/logo.png",
+          "group": "Business",
+          "title": "Laboral TV (360p)",
+          "url": "https://tv.laboralsst.com.br/hls/stream.m3u8"
+        },
+        {
+          "id": "ch_mbi9ettz",
+          "info": "Canal Ao Vivo",
+          "logo": "https://www.lamorerockshowwebtv.com.br/wp-content/uploads/2024/11/logo_rockshow.avif",
+          "group": "Music",
+          "title": "Lamore Rock Show WebTV (720p)",
+          "url": "https://a.cdni.live/rodrigo2364/rodrigo2364/playlist.m3u8"
+        },
+        {
+          "id": "ch_q5n5xjs7",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i0.wp.com/lidertv.com.br/wp-content/uploads/2024/11/cropped-cropped-LOGO-LIDER-EM-BAIXA.png?fit=512%2C228&ssl=1",
+          "group": "General",
+          "title": "Lider TV (Brazil) (720p)",
+          "url": "https://cdn-tiva-video08-logicahost-com-br.smartbit.co/lidertvssp/lidertvssp/playlist.m3u8"
+        },
+        {
+          "id": "ch_le8oj46c",
+          "info": "Canal Ao Vivo",
+          "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Logo_Lifetime_2020.svg/960px-Logo_Lifetime_2020.svg.png",
+          "group": "Entertainment",
+          "title": "Lifetime Latin America Brazil (720p)",
+          "url": "http://170.83.16.50/LIFETIME/index.m3u8"
+        },
+        {
+          "id": "ch_eizmfpme",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/R0aflu1.png",
+          "group": "Entertainment",
+          "title": "Loading (720p)",
+          "url": "https://stmv1.srvif.com/loadingtv/loadingtv/playlist.m3u8"
+        },
+        {
+          "id": "ch_2jyw8m39",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/63eb9dc84e83e70008abea92/colorLogoPNG.png",
+          "group": "Classic",
+          "title": "MacGyver (United States)",
+          "url": "https://jmp2.uk/plu-63eb9dc84e83e70008abea92.m3u8"
+        },
+       
+        {
+          "id": "ch_ud5sz9y9",
+          "info": "Canal Ao Vivo",
+          "logo": "https://eswqkrogupaisirwcsys.supabase.co/storage/v1/object/public/mbc-media/canais/1775702325773-d10vtu076za.png",
+          "group": "General",
+          "title": "MBC Brasil TV",
+          "url": "https://play.mbcbrasil.tv.br/playlist.m3u8"
+        },
+        {
+          "id": "ch_8464bhyb",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/j31lBL7.png",
+          "group": "Music",
+          "title": "MCM Pop (580p)",
+          "url": "http://188.115.15.121:8000/play/a014"
+        },
+        {
+          "id": "ch_r9f02j5v",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/A8Yhtid.png",
+          "group": "General",
+          "title": "MKK Web TV (720p) [Not 24/7]",
+          "url": "https://video01.logicahost.com.br/mkkwebtv/mkkwebtv/playlist.m3u8"
+        },
+        {
+          "id": "ch_tgyymieh",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/5f6108d8cc331900075e98e4/colorLogoPNG.png",
+          "group": "Series",
+          "title": "MTV Are you the One?",
+          "url": "https://jmp2.uk/plu-5f6108d8cc331900075e98e4.m3u8"
+        },
+        {
+          "id": "ch_k1hbq18k",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/6047fbdbbb776a0007e7f2ff/colorLogoPNG.png",
+          "group": "Music",
+          "title": "MTV Biggest Pop BR (1080p)",
+          "url": "https://jmp2.uk/plu-6047fbdbbb776a0007e7f2ff.m3u8"
+        },
+        {
+          "id": "ch_1i3rtfz7",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/626c2a3502d84a0007cec817/colorLogoPNG.png",
+          "group": "Entertainment",
+          "title": "MTV Catfish (United States) BR (720p)",
+          "url": "https://jmp2.uk/plu-626c2a3502d84a0007cec817.m3u8"
+        },
+        {
+          "id": "ch_1wavee74",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/66a01dcb8561260008b0a41d/colorLogoPNG.png",
+          "group": "Music",
+          "title": "MTV Classic BR (720p)",
+          "url": "https://jmp2.uk/plu-66a01dcb8561260008b0a41d.m3u8"
+        },
+        {
+          "id": "ch_5zymgxpo",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/61a528267e1b8b0007357920/colorLogoPNG.png",
+          "group": "Series",
+          "title": "MTV Com o Ex",
+          "url": "https://jmp2.uk/plu-61a528267e1b8b0007357920.m3u8"
+        },
+        {
+          "id": "ch_6lo2lltl",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/6851bb3426beced4f2f67ee6/colorLogoPNG_1750686926779.png",
+          "group": "Series",
+          "title": "MTV Dating (United States)",
+          "url": "https://jmp2.uk/plu-6851bb3426beced4f2f67ee6.m3u8"
+        },
+        {
+          "id": "ch_x3kp44v2",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/645111f1d8436e00081bb2bd/colorLogoPNG.png",
+          "group": "Entertainment",
+          "title": "MTV Drag",
+          "url": "https://jmp2.uk/plu-645111f1d8436e00081bb2bd.m3u8"
+        },
+        {
+          "id": "ch_n0u08690",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/620fdc7d8a36fc000710e3ba/colorLogoPNG.png",
+          "group": "Entertainment",
+          "title": "MTV Jovens e Maes (720p)",
+          "url": "https://jmp2.uk/plu-620fdc7d8a36fc000710e3ba.m3u8"
+        },
+        {
+          "id": "ch_hzx6rmq9",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/5f1212fb81e85c00077ae9ef/colorLogoPNG_1759263027326.png",
+          "group": "Entertainment",
+          "title": "MTV Pluto TV BR",
+          "url": "https://jmp2.uk/plu-5f1212fb81e85c00077ae9ef.m3u8"
+        },
+        {
+          "id": "ch_d3lgn2s6",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/6493f4f566e485000853d640/colorLogoPNG.png",
+          "group": "Entertainment",
+          "title": "MTV Reality (United States) (720p)",
+          "url": "https://jmp2.uk/plu-6851bdfc9ac48fde5e07f5ae.m3u8"
+        },
+        {
+          "id": "ch_ppurlvfr",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/66a01e07d2d50d0008100d6a/colorLogoPNG.png",
+          "group": "Entertainment",
+          "title": "MTV Rocks",
+          "url": "https://jmp2.uk/plu-66a01e07d2d50d0008100d6a.m3u8"
+        },
+        {
+          "id": "ch_xqywr4ww",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/625463563b8ddc0007134aeb/colorLogoPNG.png",
+          "group": "Entertainment",
+          "title": "MTV Shore",
+          "url": "https://jmp2.uk/plu-625463563b8ddc0007134aeb.m3u8"
+        },
+        {
+          "id": "ch_fb0p8erl",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/CDPCF2X.png",
+          "group": "Music",
+          "title": "Music Box Brazil (720p)",
+          "url": "http://168.197.104.22/MUSIC/index.m3u8"
+        },
+        {
+          "id": "ch_hwlzlval",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/aiGQtzI.png",
+          "group": "Movies",
+          "title": "MyTime Movie Network (Brazil) (720p)",
+          "url": "https://appletree-mytime-samsungbrazil.amagi.tv/playlist.m3u8"
+        },
+        {
+          "id": "ch_3lwlyy6b",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/7QnJojr.png",
+          "group": "Sports",
+          "title": "N Sports (1080p)",
+          "url": "https://ogc-nsprt-tcl-roku-syndication.otteravision.com/ogc/nsprt/nsprt.m3u8"
+        },      
+         
+        {
+          "id": "ch_clv74hqr",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/IK3F9Uq.png",
+          "group": "Undefined",
+          "title": "Nova Era TV (1080p) [Not 24/7]",
+          "url": "http://wz3.dnip.com.br:1935/novaeratv/novaeratv.sdp/live.m3u8"
+        },
+        {
+          "id": "ch_t4esbdom",
+          "info": "Canal Ao Vivo",
+          "logo": "",
+          "group": "Religious",
+          "title": "Novo Tempo (720p)",
+          "url": "http://45.162.64.114/NOVO_TEMPO/index.m3u8"
+        },
+        {
+          "id": "ch_00szgyhn",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/n79nkVC.png",
+          "group": "Entertainment;General",
+          "title": "NTV (Brazil) (720p)",
+          "url": "https://cdn.livespanel.com/nossatv/nossatv/playlist.m3u8"
+        },
+      
+        {
+          "id": "ch_h3abz9uk",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/1LUbAVP.png",
+          "group": "General",
+          "title": "O Dia TV",
+          "url": "https://6836041ea1117.streamlock.net/tvodia/tvodia/playlist.m3u8"
+        },
+        {
+          "id": "ch_od0rfc1x",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/sQn6vvh.png",
+          "group": "Education",
+          "title": "O Encantador de Caes",
+          "url": "https://jmp2.uk/plu-61099df8cee03b00074b2ecf.m3u8"
+        },
+        {
+          "id": "ch_7246jb4l",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/qoVxc13.png",
+          "group": "Kids",
+          "title": "O Reino Infantil",
+          "url": "https://jmp2.uk/plu-5f5c216df68f920007888315.m3u8"
+        },
+        {
+          "id": "ch_bcvfqt41",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/63221bafdc6e110007b50270/colorLogoPNG.png",
+          "group": "Kids",
+          "title": "Oggy e as Baratas Tontas",
+          "url": "https://jmp2.uk/plu-63221bafdc6e110007b50270.m3u8"
+        },       
+        {
+          "id": "ch_5jyeecxa",
+          "info": "Canal Ao Vivo",
+          "logo": "https://petloverstv.com.br/storage/357/config/yqP4nOugWRxRFCmgLqXF4gRKyM9ybsAOfHgUaqPt.png",
+          "group": "Entertainment",
+          "title": "Petlovers TV",
+          "url": "https://video04.logicahost.com.br/petloverstv/petloverstv/playlist.m3u8"
+        },
+        {
+          "id": "ch_jgxtgtq9",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/Ikrj3lk.png",
+          "group": "Undefined",
+          "title": "Play TV (Brazil) (720p)",
+          "url": "http://45.162.64.114/PLAY_TV/index.m3u8"
+        },
+        {
+          "id": "ch_yyzq908t",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/lH4RT7b.png",
+          "group": "News",
+          "title": "Plena TV (720p)",
+          "url": "https://cdn.jmvstream.com/w/LVW-9591/LVW9591_PmXtgATnaS/playlist.m3u8"
+        },
+        {
+          "id": "ch_bkfrefaz",
+          "info": "Canal Ao Vivo",
+          "logo": "",
+          "group": "Religious",
+          "title": "Plenitude TV",
+          "url": "https://strv.painelvox.top/plenitude/plenitude/playlist.m3u8"
+        },
+        {
+          "id": "ch_3z6fck1w",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/6806d65e84f24b70109485fa/colorLogoPNG_1746817107468.png",
+          "group": "Documentary;Series",
+          "title": "Pluto TV Aliens",
+          "url": "https://jmp2.uk/plu-6806d65e84f24b70109485fa.m3u8"
+        },
+        {
+          "id": "ch_dq32519i",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/6474aa984cfc2c0008883a92/colorLogoPNG.png",
+          "group": "Documentary",
+          "title": "Pluto TV Animais",
+          "url": "https://jmp2.uk/plu-6474aa984cfc2c0008883a92.m3u8"
+        },
+       
+        {
+          "id": "ch_qg4qyvvq",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/663b9dc7cb3ea10008f1a0ce/colorLogoPNG.png",
+          "group": "Movies",
+          "title": "Pluto TV Bang Bang",
+          "url": "https://jmp2.uk/plu-663b9dc7cb3ea10008f1a0ce.m3u8"
+        },
+        {
+          "id": "ch_k6yl6dm9",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/64b9370b409629000802d32b/colorLogoPNG.png",
+          "group": "Entertainment",
+          "title": "Pluto TV Canal UOL (720p)",
+          "url": "https://jmp2.uk/plu-64b9370b409629000802d32b.m3u8"
+        },
+        {
+          "id": "ch_wbbrx85d",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/5fa1612a669ba0000702017b/colorLogoPNG_1733440556804.png",
+          "group": "Movies",
+          "title": "Pluto TV Cine Classicos",
+          "url": "https://jmp2.uk/plu-5fa1612a669ba0000702017b.m3u8"
+        },
+        {
+          "id": "ch_hs4ei372",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/5f12101f0b12f00007844c7c/colorLogoPNG_1732662798298.png",
+          "group": "Movies",
+          "title": "Pluto TV Cine Comedia (United States) BR",
+          "url": "https://jmp2.uk/plu-5f12101f0b12f00007844c7c.m3u8"
+        },
+        {
+          "id": "ch_bmc1t79j",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/62545ed3dab4380007582f7c/colorLogoPNG.png",
+          "group": "Movies",
+          "title": "Pluto TV Cine Comedia Romantica",
+          "url": "https://jmp2.uk/plu-62545ed3dab4380007582f7c.m3u8"
+        },
+        {
+          "id": "ch_21e2iomm",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/6479ff764f5ba5000878dfe2/colorLogoPNG.png",
+          "group": "Movies",
+          "title": "Pluto TV Cine Crime",
+          "url": "https://jmp2.uk/plu-6479ff764f5ba5000878dfe2.m3u8"
+        },
+        {
+          "id": "ch_0aa8oqqg",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/5f1210d14ae1f80007bafb1d/colorLogoPNG.png",
+          "group": "Movies",
+          "title": "Pluto TV Cine Drama",
+          "url": "https://jmp2.uk/plu-5f1210d14ae1f80007bafb1d.m3u8"
+        },
+        {
+          "id": "ch_qreqraxi",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/5f171f032cd22e0007f17f3d/colorLogoPNG_1732045254120.png",
+          "group": "Movies",
+          "title": "Pluto TV Cine Familia",
+          "url": "https://jmp2.uk/plu-5f171f032cd22e0007f17f3d.m3u8"
+        },
+        {
+          "id": "ch_z58o7zis",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/5fa991b1f09e020007e78626/colorLogoPNG_1748874366972.png",
+          "group": "Movies",
+          "title": "Pluto TV Cine Inspiracao",
+          "url": "https://jmp2.uk/plu-5fa991b1f09e020007e78626.m3u8"
+        },
+        {
+          "id": "ch_onoht30w",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/5f171f988ab9780007fa95ea/colorLogoPNG_1771344977802.png",
+          "group": "Movies",
+          "title": "Pluto TV Cine Romance",
+          "url": "https://jmp2.uk/plu-5f171f988ab9780007fa95ea.m3u8"
+        },
+        {
+          "id": "ch_ens0497s",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/5f120e94a5714d00074576a1/colorLogoPNG.png",
+          "group": "Movies",
+          "title": "Pluto TV Cine Sucessos",
+          "url": "https://jmp2.uk/plu-5f120e94a5714d00074576a1.m3u8"
+        },
+        {
+          "id": "ch_czbjead5",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/5f1ef23020a5ac0007e5e8ea/colorLogoPNG.png",
+          "group": "Lifestyle",
+          "title": "Pluto TV Cozinha",
+          "url": "https://jmp2.uk/plu-5f1ef23020a5ac0007e5e8ea.m3u8"
+        },       
+        {
+          "id": "ch_ubhrb9pu",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/5f32d2db0af67400077f29c4/colorLogoSVG_1780355759776.svg",
+          "group": "Sports",
+          "title": "Pluto TV Esportes",
+          "url": "https://jmp2.uk/plu-5f32d2db0af67400077f29c4.m3u8"
+        },
+        {
+          "id": "ch_yt109d0r",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/5fa15ad6367e170007cdd098/colorLogoPNG.png",
+          "group": "Movies",
+          "title": "Pluto TV Ficcao Cientifica",
+          "url": "https://jmp2.uk/plu-5fa15ad6367e170007cdd098.m3u8"
+        },
+        {
+          "id": "ch_tp4tkfmp",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/5f120f41b7d403000783a6d6/colorLogoPNG.png",
+          "group": "Movies",
+          "title": "Pluto TV Filmes Acao",
+          "url": "https://jmp2.uk/plu-5f120f41b7d403000783a6d6.m3u8"
+        },
+        {
+          "id": "ch_pjikgz2x",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/66c79a4262e5510008ff68a5/colorLogoPNG.png",
+          "group": "Movies",
+          "title": "Pluto TV Filmes Aventura",
+          "url": "https://jmp2.uk/plu-66c79a4262e5510008ff68a5.m3u8"
+        },
+        {
+          "id": "ch_wfom0sv3",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/6806d62369aec5b19cd628c0/colorLogoPNG_1746817781806.png",
+          "group": "Movies",
+          "title": "Pluto TV Filmes de Luta",
+          "url": "https://jmp2.uk/plu-6806d62369aec5b19cd628c0.m3u8"
+        },
+        {
+          "id": "ch_3teuviht",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/5f5a545d0dbf7f0007c09408/colorLogoPNG_1732044719987.png",
+          "group": "Movies",
+          "title": "Pluto TV Filmes Nacionais",
+          "url": "https://jmp2.uk/plu-5f5a545d0dbf7f0007c09408.m3u8"
+        },
+        {
+          "id": "ch_kdoeemx3",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/5f1ef1a8cec6be00072a7ac9/colorLogoPNG_1754405659295.png",
+          "group": "Undefined",
+          "title": "Pluto TV Historia (United States)",
+          "url": "https://jmp2.uk/plu-5f1ef1a8cec6be00072a7ac9.m3u8"
+        },
+        {
+          "id": "ch_ilwf0gjk",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/JlQq0YJ.png",
+          "group": "Documentary",
+          "title": "Pluto TV Investigacao",
+          "url": "https://jmp2.uk/plu-5f32cf37c9ff2b00082adbc8.m3u8"
+        },
+        {
+          "id": "ch_3wnyqkv6",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/5f12141b146d760007934ea7/colorLogoPNG.png",
+          "group": "Kids",
+          "title": "Pluto TV Junior",
+          "url": "https://jmp2.uk/plu-5f12141b146d760007934ea7.m3u8"
+        },
+        {
+          "id": "ch_l75orz1h",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/5f85cf621d6d2200079f1de0/colorLogoPNG.png",
+          "group": "Music",
+          "title": "Pluto TV Karaoke por Stingray (720p)",
+          "url": "https://jmp2.uk/plu-604b99d633a72b00078e05ad.m3u8"
+        },
+        {
+          "id": "ch_v156t5x7",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/633ee9ba83c08f00076b60a6/colorLogoPNG.png",
+          "group": "Cooking;Lifestyle",
+          "title": "Pluto TV KFOOD",
+          "url": "https://jmp2.uk/plu-633ee9ba83c08f00076b60a6.m3u8"
+        },
+        {
+          "id": "ch_1mnqc5tw",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/5f1214a637c6fd00079c652f/colorLogoPNG.png",
+          "group": "Kids",
+          "title": "Pluto TV Kids",
+          "url": "https://jmp2.uk/plu-5f1214a637c6fd00079c652f.m3u8"
+        },
+        {
+          "id": "ch_fdsapxqr",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/66c8cae7fed35b0008580ec0/colorLogoPNG.png",
+          "group": "Kids",
+          "title": "Pluto TV Kids Club",
+          "url": "https://jmp2.uk/plu-66c8cae7fed35b0008580ec0.m3u8"
+        },
+        {
+          "id": "ch_ctvk70dd",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/61843f5e491af10007f7eefa/colorLogoPNG.png",
+          "group": "Education",
+          "title": "Pluto TV Minha Obsessao Favorita",
+          "url": "https://jmp2.uk/plu-61843f5e491af10007f7eefa.m3u8"
+        },
+        {
+          "id": "ch_037h3b0f",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/5fac52f142044f00078e2a51/colorLogoPNG.png",
+          "group": "Education",
+          "title": "Pluto TV Misterios",
+          "url": "https://jmp2.uk/plu-5fac52f142044f00078e2a51.m3u8"
+        },
+        {
+          "id": "ch_d652gc41",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/5f1213ba0ecebc00070e170f/colorLogoPNG.png",
+          "group": "Education",
+          "title": "Pluto TV Natureza",
+          "url": "https://jmp2.uk/plu-5f1213ba0ecebc00070e170f.m3u8"
+        },
+        {
+          "id": "ch_dn250k0b",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/64ad7394798def00087b2bfe/colorLogoPNG.png",
+          "group": "Documentary",
+          "title": "Pluto TV Negocio Fechado",
+          "url": "https://jmp2.uk/plu-64ad7394798def00087b2bfe.m3u8"
+        },
+        {
+          "id": "ch_thu79jjp",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/663b9de4f999220008230fa8/colorLogoPNG.png",
+          "group": "Movies",
+          "title": "Pluto TV Netmovies",
+          "url": "https://jmp2.uk/plu-663b9de4f999220008230fa8.m3u8"
+        },
+        {
+          "id": "ch_g7d55zem",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/5f512365abe1f50007d3ff56/colorLogoPNG.png",
+          "group": "Series",
+          "title": "Pluto TV Novelas BR",
+          "url": "https://jmp2.uk/plu-5f512365abe1f50007d3ff56.m3u8"
+        },
+        {
+          "id": "ch_zufx1b7x",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/604a8dedbca75b0007b1c753/colorLogoPNG.png",
+          "group": "Education",
+          "title": "Pluto TV Paisagens por Stingray (720p)",
+          "url": "https://jmp2.uk/plu-604a8dedbca75b0007b1c753.m3u8"
+        },
+        {
+          "id": "ch_bjvthhlo",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/678fdf9e3de7c8cf948e8824/colorLogoPNG.png",
+          "group": "Documentary",
+          "title": "Pluto TV Policial",
+          "url": "https://jmp2.uk/plu-678fdf9e3de7c8cf948e8824.m3u8"
+        },
+        {
+          "id": "ch_mqhitojz",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/6102e04e9ab1db0007a980a1/colorLogoPNG.png",
+          "group": "News",
+          "title": "Pluto TV Record News (720p)",
+          "url": "https://jmp2.uk/plu-6102e04e9ab1db0007a980a1.m3u8"
+        },
+        {
+          "id": "ch_6egau5gq",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/wztO3GM.png",
+          "group": "Entertainment",
+          "title": "Pluto TV Retro",
+          "url": "https://jmp2.uk/plu-5f1212ad1728050007a523b8.m3u8"
+        },
+        {
+          "id": "ch_n3n2eku2",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/6474ab1da51cb80008bfb5f4/colorLogoPNG.png",
+          "group": "Series",
+          "title": "Pluto TV Series Acao",
+          "url": "https://jmp2.uk/plu-6474ab1da51cb80008bfb5f4.m3u8"
+        },
+       
+        {
+          "id": "ch_8z1b61z4",
+          "info": "Canal Ao Vivo",
+          "logo": "",
+          "group": "General",
+          "title": "Canal Desconhecido",
+          "url": "https://jmp2.uk/plu-63d2ba2f6"
+        }
+      ]
+    },
+    {
+      "id": "anime2",
+      "kind": "live",
+      "title": "Ao Vivo",
+     "subtitle": "Novos episódios da semana",
+      "glyph": "ANIME",
+      "color": "0x9B5DE5FF",
+      "tab": "ANIMES 24 hs",
+      "channels": [
+{
+          "id": "ch_feveb4ra",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/62545c0b002f4b0007688b61/colorLogoPNG.png",
+          "group": "Kids",
+          "title": "Bob Esponja Calca Quadrada",
+          "url": "https://jmp2.uk/plu-62545c0b002f4b0007688b61.m3u8"
+        },
+  {
+          "id": "ch_fccwd3hp",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/M8X3Kvc.png",
+          "group": "Animation",
+          "title": "Naruto",
+          "url": "https://jmp2.uk/plu-5f6df5a173d7340007c559f7.m3u8"
+        },
+ {
+          "id": "ch_t16o45zq",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/XsvbAWR.png",
+          "group": "Animation",
+          "title": "One Piece BR",
+          "url": "https://jmp2.uk/plu-624b1c8d4321e200073ee421.m3u8"
+        },
+		{
+          "id": "ch_wg1pcqa0",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/6759eeb1bd523200083b4f29/colorLogoPNG.png",
+          "group": "Kids",
+          "title": "Avatar: A lenda de Aang",
+          "url": "https://jmp2.uk/plu-6759eeb1bd523200083b4f29.m3u8"
+        },
+		{
+          "id": "ch_wg1pcqa01",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/6759eeb1bd523200083b4f29/colorLogoPNG.png",
+          "group": "Kids",
+          "title": "Os jetsons",
+          "url": "https://stmv1.srvif.com/jetsontv/jetsontv/playlist.m3u8"
+        },
+		{
+          "id": "ch_wg1pcqa02",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/6759eeb1bd523200083b4f29/colorLogoPNG.png",
+          "group": "Kids",
+          "title": "Os Simpsons",
+          "url": "https://vipwaytvcdn.multtv.tv.br:5444/TVThathi_Band/720p/index.m3u8"
+        },
+		{
+          "id": "ch_wg1pcqa01547",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/6759eeb1bd523200083b4f29/colorLogoPNG.png",
+          "group": "Kids",
+          "title": "Tv Ra tim Bum",
+          "url": "http://45.177.114.115/TV_RA_TIM_BUM/index.m3u8"
+        },
+ {
+          "id": "ch_p5pq75u5",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/5f12136385bccc00070142ed/colorLogoPNG_1777595293242.png",
+          "group": "Animation",
+          "title": "Pluto TV Anime BR",
+          "url": "https://jmp2.uk/plu-5f12136385bccc00070142ed.m3u8"
+        },
+        {
+          "id": "ch_xh9gwz8s",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/604b79c558393100078faeef/colorLogoPNG.png",
+          "group": "Animation",
+          "title": "Pluto TV Anime Acao",
+          "url": "https://jmp2.uk/plu-604b79c558393100078faeef.m3u8"
+        },
+  {
+          "id": "ch_616tui41",
+          "info": "Canal Ao Vivo",
+          "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Cartoon_Network_2010_logo.svg/960px-Cartoon_Network_2010_logo.svg.png",
+          "group": "Animation;Kids",
+          "title": "Cartoon Network Latin America Brazil (720p)",
+          "url": "http://45.162.64.114/CARTOON_NETWORK/index.m3u8"
+        },
+  {
+          "id": "ch_4aiso7my",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/5f121460b73ac6000719fbaf/colorLogoPNG_1748348856602.png",
+          "group": "Kids",
+          "title": "Nick Jr. Club (United States) BR (720p)",
+          "url": "https://jmp2.uk/plu-6824ce95f09106f4b18f4114.m3u8"
+        },
+        {
+          "id": "ch_sckmdcc7",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/E84jnP8.png",
+          "group": "Kids",
+          "title": "Nickelodeon (Brazil) (480p)",
+          "url": "https://stmv2.srvif.com/nicktoons/nicktoons/playlist.m3u8"
+        },
+        {
+          "id": "ch_k56y7a0x",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/5f12151794c1800007a8ae63/colorLogoPNG_1750157164414.png",
+          "group": "Kids",
+          "title": "Nickelodeon Classico (720p)",
+          "url": "https://jmp2.uk/plu-6824ce10c5d53e1351ceb8d1.m3u8"
+        },
+        {
+          "id": "ch_o4pczb24",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/60f5fabf0721880007cd50e3/colorLogoPNG_1767888207915.png",
+          "group": "Kids",
+          "title": "Nickelodeon Teen (720p)",
+          "url": "https://jmp2.uk/plu-60f5fabf0721880007cd50e3.m3u8"
+        },
+        {
+          "id": "ch_6fhevd0q",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/645951c0e94c38000802d2cb/colorLogoPNG_1767888119852.png",
+          "group": "Kids",
+          "title": "Nickelodeon Toons (720p)",
+          "url": "https://jmp2.uk/plu-645951c0e94c38000802d2cb.m3u8"
+        },
+        {
+          "id": "ch_iy1jrga7",
+          "info": "Canal Ao Vivo",
+          "logo": "https://x1colegal.com/logo.png",
+          "group": "Animation;Kids",
+          "title": "NickOnline HD (720p)",
+          "url": "https://x1colegal.com/hls/stream.m3u8"
+        },
+        {
+          "id": "ch_vdzukhvu",
+          "info": "Canal Ao Vivo",
+          "logo": "https://x1colegal.com/nickonlinebobesponja.png",
+          "group": "Animation;Kids",
+          "title": "NickOnline Bob Esponja (720p) [Not 24/7]",
+          "url": "https://bob.x1colegal.com/hls/stream.m3u8"
+        },
+        {
+          "id": "ch_295rp1t3",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/609ae66b359b270007869ff1/colorLogoPNG_1733160636316.png",
+          "group": "Animation;Comedy",
+          "title": "Comedy Central South Park",
+          "url": "https://jmp2.uk/plu-609ae66b359b270007869ff1.m3u8"
+        },
+ {
+          "id": "ch_zku4l3ci",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/yxjPno5.png",
+          "group": "Religious",
+          "title": "Gospel Cartoon (360p)",
+          "url": "https://stmv1.srvif.com/gospelcartoon/gospelcartoon/playlist.m3u8"
+        },
+ {
+          "id": "ch_pdvxfd25",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/655e5c4d2c46f3000877a54b/colorLogoPNG.png",
+          "group": "Classic",
+          "title": "Pluto TV Desenhos Classicos",
+          "url": "https://jmp2.uk/plu-655e5c4d2c46f3000877a54b.m3u8"
+        }
+]
+},
+
+ {
+      "id": "series",
+      "kind": "live",
+      "title": "Ao Vivo",
+     "subtitle": "Novos episódios da semana",
+      "glyph": "SERIES",
+      "color": "0x9B5DE5FF",
+      "tab": "SÉRIES 24 hs",
+      "channels": [
+	  {
+          "id": "ch_jtuqim63",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/5ffcc5130fd98c0007f2e216/colorLogoPNG.png",
+          "group": "Series",
+          "title": "Kenan & Kel BR",
+          "url": "https://jmp2.uk/plu-5ffcc5130fd98c0007f2e216.m3u8"
+        },
+		 {
+          "id": "ch_opxwsfz0",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/63eb9c5351f5d000085e8d7e/colorLogoPNG.png",
+          "group": "Series",
+          "title": "CSI: Miami BR",
+          "url": "https://jmp2.uk/plu-63eb9c5351f5d000085e8d7e.m3u8"
+        },
+		
+ {
+          "id": "ch_swz9ilac",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/lOuySbz.png",
+          "group": "Series",
+          "title": "MasterChef",
+          "url": "https://jmp2.uk/plu-6077045b6031bd00078de127.m3u8"
+        },
+ {
+          "id": "ch_misesl0n",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/63eb9fdda995710008991c54/colorLogoPNG.png",
+          "group": "Series",
+          "title": "NCIS (United States)",
+          "url": "https://jmp2.uk/plu-63eb9fdda995710008991c54.m3u8"
+        },    
+  {
+          "id": "ch_2k2axdtq",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/67f960c5441853fe50e7afc1/colorLogoPNG_1747430170532.png",
+          "group": "Series",
+          "title": "Numbers (United States)",
+          "url": "https://jmp2.uk/plu-67f960c5441853fe50e7afc1.m3u8"
+        },
+ {
+          "id": "ch_crbm77by",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/655e5bc94261ca000810cb17/colorLogoPNG.png",
+          "group": "Comedy;Series",
+          "title": "Pluto TV Series Comedia",
+          "url": "https://jmp2.uk/plu-655e5bc94261ca000810cb17.m3u8"
+        },
+        {
+          "id": "ch_y9pyuprk",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/6474ab5cdc7a760008745008/colorLogoPNG.png",
+          "group": "Series",
+          "title": "Pluto TV Series Criminais",
+          "url": "https://jmp2.uk/plu-6474ab5cdc7a760008745008.m3u8"
+        },
+        {
+          "id": "ch_qwj0ybua",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/65f060d84e01740008d7421f/colorLogoPNG.png",
+          "group": "Series",
+          "title": "Pluto TV Series Drama",
+          "url": "https://jmp2.uk/plu-65f060d84e01740008d7421f.m3u8"
+        },
+        {
+          "id": "ch_uuh8hwgd",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/691627e4a29a6123e400b3e0/colorLogoPNG_1764878235665.png",
+          "group": "Series",
+          "title": "Pluto TV Series Novelescas",
+          "url": "https://jmp2.uk/plu-691627e4a29a6123e400b3e0.m3u8"
+        },
+ {
+          "id": "ch_bhga1j2j",
+          "info": "Canal Ao Vivo",
+          "logo": "https://i.imgur.com/jkmouY3.png",
+          "group": "Series",
+          "title": "Diff'rent Strokes Arnold",
+          "url": "https://jmp2.uk/plu-61f1d27a189ed10007b7393e.m3u8"
+        },
+{
+          "id": "ch_2b2h6jr3",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/620ff46e0a576e0007dc2f89/colorLogoPNG.png",
+          "group": "Series",
+          "title": "iCarly (United States)",
+          "url": "https://jmp2.uk/plu-620ff46e0a576e0007dc2f89.m3u8"
+        },
+ {
+          "id": "ch_05u3q7td",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/69162ad79505d0f3b1ebf07d/colorLogoPNG_1766066212478.png",
+          "group": "Series",
+          "title": "Jornada nas Estrelas: A Nova Geracao",
+          "url": "https://jmp2.uk/plu-69162ad79505d0f3b1ebf07d.m3u8"
+        },
+        {
+          "id": "ch_y7zdcdmc",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/69162af591700f4c4c135c95/colorLogoPNG_1766066526851.png",
+          "group": "Series",
+          "title": "Jornada nas Estrelas: Deep Space Nine",
+          "url": "https://jmp2.uk/plu-69162af591700f4c4c135c95.m3u8"
+        },
+        {
+          "id": "ch_zol76w5t",
+          "info": "Canal Ao Vivo",
+          "logo": "https://images.pluto.tv/channels/69162b1ef189e235142b17ab/colorLogoPNG_1766150123044.png",
+          "group": "Series",
+          "title": "Jornada nas Estrelas: Voyager",
+          "url": "https://jmp2.uk/plu-69162b1ef189e235142b17ab.m3u8"
+        }
+	  ]
+	  
+ },
+{
+      "id": "series_t1",
+      "kind": "grid",
+      "title": "Séries",
+      "subtitle": "Menu de teste com cards",
+      "glyph": "TESTE",
+      "color": "0xE76F51FF",
+      "tab": "Séries",
+      "items": [
+	  {
+  "id": "solo_leveling_dub",
+  "title": "Solo Leveling Dublado",
+  "poster": "https://d14d9vp3wdof84.cloudfront.net/image/589816272436/image_vm9vofo6h13oh7q5b0ncf7863o/-S897-f.webp",
+  "seasons": [
+    {
+      "title": "Temporada 1",
+      "episodes": [
+        {
+          "title": "Episódio 1",
+          "url": "https://cdn-sv01.maximaimg.online/stream/s/solo-leveling-dublado/01.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 2",
+          "url": "https://cdn-sv01.maximaimg.online/stream/s/solo-leveling-dublado/02.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 3",
+          "url": "https://cdn-sv01.maximaimg.online/stream/s/solo-leveling-dublado/03.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 4",
+          "url": "https://cdn-sv01.maximaimg.online/stream/s/solo-leveling-dublado/04.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 5",
+          "url": "https://cdn-sv01.maximaimg.online/stream/s/solo-leveling-dublado/05.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 6",
+          "url": "https://cdn-sv01.maximaimg.online/stream/s/solo-leveling-dublado/06.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 7",
+          "url": "https://cdn-sv01.maximaimg.online/stream/s/solo-leveling-dublado/07.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 8",
+          "url": "https://cdn-sv01.maximaimg.online/stream/s/solo-leveling-dublado/08.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 9",
+          "url": "https://cdn-sv01.maximaimg.online/stream/s/solo-leveling-dublado/09.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 10",
+          "url": "https://cdn-sv01.maximaimg.online/stream/s/solo-leveling-dublado/10.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 11",
+          "url": "https://cdn-sv01.maximaimg.online/stream/s/solo-leveling-dublado/11.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 12",
+          "url": "https://cdn-sv01.maximaimg.online/stream/s/solo-leveling-dublado/12.mp4/index.m3u8"
+        }
+      ]
+    },
+    {
+      "title": "Temporada 2",
+      "episodes": [
+        { "title": "Episódio 1", "url": "https://cdn-sv01.maximaimg.online/stream/s/solo-leveling-2-dublado/01.mp4/index.m3u8" },
+        { "title": "Episódio 2", "url": "https://cdn-sv01.maximaimg.online/stream/s/solo-leveling-2-dublado/02.mp4/index.m3u8" },
+        { "title": "Episódio 3", "url": "https://cdn-sv01.maximaimg.online/stream/s/solo-leveling-2-dublado/03.mp4/index.m3u8" },
+        { "title": "Episódio 4", "url": "https://cdn-sv01.maximaimg.online/stream/s/solo-leveling-2-dublado/04.mp4/index.m3u8" },
+        { "title": "Episódio 5", "url": "https://cdn-sv01.maximaimg.online/stream/s/solo-leveling-2-dublado/05.mp4/index.m3u8" },
+        { "title": "Episódio 6", "url": "https://cdn-sv01.maximaimg.online/stream/s/solo-leveling-2-dublado/06.mp4/index.m3u8" },
+        { "title": "Episódio 7", "url": "https://cdn-sv01.maximaimg.online/stream/s/solo-leveling-2-dublado/07.mp4/index.m3u8" },
+        { "title": "Episódio 8", "url": "https://cdn-sv01.maximaimg.online/stream/s/solo-leveling-2-dublado/08.mp4/index.m3u8" },
+        { "title": "Episódio 9", "url": "https://cdn-sv01.maximaimg.online/stream/s/solo-leveling-2-dublado/09.mp4/index.m3u8" },
+        { "title": "Episódio 10", "url": "https://cdn-sv01.maximaimg.online/stream/s/solo-leveling-2-dublado/10.mp4/index.m3u8" },
+        { "title": "Episódio 11", "url": "https://cdn-sv01.maximaimg.online/stream/s/solo-leveling-2-dublado/11.mp4/index.m3u8" },
+        { "title": "Episódio 12", "url": "https://cdn-sv01.maximaimg.online/stream/s/solo-leveling-2-dublado/12.mp4/index.m3u8" },
+        { "title": "Episódio 13", "url": "https://cdn-sv01.maximaimg.online/stream/s/solo-leveling-2-dublado/13.mp4/index.m3u8" }
+      ]
+    }
+  ]
+},
+        {
+          "id": "teste_card1",
+          "title": "Todo Mundo Odeia o Chris",
+          "poster": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTO9sxb1a5kKc7vHpxbSNNbBSdWCep3r5wmBMwLMZR1UA&s",
+          "seasons": [
+            {
+              "title": "Temporada 1",
+              "episodes": [
+                { "title": "Episódio 1", "url": "https://vod3.cf.dmcdn.net/sec2(jbs88mHbbD5VC9BfGymH4oS0wEv5vHcu9VJkQa3gBvEBG7KAoG_uPH1DOosgDVHC9VCxMbGDELjSfcn8bAyxe0c1gVZvNftuXwnKSLj_o7_kHUeMNcVBjQWEgQ3P7Yp96HSNDL6acd1Aw6OIokbWaZYsk3WD0fx7xILGRf5lPgnAGxe6kiSicxChU4Rr14Ev)/video/697/288/387882796_mp4_h264_aac_hd_2.m3u8" },
+                { "title": "Episódio 2", "url": "https://vod3.cf.dmcdn.net/sec2(lDOQ-HWbNNskm2NFN1NYx4Fpi2AAD_RGniADgoW81i0wKdoPxaKmcz4E21_jDuvZEsRa_mg_5DdYyqnxaMk3ilWwsgxBwKBdjBNW9oPAFz5CP82P9ldL7KF2PybJEsS25VPvRhZqLOss4yZ-8l2laVxIkVPlQzPZABedgTHmoZCuqS40AWUeEDbRuOgiNlMS)/video/486/088/387880684_mp4_h264_aac_hd_2.m3u8" },
+                { "title": "Episódio 3", "url": "https://vod3.cf.dmcdn.net/sec2(thH8ySX2xeo8AfyqHn7iC7CQgtIfghn7eOXvzA4eJd4StPR3gTITgG8Ki8K4DZ4zD7bijT8EhHa3k19j4eXsKL7zTKybDIcuLW030hOG9TV3CNThwD8zzl81HNQDYQ9im2h3hQox9YclWMyPRyAZw-w_zdTbTFqFXbxpeg8Ixw2YwKaZRKo4Y75UYGw5KvbA)/video/993/188/387881399_mp4_h264_aac_hd_2.m3u8" },
+                { "title": "Episódio 4", "url": "https://vod3.cf.dmcdn.net/sec2(thH8ySX2xeo8AfyqHn7iC7CQgtIfghn7eOXvzA4eJd4StPR3gTITgG8Ki8K4DZ4zD7bijT8EhHa3k19j4eXsKL7zTKybDIcuLW030hOG9TV3CNThwD8zzl81HNQDYQ9im2h3hQox9YclWMyPRyAZw-w_zdTbTFqFXbxpeg8Ixw2YwKaZRKo4Y75UYGw5KvbA)/video/993/188/387881399_mp4_h264_aac_hd_2.m3u8" },
+                { "title": "Episódio 5", "url": "https://vod3.cf.dmcdn.net/sec2(6XPHGXx-ingEOybeZRuahqXduqm9JKRs1bqTs7krGSNslTAFmnU4tNUyIwZxLMeqhJG4xStD8bsFm22TuqDTrIuPINsGRI4mRAOAciHlmdHnlk9T62WjX3_V9Z9yJ5K5Dpr1tg5rluNzL9xvqR1eg_slDKw1uWAKKQ368E_fooDt1J8hld7IMjPnbzLww7lY)/video/697/288/387882796_mp4_h264_aac_hd_2.m3u8" },
+                { "title": "Episódio 6", "url": "https://vod3.cf.dmcdn.net/sec2(WN_Xs7XCsvid5yc38nlRshKAVkHesgcouH1w9J18wbNAwdcDcTwYtfsU2ruIiQubP3ImL3wtRe7OSi7h_99CU4gHnuF7cU-PQyDdB0Tiblh6IEzgtMD522KP2UtBNfMQOyxOqjtHfT04jhmjbrHEanqWYHOBr9ntvio07yOp-zzYbA2SMqRMupoqj_U7JERQ)/video/534/388/387883435_mp4_h264_aac_hd_2.m3u8" }
+              ]
+            }
+          ]
+        },
+      {
+  "id": "re_zero_dub",
+  "title": "Re:Zero kara Hajimeru Isekai Seikatsu Dublado",
+  "poster": "https://sm.ign.com/ign_br/screenshot/default/captura-de-tela-2025-11-17-094111_du42.png",
+  "seasons": [
+    {
+      "title": "Temporada 2 - Parte 1",
+      "episodes": [
+        {
+          "title": "Episódio 1",
+          "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-2-dublado/01.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 2",
+          "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-2-dublado/02.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 3",
+          "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-2-dublado/03.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 4",
+          "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-2-dublado/04.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 5",
+          "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-2-dublado/05.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 6",
+          "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-2-dublado/06.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 7",
+          "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-2-dublado/07.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 8",
+          "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-2-dublado/08.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 9",
+          "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-2-dublado/09.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 10",
+          "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-2-dublado/10.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 11",
+          "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-2-dublado/11.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 12",
+          "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-2-dublado/12.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 13",
+          "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-2-dublado/13.mp4/index.m3u8"
+        }
+      ]
+    },
+    {
+      "title": "Temporada 2 - Parte 2",
+      "episodes": [
+        { "title": "Episódio 1", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-2-part-2-dublado/01.mp4/index.m3u8" },
+        { "title": "Episódio 2", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-2-part-2-dublado/02.mp4/index.m3u8" },
+        { "title": "Episódio 3", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-2-part-2-dublado/03.mp4/index.m3u8" },
+        { "title": "Episódio 4", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-2-part-2-dublado/04.mp4/index.m3u8" },
+        { "title": "Episódio 5", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-2-part-2-dublado/05.mp4/index.m3u8" },
+        { "title": "Episódio 6", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-2-part-2-dublado/06.mp4/index.m3u8" },
+        { "title": "Episódio 7", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-2-part-2-dublado/07.mp4/index.m3u8" },
+        { "title": "Episódio 8", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-2-part-2-dublado/08.mp4/index.m3u8" },
+        { "title": "Episódio 9", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-2-part-2-dublado/09.mp4/index.m3u8" },
+        { "title": "Episódio 10", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-2-part-2-dublado/10.mp4/index.m3u8" },
+        { "title": "Episódio 11", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-2-part-2-dublado/11.mp4/index.m3u8" },
+        { "title": "Episódio 12", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-2-part-2-dublado/12.mp4/index.m3u8" }
+      ]
+    },
+    {
+      "title": "Temporada 3",
+      "episodes": [
+        { "title": "Episódio 1", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-3-dublado/01.mp4/index.m3u8" },
+        { "title": "Episódio 2", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-3-dublado/02.mp4/index.m3u8" },
+        { "title": "Episódio 3", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-3-dublado/03.mp4/index.m3u8" },
+        { "title": "Episódio 4", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-3-dublado/04.mp4/index.m3u8" },
+        { "title": "Episódio 5", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-3-dublado/05.mp4/index.m3u8" },
+        { "title": "Episódio 6", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-3-dublado/06.mp4/index.m3u8" },
+        { "title": "Episódio 7", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-3-dublado/07.mp4/index.m3u8" },
+        { "title": "Episódio 8", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-3-dublado/08.mp4/index.m3u8" },
+        { "title": "Episódio 9", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-3-dublado/09.mp4/index.m3u8" },
+        { "title": "Episódio 10", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-3-dublado/10.mp4/index.m3u8" },
+        { "title": "Episódio 11", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-3-dublado/11.mp4/index.m3u8" },
+        { "title": "Episódio 12", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-3-dublado/12.mp4/index.m3u8" },
+        { "title": "Episódio 13", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-3-dublado/13.mp4/index.m3u8" },
+        { "title": "Episódio 14", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-3-dublado/14.mp4/index.m3u8" },
+        { "title": "Episódio 15", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-3-dublado/15.mp4/index.m3u8" },
+        { "title": "Episódio 16", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-3-dublado/16.mp4/index.m3u8" }
+      ]
+    },
+    {
+      "title": "Temporada 4",
+      "episodes": [
+        { "title": "Episódio 1", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-4-dublado/01.mp4/index.m3u8" },
+        { "title": "Episódio 2", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-4-dublado/02.mp4/index.m3u8" },
+        { "title": "Episódio 3", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-4-dublado/03.mp4/index.m3u8" },
+        { "title": "Episódio 4", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-4-dublado/04.mp4/index.m3u8" },
+        { "title": "Episódio 5", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-4-dublado/05.mp4/index.m3u8" },
+        { "title": "Episódio 6", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-4-dublado/06.mp4/index.m3u8" },
+        { "title": "Episódio 7", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-4-dublado/07.mp4/index.m3u8" },
+        { "title": "Episódio 8", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-4-dublado/08.mp4/index.m3u8" },
+        { "title": "Episódio 9", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-4-dublado/09.mp4/index.m3u8" },
+        { "title": "Episódio 10", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-4-dublado/10.mp4/index.m3u8" },
+        { "title": "Episódio 11", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-4-dublado/11.mp4/index.m3u8" }
+      ]
+    }
+  ]
+},
+		{
+  "id": "yu_yu_hakusho_dub",
+  "title": "Yu Yu Hakusho Dublado",
+  "poster": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk__sTTU5-cL4OH3jWCx_UhNHDj9rx_zeZWaCnMv_LlA&s=10",
+  "seasons": [
+    {
+      "title": "Temporada 1 - Saga do Detetive Espiritual",
+      "episodes": [
+        {
+          "title": "Episódio 1",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/01.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 2",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/02.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 3",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/03.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 4",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/04.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 5",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/05.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 6",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/06.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 7",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/07.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 8",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/08.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 9",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/09.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 10",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/10.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 11",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/11.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 12",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/12.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 13",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/13.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 14",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/14.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 15",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/15.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 16",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/16.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 17",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/17.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 18",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/18.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 19",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/19.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 20",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/20.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 21",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/21.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 22",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/22.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 23",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/23.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 24",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/24.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 25",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/25.mp4/index.m3u8"
+        }
+      ]
+    },
+    {
+      "title": "Temporada 2 - Saga do Torneio das Trevas",
+      "episodes": [
+        {
+          "title": "Episódio 26",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/26.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 27",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/27.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 28",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/28.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 29",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/29.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 30",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/30.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 31",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/31.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 32",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/32.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 33",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/33.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 34",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/34.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 35",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/35.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 36",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/36.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 37",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/37.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 38",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/38.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 39",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/39.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 40",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/40.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 41",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/41.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 42",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/42.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 43",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/43.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 44",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/44.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 45",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/45.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 46",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/46.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 47",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/47.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 48",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/48.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 49",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/49.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 50",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/50.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 51",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/51.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 52",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/52.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 53",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/53.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 54",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/54.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 55",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/55.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 56",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/56.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 57",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/57.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 58",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/58.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 59",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/59.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 60",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/60.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 61",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/61.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 62",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/62.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 63",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/63.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 64",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/64.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 65",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/65.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 66",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/66.mp4/index.m3u8"
+        }
+      ]
+    },
+    {
+      "title": "Temporada 3 - Saga do Capítulo Negro (Sensui)",
+      "episodes": [
+        {
+          "title": "Episódio 67",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/67.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 68",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/68.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 69",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/69.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 70",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/70.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 71",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/71.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 72",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/72.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 73",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/73.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 74",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/74.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 75",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/75.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 76",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/76.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 77",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/77.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 78",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/78.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 79",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/79.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 80",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/80.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 81",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/81.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 82",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/82.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 83",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/83.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 84",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/84.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 85",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/85.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 86",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/86.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 87",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/87.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 88",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/88.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 89",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/89.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 90",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/90.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 91",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/91.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 92",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/92.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 93",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/93.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 94",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/94.mp4/index.m3u8"
+        }
+      ]
+    },
+    {
+      "title": "Temporada 4 - Saga dos Três Reis (Torneio do Makai)",
+      "episodes": [
+        {
+          "title": "Episódio 95",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/95.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 96",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/96.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 97",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/97.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 98",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/98.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 99",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/99.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 100",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/100.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 101",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/101.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 102",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/102.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 103",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/103.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 104",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/104.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 105",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/105.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 106",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/106.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 107",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/107.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 108",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/108.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 109",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/109.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 110",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/110.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 111",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/111.mp4/index.m3u8"
+        },
+        {
+          "title": "Episódio 112",
+          "url": "https://cdn-sv01.maximaimg.online/stream/y/yu-yu-hakusho-dublado/112.mp4/index.m3u8"
+        }
+      ]
+    }
+  ]
+},
+        {
+          "id": "teste_card3",
+          "title": "teste_card3",
+          "poster": "pkg:/images/placeholder.png",
+          "seasons": [
+            {
+              "title": "Temporada 1",
+              "episodes": [
+                { "title": "Episódio 1", "url": "" }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "teste_card4",
+          "title": "teste_card4",
+          "poster": "pkg:/images/placeholder.png",
+          "seasons": [
+            {
+              "title": "Temporada 1",
+              "episodes": [
+                { "title": "Episódio 1", "url": "" },
+                { "title": "Episódio 2", "url": "" },
+                { "title": "Episódio 3", "url": "" },
+                { "title": "Episódio 4", "url": "" }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "teste_card5",
+          "title": "teste_card5",
+          "poster": "pkg:/images/placeholder.png",
+          "seasons": [
+            {
+              "title": "Temporada 1",
+              "episodes": [
+                { "title": "Episódio 1", "url": "" },
+                { "title": "Episódio 2", "url": "" }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "teste_card6",
+          "title": "teste_card6",
+          "poster": "pkg:/images/placeholder.png",
+          "seasons": [
+            {
+              "title": "Temporada 1",
+              "episodes": [
+                { "title": "Episódio 1", "url": "" }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "teste_card7",
+          "title": "teste_card7",
+          "poster": "pkg:/images/placeholder.png",
+          "seasons": [
+            {
+              "title": "Temporada 1",
+              "episodes": [
+                { "title": "Episódio 1", "url": "" },
+                { "title": "Episódio 2", "url": "" },
+                { "title": "Episódio 3", "url": "" }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "teste_card8",
+          "title": "teste_card8",
+          "poster": "pkg:/images/placeholder.png",
+          "seasons": [
+            {
+              "title": "Temporada 1",
+              "episodes": [
+                { "title": "Episódio 1", "url": "" },
+                { "title": "Episódio 2", "url": "" }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "youtube",
+      "kind": "youtube",
+      "title": "YouTube",
+      "subtitle": "Ao vivo nos canais",
+      "glyph": "YT",
+      "color": "0xCC0000FF",
+      "tab": "YOUTUBE",
+      "channels": [
+        {
+          "id": "sbt",
+          "title": "SBT",
+          "info": "Canal oficial",
+          "channelId": "UCR3TOnFWDeAlT-Ho6LueDmg",
+          "logo": "pkg:/images/yt_sbt.png",
+          "group": "TV ao vivo online"
+        },
+        {
+          "id": "sbtnews",
+          "title": "SBT News",
+          "info": "Notícias ao vivo",
+          "channelId": "UC376n347Ob5Lwzq2WGzF1AA",
+          "logo": "pkg:/images/yt_sbtnews.png",
+          "group": "TV ao vivo online"
+        },
+        {
+          "id": "tvglobo",
+          "title": "TV Globo",
+          "info": "Vídeos oficiais",
+          "channelId": "UCEPRQVF6hxGGM9gi1ELaWHg",
+          "logo": "pkg:/images/yt_tvglobo.png",
+          "group": "TV ao vivo online"
+        },
+        {
+          "id": "getv",
+          "title": "ge tv",
+          "info": "Globo Esporte",
+          "channelId": "UCgCKagVhzGnZcuP9bSMgMCg",
+          "logo": "pkg:/images/yt_getv.png",
+          "group": "Esporte"
+        },
+        {
+          "id": "cazetv",
+          "title": "CazéTV",
+          "info": "Jogos e esporte ao vivo",
+          "channelId": "UCZiYbVptd3PVPf4f6eR6UaQ",
+          "logo": "pkg:/images/yt_cazetv.png",
+          "group": "Esporte"
+        },
+        {
+          "id": "estadio97",
+          "title": "Estádio 97",
+          "info": "Rádio Energia 97 FM",
+          "channelId": "UCIkAO7iHS6R9AtcABE9MdRQ",
+          "logo": "pkg:/images/yt_estadio97.png",
+          "group": "Esporte"
+        },
+        {
+          "id": "jogoaberto",
+          "title": "Jogo Aberto",
+          "info": "Band",
+          "channelId": "UCZaOZdn-Y-I5ikrofkWBLgQ",
+          "logo": "pkg:/images/yt_jogoaberto.png",
+          "group": "Esporte"
+        },
+        {
+          "id": "crunchyroll",
+          "title": "Crunchyroll Brasil",
+          "info": "Canal oficial",
+          "channelId": "UCVc-JLY3Db6-O48y7TS4N7Q",
+          "logo": "pkg:/images/yt_crunchyroll.png",
+          "group": "Anime e desenhos"
+        },
+        {
+          "id": "pokemonpt",
+          "title": "Pokémon",
+          "info": "Canal oficial em português",
+          "channelId": "UCuo1V_VlMUOTjy89D1FDVDw",
+          "logo": "pkg:/images/yt_pokemonpt.png",
+          "group": "Anime e desenhos"
+        },
+        {
+          "id": "pokemontv",
+          "title": "Pokémon TV",
+          "info": "Canal oficial",
+          "channelId": "UC8wrbl5viYtQmRUgdFdf4ew",
+          "logo": "pkg:/images/yt_pokemontv.png",
+          "group": "Anime e desenhos"
+        },
+        {
+          "id": "toei",
+          "title": "Toei Animation",
+          "info": "Canal oficial",
+          "channelId": "UCQYYekTKCb1y12sas08T6gQ",
+          "logo": "pkg:/images/yt_toei.png",
+          "group": "Anime e desenhos"
+        },
+        {
+          "id": "sato",
+          "title": "Sato Company",
+          "info": "Anime e tokusatsu",
+          "channelId": "UCTOaq4HfNMstuJfZxHszxgw",
+          "logo": "pkg:/images/yt_sato.png",
+          "group": "Anime e desenhos"
+        }
+      ]
+    },
+    {
+      "id": "filmes",
+      "kind": "movies",
+      "title": "Filmes",
+      "subtitle": "",
+      "glyph": "FILMES",
+      "color": "0xF4A261FF",
+      "tab": "FILMES",
+      "rows": [
+        {
+          "title": "Em alta",
+          "items": [
+            {
+			  "id": "filmes",
+			  "kind": "movies",
+			  "title": "Filmes",
+			  "subtitle": "",
+			  "glyph": "FILMES",
+			  "color": "0xF4A261FF",
+			  "tab": "FILMES",
+			  "rows": [
+				{
+				  "title": "Em alta",
+				  "items": [
+					{
+					  "id": "john_wick_1",
+					  "title": "John Wick - De Volta ao Jogo",
+					  "year": "2014",
+					  "poster": "https://m.media-amazon.com/images/I/41wmkb5ecXL._AC_UF894,1000_QL80_.jpg",
+					  "url": "https://rough-frost-82de.gh0mo6daqf57.workers.dev/t/1793174929.4f27f05c087636309f55a7cdc451fa000f6992631db56af3cd842a479a624e06/u/LinhaZed099183u/e1.64pCEySj2VJxjJVdu-MRgTNFxHIzB7b50BeSyiT024WvrKa65yBSZsndCNY4DEfi",
+					  "summary": "John Wick é um lendário assassino de aluguel aposentado, lidando com o luto após perder o grande amor de sua vida. Quando um gângster invade sua casa, mata seu cachorro e rouba seu carro, ele é forçado a voltar à ativa e inicia sua vingança."
+					}
+				  ]
+				}
+			  ]
+			}
+          ]
+        }
+      ]
+    },
+	{
+      "id": "anime",
+      "kind": "anime",
+      "title": "Animes",
+      "subtitle": "Novos episódios da semana",
+      "glyph": "ANIME",
+      "color": "0x9B5DE5FF",
+      "tab": "ANIMES"
+    },
+    {
+      "id": "lista",
+      "kind": "favorites",
+      "title": "Minha Lista",
+      "subtitle": "Favoritos e continuar",
+      "glyph": "LISTA",
+      "color": "0x43AA8BFF",
+      "tab": "MINHA LISTA"
+    },
+    {
+      "id": "busca",
+      "kind": "search",
+      "title": "Buscar",
+      "subtitle": "Filmes, séries e desenhos",
+      "glyph": "BUSCA",
+      "color": "0x457B9DFF",
+      "tab": "BUSCAR"
+    },
+    {
+      "id": "teste2",
+      "kind": "grid",
+      "title": "Teste 2",
+      "subtitle": "Menu de teste com cards",
+      "glyph": "TESTE",
+      "color": "0xE76F51FF",
+      "tab": "TESTE 2",
+      "items": [
+        {
+          "id": "teste_card1",
+          "title": "teste_card1",
+          "poster": "pkg:/images/placeholder.png",
+          "seasons": [{ "title": "Temporada 1", "episodes": [
+            { "title": "EP 1", "url": "" },
+            { "title": "EP 2", "url": "" },
+            { "title": "EP 3", "url": "" }
+          ]}]
+        },
+        {
+          "id": "teste_card2",
+          "title": "teste_card2",
+          "poster": "pkg:/images/placeholder.png",
+          "seasons": [{ "title": "Temporada 1", "episodes": [
+            { "title": "EP 1", "url": "" },
+            { "title": "EP 2", "url": "" }
+          ]}]
+        },
+        {
+          "id": "teste_card3",
+          "title": "teste_card3",
+          "poster": "pkg:/images/placeholder.png",
+          "seasons": [{ "title": "Temporada 1", "episodes": [
+            { "title": "EP 1", "url": "" }
+          ]}]
+        },
+        {
+          "id": "teste_card4",
+          "title": "teste_card4",
+          "poster": "pkg:/images/placeholder.png",
+          "seasons": [{ "title": "Temporada 1", "episodes": [
+            { "title": "EP 1", "url": "" },
+            { "title": "EP 2", "url": "" },
+            { "title": "EP 3", "url": "" },
+            { "title": "EP 4", "url": "" }
+          ]}]
+        },
+        {
+          "id": "teste_card5",
+          "title": "teste_card5",
+          "poster": "pkg:/images/placeholder.png",
+          "seasons": [{ "title": "Temporada 1", "episodes": [
+            { "title": "EP 1", "url": "" },
+            { "title": "EP 2", "url": "" }
+          ]}]
+        },
+        {
+          "id": "teste_card6",
+          "title": "teste_card6",
+          "poster": "pkg:/images/placeholder.png",
+          "seasons": [{ "title": "Temporada 1", "episodes": [
+            { "title": "EP 1", "url": "" }
+          ]}]
+        },
+        {
+          "id": "teste_card7",
+          "title": "teste_card7",
+          "poster": "pkg:/images/placeholder.png",
+          "seasons": [{ "title": "Temporada 1", "episodes": [
+            { "title": "EP 1", "url": "" },
+            { "title": "EP 2", "url": "" },
+            { "title": "EP 3", "url": "" }
+          ]}]
+        },
+        {
+          "id": "teste_card8",
+          "title": "teste_card8",
+          "poster": "pkg:/images/placeholder.png",
+          "seasons": [{ "title": "Temporada 1", "episodes": [
+            { "title": "EP 1", "url": "" },
+            { "title": "EP 2", "url": "" }
+          ]}]
+        }
+      ]
+    }
+  ]
+}

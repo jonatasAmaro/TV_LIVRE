@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Common contract between MainScene and every screen. -->
+<component name="BaseView" extends="Group">
+  <interface>
+    <field id="navigate" type="assocarray" alwaysNotify="true"/>
+    <field id="closing" type="boolean"/>
+    <field id="resumed" type="boolean" alwaysNotify="true"/>
+    <!-- Screens embedded as a Home tab: no own header, and "active" tells them when their tab is shown. -->
+    <field id="embedded" type="boolean"/>
+    <field id="active" type="boolean" alwaysNotify="true"/>
+  </interface>
+</component>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component name="EpButton" extends="Group">
+  <interface>
+    <field id="itemContent" type="node" onChange="onContent"/>
+    <field id="width" type="float" value="80"/>
+    <field id="height" type="float" value="60"/>
+    <field id="focusPercent" type="float" onChange="onFocus"/>
+    <field id="rowFocusPercent" type="float" onChange="onFocus"/>
+    <field id="rowListHasFocus" type="boolean" onChange="onFocus"/>
+    <field id="gridHasFocus" type="boolean" onChange="onFocus"/>
+  </interface>
+  <script type="text/brightscript" uri="pkg:/components/items/EpButton.brs"/>
+  <children>
+    <Rectangle id="bg" width="80" height="60" color="0x2A3A5CFF"/>
+    <Rectangle id="ring" translation="[-3,-3]" width="86" height="66" color="0x9B5DE5FF" opacity="0"/>
+    <Label id="lbl" width="80" height="60" horizAlign="center" vertAlign="center" color="0xFFFFFFFF">
+      <Font role="font" uri="font:BoldSystemFontFile" size="26"/>
+    </Label>
+  </children>
+</component>
