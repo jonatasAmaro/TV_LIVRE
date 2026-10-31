@@ -4867,8 +4867,17 @@
         },
         {
           "id": "bigbang",
-          "title": "Big Bang - A teoria",
-          "poster": "pkg:/images/placeholder.png",
+          "kind": "series",
+          "title": "Big Bang - A Teoria",
+          "subtitle": "The Big Bang Theory",
+          "glyph": "SÉRIES",
+          "color": "0xE76F51FF",
+          "tab": "SÉRIES",
+          "poster": "https://image.tmdb.org/t/p/w500/oUnMVfZFBnRJKIBr0GVaJS0lBa0.jpg",
+          "summary": "Leonard e Sheldon são dois brilhantes físicos que entendem tudo sobre o universo, mas nada sobre como lidar com pessoas.",
+          "year": "2007",
+          "rating": "8.2",
+          "genres": "Comédia",
           "seasons": [
             {
               "title": "Temporada 1",
