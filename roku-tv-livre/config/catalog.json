@@ -1,6 +1,6 @@
 {
   "versionUrl": "",
-  "catalogUrl": "https://raw.githubusercontent.com/jonatasAmaro/tv-livre/main/roku-tv-livre/config/catalog.json",
+  "catalogUrl": "https://raw.githubusercontent.com/jonatasAmaro/TV_LIVRE/main/roku-tv-livre/config/catalog.json",
   "animeRefreshHours": 6,
   "epgUrl": "https://raw.githubusercontent.com/limaalef/BrazilTVEPG/main/epg.xml",
   "sections": [
