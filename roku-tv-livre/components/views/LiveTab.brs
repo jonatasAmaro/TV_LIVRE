@@ -743,8 +743,11 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
             setMode("list", true)
             return true
         else if key = "up"
-            ' Up from the preview goes to the tab bar; coming back down returns to the preview.
-            m.top.navigate = { to: "tabs" }
+            if m.top.embedded
+                m.top.navigate = { to: "tabs" }
+            else
+                m.top.navigate = { to: "back" }
+            end if
             return true
         else if key = "OK"
             e = viewEntry(m.playingIndex)

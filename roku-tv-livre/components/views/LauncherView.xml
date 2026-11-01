@@ -5,10 +5,12 @@
   <script type="text/brightscript" uri="pkg:/components/utils.brs"/>
   <script type="text/brightscript" uri="pkg:/components/views/LauncherView.brs"/>
   <children>
-    <Poster uri="pkg:/images/launcher_wallpaper.jpg" width="1920" height="1080"/>
-    <Poster uri="pkg:/images/launcher_shade.png" translation="[0,520]" width="1920" height="560"/>
+    <Poster id="wallpaper" uri="pkg:/images/launcher_wallpaper.jpg" width="1920" height="1080"/>
+    <!-- Fullscreen video behind everything; shown when a live icon is focused. -->
+    <Video id="bgVideo" translation="[0,0]" width="1920" height="1080" enableUI="false" visible="false"/>
+    <Poster id="shade" uri="pkg:/images/launcher_shade.png" translation="[0,520]" width="1920" height="560"/>
     <!-- Full-width band behind the carousel. -->
-    <Rectangle translation="[0,804]" width="1920" height="276" color="0x000000FF" opacity="0.55"/>
+    <Rectangle id="menuBand" translation="[0,804]" width="1920" height="276" color="0x000000FF" opacity="0.55"/>
 
     <Label id="clock" translation="[1560,48]" width="280" horizAlign="right" color="0xFFFFFFFF">
       <Font role="font" uri="font:BoldSystemFontFile" size="64"/>
@@ -55,6 +57,23 @@
       <Poster id="arrowLeft" uri="pkg:/images/arrow_left.png" width="48" height="48"/>
       <Poster id="arrowRight" uri="pkg:/images/arrow_right.png" width="48" height="48"/>
     </Group>
+
+    <!-- OSD overlay for fullscreen live mode. -->
+    <Group id="liveOsd" visible="false">
+      <Rectangle translation="[60,50]" width="900" height="120" color="0x0B0F1ACC"/>
+      <Label id="liveOsdName" translation="[90,62]" width="840" color="0xFFFFFFFF">
+        <Font role="font" uri="font:BoldSystemFontFile" size="42"/>
+      </Label>
+      <Label id="liveOsdInfo" translation="[90,110]" width="840" color="0xC8D0DCFF">
+        <Font role="font" uri="font:SystemFontFile" size="26"/>
+      </Label>
+    </Group>
+    <Label id="liveStatus" translation="[0,520]" width="1920" horizAlign="center" wrap="true" color="0xFFFFFFFF" visible="false">
+      <Font role="font" uri="font:SystemFontFile" size="30"/>
+    </Label>
+
+    <Timer id="liveZapTimer" duration="0.8"/>
+    <Timer id="liveOsdTimer" duration="4"/>
 
     <Animation id="scrollAnim" duration="0.18" easeFunction="outQuad">
       <Vector2DFieldInterpolator id="scrollInterp" key="[0.0, 1.0]" fieldToInterp="track.translation"/>

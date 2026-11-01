@@ -1,7 +1,11 @@
 ' Start screen. m.items is the carousel in display order, one entry per card:
 ' { key, kind, title, appId, icon, removable }. kind: "launch" (ECP app or TV input),
-' "tvlivre", "inputs", "store". m.idx = -1 is the gear. Card order and hidden apps
+' "live" (TV ao vivo with inline preview), "tvlivre", "inputs", "store".
+' m.idx = -1 is the gear. Card order and hidden apps
 ' are kept in the registry ("launcherOrder", "launcherHidden").
+'
+' Modes: "row" (browsing carousel), "livePreview" (video playing + menu visible),
+' "liveFullscreen" (fullscreen, menu hidden), "inputs", "menu", "move".
 sub init()
     m.cardW = 264
     m.cardH = 198
@@ -34,6 +38,20 @@ sub init()
     clockTimer.control = "start"
     updateClock()
 
+    m.wallpaper = m.top.findNode("wallpaper")
+    m.bgVideo = m.top.findNode("bgVideo")
+    m.shade = m.top.findNode("shade")
+    m.menuBand = m.top.findNode("menuBand")
+    m.liveOsd = m.top.findNode("liveOsd")
+    m.liveOsdName = m.top.findNode("liveOsdName")
+    m.liveOsdInfo = m.top.findNode("liveOsdInfo")
+    m.liveStatus = m.top.findNode("liveStatus")
+    m.liveZapTimer = m.top.findNode("liveZapTimer")
+    m.liveZapTimer.observeField("fire", "onLiveZapTimer")
+    m.liveOsdTimer = m.top.findNode("liveOsdTimer")
+    m.liveOsdTimer.observeField("fire", "hideLiveOsd")
+    m.bgVideo.observeField("state", "onBgVideoState")
+
     m.selfId = CreateObject("roAppInfo").GetID()
     m.youTubeId = "837"
     migrateOrder()
@@ -46,6 +64,13 @@ sub init()
     m.offset = 0
     m.okDown = false
     m.hiddenCount = 0
+
+    m.liveChannels = []
+    m.liveChIndex = 0
+    m.livePlayingIndex = -1
+    m.catalogConfig = invalid
+
+    loadCatalog()
     rebuild()
     loadApps()
 end sub
@@ -55,6 +80,20 @@ sub updateClock()
     dt.ToLocalTime()
     m.clock.text = Pad2(dt.GetHours()) + ":" + Pad2(dt.GetMinutes())
     m.date.text = Fmt_LongDate(dt)
+end sub
+
+' ---------- Catalog loading ----------
+
+sub loadCatalog()
+    m.catalogConfig = Cfg_Load()
+    if m.catalogConfig <> invalid and m.catalogConfig.sections <> invalid
+        for each s in m.catalogConfig.sections
+            if s.kind = "live" and s.channels <> invalid
+                m.liveChannels = s.channels
+                exit for
+            end if
+        end for
+    end if
 end sub
 
 ' ---------- Card list ----------
@@ -82,17 +121,11 @@ function findApp(id as String) as Dynamic
     return invalid
 end function
 
-' Every card that can appear, in the default order.
 function allItems() as Object
-    live = findApp("tvinput.dtv")
-    liveIcon = ""
-    if live <> invalid then liveIcon = live.icon
     list = [
-        { key: "live", kind: "launch", title: "TV ao vivo", appId: "tvinput.dtv", icon: liveIcon, removable: false }
-        { key: "tvlivre", kind: "tvlivre", title: "TV Livre", appId: "", icon: "pkg:/images/icon_fhd.png", removable: false }
+        { key: "live", kind: "live", title: "TV ao vivo", appId: "", icon: "pkg:/images/icon_fhd.png", removable: false }
         { key: "inputs", kind: "inputs", title: "Conexões", appId: "", icon: "pkg:/images/card_inputs.png", removable: false }
     ]
-    ' YouTube comes right after Conexões; the other installed apps follow in the TV's order.
     yt = findApp(m.youTubeId)
     if yt <> invalid then list.Push({ key: "app:" + yt.id, kind: "launch", title: yt.name, appId: yt.id, icon: yt.icon, removable: true })
     for each a in m.apps
@@ -104,8 +137,6 @@ function allItems() as Object
     return list
 end function
 
-' A card order saved before YouTube became a default would keep it in its old place:
-' move it once to right after Conexões. Later moves by the viewer are kept.
 sub migrateOrder()
     if To_Int(Store_Get("launcherDefaults", 1)) >= 2 then return
     yt = "app:" + m.youTubeId
@@ -125,7 +156,6 @@ function inList(list as Object, value as String) as Boolean
     return false
 end function
 
-' Applies the saved order and hidden list, then recreates the card nodes.
 sub rebuild()
     focusKey = ""
     if m.idx >= 0 and m.idx < m.items.Count() then focusKey = m.items[m.idx].key
@@ -151,7 +181,6 @@ sub rebuild()
             used[k] = true
         end if
     end for
-    ' Apps installed since the order was saved go right before the Central de Apps card.
     for each it in defaults
         if used[it.key] = invalid
             n = ordered.Count()
@@ -182,7 +211,6 @@ sub rebuild()
     setIndex(idx, false)
 end sub
 
-' Card = dark box with the title (shown until/unless the icon loads) + icon + focus ring.
 function makeCard(parent as Object, it as Object, w as Integer, h as Integer) as Object
     g = parent.createChild("Group")
     g.scaleRotateCenter = [w / 2, h / 2]
@@ -230,9 +258,11 @@ end sub
 ' ---------- Focus ----------
 
 sub setIndex(i as Integer, animate as Boolean)
+    old = m.idx
     m.idx = i
     if i >= 0 then scrollTo(i, animate)
     refreshFocus()
+    onFocusChanged(old, i)
 end sub
 
 sub scrollTo(i as Integer, animate as Boolean)
@@ -250,7 +280,7 @@ sub scrollTo(i as Integer, animate as Boolean)
 end sub
 
 sub refreshFocus()
-    rowFocus = (m.mode = "row" or m.mode = "move" or m.mode = "menu")
+    rowFocus = (m.mode = "row" or m.mode = "move" or m.mode = "menu" or m.mode = "livePreview")
     m.gearRing.visible = rowFocus and m.idx = -1
     for i = 0 to m.cards.Count() - 1
         c = m.cards[i]
@@ -284,7 +314,6 @@ sub refreshText()
     m.title.text = m.items[m.idx].title
     if m.mode = "move"
         m.hint.text = "Esquerda/Direita muda a posição   |   OK conclui"
-        ' Arrows beside the lifted card, only towards where it can still go.
         x = m.trackX - m.offset + m.idx * m.step
         y = m.trackY - 34 + (m.cardH - 48) / 2
         m.arrowLeft.translation = [x - 74, y]
@@ -292,21 +321,150 @@ sub refreshText()
         m.arrowLeft.visible = m.idx > 0
         m.arrowRight.visible = m.idx < m.items.Count() - 1
         m.moveHint.visible = true
+    else if m.mode = "livePreview"
+        m.hint.text = "OK ou Cima: tela cheia   |   Esq/Dir: trocar"
     else
         m.hint.text = "Segure OK para mover ou ocultar"
     end if
+end sub
+
+' ---------- Live preview (TV AO VIVO inline) ----------
+
+sub onFocusChanged(oldIdx as Integer, newIdx as Integer)
+    if m.mode <> "row" and m.mode <> "livePreview" then return
+    it = invalid
+    if newIdx >= 0 and newIdx < m.items.Count() then it = m.items[newIdx]
+    if it <> invalid and it.kind = "live"
+        if m.mode <> "livePreview"
+            enterLivePreview()
+        end if
+        m.liveZapTimer.control = "stop"
+        m.liveZapTimer.control = "start"
+    else
+        if m.mode = "livePreview" then exitLivePreview()
+    end if
+end sub
+
+sub enterLivePreview()
+    m.mode = "livePreview"
+    m.wallpaper.visible = false
+    m.bgVideo.visible = true
+    if m.livePlayingIndex < 0
+        m.liveChIndex = 0
+        playLiveChannel(0)
+    end if
+    refreshFocus()
+end sub
+
+sub exitLivePreview()
+    m.mode = "row"
+    stopLiveVideo()
+    m.wallpaper.visible = true
+    m.bgVideo.visible = false
+    m.liveStatus.visible = false
+    refreshFocus()
+end sub
+
+sub onLiveZapTimer()
+    playLiveChannel(m.liveChIndex)
+end sub
+
+sub playLiveChannel(i as Integer)
+    if m.liveChannels.Count() = 0 then return
+    if i < 0 or i >= m.liveChannels.Count() then i = 0
+    m.liveChIndex = i
+    ch = m.liveChannels[i]
+    m.livePlayingIndex = i
+
+    c = CreateObject("roSGNode", "ContentNode")
+    c.url = To_Str(ch.url)
+    c.title = To_Str(ch.title)
+    c.streamFormat = "hls"
+    c.live = true
+    m.bgVideo.control = "stop"
+    m.bgVideo.content = c
+    m.bgVideo.control = "play"
+
+    num = Pad2(i + 1)
+    m.liveOsdName.text = num + "   " + To_Str(ch.title)
+    m.liveOsdInfo.text = To_Str(ch.info)
+    m.liveStatus.text = "Carregando " + To_Str(ch.title) + "..."
+    m.liveStatus.visible = true
+end sub
+
+sub stopLiveVideo()
+    m.bgVideo.control = "stop"
+    m.livePlayingIndex = -1
+end sub
+
+sub onBgVideoState()
+    s = m.bgVideo.state
+    if s = "playing"
+        m.liveStatus.visible = false
+    else if s = "buffering"
+        m.liveStatus.text = "Carregando..."
+        m.liveStatus.visible = true
+    else if s = "error"
+        m.liveStatus.text = "Canal indisponível"
+        m.liveStatus.visible = true
+    end if
+end sub
+
+sub enterLiveFullscreen()
+    m.mode = "liveFullscreen"
+    showMenuBar(false)
+    showLiveOsd()
+    m.top.setFocus(true)
+end sub
+
+sub exitLiveFullscreen()
+    m.mode = "livePreview"
+    showMenuBar(true)
+    hideLiveOsd()
+    m.top.setFocus(true)
+    refreshFocus()
+end sub
+
+sub showMenuBar(show as Boolean)
+    m.track.visible = show
+    m.shade.visible = show
+    m.menuBand.visible = show
+    m.title.visible = show
+    m.hint.visible = show
+    m.clock.visible = show
+    m.date.visible = show
+    m.top.findNode("gear").visible = show
+end sub
+
+sub showLiveOsd()
+    m.liveOsd.visible = true
+    m.liveOsdTimer.control = "stop"
+    m.liveOsdTimer.control = "start"
+end sub
+
+sub hideLiveOsd()
+    m.liveOsd.visible = false
+end sub
+
+sub liveZap(delta as Integer)
+    n = m.liveChannels.Count()
+    if n = 0 then return
+    i = (m.liveChIndex + delta + n) mod n
+    playLiveChannel(i)
+    if m.mode = "liveFullscreen" then showLiveOsd()
 end sub
 
 ' ---------- Actions ----------
 
 sub activate()
     if m.idx = -1
-        ' No public API opens the settings screen itself; Home lands next to it.
         pressKey("Home")
         return
     end if
     it = m.items[m.idx]
-    if it.kind = "launch"
+    if it.kind = "live"
+        enterLiveFullscreen()
+    else if it.kind = "launch"
         launch(it.appId, it.title)
     else if it.kind = "tvlivre"
         m.top.navigate = { to: "tvlivre" }
@@ -499,6 +657,50 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
     end if
     if not press then return false
 
+    ' --- Fullscreen live mode ---
+    if m.mode = "liveFullscreen"
+        if key = "back"
+            exitLiveFullscreen()
+        else if key = "OK"
+            stopLiveVideo()
+            exitLiveFullscreen()
+            exitLivePreview()
+            m.top.navigate = { to: "liveGrid", channels: m.liveChannels, epgUrl: To_Str(m.catalogConfig.epgUrl) }
+        else if key = "up" or key = "channelUp"
+            liveZap(-1)
+        else if key = "down" or key = "channelDown"
+            liveZap(1)
+        else if key = "info"
+            showLiveOsd()
+        end if
+        return true
+    end if
+
+    ' --- Live preview (video playing, menu still visible) ---
+    if m.mode = "livePreview"
+        if key = "up" or key = "OK"
+            if key = "OK"
+                m.okDown = false
+                m.holdTimer.control = "stop"
+            end if
+            enterLiveFullscreen()
+            return true
+        else if key = "left"
+            if m.idx > -1 then setIndex(m.idx - 1, true)
+            return true
+        else if key = "right"
+            if m.idx < m.items.Count() - 1 then setIndex(m.idx + 1, true)
+            return true
+        else if key = "back"
+            exitLivePreview()
+            return true
+        else if key = "options"
+            openMenu()
+            return true
+        end if
+        return false
+    end if
+
     if m.mode = "menu"
         if key = "up" and m.menuIdx > 0
             m.menuIdx--
@@ -565,7 +767,6 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
     return false
 end function
 
-' Back on the carousel itself: leaving closes the app and shows the Roku home screen.
 sub confirmExit()
     m.exitDlg = CreateObject("roSGNode", "StandardMessageDialog")
     m.exitDlg.title = "Sair do TV Livre"

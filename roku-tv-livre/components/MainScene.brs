@@ -47,6 +47,12 @@ sub onNavigate(ev as Object)
         v.canGoBack = true
         v.config = Cfg_Load()
         pushView(v)
+    else if target = "liveGrid"
+        v = CreateObject("roSGNode", "LiveTab")
+        v.channels = nav.channels
+        v.epgUrl = To_Str(nav.epgUrl)
+        v.active = true
+        pushView(v)
     else if target = "catalog"
         v = CreateObject("roSGNode", "CatalogView")
         v.section = nav.section
