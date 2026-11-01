@@ -14,6 +14,9 @@ sub init()
     m.buttons = m.top.findNode("buttons")
     m.hintLbl = m.top.findNode("hintLbl")
     m.epInfoLbl = m.top.findNode("epInfoLbl")
+    m.actionRow = m.top.findNode("actionRow")
+    m.actionBg = [m.top.findNode("actionBg0"), m.top.findNode("actionBg1")]
+    m.actionLbl = [m.top.findNode("actionLbl0"), m.top.findNode("actionLbl1")]
     m.btnBg = []
     m.btnIcon = []
     for i = 0 to 2
@@ -25,6 +28,8 @@ sub init()
     m.seekTicks = 0
     m.panel = false
     m.btn = 1
+    m.panelRow = 0
+    m.actionBtn = 0
 end sub
 
 sub onActive()
@@ -80,30 +85,65 @@ end sub
 
 ' ---------- Media panel (Up) ----------
 
-' Panel keys; returns false for keys it leaves to the default handling (Play, Rew, FF).
 function panelKey(key as String, press as Boolean) as Boolean
-    if key = "up" then return true
-    if key = "down" or key = "back"
+    if key = "up"
+        if press and m.panelRow = 1
+            m.panelRow = 0
+            updateActionHighlight()
+            updateButtons(m.top.video.state = "paused")
+        end if
+        return true
+    end if
+    if key = "back"
         if press then closePanel()
+        return true
+    end if
+    if key = "down"
+        if press
+            if m.panelRow = 0 and m.top.showEpisodeActions
+                m.panelRow = 1
+                updateActionHighlight()
+                unhighlightButtons()
+            else
+                closePanel()
+            end if
+        end if
         return true
     end if
     if key = "left" or key = "right"
         if press and m.seekDir = 0
-            if key = "left" and m.btn > 0 then m.btn--
-            if key = "right" and m.btn < 2 then m.btn++
-            updateButtons(m.top.video.state = "paused")
+            if m.panelRow = 0
+                if key = "left" and m.btn > 0 then m.btn--
+                if key = "right" and m.btn < 2 then m.btn++
+                updateButtons(m.top.video.state = "paused")
+            else
+                if key = "left" and m.actionBtn > 0 then m.actionBtn--
+                if key = "right" and m.actionBtn < 1 then m.actionBtn++
+                updateActionHighlight()
+            end if
             m.panelTimer.control = "start"
         end if
         return true
     end if
     if key = "OK"
-        if m.btn = 1
-            if press then togglePause()
-        else if not m.top.live
+        if m.panelRow = 1
             if press
-                startSeek(m.btn - 1)
-            else
-                endSeek()
+                if m.actionBtn = 0
+                    m.top.onNextEpisode = true
+                else
+                    m.top.onRestartEpisode = true
+                end if
+                closePanel()
+            end if
+        else
+            if m.btn = 1
+                if press then togglePause()
+            else if not m.top.live
+                if press
+                    startSeek(m.btn - 1)
+                else
+                    endSeek()
+                end if
             end if
         end if
         m.panelTimer.control = "start"
@@ -115,13 +155,19 @@ end function
 sub openPanel()
     m.panel = true
     m.btn = 1
+    m.panelRow = 0
+    m.actionBtn = 0
     m.hideTimer.control = "stop"
-    m.bg.translation = [0, 740]
-    m.bg.height = 340
+    m.bg.translation = [0, 700]
+    m.bg.height = 380
     m.stateLbl.visible = false
     m.hintLbl.visible = false
     m.buttons.visible = true
-    m.epInfoLbl.translation = [80, 760]
+    m.epInfoLbl.translation = [80, 720]
+    if m.top.showEpisodeActions
+        m.actionRow.visible = true
+        updateActionHighlight()
+    end if
     paused = m.top.video.state = "paused"
     updateButtons(paused)
     showOsd(Int(m.top.video.position), "")
@@ -130,8 +176,10 @@ end sub
 
 sub closePanel()
     m.panel = false
+    m.panelRow = 0
     m.panelTimer.control = "stop"
     m.buttons.visible = false
+    m.actionRow.visible = false
     m.bg.translation = [0, 860]
     m.bg.height = 220
     m.stateLbl.visible = true
@@ -144,12 +192,10 @@ sub closePanel()
     end if
 end sub
 
-' Closes after a few idle seconds while playing; stays open while paused.
 sub onPanelIdle()
     if m.seekDir = 0 and m.top.video.state <> "paused" then closePanel()
 end sub
 
-' Focused button: solid white circle with a black icon.
 sub updateButtons(paused as Boolean)
     if paused
         m.btnIcon[1].uri = "pkg:/images/media_play.png"
@@ -157,12 +203,31 @@ sub updateButtons(paused as Boolean)
         m.btnIcon[1].uri = "pkg:/images/media_pause.png"
     end if
     for i = 0 to 2
-        if i = m.btn
+        if i = m.btn and m.panelRow = 0
             m.btnBg[i].opacity = 1
             m.btnIcon[i].blendColor = "0x000000FF"
         else
             m.btnBg[i].opacity = 0.25
             m.btnIcon[i].blendColor = "0xFFFFFFFF"
+        end if
+    end for
+end sub
+
+sub unhighlightButtons()
+    for i = 0 to 2
+        m.btnBg[i].opacity = 0.25
+        m.btnIcon[i].blendColor = "0xFFFFFFFF"
+    end for
+end sub
+
+sub updateActionHighlight()
+    for i = 0 to 1
+        if i = m.actionBtn and m.panelRow = 1
+            m.actionBg[i].opacity = 1
+            m.actionLbl[i].color = "0xFFFFFFFF"
+        else
+            m.actionBg[i].opacity = 0.3
+            m.actionLbl[i].color = "0xC8D0DCFF"
         end if
     end for
 end sub
@@ -179,7 +244,6 @@ sub startSeek(dir as Integer)
     m.seekTimer.control = "start"
 end sub
 
-' Every 0.25 s while held: 10 s steps, then 30 s after ~2 s, 60 s after ~5 s.
 sub onSeekTick()
     m.seekTicks++
     stepSecs = 10
@@ -198,7 +262,6 @@ sub moveSeek(stepSecs as Integer)
     showOsd(m.seekPos, label)
 end sub
 
-' The video jumps once, on release, so the stream is not re-buffered at every step.
 sub endSeek()
     m.seekTimer.control = "stop"
     if m.seekDir = 0 then return

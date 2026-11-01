@@ -42,6 +42,8 @@ sub init()
     m.episodes.observeField("rowItemSelected", "onEpisodeSelected")
     m.video.observeField("state", "onVideoState")
     m.video.observeField("position", "onPosition")
+    m.controls.observeField("onNextEpisode", "onCtrlNextEpisode")
+    m.controls.observeField("onRestartEpisode", "onCtrlRestart")
     m.top.observeField("focusedChild", "onFocusChange")
     m.top.observeField("closing", "onClosing")
 end sub
@@ -197,15 +199,12 @@ end sub
 
 sub onEpisodeSelected()
     idx = m.episodes.rowItemSelected[1]
-    ' The episode already in the preview (e.g. the resumed one) goes full screen
-    ' without restarting.
     if idx = m.currentEp and m.video.state <> "stopped" and m.video.state <> "finished"
         saveResume(Int(m.video.position))
+        enterFullscreen()
     else
         playEpisode(idx, 0)
-        saveResume(0)
     end if
-    enterFullscreen()
 end sub
 
 sub playEpisode(idx as Integer, startAt as Integer)
@@ -224,6 +223,7 @@ sub playEpisode(idx as Integer, startAt as Integer)
     m.videoStatus.visible = true
     epInfo = To_Str(m.top.item.title) + "  |  " + To_Str(m.seasonData[m.currentSeason].title) + " - EP " + (idx + 1).ToStr()
     m.controls.episodeInfo = epInfo
+    m.controls.showEpisodeActions = true
     c = CreateObject("roSGNode", "ContentNode")
     c.url = url
     c.title = To_Str(m.top.item.title) + " - EP " + (idx + 1).ToStr()
@@ -372,6 +372,26 @@ sub cancelNext()
     saveResume(0)
     m.episodes.jumpToRowItem = [0, idx]
     exitFullscreen()
+end sub
+
+' ---------- Controls callbacks ----------
+
+sub onCtrlNextEpisode()
+    eps = m.seasonData[m.currentSeason].episodes
+    if eps = invalid then eps = []
+    nextIdx = m.currentEp + 1
+    if nextIdx < eps.Count()
+        playEpisode(nextIdx, 0)
+        saveResume(0)
+        m.episodes.jumpToRowItem = [0, nextIdx]
+    end if
+end sub
+
+sub onCtrlRestart()
+    if m.currentEp >= 0
+        playEpisode(m.currentEp, 0)
+        saveResume(0)
+    end if
 end sub
 
 ' ---------- Keys ----------

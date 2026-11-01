@@ -14,6 +14,10 @@
     <field id="active" type="boolean" onChange="onActive"/>
     <!-- Episode info shown on the OSD (e.g. "Big Bang - T2 EP5") -->
     <field id="episodeInfo" type="string" value=""/>
+    <!-- Series episode actions (panel buttons) -->
+    <field id="showEpisodeActions" type="boolean" value="false"/>
+    <field id="onNextEpisode" type="boolean" alwaysNotify="true"/>
+    <field id="onRestartEpisode" type="boolean" alwaysNotify="true"/>
   </interface>
   <script type="text/brightscript" uri="pkg:/components/utils.brs"/>
   <script type="text/brightscript" uri="pkg:/components/items/PlayerControls.brs"/>
@@ -27,6 +31,17 @@
         <Poster id="btnIcon0" uri="pkg:/images/media_rew.png" translation="[784,816]" width="64" height="64"/>
         <Poster id="btnIcon1" uri="pkg:/images/media_pause.png" translation="[928,816]" width="64" height="64"/>
         <Poster id="btnIcon2" uri="pkg:/images/media_ff.png" translation="[1072,816]" width="64" height="64"/>
+      </Group>
+      <!-- Episode action labels (next / restart) -->
+      <Group id="actionRow" visible="false" translation="[0,900]">
+        <Rectangle id="actionBg0" translation="[560,0]" width="420" height="50" color="0x9B5DE5FF" cornerRadius="8" opacity="0.3"/>
+        <Label id="actionLbl0" translation="[560,8]" width="420" horizAlign="center" text="PRÓXIMO EPISÓDIO" color="0xFFFFFFFF">
+          <Font role="font" uri="font:BoldSystemFontFile" size="24"/>
+        </Label>
+        <Rectangle id="actionBg1" translation="[1000,0]" width="360" height="50" color="0x9B5DE5FF" cornerRadius="8" opacity="0.3"/>
+        <Label id="actionLbl1" translation="[1000,8]" width="360" horizAlign="center" text="VOLTAR AO INÍCIO" color="0xFFFFFFFF">
+          <Font role="font" uri="font:BoldSystemFontFile" size="24"/>
+        </Label>
       </Group>
       <Label id="epInfoLbl" translation="[80,830]" width="1760" color="0xC8D0DCFF" visible="false">
         <Font role="font" uri="font:SystemFontFile" size="26"/>
