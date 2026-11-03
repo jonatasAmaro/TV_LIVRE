@@ -374,22 +374,72 @@ sub refreshFocus()
     refreshText()
 end sub
 
+sub setHint(parts as Object)
+    m.hint.removeChildrenIndex(m.hint.getChildCount(), 0)
+    x = 0
+    bH = 28
+    for each p in parts
+        if p.badge
+            bW = Len(p.text) * 11 + 18
+            r1 = CreateObject("roSGNode", "Rectangle")
+            r1.translation = [x, 0]
+            r1.width = bW
+            r1.height = bH
+            r1.color = "0xFFFFFF40"
+            m.hint.appendChild(r1)
+            r2 = CreateObject("roSGNode", "Rectangle")
+            r2.translation = [x + 1, 1]
+            r2.width = bW - 2
+            r2.height = bH - 2
+            r2.color = "0x222233FF"
+            m.hint.appendChild(r2)
+            lbl = CreateObject("roSGNode", "Label")
+            lbl.translation = [x, 3]
+            lbl.width = bW
+            lbl.height = bH - 4
+            lbl.horizAlign = "center"
+            lbl.color = "0xFFFFFFFF"
+            f = CreateObject("roSGNode", "Font")
+            f.uri = "font:BoldSystemFontFile"
+            f.size = 16
+            lbl.font = f
+            lbl.text = p.text
+            m.hint.appendChild(lbl)
+            x = x + bW + 4
+        else
+            lbl = CreateObject("roSGNode", "Label")
+            lbl.translation = [x, 3]
+            lbl.color = "0x9AA4B2FF"
+            f = CreateObject("roSGNode", "Font")
+            f.uri = "font:SystemFontFile"
+            f.size = 20
+            lbl.font = f
+            lbl.text = p.text
+            tW = Len(p.text) * 10
+            lbl.width = tW
+            m.hint.appendChild(lbl)
+            x = x + tW
+        end if
+    end for
+    m.hint.translation = [1840 - x, 766]
+end sub
+
 sub refreshText()
     m.moveHint.visible = false
     if m.mode = "inputs"
         m.title.text = "Conexões"
-        m.hint.text = "OK abre a entrada   |   Voltar fecha"
+        setHint([{ text: "OK", badge: true }, { text: " abre a entrada   |   ", badge: false }, { text: "Voltar", badge: true }, { text: " fecha", badge: false }])
         return
     end if
     if m.idx = -1
         m.title.text = "Configurações da TV"
-        m.hint.text = "OK abre a tela inicial da Roku"
+        setHint([{ text: "OK", badge: true }, { text: "  abre a tela inicial da Roku", badge: false }])
         return
     end if
     if m.idx >= m.items.Count() then return
     m.title.text = m.items[m.idx].title
     if m.mode = "move"
-        m.hint.text = "Esquerda/Direita muda a posição   |   OK conclui"
+        setHint([{ text: "Esq", badge: true }, { text: "/", badge: false }, { text: "Dir", badge: true }, { text: " muda a posição   |   ", badge: false }, { text: "OK", badge: true }, { text: " conclui", badge: false }])
         x = m.trackX - m.offset + m.idx * m.step
         y = m.trackY - 34 + (m.cardH - 48) / 2
         m.arrowLeft.translation = [x - 74, y]
@@ -398,17 +448,17 @@ sub refreshText()
         m.arrowRight.visible = m.idx < m.items.Count() - 1
         m.moveHint.visible = true
     else if m.mode = "livePreview"
-        m.hint.text = "OK ou Cima: tela cheia   |   CH+/CH-: trocar canal"
+        setHint([{ text: "OK", badge: true }, { text: " ou ", badge: false }, { text: "Cima", badge: true }, { text: "  tela cheia   |   ", badge: false }, { text: "Esq", badge: true }, { text: "/", badge: false }, { text: "Dir", badge: true }, { text: "  trocar canal", badge: false }])
     else if m.mode = "seriesPreview"
-        m.hint.text = "OK: abrir séries"
+        setHint([{ text: "OK", badge: true }, { text: "  abrir séries", badge: false }])
     else if m.mode = "animePreview"
-        m.hint.text = "OK: abrir animes"
+        setHint([{ text: "OK", badge: true }, { text: "  abrir animes", badge: false }])
     else if m.mode = "moviesPreview"
-        m.hint.text = "OK: abrir filmes"
+        setHint([{ text: "OK", badge: true }, { text: "  abrir filmes", badge: false }])
     else if m.mode = "live24Preview"
-        m.hint.text = "OK: abrir canais 24 hs"
+        setHint([{ text: "OK", badge: true }, { text: "  abrir canais 24 hs", badge: false }])
     else
-        m.hint.text = "Segure OK para mover ou ocultar"
+        setHint([{ text: "Segure ", badge: false }, { text: "OK", badge: true }, { text: "  para mover ou ocultar", badge: false }])
     end if
 end sub
 

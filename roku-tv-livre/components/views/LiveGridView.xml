@@ -99,9 +99,16 @@
       <Label id="infoBarEpg" translation="[80,1004]" width="800" color="0x4ADE80FF">
         <Font role="font" uri="font:SystemFontFile" size="22"/>
       </Label>
-      <Label id="infoBarHint" text="OK  ▸  Abrir lista de canais" translation="[960,972]" width="880" horizAlign="right" color="0x9AA4B2FF">
-        <Font role="font" uri="font:SystemFontFile" size="22"/>
-      </Label>
+      <Group id="infoBarHint" translation="[1440,966]">
+        <Rectangle width="50" height="32" color="0xFFFFFF40"/>
+        <Rectangle translation="[1,1]" width="48" height="30" color="0x222233FF"/>
+        <Label translation="[1,4]" width="48" height="26" text="OK" horizAlign="center" color="0xFFFFFFFF">
+          <Font role="font" uri="font:BoldSystemFontFile" size="18"/>
+        </Label>
+        <Label translation="[62,5]" width="350" text=">  Abrir lista de canais" color="0x9AA4B2FF">
+          <Font role="font" uri="font:SystemFontFile" size="20"/>
+        </Label>
+      </Group>
     </Group>
 
     <Timer id="zapTimer" duration="0.7"/>

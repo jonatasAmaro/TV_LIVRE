@@ -90,10 +90,7 @@
     <Label id="title" translation="[96,760]" width="1100" color="0xFFFFFFFF">
       <Font role="font" uri="font:BoldSystemFontFile" size="34"/>
     </Label>
-    <Label id="hint" translation="[1120,766]" width="720" horizAlign="right" color="0x9AA4B2FF"
-        text="Segure OK para mover ou ocultar">
-      <Font role="font" uri="font:SystemFontFile" size="24"/>
-    </Label>
+    <Group id="hint" translation="[1120,766]"/>
 
     <!-- Gear: opens the Roku home screen, where the TV settings are. -->
     <Group id="gear" translation="[96,880]">
@@ -143,9 +140,16 @@
       <Label id="liveInfoEpg" translation="[80,1004]" width="800" color="0x9AA4B2FF">
         <Font role="font" uri="font:SystemFontFile" size="22"/>
       </Label>
-      <Label id="liveInfoHint" text="OK  ▸  Abrir grid de canais" translation="[960,972]" width="880" horizAlign="right" color="0x9AA4B2FF">
-        <Font role="font" uri="font:SystemFontFile" size="22"/>
-      </Label>
+      <Group id="liveInfoHint" translation="[1440,966]">
+        <Rectangle width="50" height="32" color="0xFFFFFF40"/>
+        <Rectangle translation="[1,1]" width="48" height="30" color="0x222233FF"/>
+        <Label translation="[1,4]" width="48" height="26" text="OK" horizAlign="center" color="0xFFFFFFFF">
+          <Font role="font" uri="font:BoldSystemFontFile" size="18"/>
+        </Label>
+        <Label translation="[62,5]" width="350" text=">  Abrir grid de canais" color="0x9AA4B2FF">
+          <Font role="font" uri="font:SystemFontFile" size="20"/>
+        </Label>
+      </Group>
     </Group>
 
     <Timer id="liveZapTimer" duration="0.8"/>
