@@ -43,16 +43,25 @@ sub init()
     m.skipTarget = 0
     m.skipVisible = false
     m.skipVideoObs = false
+
+    ' Playback speed
+    m.speeds = [0.5, 0.75, 1.0, 1.25, 1.5, 2.0]
+    m.speedIdx = 2
+    m.speedLbl = m.top.findNode("speedLbl")
 end sub
 
 sub onActive()
-    if m.top.active then return
+    if m.top.active
+        resetSpeed()
+        return
+    end if
     m.seekTimer.control = "stop"
     m.hideTimer.control = "stop"
     m.seekDir = 0
     if m.panel then closePanel()
     m.osd.visible = false
     hideSkip()
+    resetSpeed()
 end sub
 
 function onKeyEvent(key as String, press as Boolean) as Boolean
@@ -78,6 +87,11 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
     ' * key (options) toggles subtitles
     if key = "options" and press
         toggleSubtitle()
+        return true
+    end if
+    ' replay key cycles playback speed
+    if key = "replay" and press
+        cycleSpeed()
         return true
     end if
     dir = 0
@@ -429,4 +443,30 @@ sub doSkip()
         hideSkip()
         showSubToast("Pulou!")
     end if
+end sub
+
+' ---------- Playback speed ----------
+
+sub cycleSpeed()
+    m.speedIdx++
+    if m.speedIdx >= m.speeds.Count() then m.speedIdx = 0
+    spd = m.speeds[m.speedIdx]
+    v = m.top.video
+    if v <> invalid then v.playbackSpeed = spd
+    if spd = 1.0
+        showSubToast("Velocidade: Normal")
+        m.speedLbl.visible = false
+    else
+        label = spd.ToStr() + "x"
+        showSubToast("Velocidade: " + label)
+        m.speedLbl.text = label
+        m.speedLbl.visible = true
+    end if
+end sub
+
+sub resetSpeed()
+    m.speedIdx = 2
+    v = m.top.video
+    if v <> invalid then v.playbackSpeed = 1.0
+    m.speedLbl.visible = false
 end sub
