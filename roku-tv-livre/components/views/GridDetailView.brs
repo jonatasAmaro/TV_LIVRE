@@ -62,6 +62,13 @@ sub init()
     m.cinemetaEps = {}
     m.metaLbl = m.top.findNode("metaLbl")
     m.shuffleRing = m.top.findNode("shuffleRing")
+
+    ' Still watching
+    m.autoPlayCount = 0
+    m.stillBox = m.top.findNode("stillBox")
+    m.stillTimer = m.top.findNode("stillTimer")
+    m.stillTimer.observeField("fire", "onStillTimeout")
+    m.stillIdx = -1
 end sub
 
 sub onFocusChange()
@@ -231,6 +238,7 @@ end sub
 
 sub onEpisodeSelected()
     idx = m.episodes.rowItemSelected[1]
+    m.autoPlayCount = 0
     if idx = m.currentEp and m.video.state <> "stopped" and m.video.state <> "finished"
         saveResume(Int(m.video.position))
         enterFullscreen()
@@ -318,7 +326,11 @@ sub onVideoState()
         if eps = invalid then eps = []
         nextIdx = m.currentEp + 1
         if nextIdx < eps.Count()
-            startNextCountdown(nextIdx)
+            if m.autoPlayCount >= 3
+                showStillWatching(nextIdx)
+            else
+                startNextCountdown(nextIdx)
+            end if
         else
             m.video.control = "stop"
             exitFullscreen()
@@ -351,6 +363,7 @@ end sub
 sub shuffleEpisode()
     eps = m.seasonData[m.currentSeason].episodes
     if eps = invalid or eps.Count() = 0 then return
+    m.autoPlayCount = 0
     idx = Rnd(eps.Count()) - 1
     playEpisode(idx, 0)
     m.episodes.jumpToRowItem = [0, idx]
@@ -507,11 +520,44 @@ end sub
 sub playNext()
     idx = m.nextIdx
     stopNextCountdown()
+    m.autoPlayCount++
     playEpisode(idx, 0)
     saveResume(0)
     m.episodes.jumpToRowItem = [0, idx]
     m.controls.active = true
     m.controls.setFocus(true)
+end sub
+
+' ---------- Still watching ----------
+
+sub showStillWatching(idx as Integer)
+    m.stillIdx = idx
+    m.controls.active = false
+    m.stillBox.visible = true
+    m.keySink.setFocus(true)
+    m.stillTimer.control = "start"
+end sub
+
+sub confirmStillWatching()
+    m.stillTimer.control = "stop"
+    m.stillBox.visible = false
+    idx = m.stillIdx
+    m.stillIdx = -1
+    m.autoPlayCount = 0
+    startNextCountdown(idx)
+end sub
+
+sub dismissStillWatching()
+    m.stillTimer.control = "stop"
+    m.stillBox.visible = false
+    m.stillIdx = -1
+    m.autoPlayCount = 0
+    m.video.control = "stop"
+    exitFullscreen()
+end sub
+
+sub onStillTimeout()
+    dismissStillWatching()
 end sub
 
 ' Back on the countdown: leave full screen, the next episode is where the series resumes.
@@ -527,6 +573,7 @@ end sub
 ' ---------- Controls callbacks ----------
 
 sub onCtrlNextEpisode()
+    m.autoPlayCount = 0
     eps = m.seasonData[m.currentSeason].episodes
     if eps = invalid then eps = []
     nextIdx = m.currentEp + 1
@@ -538,6 +585,7 @@ sub onCtrlNextEpisode()
 end sub
 
 sub onCtrlRestart()
+    m.autoPlayCount = 0
     if m.currentEp >= 0
         playEpisode(m.currentEp, 0)
         saveResume(0)
@@ -554,6 +602,14 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
     if not press then return false
 
     if m.fullscreen
+        if m.stillIdx >= 0
+            if key = "OK"
+                confirmStillWatching()
+            else if key = "back"
+                dismissStillWatching()
+            end if
+            return true
+        end if
         if m.nextIdx >= 0
             if key = "OK" or key = "play"
                 playNext()
