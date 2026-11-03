@@ -1,11 +1,9 @@
-' Home = header + tab bar. Each catalog section is a tab whose screen is created on
-' first visit and kept alive. Focus is either on the tab bar (this node) or inside
-' the current tab; Up/Back from a tab returns to the bar.
+' Home = thin top bar + hero background + tab content in lower half.
+' Each tab view can set heroData on its navigate field to update the hero.
 sub init()
     m.tabsGroup = m.top.findNode("tabs")
     m.content = m.top.findNode("content")
     m.clock = m.top.findNode("clock")
-    m.date = m.top.findNode("date")
     m.tabTimer = m.top.findNode("tabTimer")
     m.tabTimer.observeField("fire", "onTabTimer")
     m.sections = []
@@ -18,6 +16,16 @@ sub init()
     m.inCW = false
     m.animeTask = invalid
     m.animeEntries = invalid
+
+    ' Hero
+    m.heroBg = m.top.findNode("heroBg")
+    m.heroTitle = m.top.findNode("heroTitle")
+    m.heroMeta = m.top.findNode("heroMeta")
+    m.heroDesc = m.top.findNode("heroDesc")
+
+    ' Gear
+    m.gearSel = m.top.findNode("gearSel")
+    m.gearIcon = m.top.findNode("gearIcon")
 
     ' Continue Watching row
     m.cwGroup = m.top.findNode("cwGroup")
@@ -42,7 +50,6 @@ sub onConfig()
     m.sections = cfg.sections
     m.epgUrl = To_Str(cfg.epgUrl)
     buildTabs()
-    buildGear()
     refreshContinueWatching()
     showTab(0)
     focusContent()
@@ -54,7 +61,7 @@ sub onConfig()
     checkUpdate(To_Str(cfg.versionUrl))
 end sub
 
-' ---------- Tab bar ----------
+' ---------- Tab bar (centered, clean text style) ----------
 
 function tabLabel(s as Object) as String
     t = To_Str(s.tab)
@@ -63,77 +70,101 @@ function tabLabel(s as Object) as String
 end function
 
 sub buildTabs()
-    x = 0
+    ' First pass: compute total width to center
+    labels = []
+    totalW = 0
     for each s in m.sections
-        x = addTextTab(s, x)
+        lbl = tabLabel(s)
+        labels.Push(lbl)
+        totalW = totalW + lbl.Len() * 16 + 60
     end for
+    ' Build tabs
+    x = 0
+    for i = 0 to m.sections.Count() - 1
+        g = m.tabsGroup.createChild("Group")
+        g.translation = [x, 0]
+        ' Underline (active indicator)
+        underline = g.createChild("Rectangle")
+        underline.color = "0x9B5DE5FF"
+        underline.height = 3
+        underline.translation = [12, 42]
+        underline.visible = false
+        ' Label
+        lbl = g.createChild("Label")
+        font = CreateObject("roSGNode", "Font")
+        font.uri = "font:BoldSystemFontFile"
+        font.size = 26
+        lbl.font = font
+        lbl.color = "0x9AA4B2FF"
+        lbl.text = labels[i]
+        lbl.translation = [12, 8]
+        w = lbl.boundingRect().width + 24
+        underline.width = w
+        ' Badge (anime new episodes)
+        badgeBg = g.createChild("Rectangle")
+        badgeBg.color = "0xFF006EFF"
+        badgeBg.height = 22
+        badgeBg.translation = [w, 0]
+        badgeBg.visible = false
+        badgeBg.cornerRadius = 11
+        badge = g.createChild("Label")
+        bfont = CreateObject("roSGNode", "Font")
+        bfont.uri = "font:BoldSystemFontFile"
+        bfont.size = 16
+        badge.font = bfont
+        badge.color = "0xFFFFFFFF"
+        badge.height = 22
+        badge.horizAlign = "center"
+        badge.vertAlign = "center"
+        badge.translation = [w, 0]
+        badge.visible = false
+        m.tabNodes.Push({ underline: underline, label: lbl, badge: badge, badgeBg: badgeBg })
+        x = x + w + 30
+    end for
+    ' Add settings text tab at end
+    g = m.tabsGroup.createChild("Group")
+    g.translation = [x, 0]
+    settingsLbl = g.createChild("Label")
+    sf = CreateObject("roSGNode", "Font")
+    sf.uri = "font:SystemFontFile"
+    sf.size = 24
+    settingsLbl.font = sf
+    settingsLbl.color = "0x9AA4B2FF"
+    settingsLbl.text = "Configurações"
+    settingsLbl.translation = [12, 10]
+    m.settingsLbl = settingsLbl
     refreshTabs()
 end sub
 
-' Adds one text tab at x and returns the x of the next tab.
-function addTextTab(s as Object, x as Integer) as Integer
-    g = m.tabsGroup.createChild("Group")
-    g.translation = [x, 0]
-    ' Selection box: same translucent block style as the channel list.
-    sel = g.createChild("Rectangle")
-    sel.color = "0x9B5DE5FF"
-    sel.visible = false
-    lbl = g.createChild("Label")
-    font = CreateObject("roSGNode", "Font")
-    font.uri = "font:BoldSystemFontFile"
-    font.size = 28
-    lbl.font = font
-    lbl.color = "0xC8D0DCFF"
-    lbl.text = tabLabel(s)
-    lbl.translation = [24, 12]
-    w = lbl.boundingRect().width + 48
-    sel.width = w
-    sel.height = 58
-    badgeBg = g.createChild("Rectangle")
-    badgeBg.color = "0xFF006EFF"
-    badgeBg.height = 30
-    badgeBg.translation = [w - 18, -14]
-    badgeBg.visible = false
-    badge = g.createChild("Label")
-    bfont = CreateObject("roSGNode", "Font")
-    bfont.uri = "font:BoldSystemFontFile"
-    bfont.size = 20
-    badge.font = bfont
-    badge.color = "0xFFFFFFFF"
-    badge.height = 30
-    badge.horizAlign = "center"
-    badge.vertAlign = "center"
-    badge.translation = [w - 18, -14]
-    badge.visible = false
-    m.tabNodes.Push({ sel: sel, label: lbl, badge: badge, badgeBg: badgeBg })
-    return x + w + 14
-end function
-
-' Gear in the header, last item after date and clock. Reached with Up from the tab bar.
-sub buildGear()
-    g = m.top.createChild("Group")
-    g.translation = [1782, 42]
-    m.gearSel = g.createChild("Rectangle")
-    m.gearSel.color = "0x9B5DE5FF"
-    m.gearSel.width = 58
-    m.gearSel.height = 58
-    m.gearSel.opacity = 0.85
-    m.gearSel.visible = false
-    m.gearIcon = g.createChild("Poster")
-    m.gearIcon.uri = "pkg:/images/gear.png"
-    m.gearIcon.width = 40
-    m.gearIcon.height = 40
-    m.gearIcon.translation = [9, 9]
-    m.inGear = false
+sub refreshTabs()
+    for i = 0 to m.tabNodes.Count() - 1
+        t = m.tabNodes[i]
+        selected = (i = m.tabIndex)
+        t.underline.visible = selected
+        if selected
+            t.label.color = "0xFFFFFFFF"
+        else
+            t.label.color = "0x9AA4B2FF"
+        end if
+        ' Brighter when tab bar is focused
+        if m.inTabs and not m.inGear and selected
+            t.underline.opacity = 1
+        else
+            t.underline.opacity = 0.6
+        end if
+    end for
     refreshGear()
 end sub
 
 sub refreshGear()
-    m.gearSel.visible = m.inGear
     if m.inGear
+        m.gearSel.opacity = 0.85
         m.gearIcon.blendColor = "0xFFFFFFFF"
+        m.settingsLbl.color = "0xFFFFFFFF"
     else
+        m.gearSel.opacity = 0
         m.gearIcon.blendColor = "0x9AA4B2FF"
+        m.settingsLbl.color = "0x9AA4B2FF"
     end if
 end sub
 
@@ -143,26 +174,6 @@ sub setGear(on as Boolean)
     refreshTabs()
 end sub
 
-sub refreshTabs()
-    for i = 0 to m.tabNodes.Count() - 1
-        t = m.tabNodes[i]
-        selected = (i = m.tabIndex)
-        t.sel.visible = selected
-        ' Strong while the tab bar has focus, faint while browsing the tab below.
-        if m.inTabs and not m.inGear
-            t.sel.opacity = 0.85
-        else
-            t.sel.opacity = 0.35
-        end if
-        if selected
-            t.label.color = "0xFFFFFFFF"
-        else
-            t.label.color = "0x9AA4B2FF"
-        end if
-    end for
-end sub
-
-' Left on the first tab goes to the last one and vice versa.
 function wrapTab(i as Integer) as Integer
     n = m.sections.Count()
     if n = 0 then return 0
@@ -187,7 +198,6 @@ sub showTab(i as Integer)
     if old <> invalid
         old.active = false
         old.visible = false
-        ' Leaving the anime tab marks the listed episodes as seen.
         if m.sections[m.shownIndex].kind = "anime"
             Store_Set("animeSeen", Now_Seconds())
             if m.animeEntries <> invalid then updateAnimeBadge()
@@ -203,6 +213,8 @@ sub showTab(i as Integer)
     end if
     v.visible = true
     v.active = true
+    ' Set hero for this tab
+    updateHeroForTab(i)
 end sub
 
 function createTabView(s as Object) as Object
@@ -236,14 +248,49 @@ sub onTabNavigate(ev as Object)
     nav = ev.getData()
     if nav <> invalid and nav.to = "tabs"
         focusTabs()
-
+    else if nav <> invalid and nav.hero <> invalid
+        setHero(nav.hero)
     else
         m.top.navigate = nav
     end if
 end sub
 
-' The tab bar group holds focus (keys bubble from it to onKeyEvent here).
-' Focusing this node itself would be ignored while a tab descendant has focus.
+' ---------- Hero ----------
+
+sub updateHeroForTab(i as Integer)
+    s = m.sections[i]
+    kind = To_Str(s.kind)
+    title = tabLabel(s)
+    if kind = "live"
+        m.heroTitle.text = "TV Ao Vivo"
+        m.heroMeta.text = ""
+        m.heroDesc.text = "Selecione um canal para assistir"
+        m.heroBg.uri = ""
+    else
+        m.heroTitle.text = title
+        m.heroMeta.text = ""
+        m.heroDesc.text = ""
+        m.heroBg.uri = ""
+    end if
+end sub
+
+sub setHero(data as Object)
+    if data.background <> invalid and data.background <> ""
+        m.heroBg.uri = To_Str(data.background)
+    end if
+    if data.title <> invalid
+        m.heroTitle.text = To_Str(data.title)
+    end if
+    if data.meta <> invalid
+        m.heroMeta.text = To_Str(data.meta)
+    end if
+    if data.description <> invalid
+        m.heroDesc.text = To_Str(data.description)
+    end if
+end sub
+
+' ---------- Focus ----------
+
 sub focusTabs()
     m.inTabs = true
     refreshTabs()
@@ -280,7 +327,6 @@ sub onFocusChange()
     end if
 end sub
 
-' Scene hides Home while another screen is pushed on top of it.
 sub onVisible()
     v = currentView()
     if v <> invalid then v.active = m.top.visible
@@ -393,12 +439,10 @@ sub refreshContinueWatching()
             it.shortDescriptionLine1 = "Parou em " + Fmt_Time(at)
         end if
         it.hdPosterUrl = To_Str(r.poster)
-        ' Calculate progress percentage from saved duration; estimate if unknown
         dur = To_Int(r.duration)
         if dur > 60
             pct = Int(100 * at / dur)
         else
-            ' No duration saved — rough estimate based on position
             pct = 25
             if at > 600 then pct = 35
             if at > 1800 then pct = 55
@@ -415,20 +459,11 @@ sub refreshContinueWatching()
 
     visible = items.Count() > 0
     m.cwGroup.visible = visible
-    ' Shift tab content down when CW row is visible
     if visible
-        m.cwGroup.translation = [0, 200]
-        adjustContentOffset(620)
+        m.content.translation = [0, 640]
     else
-        adjustContentOffset(200)
+        m.content.translation = [0, 440]
     end if
-end sub
-
-sub adjustContentOffset(y as Integer)
-    ' Each embedded tab view positions itself relative to the content group.
-    ' The content group doesn't move, but the tabs built inside adapt via their
-    ' own translation. We shift the content group.
-    m.content.translation = [0, y - 200]
 end sub
 
 sub onCWSelected()
@@ -445,13 +480,11 @@ sub onCWSelected()
             extra: { kind: "movie", movieId: To_Str(r.movieId), url: To_Str(r.url), summary: To_Str(r.summary) }
         }
     else if kind = "grid"
-        ' Open the series screen; it will resume at the saved position.
         item = Grid_FindItem(To_Str(r.id))
         if item <> invalid
             m.top.navigate = { to: "gridDetail", item: item }
         end if
     else
-        ' Archive item
         m.top.navigate = {
             to: "play", urls: [To_Str(r.file)], title: To_Str(r.title),
             start: To_Int(r.at), id: To_Str(r.id),
@@ -466,7 +499,6 @@ sub updateClock()
     dt = CreateObject("roDateTime")
     dt.ToLocalTime()
     m.clock.text = Pad2(dt.GetHours()) + ":" + Pad2(dt.GetMinutes())
-    m.date.text = Fmt_LongDate(dt)
 end sub
 
 ' ---------- New anime episodes (AniList) ----------
@@ -495,8 +527,8 @@ sub updateAnimeBadge()
         if m.sections[i].kind = "anime" and i < m.tabNodes.Count()
             t = m.tabNodes[i]
             t.badge.text = n.ToStr()
-            w = t.badge.boundingRect().width + 20
-            if w < 30 then w = 30
+            w = t.badge.boundingRect().width + 16
+            if w < 26 then w = 26
             t.badge.width = w
             t.badgeBg.width = w
             t.badge.visible = n > 0
@@ -505,7 +537,7 @@ sub updateAnimeBadge()
     end for
 end sub
 
-' ---------- App update check (optional, versionUrl in catalog.json) ----------
+' ---------- App update check ----------
 
 sub checkUpdate(url as String)
     if url = "" then return

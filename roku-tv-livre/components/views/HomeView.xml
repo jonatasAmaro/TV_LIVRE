@@ -2,39 +2,69 @@
 <component name="HomeView" extends="BaseView">
   <interface>
     <field id="config" type="assocarray" onChange="onConfig"/>
-    <!-- Set by MainScene when the settings screen asks for a new anime check. -->
     <field id="refreshAnime" type="boolean" alwaysNotify="true" onChange="checkAnime"/>
-    <!-- Opened from the launcher: Back on the tab bar returns there instead of asking to exit. -->
     <field id="canGoBack" type="boolean"/>
   </interface>
   <script type="text/brightscript" uri="pkg:/components/utils.brs"/>
   <script type="text/brightscript" uri="pkg:/components/views/HomeView.brs"/>
   <children>
-    <Rectangle width="1920" height="200" color="0x101626FF"/>
-    <Rectangle translation="[80,52]" width="12" height="52" color="0x9B5DE5FF"/>
-    <Label text="TV Livre" translation="[106,46]" color="0xFFFFFFFF">
-      <Font role="font" uri="font:BoldSystemFontFile" size="52"/>
-    </Label>
-    <Label id="date" translation="[960,62]" width="560" horizAlign="right" color="0x9AA4B2FF">
-      <Font role="font" uri="font:SystemFontFile" size="26"/>
-    </Label>
-    <Label id="clock" translation="[1560,48]" width="200" horizAlign="right" color="0xFFFFFFFF">
-      <Font role="font" uri="font:BoldSystemFontFile" size="46"/>
-    </Label>
-    <Group id="tabs" translation="[80,128]"/>
-    <!-- "Continuar assistindo" row, visible when there are items in progress -->
-    <Group id="cwGroup" visible="false" translation="[0,200]">
-      <Label id="cwTitle" text="▶ Continuar assistindo" translation="[80,10]" color="0xC8D0DCFF">
-        <Font role="font" uri="font:BoldSystemFontFile" size="26"/>
+    <!-- Hero background (full screen behind everything) -->
+    <Poster id="heroBg" width="1920" height="1080" loadDisplayMode="scaleToZoom"
+        loadingBitmapUri="" failedBitmapUri="" opacity="0.4"/>
+    <!-- Gradient overlay: dark at top (for menu) and at bottom (for cards) -->
+    <Rectangle width="1920" height="300" color="0x0B0F1AFF" opacity="0.8"/>
+    <Rectangle translation="[0,300]" width="1920" height="200" color="0x0B0F1AFF" opacity="0.3"/>
+    <Rectangle translation="[0,600]" width="1920" height="480" color="0x0B0F1AFF" opacity="0.85"/>
+
+    <!-- Top bar: logo + centered tabs + clock/gear -->
+    <Group id="topBar">
+      <!-- Small logo -->
+      <Rectangle translation="[60,20]" width="6" height="36" color="0x9B5DE5FF"/>
+      <Label text="TV Livre" translation="[76,14]" color="0xFFFFFFFF">
+        <Font role="font" uri="font:BoldSystemFontFile" size="32"/>
       </Label>
-      <MarkupGrid id="cwGrid" translation="[80,48]"
+      <!-- Clock (right side) -->
+      <Label id="clock" translation="[1680,16]" width="180" horizAlign="right" color="0xFFFFFFFF">
+        <Font role="font" uri="font:BoldSystemFontFile" size="30"/>
+      </Label>
+      <!-- Settings gear -->
+      <Group id="gearGroup" translation="[1860,14]">
+        <Rectangle id="gearSel" width="44" height="44" color="0x9B5DE5FF" opacity="0" cornerRadius="22"/>
+        <Poster id="gearIcon" uri="pkg:/images/gear.png" width="32" height="32" translation="[6,6]"/>
+      </Group>
+      <!-- Centered tab menu -->
+      <Group id="tabs" translation="[480,8]"/>
+    </Group>
+
+    <!-- Hero content: title, description, metadata -->
+    <Group id="heroInfo" translation="[80,200]">
+      <Label id="heroTitle" width="900" color="0xFFFFFFFF" maxLines="2">
+        <Font role="font" uri="font:BoldSystemFontFile" size="56"/>
+      </Label>
+      <Label id="heroMeta" translation="[0,130]" width="900" color="0x9AA4B2FF">
+        <Font role="font" uri="font:SystemFontFile" size="24"/>
+      </Label>
+      <Label id="heroDesc" translation="[0,168]" width="800" color="0xC8D0DCFF" maxLines="3" wrap="true">
+        <Font role="font" uri="font:SystemFontFile" size="26"/>
+      </Label>
+    </Group>
+
+    <!-- Continue watching row -->
+    <Group id="cwGroup" visible="false" translation="[0,530]">
+      <Label id="cwTitle" text="▶ Continuar assistindo" translation="[80,0]" color="0xC8D0DCFF">
+        <Font role="font" uri="font:BoldSystemFontFile" size="24"/>
+      </Label>
+      <MarkupGrid id="cwGrid" translation="[80,34]"
           itemComponentName="CWItem"
           numColumns="8" numRows="1"
           itemSize="[214,360]" itemSpacing="[10,0]"
           drawFocusFeedback="false"
           vertFocusAnimationStyle="floatingFocus"/>
     </Group>
-    <Group id="content"/>
+
+    <!-- Tab content area (lower portion) -->
+    <Group id="content" translation="[0,440]"/>
+
     <Timer id="tabTimer" duration="0.35"/>
     <Timer id="clockTimer" repeat="true" duration="20"/>
     <Timer id="animeTimer" repeat="true" duration="21600"/>

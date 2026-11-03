@@ -12,6 +12,7 @@ sub init()
     m.moviesSig = ""
 
     m.rows.observeField("rowItemSelected", "onItemSelected")
+    m.rows.observeField("rowItemFocused", "onItemFocused")
     m.top.observeField("focusedChild", "onFocusChange")
     m.top.observeField("resumed", "onResumed")
     m.top.observeField("closing", "onClosing")
@@ -319,6 +320,20 @@ sub onKbClosed()
     else
         m.top.setFocus(true)
     end if
+end sub
+
+' ---------- Hero update on focus ----------
+
+sub onItemFocused()
+    if not m.top.embedded then return
+    sel = m.rows.rowItemFocused
+    if sel = invalid or sel.Count() < 2 then return
+    rowNode = m.rows.content.getChild(sel[0])
+    if rowNode = invalid then return
+    item = rowNode.getChild(sel[1])
+    if item = invalid then return
+    hero = { title: item.title, description: To_Str(item.shortDescriptionLine1), meta: "", background: item.hdPosterUrl }
+    m.top.navigate = { to: "hero", hero: hero }
 end sub
 
 ' ---------- Selection ----------

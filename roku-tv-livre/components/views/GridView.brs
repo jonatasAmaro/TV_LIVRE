@@ -18,7 +18,9 @@ sub init()
     m.kb = invalid
 
     m.grid.observeField("itemSelected", "onItemSelected")
+    m.grid.observeField("itemFocused", "onGridItemFocused")
     m.rows.observeField("rowItemSelected", "onRowItemSelected")
+    m.rows.observeField("rowItemFocused", "onRowItemFocused")
     m.top.observeField("focusedChild", "onFocusChange")
 end sub
 
@@ -195,6 +197,32 @@ sub loadGrid()
     if m.items.Count() = 0
         m.status.text = "Nenhum item configurado."
         m.status.visible = true
+    end if
+end sub
+
+sub onGridItemFocused()
+    if not m.top.embedded then return
+    idx = m.grid.itemFocused
+    if idx < 0 or idx >= m.items.Count() then return
+    item = m.items[idx]
+    hero = { title: To_Str(item.title), description: "", meta: "", background: To_Str(item.poster) }
+    m.top.navigate = { to: "hero", hero: hero }
+end sub
+
+sub onRowItemFocused()
+    if not m.top.embedded then return
+    sel = m.rows.rowItemFocused
+    if sel = invalid or sel.Count() < 2 then return
+    idx = 0
+    for r = 0 to sel[0] - 1
+        row = m.rows.content.getChild(r)
+        idx = idx + row.getChildCount()
+    end for
+    idx = idx + sel[1]
+    if idx >= 0 and idx < m.allItems.Count()
+        item = m.allItems[idx]
+        hero = { title: To_Str(item.title), description: "", meta: "", background: To_Str(item.poster) }
+        m.top.navigate = { to: "hero", hero: hero }
     end if
 end sub
 
