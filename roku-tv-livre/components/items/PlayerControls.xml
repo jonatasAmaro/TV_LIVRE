@@ -22,6 +22,10 @@
     <field id="subtitleTracks" type="array" value="[]"/>
     <!-- Current subtitle index (-1 = off). Fires when user toggles. -->
     <field id="subtitleIndex" type="integer" value="-1" alwaysNotify="true"/>
+    <!-- AniSkip: { op: { start, end }, ed: { start, end } } -->
+    <field id="skipSegments" type="assocarray" onChange="onSkipSegments"/>
+    <!-- Fires when user presses OK on the skip button -->
+    <field id="onSkip" type="boolean" alwaysNotify="true"/>
   </interface>
   <script type="text/brightscript" uri="pkg:/components/utils.brs"/>
   <script type="text/brightscript" uri="pkg:/components/items/PlayerControls.brs"/>
@@ -70,6 +74,14 @@
           color="0xFFFFFFFF" visible="false">
         <Font role="font" uri="font:BoldSystemFontFile" size="36"/>
       </Label>
+      <!-- Skip intro/outro button (appears when AniSkip provides timestamps) -->
+      <Group id="skipBtn" visible="false" translation="[1500,740]">
+        <Rectangle width="360" height="60" color="0x9B5DE5FF" cornerRadius="8"/>
+        <Label id="skipLbl" translation="[0,10]" width="360" horizAlign="center" color="0xFFFFFFFF"
+            text="▶▶ Pular abertura">
+          <Font role="font" uri="font:BoldSystemFontFile" size="28"/>
+        </Label>
+      </Group>
     </Group>
     <Timer id="seekTimer" duration="0.25" repeat="true"/>
     <Timer id="hideTimer" duration="3"/>

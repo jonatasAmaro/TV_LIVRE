@@ -52,6 +52,10 @@ sub init()
     m.subTask = invalid
     m.subTracks = []
     m.imdb = ""
+
+    ' AniSkip
+    m.skipTask = invalid
+    m.malId = 0
 end sub
 
 sub onFocusChange()
@@ -120,6 +124,7 @@ sub onItem()
 
     refreshFav()
     m.imdb = To_Str(item.imdb)
+    m.malId = To_Int(item.malId)
 
     ' Reopen where the viewer stopped.
     season = 0
@@ -246,6 +251,13 @@ sub playEpisode(idx as Integer, startAt as Integer)
     if m.imdb <> ""
         fetchSubtitles(m.imdb, m.currentSeason + 1, idx + 1)
     end if
+
+    ' Fetch skip times for anime
+    if m.malId > 0
+        fetchSkipTimes(m.malId, idx + 1)
+    else
+        m.controls.skipSegments = {}
+    end if
 end sub
 
 ' Progress counts only while watching in full screen; the small preview does not move it.
@@ -284,6 +296,22 @@ sub onVideoState()
             exitFullscreen()
         end if
     end if
+end sub
+
+' ---------- AniSkip ----------
+
+sub fetchSkipTimes(mal as Integer, ep as Integer)
+    m.skipTask = CreateObject("roSGNode", "AniSkipTask")
+    m.skipTask.malId = mal
+    m.skipTask.episode = ep
+    m.skipTask.observeField("result", "onSkipTimesLoaded")
+    m.skipTask.control = "run"
+end sub
+
+sub onSkipTimesLoaded()
+    if m.skipTask = invalid then return
+    m.controls.skipSegments = m.skipTask.result
+    m.skipTask = invalid
 end sub
 
 sub onClosing()

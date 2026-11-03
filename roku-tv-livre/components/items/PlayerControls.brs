@@ -36,6 +36,13 @@ sub init()
     m.subToastBg = m.top.findNode("subToastBg")
     m.subToastTimer = m.top.findNode("subToastTimer")
     m.subToastTimer.observeField("fire", "onSubToastHide")
+
+    ' Skip intro/outro
+    m.skipBtn = m.top.findNode("skipBtn")
+    m.skipLbl = m.top.findNode("skipLbl")
+    m.skipTarget = 0
+    m.skipVisible = false
+    m.skipVideoObs = false
 end sub
 
 sub onActive()
@@ -45,6 +52,7 @@ sub onActive()
     m.seekDir = 0
     if m.panel then closePanel()
     m.osd.visible = false
+    hideSkip()
 end sub
 
 function onKeyEvent(key as String, press as Boolean) as Boolean
@@ -58,7 +66,13 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
         return true
     end if
     if key = "OK" or key = "play"
-        if press then togglePause()
+        if press
+            if m.skipVisible
+                doSkip()
+            else
+                togglePause()
+            end if
+        end if
         return true
     end if
     ' * key (options) toggles subtitles
@@ -354,4 +368,65 @@ end sub
 sub onSubToastHide()
     m.subToast.visible = false
     m.subToastBg.visible = false
+end sub
+
+' ---------- AniSkip ----------
+
+sub onSkipSegments()
+    m.skipBtn.visible = false
+    m.skipVisible = false
+    m.skipTarget = 0
+    v = m.top.video
+    if v <> invalid and not m.skipVideoObs
+        v.observeField("position", "onSkipPosition")
+        m.skipVideoObs = true
+    end if
+end sub
+
+sub onSkipPosition()
+    v = m.top.video
+    if v = invalid then return
+    checkSkip(Int(v.position))
+end sub
+
+sub checkSkip(pos as Integer)
+    segs = m.top.skipSegments
+    if segs = invalid
+        hideSkip()
+        return
+    end if
+    if segs.op <> invalid and pos >= segs.op.start and pos < segs.op["end"]
+        showSkip("▶▶ Pular abertura", segs.op["end"])
+        return
+    end if
+    if segs.ed <> invalid and pos >= segs.ed.start and pos < segs.ed["end"]
+        showSkip("▶▶ Pular encerramento", segs.ed["end"])
+        return
+    end if
+    hideSkip()
+end sub
+
+sub showSkip(label as String, target as Integer)
+    m.skipLbl.text = label
+    m.skipTarget = target
+    if not m.skipVisible
+        m.skipBtn.visible = true
+        m.skipVisible = true
+    end if
+end sub
+
+sub hideSkip()
+    if m.skipVisible
+        m.skipBtn.visible = false
+        m.skipVisible = false
+        m.skipTarget = 0
+    end if
+end sub
+
+sub doSkip()
+    if m.skipTarget > 0
+        m.top.video.seek = m.skipTarget
+        hideSkip()
+        showSubToast("Pulou!")
+    end if
 end sub
