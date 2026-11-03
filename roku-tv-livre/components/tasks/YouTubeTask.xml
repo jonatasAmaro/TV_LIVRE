@@ -10,6 +10,8 @@
     <field id="channels" type="array"/>
     <!-- mode "app": open another installed channel by its Roku app id -->
     <field id="appId" type="string"/>
+    <!-- mode "resolve": get HLS stream URL for in-app playback; "resolveVideo": resolve a specific videoId -->
+    <field id="searchTerm" type="string" value=""/>
     <field id="result" type="assocarray"/>
   </interface>
   <script type="text/brightscript" uri="pkg:/components/utils.brs"/>

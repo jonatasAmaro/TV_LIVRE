@@ -59,6 +59,10 @@ sub onNavigate(ev as Object)
         v = CreateObject("roSGNode", "GridView")
         v.section = nav.section
         pushView(v)
+    else if target = "youtubeGrid"
+        v = CreateObject("roSGNode", "YouTubeGridView")
+        v.channels = nav.channels
+        pushView(v)
     else if target = "moviesGrid"
         sec = nav.section
         if sec.rows <> invalid and sec.categories = invalid

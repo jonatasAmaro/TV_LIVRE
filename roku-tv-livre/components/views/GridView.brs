@@ -69,12 +69,15 @@ sub onSection()
     else if m.sectionId = "filmes"
         m.bgGradient.uri = "pkg:/images/bg_movies_gradient.png"
         m.bgGradient.visible = true
+    else if m.sectionId = "youtube"
+        m.bgGradient.uri = "pkg:/images/bg_youtube_gradient.png"
+        m.bgGradient.visible = true
     end if
 
     if m.top.embedded
         m.titleLbl.visible = false
         m.subtitle.visible = false
-    else if m.sectionId = "series_tab" or m.sectionId = "anime_tab" or m.sectionId = "filmes"
+    else if m.sectionId = "series_tab" or m.sectionId = "anime_tab" or m.sectionId = "filmes" or m.sectionId = "youtube"
         m.titleLbl.translation = [80, 36]
         m.subtitle.translation = [82, 106]
     end if

@@ -78,6 +78,19 @@
       </Group>
     </Group>
 
+    <!-- YouTube channels preview: informative display when CANAIS YOUTUBE icon is focused -->
+    <Group id="youtubePanel" visible="false">
+      <Rectangle width="1920" height="560" translation="[0,220]" color="0x000000FF" opacity="0.55"/>
+      <Group id="youtubeTextCol" translation="[96,280]">
+        <Label id="youtubeHeadline" translation="[0,0]" width="1100" color="0xFFFFFFFF" wrap="false">
+          <Font role="font" uri="font:BoldSystemFontFile" size="72"/>
+        </Label>
+        <Label id="youtubeDesc" translation="[0,90]" width="1400" color="0xC8D0DCFF" wrap="true" maxLines="6">
+          <Font role="font" uri="font:SystemFontFile" size="40"/>
+        </Label>
+      </Group>
+    </Group>
+
     <!-- Conexões: TV inputs, shown above the carousel. -->
     <Group id="inputs" visible="false">
       <Poster uri="pkg:/images/panel.9.png" translation="[60,452]" width="1800" height="290" blendColor="0x0B0F1AFF" opacity="0.82"/>

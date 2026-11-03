@@ -107,6 +107,16 @@ sub init()
     m.animeCategories = []
     m.animeBuilt = false
 
+    m.youtubePanel = m.top.findNode("youtubePanel")
+    m.youtubeHeadline = m.top.findNode("youtubeHeadline")
+    m.youtubeDesc = m.top.findNode("youtubeDesc")
+    m.youtubeSection = invalid
+    m.youtubeBuilt = false
+
+    m.previewTimer = CreateObject("roSGNode", "Timer")
+    m.previewTimer.duration = 0.2
+    m.previewTimer.observeField("fire", "onPreviewTimer")
+
     m.top.observeField("resumed", "onResumed")
 
     loadCatalog()
@@ -131,6 +141,8 @@ sub onResumed()
             enterMoviesPreview()
         else if it.kind = "live24"
             enterLive24Preview()
+        else if it.kind = "youtube"
+            enterYoutubePreview()
         end if
     end if
 end sub
@@ -163,6 +175,8 @@ sub loadCatalog()
                 if s.categories <> invalid then m.animeCategories = s.categories
             else if s.kind = "movies" and To_Str(s.id) = "filmes"
                 m.moviesSection = s
+            else if s.kind = "youtube" and To_Str(s.id) = "youtube"
+                m.youtubeSection = s
             end if
         end for
     end if
@@ -200,6 +214,7 @@ function allItems() as Object
         { key: "anime", kind: "anime", title: "Animes", appId: "", icon: "pkg:/images/card_anime.png", removable: false }
         { key: "live24", kind: "live24", title: "Canais 24 hs", appId: "", icon: "pkg:/images/card_24h.png", removable: false }
         { key: "movies", kind: "movies", title: "Filmes", appId: "", icon: "pkg:/images/card_movies.png", removable: false }
+        { key: "youtube", kind: "youtube", title: "Canais Preferidos Youtube", appId: "", icon: "pkg:/images/card_youtube.png", removable: false }
         { key: "inputs", kind: "inputs", title: "Conexões", appId: "", icon: "pkg:/images/card_inputs.png", removable: false }
     ]
     yt = findApp(m.youTubeId)
@@ -356,7 +371,7 @@ sub scrollTo(i as Integer, animate as Boolean)
 end sub
 
 sub refreshFocus()
-    rowFocus = (m.mode = "row" or m.mode = "move" or m.mode = "menu" or m.mode = "livePreview" or m.mode = "seriesPreview" or m.mode = "animePreview" or m.mode = "moviesPreview" or m.mode = "live24Preview")
+    rowFocus = (m.mode = "row" or m.mode = "move" or m.mode = "menu" or m.mode = "livePreview" or m.mode = "seriesPreview" or m.mode = "animePreview" or m.mode = "moviesPreview" or m.mode = "live24Preview" or m.mode = "youtubePreview")
     m.gearRing.visible = rowFocus and m.idx = -1
     for i = 0 to m.cards.Count() - 1
         c = m.cards[i]
@@ -457,6 +472,8 @@ sub refreshText()
         setHint([{ text: "OK", badge: true }, { text: "  abrir filmes", badge: false }])
     else if m.mode = "live24Preview"
         setHint([{ text: "OK", badge: true }, { text: "  abrir canais 24 hs", badge: false }])
+    else if m.mode = "youtubePreview"
+        setHint([{ text: "OK", badge: true }, { text: "  abrir canais YouTube", badge: false }])
     else
         setHint([{ text: "Segure ", badge: false }, { text: "OK", badge: true }, { text: "  para mover ou ocultar", badge: false }])
     end if
@@ -464,47 +481,56 @@ end sub
 
 ' ---------- Live preview (TV AO VIVO inline) ----------
 
+function wrapLeft() as Boolean
+    if m.idx > 0
+        setIndex(m.idx - 1, true)
+    else
+        setIndex(m.items.Count() - 1, true)
+    end if
+    return true
+end function
+
+function wrapRight() as Boolean
+    if m.idx < m.items.Count() - 1
+        setIndex(m.idx + 1, true)
+    else
+        setIndex(0, true)
+    end if
+    return true
+end function
+
 sub exitAllPreviews()
     if m.mode = "livePreview" then exitLivePreview()
     if m.mode = "seriesPreview" then exitSeriesPreview()
     if m.mode = "animePreview" then exitAnimePreview()
     if m.mode = "moviesPreview" then exitMoviesPreview()
     if m.mode = "live24Preview" then exitLive24Preview()
+    if m.mode = "youtubePreview" then exitYoutubePreview()
 end sub
 
 sub onFocusChanged(oldIdx as Integer, newIdx as Integer)
-    if m.mode <> "row" and m.mode <> "livePreview" and m.mode <> "seriesPreview" and m.mode <> "animePreview" and m.mode <> "moviesPreview" and m.mode <> "live24Preview" then return
-    it = invalid
-    if newIdx >= 0 and newIdx < m.items.Count() then it = m.items[newIdx]
-    if it <> invalid and it.kind = "live"
-        if m.mode <> "livePreview" then exitAllPreviews()
-        if m.mode <> "livePreview"
-            enterLivePreview()
-        end if
-        m.liveZapTimer.control = "stop"
-        m.liveZapTimer.control = "start"
-    else if it <> invalid and it.kind = "series"
-        if m.mode <> "seriesPreview" then exitAllPreviews()
-        if m.mode <> "seriesPreview"
-            enterSeriesPreview()
-        end if
-    else if it <> invalid and it.kind = "anime"
-        if m.mode <> "animePreview" then exitAllPreviews()
-        if m.mode <> "animePreview"
-            enterAnimePreview()
-        end if
-    else if it <> invalid and it.kind = "movies"
-        if m.mode <> "moviesPreview" then exitAllPreviews()
-        if m.mode <> "moviesPreview"
-            enterMoviesPreview()
-        end if
-    else if it <> invalid and it.kind = "live24"
-        if m.mode <> "live24Preview" then exitAllPreviews()
-        if m.mode <> "live24Preview"
-            enterLive24Preview()
-        end if
-    else
-        exitAllPreviews()
+    if m.mode <> "row" and m.mode <> "livePreview" and m.mode <> "seriesPreview" and m.mode <> "animePreview" and m.mode <> "moviesPreview" and m.mode <> "live24Preview" and m.mode <> "youtubePreview" then return
+    exitAllPreviews()
+    m.previewTimer.control = "stop"
+    m.previewTimer.control = "start"
+end sub
+
+sub onPreviewTimer()
+    if m.mode <> "row" then return
+    if m.idx < 0 or m.idx >= m.items.Count() then return
+    it = m.items[m.idx]
+    if it.kind = "live"
+        enterLivePreview()
+    else if it.kind = "series"
+        enterSeriesPreview()
+    else if it.kind = "anime"
+        enterAnimePreview()
+    else if it.kind = "movies"
+        enterMoviesPreview()
+    else if it.kind = "live24"
+        enterLive24Preview()
+    else if it.kind = "youtube"
+        enterYoutubePreview()
     end if
 end sub
 
@@ -872,6 +898,51 @@ sub openLive24Grid()
     end if
 end sub
 
+' ---------- YouTube channels preview ----------
+
+sub buildYoutubePanel()
+    if m.youtubeBuilt then return
+    m.youtubeBuilt = true
+    m.youtubeHeadline.text = "Canais YouTube"
+    m.youtubeDesc.text = "Seus canais favoritos de esporte ao vivo direto na TV. GE, CazéTV, Estádio 97, Jogo Aberto e Canal do Benja."
+end sub
+
+sub enterYoutubePreview()
+    m.mode = "youtubePreview"
+    buildYoutubePanel()
+    m.youtubePanel.visible = true
+    refreshFocus()
+end sub
+
+sub exitYoutubePreview()
+    m.mode = "row"
+    m.youtubePanel.visible = false
+    refreshFocus()
+end sub
+
+sub openYoutubeGrid()
+    m.youtubePanel.visible = false
+    if m.youtubeSection <> invalid and m.youtubeSection.channels <> invalid
+        items = []
+        for each ch in m.youtubeSection.channels
+            p = To_Str(ch.logo)
+            if ch.poster <> invalid and ch.poster <> "" then p = To_Str(ch.poster)
+            it = {
+                id: To_Str(ch.id),
+                title: To_Str(ch.title),
+                info: To_Str(ch.info),
+                channelId: To_Str(ch.channelId),
+                handle: To_Str(ch.handle),
+                poster: p
+            }
+            if ch.searchTerm <> invalid then it.searchTerm = To_Str(ch.searchTerm)
+            if ch.officialFeed <> invalid then it.officialFeed = To_Str(ch.officialFeed)
+            items.Push(it)
+        end for
+        m.top.navigate = { to: "youtubeGrid", channels: items }
+    end if
+end sub
+
 ' ---------- Actions ----------
 
 sub activate()
@@ -890,6 +961,8 @@ sub activate()
         openMoviesGrid()
     else if it.kind = "live24"
         openLive24Grid()
+    else if it.kind = "youtube"
+        openYoutubeGrid()
     else if it.kind = "launch"
         launch(it.appId, it.title)
     else if it.kind = "tvlivre"
@@ -1123,11 +1196,9 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
             liveZap(-1)
             return true
         else if key = "left"
-            if m.idx > -1 then setIndex(m.idx - 1, true)
-            return true
+            return wrapLeft()
         else if key = "right"
-            if m.idx < m.items.Count() - 1 then setIndex(m.idx + 1, true)
-            return true
+            return wrapRight()
         else if key = "back"
             exitLivePreview()
             return true
@@ -1146,11 +1217,9 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
             openMoviesGrid()
             return true
         else if key = "left"
-            if m.idx > -1 then setIndex(m.idx - 1, true)
-            return true
+            return wrapLeft()
         else if key = "right"
-            if m.idx < m.items.Count() - 1 then setIndex(m.idx + 1, true)
-            return true
+            return wrapRight()
         else if key = "back"
             exitMoviesPreview()
             return true
@@ -1169,11 +1238,9 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
             openAnimeGrid()
             return true
         else if key = "left"
-            if m.idx > -1 then setIndex(m.idx - 1, true)
-            return true
+            return wrapLeft()
         else if key = "right"
-            if m.idx < m.items.Count() - 1 then setIndex(m.idx + 1, true)
-            return true
+            return wrapRight()
         else if key = "back"
             exitAnimePreview()
             return true
@@ -1192,11 +1259,9 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
             openLive24Grid()
             return true
         else if key = "left"
-            if m.idx > -1 then setIndex(m.idx - 1, true)
-            return true
+            return wrapLeft()
         else if key = "right"
-            if m.idx < m.items.Count() - 1 then setIndex(m.idx + 1, true)
-            return true
+            return wrapRight()
         else if key = "back"
             exitLive24Preview()
             return true
@@ -1207,7 +1272,7 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
         return false
     end if
 
-    ' --- Series preview (informative overlay, no browsing) ---
+    ' --- Series preview (informative overlay) ---
     if m.mode = "seriesPreview"
         if key = "OK"
             m.okDown = false
@@ -1215,13 +1280,32 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
             openSeriesGrid()
             return true
         else if key = "left"
-            if m.idx > -1 then setIndex(m.idx - 1, true)
-            return true
+            return wrapLeft()
         else if key = "right"
-            if m.idx < m.items.Count() - 1 then setIndex(m.idx + 1, true)
-            return true
+            return wrapRight()
         else if key = "back"
             exitSeriesPreview()
+            return true
+        else if key = "options"
+            openMenu()
+            return true
+        end if
+        return false
+    end if
+
+    ' --- YouTube channels preview ---
+    if m.mode = "youtubePreview"
+        if key = "OK"
+            m.okDown = false
+            m.holdTimer.control = "stop"
+            openYoutubeGrid()
+            return true
+        else if key = "left"
+            return wrapLeft()
+        else if key = "right"
+            return wrapRight()
+        else if key = "back"
+            exitYoutubePreview()
             return true
         else if key = "options"
             openMenu()
@@ -1273,11 +1357,9 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
     end if
 
     if key = "left"
-        if m.idx > -1 then setIndex(m.idx - 1, true)
-        return true
+        return wrapLeft()
     else if key = "right"
-        if m.idx < m.items.Count() - 1 then setIndex(m.idx + 1, true)
-        return true
+        return wrapRight()
     else if key = "OK"
         if m.idx = -1
             activate()

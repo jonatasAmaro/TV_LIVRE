@@ -12,13 +12,21 @@
   <script type="text/brightscript" uri="pkg:/components/items/PosterItem.brs"/>
   <children>
     <Group id="card">
-      <Rectangle id="ring" translation="[-5,-5]" color="0xFFFFFFFF" opacity="0"/>
+      <Rectangle id="shadow" translation="[4,6]" color="0x000000FF" opacity="0.25"/>
       <Rectangle id="bg" color="0x1C2333FF"/>
       <Poster id="poster" loadDisplayMode="scaleToZoom" loadingBitmapUri="pkg:/images/placeholder.png" failedBitmapUri="pkg:/images/placeholder.png"/>
       <Rectangle id="badgeBg" translation="[12,12]" width="120" height="36" color="0xFF006EFF" visible="false"/>
       <Label id="badge" translation="[12,12]" width="120" height="36" text="NOVO" horizAlign="center" vertAlign="center" color="0xFFFFFFFF" visible="false">
         <Font role="font" uri="font:BoldSystemFontFile" size="22"/>
       </Label>
+      <Group id="border" opacity="0">
+        <Rectangle id="borderTop" color="0xFFFFFFFF"/>
+        <Rectangle id="borderBottom" color="0xFFFFFFFF"/>
+        <Rectangle id="borderLeft" color="0xFFFFFFFF"/>
+        <Rectangle id="borderRight" color="0xFFFFFFFF"/>
+      </Group>
+      <Rectangle id="overlayBg" color="0x000000CC" visible="false"/>
+      <Group id="overlayHint" visible="false"/>
       <Label id="title" color="0xFFFFFFFF">
         <Font role="font" uri="font:BoldSystemFontFile" size="26"/>
       </Label>

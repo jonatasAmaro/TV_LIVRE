@@ -13,6 +13,14 @@ sub execute()
         m.top.result = { launched: Ecp_Launch(m.top.appId, "") }
         return
     end if
+    if m.top.mode = "resolve"
+        m.top.result = YouTube_Resolve(m.top.channelId, m.top.searchTerm)
+        return
+    end if
+    if m.top.mode = "resolveVideo"
+        m.top.result = YouTube_ResolveVideo(m.top.videoId)
+        return
+    end if
     if m.top.mode = "info"
         infos = {}
         for each ch in m.top.channels
@@ -50,6 +58,7 @@ function YouTube_Fetch(url as String) as String
     xfer.EnableEncodings(true)
     xfer.AddHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36")
     xfer.AddHeader("Accept-Language", "pt-BR,pt;q=0.9")
+    xfer.AddHeader("Cookie", "CONSENT=YES+cb.20210328-17-p0.en+FX+1")
     xfer.SetUrl(url)
     body = xfer.GetToString()
     if body = invalid then return ""
@@ -112,4 +121,65 @@ end function
 function YouTube_Launch(videoId as String, mediaType as String) as Boolean
     if videoId = "" then return false
     return Ecp_Launch("837", "contentId=" + videoId + "&mediaType=" + mediaType)
+end function
+
+function YouTube_Resolve(channelId as String, searchTerm as String) as Object
+    res = { live: false, streamUrl: "", videoTitle: "", latestId: "", latestTitle: "", nextTitle: "" }
+    html = YouTube_Fetch("https://www.youtube.com/channel/" + channelId + "/live")
+    if html = ""
+        res.error = true
+        return res
+    end if
+    isLive = (Instr(1, html, """isLiveNow"":true") > 0)
+    if isLive
+        title = YouTube_ExtractTitle(html)
+        if searchTerm <> "" and Instr(1, LCase(title), LCase(searchTerm)) = 0
+            isLive = false
+        end if
+    end if
+    if isLive
+        res.live = true
+        res.videoTitle = YouTube_ExtractTitle(html)
+        hlsUrl = YouTube_ExtractHls(html)
+        if hlsUrl <> "" then res.streamUrl = hlsUrl
+    end if
+    latest = YouTube_LatestVideo(channelId)
+    res.latestId = latest.id
+    res.latestTitle = latest.title
+    res.nextTitle = latest.nextTitle
+    return res
+end function
+
+function YouTube_ResolveVideo(videoId as String) as Object
+    res = { live: false, streamUrl: "", videoTitle: "" }
+    if videoId = "" then return res
+    html = YouTube_Fetch("https://www.youtube.com/watch?v=" + videoId)
+    if html = "" then return res
+    hlsUrl = YouTube_ExtractHls(html)
+    if hlsUrl <> ""
+        res.live = true
+        res.streamUrl = hlsUrl
+        res.videoTitle = YouTube_ExtractTitle(html)
+    end if
+    return res
+end function
+
+function YouTube_ExtractHls(html as String) as String
+    q = Chr(34)
+    marker = q + "hlsManifestUrl" + q + ":" + q
+    idx = Instr(1, html, marker)
+    if idx = 0 then return ""
+    startPos = idx + Len(marker)
+    endPos = Instr(startPos, html, q)
+    if endPos <= startPos then return ""
+    url = Mid(html, startPos, endPos - startPos)
+    url = url.Replace("\/", "/")
+    return url
+end function
+
+function YouTube_ExtractTitle(html as String) as String
+    re = CreateObject("roRegex", """title"":""([^""]+)""", "")
+    m1 = re.Match(html)
+    if m1.Count() > 1 then return YouTube_Unescape(m1[1])
+    return ""
 end function

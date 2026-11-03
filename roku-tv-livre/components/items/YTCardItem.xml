@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component name="YTCardItem" extends="Group">
+  <interface>
+    <field id="itemContent" type="node" onChange="onContent"/>
+    <field id="width" type="float" onChange="layout"/>
+    <field id="height" type="float" onChange="layout"/>
+    <field id="focusPercent" type="float" onChange="onFocus"/>
+    <field id="gridHasFocus" type="boolean" onChange="onFocus"/>
+  </interface>
+  <script type="text/brightscript" uri="pkg:/components/items/YTCardItem.brs"/>
+  <children>
+    <Group id="card">
+      <Rectangle id="shadow" color="0x00000018" translation="[2,3]"/>
+      <Rectangle id="bg" color="0xFFFFFFFF"/>
+      <!-- Poster with rounded corners via MaskGroup -->
+      <MaskGroup id="mask" maskUri="pkg:/images/rounded_mask.png" maskSize="[180,110]" translation="[10,10]">
+        <Poster id="poster" width="180" height="110" loadDisplayMode="scaleToZoom"
+            loadingBitmapUri="pkg:/images/placeholder.png" failedBitmapUri="pkg:/images/placeholder.png"/>
+      </MaskGroup>
+      <!-- Channel name and info -->
+      <Label id="title" color="0x0D0D0DFF">
+        <Font role="font" uri="font:BoldSystemFontFile" size="24"/>
+      </Label>
+      <Label id="sub" color="0x606060FF">
+        <Font role="font" uri="font:SystemFontFile" size="20"/>
+      </Label>
+      <!-- Focus border -->
+      <Group id="border" opacity="0">
+        <Rectangle id="bTop" color="0xCC0000FF"/>
+        <Rectangle id="bBot" color="0xCC0000FF"/>
+        <Rectangle id="bLeft" color="0xCC0000FF"/>
+        <Rectangle id="bRight" color="0xCC0000FF"/>
+      </Group>
+    </Group>
+  </children>
+</component>

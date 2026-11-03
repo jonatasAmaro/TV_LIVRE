@@ -5241,35 +5241,23 @@
       "tab": "YOUTUBE",
       "channels": [
         {
-          "id": "sbt",
-          "title": "SBT",
-          "info": "Canal oficial",
-          "channelId": "UCR3TOnFWDeAlT-Ho6LueDmg",
-          "logo": "pkg:/images/yt_sbt.png",
-          "group": "TV ao vivo online"
-        },
-        {
-          "id": "sbtnews",
-          "title": "SBT News",
-          "info": "Notícias ao vivo",
-          "channelId": "UC376n347Ob5Lwzq2WGzF1AA",
-          "logo": "pkg:/images/yt_sbtnews.png",
-          "group": "TV ao vivo online"
-        },
-        {
-          "id": "tvglobo",
-          "title": "TV Globo",
-          "info": "Vídeos oficiais",
-          "channelId": "UCEPRQVF6hxGGM9gi1ELaWHg",
-          "logo": "pkg:/images/yt_tvglobo.png",
-          "group": "TV ao vivo online"
+          "id": "canalbenja",
+          "title": "Canal do Benja",
+          "info": "Benjamin Back",
+          "channelId": "UCT7xKN6IOoITtqnfjB-6m1g",
+          "handle": "canaldobenjaoficial",
+          "logo": "pkg:/images/yt_canalbenja.png",
+          "poster": "pkg:/images/poster_canalbenja.png",
+          "group": "Esporte"
         },
         {
           "id": "getv",
           "title": "ge tv",
           "info": "Globo Esporte",
           "channelId": "UCgCKagVhzGnZcuP9bSMgMCg",
+          "handle": "getv",
           "logo": "pkg:/images/yt_getv.png",
+          "poster": "pkg:/images/poster_getv.png",
           "group": "Esporte"
         },
         {
@@ -5277,7 +5265,9 @@
           "title": "CazéTV",
           "info": "Jogos e esporte ao vivo",
           "channelId": "UCZiYbVptd3PVPf4f6eR6UaQ",
+          "handle": "CazeTV",
           "logo": "pkg:/images/yt_cazetv.png",
+          "poster": "pkg:/images/poster_cazetv.png",
           "group": "Esporte"
         },
         {
@@ -5285,7 +5275,10 @@
           "title": "Estádio 97",
           "info": "Rádio Energia 97 FM",
           "channelId": "UCIkAO7iHS6R9AtcABE9MdRQ",
+          "handle": "energia97",
+          "searchTerm": "estadio",
           "logo": "pkg:/images/yt_estadio97.png",
+          "poster": "pkg:/images/poster_estadio97.png",
           "group": "Esporte"
         },
         {
@@ -5293,48 +5286,20 @@
           "title": "Jogo Aberto",
           "info": "Band",
           "channelId": "UCZaOZdn-Y-I5ikrofkWBLgQ",
+          "handle": "JogoAberto",
           "logo": "pkg:/images/yt_jogoaberto.png",
+          "poster": "pkg:/images/poster_jogoaberto.png",
           "group": "Esporte"
         },
         {
-          "id": "crunchyroll",
-          "title": "Crunchyroll Brasil",
-          "info": "Canal oficial",
-          "channelId": "UCVc-JLY3Db6-O48y7TS4N7Q",
-          "logo": "pkg:/images/yt_crunchyroll.png",
-          "group": "Anime e desenhos"
-        },
-        {
-          "id": "pokemonpt",
-          "title": "Pokémon",
-          "info": "Canal oficial em português",
-          "channelId": "UCuo1V_VlMUOTjy89D1FDVDw",
-          "logo": "pkg:/images/yt_pokemonpt.png",
-          "group": "Anime e desenhos"
-        },
-        {
-          "id": "pokemontv",
-          "title": "Pokémon TV",
-          "info": "Canal oficial",
-          "channelId": "UC8wrbl5viYtQmRUgdFdf4ew",
-          "logo": "pkg:/images/yt_pokemontv.png",
-          "group": "Anime e desenhos"
-        },
-        {
-          "id": "toei",
-          "title": "Toei Animation",
-          "info": "Canal oficial",
-          "channelId": "UCQYYekTKCb1y12sas08T6gQ",
-          "logo": "pkg:/images/yt_toei.png",
-          "group": "Anime e desenhos"
-        },
-        {
-          "id": "sato",
-          "title": "Sato Company",
-          "info": "Anime e tokusatsu",
-          "channelId": "UCTOaq4HfNMstuJfZxHszxgw",
-          "logo": "pkg:/images/yt_sato.png",
-          "group": "Anime e desenhos"
+          "id": "osdonosdabola",
+          "title": "Os Donos da Bola",
+          "info": "Band",
+          "channelId": "UCjlcZ5YIXlBTaob0BkS_gDg",
+          "handle": "OsDonosDaBola",
+          "logo": "pkg:/images/yt_osdonosdabola.png",
+          "poster": "pkg:/images/poster_osdonosdabola.png",
+          "group": "Esporte"
         }
       ]
     },
