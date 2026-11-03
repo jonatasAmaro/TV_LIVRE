@@ -1,4 +1,4 @@
-title=TV Livre
+title=Amaro TV
 major_version=1
 minor_version=3
 build_version=18
@@ -6,7 +6,7 @@ mm_icon_focus_hd=pkg:/images/icon_hd.png
 mm_icon_focus_fhd=pkg:/images/icon_fhd.png
 splash_screen_hd=pkg:/images/splash_hd.png
 splash_screen_fhd=pkg:/images/splash_fhd.png
-splash_color=#0B0F1A
+splash_color=#FF5A5A
 splash_min_time=1200
 ui_resolutions=fhd
 supports_input_launch=1

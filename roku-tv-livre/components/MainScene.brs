@@ -48,10 +48,25 @@ sub onNavigate(ev as Object)
         v.config = Cfg_Load()
         pushView(v)
     else if target = "liveGrid"
-        v = CreateObject("roSGNode", "LiveTab")
-        v.channels = nav.channels
+        v = CreateObject("roSGNode", "LiveGridView")
         v.epgUrl = To_Str(nav.epgUrl)
-        v.active = true
+        if nav.startIndex <> invalid then v.startIndex = nav.startIndex
+        if nav.viewTitle <> invalid then v.viewTitle = To_Str(nav.viewTitle)
+        if nav.viewTheme <> invalid then v.viewTheme = To_Str(nav.viewTheme)
+        v.channels = nav.channels
+        pushView(v)
+    else if target = "seriesGrid" or target = "animeGrid"
+        v = CreateObject("roSGNode", "GridView")
+        v.section = nav.section
+        pushView(v)
+    else if target = "moviesGrid"
+        sec = nav.section
+        if sec.rows <> invalid and sec.categories = invalid
+            sec.categories = sec.rows
+            sec.search = true
+        end if
+        v = CreateObject("roSGNode", "GridView")
+        v.section = sec
         pushView(v)
     else if target = "catalog"
         v = CreateObject("roSGNode", "CatalogView")

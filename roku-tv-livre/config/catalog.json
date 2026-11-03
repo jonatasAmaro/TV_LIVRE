@@ -1,6 +1,6 @@
 {
   "versionUrl": "",
-  "catalogUrl": "https://tv-livre-catalog.jonatas-amaro2.workers.dev/catalog.json",
+  "catalogUrl": "",
   "animeRefreshHours": 6,
   "epgUrl": "https://raw.githubusercontent.com/limaalef/BrazilTVEPG/main/epg.xml",
   "sections": [
@@ -20,14 +20,6 @@
           "group": "Brasil: cristianismo",
           "title": "Rede Vida",
           "url": "http://186.219.52.187/rede_vida/index.m3u8"
-        },
-        {
-          "id": "ch_converted_0255",
-          "info": "Canal Ao Vivo",
-          "logo": "https://i.imgur.com/NJCEHbQ.png",
-          "group": "Brasil: cristianismo",
-          "title": "teste",
-          "url": "https://vod3.cf.dmcdn.net/sec2(wauDpORwzvLnzJqaKhsW6CCMqPcmfb8YK_5KrjIKmoMYMOyEWll6oXYJQwf0tX1_m_uflpGz3d81d7gzFWL28wNLv8_nQ3sf7jX4geosKbQEHl4-7Pt4LlvfC-L9W__ywHB2ScxzaloGgjnOF7NUxOtQnd4KPArTAxqMN9ZGQh8)/video/147/477/385774741_mp4_h264_aac.m3u8"
         },
         {
           "id": "ch_converted_023",
@@ -3615,7 +3607,7 @@
               "glyph": "SÉRIES",
               "color": "0xE76F51FF",
               "tab": "SÉRIES",
-              "poster": "https://image.tmdb.org/t/p/w780/oUnMVfZFBnRJKIBr0GVaJS0lBa0.jpg",
+              "poster": "https://image.tmdb.org/t/p/w342/d5xdX1tpTvGKBgNN8vP6B5il1FA.jpg",
               "summary": "Leonard e Sheldon são dois brilhantes físicos que entendem tudo sobre o universo, mas nada sobre como lidar com pessoas.",
               "year": "2007",
               "rating": "8.2",
@@ -5350,7 +5342,7 @@
       "id": "filmes",
       "kind": "movies",
       "title": "Filmes",
-      "subtitle": "",
+      "subtitle": "Os melhores filmes de ação",
       "glyph": "FILMES",
       "color": "0xF4A261FF",
       "tab": "FILMES",
@@ -5416,7 +5408,7 @@
               "title": "O Protetor 2",
               "year": "2018",
               "poster": "https://image.tmdb.org/t/p/w500/xl3oO2j1vfKasDLyUNwghWjl4jV.jpg",
-              "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=http%3A%2F%2Fcorruptx.org%3A80%2Fmovie%2F3llohwk4g9%2Fkwf099q30o%2F2446107.mp4",
+              "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=https%3A%2F%2Fpatient-ember-8bff.o18hih2icxag.workers.dev%2Ft%2F1793673138.6509c3ec3607e33d0da19456b98219bac548d6f1bd042a42bcc309456e1bd7b2%2Fu%2FLinhaZed099183u%2Fe1.LMQij2jvUIvZjCIilQHBTd1qF4Ro_P29F8FqEQxUGFe-4ViljIBoQJKb2t6Em_j8",
               "summary": "Criminosos assassinam Susan Plummer, a melhor amiga de Robert McCall e sua ex-colega de trabalho. Obcecado, Robert pensa apenas em eliminar o bando de assassinos profissionais que destruiu sua vida."
             },
             {
@@ -5424,7 +5416,7 @@
               "title": "O Protetor: Capítulo Final",
               "year": "2023",
               "poster": "https://image.tmdb.org/t/p/w500/eq2Ytq08C9KddMiOzQ74g36Tdpg.jpg",
-              "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=http%3A%2F%2Fcorruptx.org%3A80%2Fmovie%2F3llohwk4g9%2Fkwf099q30o%2F2446107.mp4",
+              "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=https%3A%2F%2Fpatient-ember-8bff.o18hih2icxag.workers.dev%2Ft%2F1793673147.f8c61a2c9f991c6921e877ced56a35bab8c8591fd845b8e62f3d01b5f9b2f5aa%2Fu%2FLinhaZed099183u%2Fe1.k2M2UNjGqkKUHcbBK7V8wBlI94n8yTWDVvgUeFMBFcBvWrXp-cEmInpfN4aRHVA4EREAw006Js6cMl2skkIwUg",
               "summary": "Sentindo-se em casa no sul da Itália, o ex-agente Robert McCall logo descobre que seus novos amigos estão sob o controle dos chefes do crime local. À medida que os acontecimentos se tornam mortais, McCall sabe o que tem de fazer: tornar-se o protetor dos seus amigos, enfrentando a máfia."
             }
           ]

@@ -7,6 +7,7 @@
   <script type="text/brightscript" uri="pkg:/components/utils.brs"/>
   <script type="text/brightscript" uri="pkg:/components/views/GridView.brs"/>
   <children>
+    <Poster id="bgGradient" width="1920" height="1080" loadDisplayMode="scaleToFill" visible="false"/>
     <Label id="title" translation="[80,56]" color="0xFFFFFFFF">
       <Font role="font" uri="font:BoldSystemFontFile" size="60"/>
     </Label>
@@ -17,12 +18,16 @@
       <Font role="font" uri="font:SystemFontFile" size="34"/>
     </Label>
     <!-- Search bar (shown when section.search = true) -->
-    <Group id="searchBar" visible="false" translation="[80,200]">
-      <Rectangle width="1760" height="70" color="0x1C2333FF" cornerRadius="12"/>
-      <Label id="searchLbl" translation="[24,16]" text="Buscar..." color="0x6B7280FF" width="1712">
+    <Group id="searchBar" visible="false" translation="[80,160]">
+      <Rectangle id="searchRing" width="1764" height="74" translation="[-2,-2]" color="0x556B2FFF" visible="false"/>
+      <Rectangle id="searchBg" width="1760" height="70" color="0xFFFFFFFF"/>
+      <Poster id="searchIcon" translation="[20,17]" width="36" height="36" uri="pkg:/images/icon_search.png" blendColor="0x556B2FFF"/>
+      <Label id="searchLbl" translation="[66,16]" text="Buscar séries..." color="0x556B2FCC" width="1670">
         <Font role="font" uri="font:SystemFontFile" size="30"/>
       </Label>
     </Group>
+    <!-- Dividers container for category separators -->
+    <Group id="dividers"/>
     <!-- Flat grid (legacy/fallback) -->
     <MarkupGrid id="grid" translation="[80,250]" itemComponentName="PosterItem"
         numColumns="8" numRows="2" itemSize="[200,370]" itemSpacing="[22,50]"

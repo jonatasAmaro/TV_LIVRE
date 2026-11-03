@@ -19,6 +19,65 @@
       <Font role="font" uri="font:SystemFontFile" size="28"/>
     </Label>
 
+    <!-- Series preview: informative display when SÉRIES icon is focused -->
+    <Group id="seriesPanel" visible="false">
+      <!-- Semi-transparent black band: top fixed at 220, stretches down near menu -->
+      <Rectangle width="1920" height="560" translation="[0,220]" color="0x000000FF" opacity="0.55"/>
+      <!-- Left column: text -->
+      <Group id="seriesTextCol" translation="[96,260]">
+        <Label id="seriesHeadline" translation="[0,0]" width="1100" color="0xFFFFFFFF" wrap="false">
+          <Font role="font" uri="font:BoldSystemFontFile" size="72"/>
+        </Label>
+        <Label id="seriesDesc" translation="[0,90]" width="900" color="0xC8D0DCFF" wrap="true" maxLines="6">
+          <Font role="font" uri="font:SystemFontFile" size="40"/>
+        </Label>
+      </Group>
+      <!-- Right column: fanned poster deck, aligned right -->
+      <Group id="seriesDeck" translation="[1380,240]"/>
+    </Group>
+
+    <!-- Filmes preview: informative display when FILMES icon is focused -->
+    <Group id="moviesPanel" visible="false">
+      <Rectangle width="1920" height="560" translation="[0,220]" color="0x000000FF" opacity="0.55"/>
+      <Poster id="moviesBg" translation="[0,220]" width="1920" height="560" loadDisplayMode="scaleToFill" opacity="0.7"/>
+      <Rectangle width="1920" height="560" translation="[0,220]" color="0x00000088"/>
+      <Group id="moviesTextCol" translation="[96,320]">
+        <Label id="moviesHeadline" translation="[0,0]" width="1100" color="0xFFFFFFFF" wrap="false">
+          <Font role="font" uri="font:BoldSystemFontFile" size="72"/>
+        </Label>
+        <Label id="moviesDesc" translation="[0,90]" width="900" color="0xC8D0DCFF" wrap="true" maxLines="6">
+          <Font role="font" uri="font:SystemFontFile" size="40"/>
+        </Label>
+      </Group>
+    </Group>
+
+    <!-- Animes preview: informative display when ANIMES icon is focused -->
+    <Group id="animePanel" visible="false">
+      <Rectangle width="1920" height="560" translation="[0,220]" color="0x000000FF" opacity="0.55"/>
+      <Group id="animeTextCol" translation="[96,260]">
+        <Label id="animeHeadline" translation="[0,0]" width="1100" color="0xFFFFFFFF" wrap="false">
+          <Font role="font" uri="font:BoldSystemFontFile" size="72"/>
+        </Label>
+        <Label id="animeDesc" translation="[0,90]" width="900" color="0xC8D0DCFF" wrap="true" maxLines="6">
+          <Font role="font" uri="font:SystemFontFile" size="40"/>
+        </Label>
+      </Group>
+      <Group id="animeDeck" translation="[1380,240]"/>
+    </Group>
+
+    <!-- Canais 24h preview: informative display when CANAIS 24 HS icon is focused -->
+    <Group id="live24Panel" visible="false">
+      <Rectangle width="1920" height="560" translation="[0,220]" color="0x000000FF" opacity="0.55"/>
+      <Group id="live24TextCol" translation="[96,280]">
+        <Label id="live24Headline" translation="[0,0]" width="1100" color="0xFFFFFFFF" wrap="false">
+          <Font role="font" uri="font:BoldSystemFontFile" size="72"/>
+        </Label>
+        <Label id="live24Desc" translation="[0,90]" width="1400" color="0xC8D0DCFF" wrap="true" maxLines="6">
+          <Font role="font" uri="font:SystemFontFile" size="40"/>
+        </Label>
+      </Group>
+    </Group>
+
     <!-- Conexões: TV inputs, shown above the carousel. -->
     <Group id="inputs" visible="false">
       <Poster uri="pkg:/images/panel.9.png" translation="[60,452]" width="1800" height="290" blendColor="0x0B0F1AFF" opacity="0.82"/>
@@ -72,8 +131,26 @@
       <Font role="font" uri="font:SystemFontFile" size="30"/>
     </Label>
 
+    <!-- Info bar at bottom (fullscreen live mode) -->
+    <Group id="liveInfoBar" visible="false">
+      <Rectangle translation="[0,900]" width="1920" height="180" color="0x000000CC"/>
+      <Label id="liveInfoNum" translation="[80,912]" width="600" color="0xFFFFFFFF">
+        <Font role="font" uri="font:BoldSystemFontFile" size="48"/>
+      </Label>
+      <Label id="liveInfoName" translation="[80,968]" width="800" color="0xC8D0DCFF">
+        <Font role="font" uri="font:BoldSystemFontFile" size="28"/>
+      </Label>
+      <Label id="liveInfoEpg" translation="[80,1004]" width="800" color="0x9AA4B2FF">
+        <Font role="font" uri="font:SystemFontFile" size="22"/>
+      </Label>
+      <Label id="liveInfoHint" text="OK  ▸  Abrir grid de canais" translation="[960,972]" width="880" horizAlign="right" color="0x9AA4B2FF">
+        <Font role="font" uri="font:SystemFontFile" size="22"/>
+      </Label>
+    </Group>
+
     <Timer id="liveZapTimer" duration="0.8"/>
     <Timer id="liveOsdTimer" duration="4"/>
+    <Timer id="liveInfoTimer" duration="5"/>
 
     <Animation id="scrollAnim" duration="0.18" easeFunction="outQuad">
       <Vector2DFieldInterpolator id="scrollInterp" key="[0.0, 1.0]" fieldToInterp="track.translation"/>

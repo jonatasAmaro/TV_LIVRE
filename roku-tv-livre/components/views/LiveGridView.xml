@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component name="LiveGridView" extends="BaseView">
+  <interface>
+    <field id="channels" type="array" onChange="onChannels"/>
+    <field id="epgUrl" type="string" value=""/>
+    <field id="startIndex" type="integer" value="0"/>
+    <field id="viewTitle" type="string" value="TV AO VIVO"/>
+    <field id="viewTheme" type="string" value="red"/>
+  </interface>
+  <script type="text/brightscript" uri="pkg:/components/utils.brs"/>
+  <script type="text/brightscript" uri="pkg:/components/views/LiveGridView.brs"/>
+  <children>
+    <!-- Gradient background -->
+    <Poster id="bgGradient" width="1920" height="1080" uri="pkg:/images/bg_live_gradient.png" loadDisplayMode="scaleToFill"/>
+
+    <!-- Row 1: Title bar -->
+    <Rectangle translation="[0,0]" width="1920" height="58" color="0x00000040"/>
+    <Label id="pageTitle" text="TV AO VIVO" translation="[60,13]" width="1800" color="0xFFFFFFFF">
+      <Font role="font" uri="font:BoldSystemFontFile" size="32"/>
+    </Label>
+
+    <!-- Row 2: Search bar -->
+    <Rectangle id="searchRing" translation="[56,62]" width="1808" height="54" color="0x42A5F5FF" visible="false"/>
+    <Rectangle id="searchBg" translation="[60,66]" width="1800" height="46" color="0x00000030"/>
+    <Label id="searchLabel" text="   Pesquisar canal..." translation="[60,78]" width="1800" color="0xBBBBBBFF">
+      <Font role="font" uri="font:SystemFontFile" size="24"/>
+    </Label>
+
+    <!-- Row 3: Group filter chips -->
+    <Rectangle translation="[0,120]" width="1920" height="50" color="0x00000020"/>
+    <Group id="groupClip" translation="[60,124]" clippingRect="[0,0,1800,42]">
+      <Group id="groupChips"/>
+    </Group>
+
+    <!-- Row 4: Content area -->
+    <!-- Left column: channel list background -->
+    <Rectangle translation="[60,180]" width="640" height="890" color="0x00000030"/>
+    <LabelList id="list" translation="[72,188]" itemSize="[616,50]" itemSpacing="[0,2]" numRows="16"
+        vertFocusAnimationStyle="fixedFocus" color="0xC8D0DCFF" focusedColor="0xFFFFFFFF">
+      <Font role="font" uri="font:SystemFontFile" size="24"/>
+      <Font role="focusedFont" uri="font:BoldSystemFontFile" size="24"/>
+    </LabelList>
+    <Label id="listCount" translation="[72,1042]" width="616" color="0x9AA4B2FF">
+      <Font role="font" uri="font:SystemFontFile" size="20"/>
+    </Label>
+
+    <!-- Right column: Preview -->
+    <Rectangle id="ring" translation="[723,173]" width="1134" height="704" color="0x42A5F5FF" visible="false"/>
+    <Rectangle translation="[730,180]" width="1120" height="690" color="0x00000060"/>
+    <Video id="video" translation="[730,180]" width="1120" height="690" enableUI="false"/>
+    <Poster id="appArt" translation="[730,180]" width="1120" height="690" loadDisplayMode="scaleToFit" visible="false"/>
+    <Label id="status" translation="[730,500]" width="1120" horizAlign="center" wrap="true" color="0xFFFFFFFF" visible="false">
+      <Font role="font" uri="font:SystemFontFile" size="28"/>
+    </Label>
+
+    <!-- Info panel below preview -->
+    <Group id="info">
+      <Rectangle translation="[730,870]" width="1120" height="200" color="0x00000050"/>
+      <Label id="chName" translation="[750,880]" width="700" color="0xFFFFFFFF">
+        <Font role="font" uri="font:BoldSystemFontFile" size="30"/>
+      </Label>
+      <Label id="chInfo" translation="[750,918]" width="700" color="0x9AA4B2FF">
+        <Font role="font" uri="font:SystemFontFile" size="22"/>
+      </Label>
+      <Label id="epgNow" translation="[750,948]" width="700" color="0x4ADE80FF" visible="false">
+        <Font role="font" uri="font:BoldSystemFontFile" size="20"/>
+      </Label>
+      <Label id="epgNext" translation="[750,974]" width="700" color="0x6C7686FF" visible="false">
+        <Font role="font" uri="font:SystemFontFile" size="18"/>
+      </Label>
+      <Label id="hint" translation="[1400,898]" width="430" horizAlign="right" color="0x9AA4B2FF">
+        <Font role="font" uri="font:SystemFontFile" size="20"/>
+      </Label>
+    </Group>
+
+    <!-- OSD overlay (fullscreen mode) -->
+    <Group id="osd" visible="false">
+      <Rectangle translation="[60,50]" width="900" height="160" color="0x0B0F1ACC"/>
+      <Label id="osdName" translation="[90,66]" width="840" color="0xFFFFFFFF">
+        <Font role="font" uri="font:BoldSystemFontFile" size="42"/>
+      </Label>
+      <Label id="osdInfo" translation="[90,122]" width="840" color="0xC8D0DCFF">
+        <Font role="font" uri="font:SystemFontFile" size="26"/>
+      </Label>
+      <Label id="osdEpg" translation="[90,156]" width="840" color="0x4ADE80FF">
+        <Font role="font" uri="font:BoldSystemFontFile" size="24"/>
+      </Label>
+    </Group>
+
+    <!-- Info bar at bottom (fullscreen mode) -->
+    <Group id="infoBar" visible="false">
+      <Rectangle translation="[0,900]" width="1920" height="180" color="0x000000CC"/>
+      <Label id="infoBarNum" translation="[80,912]" width="600" color="0xFFFFFFFF">
+        <Font role="font" uri="font:BoldSystemFontFile" size="48"/>
+      </Label>
+      <Label id="infoBarName" translation="[80,968]" width="800" color="0xC8D0DCFF">
+        <Font role="font" uri="font:BoldSystemFontFile" size="28"/>
+      </Label>
+      <Label id="infoBarEpg" translation="[80,1004]" width="800" color="0x4ADE80FF">
+        <Font role="font" uri="font:SystemFontFile" size="22"/>
+      </Label>
+      <Label id="infoBarHint" text="OK  ▸  Abrir lista de canais" translation="[960,972]" width="880" horizAlign="right" color="0x9AA4B2FF">
+        <Font role="font" uri="font:SystemFontFile" size="22"/>
+      </Label>
+    </Group>
+
+    <Timer id="zapTimer" duration="0.7"/>
+    <Timer id="osdTimer" duration="4"/>
+    <Timer id="infoBarTimer" duration="5"/>
+  </children>
+</component>
