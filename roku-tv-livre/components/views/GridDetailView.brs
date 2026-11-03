@@ -56,6 +56,11 @@ sub init()
     ' AniSkip
     m.skipTask = invalid
     m.malId = 0
+
+    ' Cinemeta
+    m.cinemetaTask = invalid
+    m.cinemetaEps = {}
+    m.metaLbl = m.top.findNode("metaLbl")
 end sub
 
 sub onFocusChange()
@@ -126,6 +131,11 @@ sub onItem()
     m.imdb = To_Str(item.imdb)
     m.malId = To_Int(item.malId)
 
+    ' Fetch Cinemeta metadata
+    if m.imdb <> ""
+        fetchCinemeta(m.imdb)
+    end if
+
     ' Reopen where the viewer stopped.
     season = 0
     ep = 0
@@ -184,8 +194,9 @@ sub loadEpisodes(seasonIdx as Integer, epIdx as Integer, startAt as Integer)
         m.video.control = "stop"
         return
     end if
-    m.epLabel.text = eps.Count().ToStr() + " episódio(s)"
-    if m.resumeNote <> "" then m.epLabel.text = m.epLabel.text + "   |   " + m.resumeNote
+    epCountTxt = eps.Count().ToStr() + " episódio(s)"
+    if m.resumeNote <> "" then epCountTxt = epCountTxt + "   |   " + m.resumeNote
+    m.epLabel.text = epCountTxt
     if epIdx >= eps.Count() then epIdx = 0
     m.episodes.jumpToRowItem = [0, epIdx]
     playEpisode(epIdx, startAt)
@@ -234,6 +245,11 @@ sub playEpisode(idx as Integer, startAt as Integer)
     m.videoStatus.text = "Carregando EP " + (idx + 1).ToStr() + "..."
     m.videoStatus.visible = true
     epInfo = To_Str(m.top.item.title) + "  |  " + To_Str(m.seasonData[m.currentSeason].title) + " - EP " + (idx + 1).ToStr()
+    key = (m.currentSeason + 1).ToStr() + ":" + (idx + 1).ToStr()
+    epMeta = m.cinemetaEps[key]
+    if epMeta <> invalid and epMeta.name <> ""
+        epInfo = epInfo + ": " + epMeta.name
+    end if
     m.controls.episodeInfo = epInfo
     m.controls.showEpisodeActions = true
     c = CreateObject("roSGNode", "ContentNode")
@@ -295,6 +311,56 @@ sub onVideoState()
             m.video.control = "stop"
             exitFullscreen()
         end if
+    end if
+end sub
+
+' ---------- Cinemeta ----------
+
+sub fetchCinemeta(imdb as String)
+    m.cinemetaTask = CreateObject("roSGNode", "CinemetaTask")
+    m.cinemetaTask.imdbId = imdb
+    m.cinemetaTask.kind = "series"
+    m.cinemetaTask.observeField("result", "onCinemetaLoaded")
+    m.cinemetaTask.control = "run"
+end sub
+
+sub onCinemetaLoaded()
+    if m.cinemetaTask = invalid then return
+    r = m.cinemetaTask.result
+    m.cinemetaTask = invalid
+    if r = invalid or r.Count() = 0 then return
+
+    m.cinemetaEps = r.episodes
+    if m.cinemetaEps = invalid then m.cinemetaEps = {}
+
+    ' Show metadata line
+    parts = []
+    if r.rating <> "" then parts.Push("★ " + r.rating)
+    if r.genres <> "" then parts.Push(r.genres)
+    if r.runtime <> "" then parts.Push(r.runtime)
+    if r.year <> "" then parts.Push(r.year)
+    if parts.Count() > 0
+        m.metaLbl.text = parts.Join("   |   ")
+        m.metaLbl.visible = true
+    end if
+
+    ' Set background image
+    if r.background <> ""
+        m.posterBg.uri = r.background
+        m.posterBg.opacity = 0.15
+    end if
+
+    ' Enrich current episode label
+    enrichCurrentEpLabel()
+end sub
+
+sub enrichCurrentEpLabel()
+    if m.currentEp < 0 or m.cinemetaEps.Count() = 0 then return
+    key = (m.currentSeason + 1).ToStr() + ":" + (m.currentEp + 1).ToStr()
+    epMeta = m.cinemetaEps[key]
+    if epMeta <> invalid and epMeta.name <> ""
+        info = m.top.item.title + "  |  " + To_Str(m.seasonData[m.currentSeason].title) + " - EP " + (m.currentEp + 1).ToStr() + ": " + epMeta.name
+        m.controls.episodeInfo = info
     end if
 end sub
 

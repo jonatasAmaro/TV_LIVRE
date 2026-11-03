@@ -25,6 +25,10 @@
     <Label id="fullscreenHint" text="OK = Tela cheia" translation="[1340,24]" width="500" horizAlign="right" color="0x9AA4B2FF" visible="false">
       <Font role="font" uri="font:SystemFontFile" size="24"/>
     </Label>
+    <!-- Cinemeta metadata line (rating, genres, runtime) -->
+    <Label id="metaLbl" translation="[200,50]" width="1100" color="0x9AA4B2FF" visible="false">
+      <Font role="font" uri="font:SystemFontFile" size="22"/>
+    </Label>
 
     <!-- Poster: the whole image always fits inside the card. -->
     <Rectangle id="posterBg" translation="[80,100]" width="500" height="740" color="0x1C2333FF"/>

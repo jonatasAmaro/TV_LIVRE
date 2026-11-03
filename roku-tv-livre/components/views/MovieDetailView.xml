@@ -8,6 +8,8 @@
   </interface>
   <script type="text/brightscript" uri="pkg:/components/utils.brs"/>
   <script type="text/brightscript" uri="pkg:/components/views/MovieDetailView.brs"/>
+  <!-- Cinemeta metadata line (rating, cast, runtime, genres) -->
+  <!-- placed below the FILME tag -->
   <children>
     <Rectangle width="1920" height="1080" color="0x0B0F1AFF"/>
     <Poster id="backdrop" width="1920" height="1080" loadDisplayMode="scaleToZoom" opacity="0.18"/>
@@ -23,6 +25,9 @@
     </Label>
     <Label id="title" translation="[670,222]" width="1070" wrap="true" maxLines="2" color="0xFFFFFFFF">
       <Font role="font" uri="font:BoldSystemFontFile" size="62"/>
+    </Label>
+    <Label id="metaLbl" translation="[670,360]" width="1070" color="0x9AA4B2FF" visible="false">
+      <Font role="font" uri="font:SystemFontFile" size="24"/>
     </Label>
     <Label id="summary" translation="[670,400]" width="1070" wrap="true" maxLines="7" lineSpacing="8" color="0xDDE3EAFF">
       <Font role="font" uri="font:SystemFontFile" size="30"/>

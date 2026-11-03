@@ -3,12 +3,14 @@ sub init()
     m.poster = m.top.findNode("poster")
     m.title = m.top.findNode("title")
     m.summary = m.top.findNode("summary")
+    m.metaLbl = m.top.findNode("metaLbl")
     m.status = m.top.findNode("status")
     m.hint = m.top.findNode("hint")
     m.btn1 = m.top.findNode("btn1")
     m.lbl0 = m.top.findNode("lbl0")
     m.btn = 0
     m.resumeAt = 0
+    m.cinemetaTask = invalid
     m.top.observeField("resumed", "onResumed")
 end sub
 
@@ -19,6 +21,47 @@ sub onItem()
     m.poster.uri = To_Str(it.poster)
     m.backdrop.uri = To_Str(it.poster)
     refreshResume()
+
+    imdb = To_Str(it.imdb)
+    if imdb <> "" then fetchCinemeta(imdb)
+end sub
+
+sub fetchCinemeta(imdb as String)
+    m.cinemetaTask = CreateObject("roSGNode", "CinemetaTask")
+    m.cinemetaTask.imdbId = imdb
+    m.cinemetaTask.kind = "movie"
+    m.cinemetaTask.observeField("result", "onCinemetaLoaded")
+    m.cinemetaTask.control = "run"
+end sub
+
+sub onCinemetaLoaded()
+    if m.cinemetaTask = invalid then return
+    r = m.cinemetaTask.result
+    m.cinemetaTask = invalid
+    if r = invalid or r.Count() = 0 then return
+
+    parts = []
+    if r.rating <> "" then parts.Push("★ " + r.rating)
+    if r.runtime <> "" then parts.Push(r.runtime)
+    if r.genres <> "" then parts.Push(r.genres)
+    if r.year <> "" then parts.Push(r.year)
+    if parts.Count() > 0
+        m.metaLbl.text = parts.Join("   |   ")
+        m.metaLbl.visible = true
+        m.summary.translation = [670, 400]
+    end if
+
+    if r.cast <> ""
+        castLine = "Elenco: " + r.cast
+        if r.director <> "" then castLine = castLine + "   |   Dir: " + r.director
+        cur = m.summary.text
+        if cur <> "" then m.summary.text = cur + Chr(10) + Chr(10) + castLine
+    end if
+
+    if r.background <> ""
+        m.backdrop.uri = r.background
+        m.backdrop.opacity = 0.25
+    end if
 end sub
 
 ' Back from the player: the saved position changed.

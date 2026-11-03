@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component name="CinemetaTask" extends="Task">
+  <interface>
+    <field id="imdbId" type="string" value=""/>
+    <!-- "series" or "movie" -->
+    <field id="kind" type="string" value="series"/>
+    <field id="result" type="assocarray"/>
+  </interface>
+  <script type="text/brightscript" uri="pkg:/components/utils.brs"/>
+  <script type="text/brightscript" uri="pkg:/components/tasks/CinemetaTask.brs"/>
+</component>
