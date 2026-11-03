@@ -10,6 +10,13 @@ sub init()
     m.sync = CreateObject("roSGNode", "CatalogSyncTask")
     m.sync.observeField("result", "onCatalogSync")
     m.sync.control = "run"
+
+    ' Screensaver after 5 min idle
+    m.screenSaver = m.top.findNode("screenSaver")
+    m.idleTimer = m.top.findNode("idleTimer")
+    m.idleTimer.observeField("fire", "onIdleTimeout")
+    m.ssActive = false
+    resetIdleTimer()
 end sub
 
 sub onCatalogSync()
@@ -103,8 +110,37 @@ sub onNavigate(ev as Object)
     end if
 end sub
 
+sub resetIdleTimer()
+    m.idleTimer.control = "stop"
+    m.idleTimer.control = "start"
+end sub
+
+sub onIdleTimeout()
+    if m.ssActive then return
+    m.ssActive = true
+    v = m.stack.Peek()
+    if v <> invalid
+        m.screenSaver.posterUri = To_Str(v.getField("poster"))
+        m.screenSaver.title = To_Str(v.getField("title"))
+    end if
+    m.screenSaver.active = true
+end sub
+
+sub dismissScreenSaver()
+    m.ssActive = false
+    m.screenSaver.active = false
+    resetIdleTimer()
+    top = m.stack.Peek()
+    if top <> invalid then top.setFocus(true)
+end sub
+
 function onKeyEvent(key as String, press as Boolean) as Boolean
     if not press then return false
+    resetIdleTimer()
+    if m.ssActive
+        dismissScreenSaver()
+        return true
+    end if
     if key = "back" and m.stack.Count() > 1
         popView()
         return true

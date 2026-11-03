@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component name="ScreenSaver" extends="Group">
+  <interface>
+    <field id="active" type="boolean" onChange="onActive"/>
+    <field id="posterUri" type="string" onChange="onPoster"/>
+    <field id="title" type="string" onChange="onTitle"/>
+  </interface>
+  <script type="text/brightscript" uri="pkg:/components/utils.brs"/>
+  <script type="text/brightscript" uri="pkg:/components/items/ScreenSaver.brs"/>
+  <children>
+    <Rectangle id="overlay" width="1920" height="1080" color="0x000000FF" visible="false"/>
+    <Group id="floater" visible="false">
+      <Poster id="ssPoster" width="200" height="300" loadDisplayMode="scaleToFit"
+          loadingBitmapUri="" failedBitmapUri=""/>
+      <Label id="ssTitle" translation="[0,310]" width="200" horizAlign="center" color="0xFFFFFFFF">
+        <Font role="font" uri="font:BoldSystemFontFile" size="24"/>
+      </Label>
+      <Label id="ssClock" translation="[0,350]" width="200" horizAlign="center" color="0x9B5DE5FF">
+        <Font role="font" uri="font:BoldSystemFontFile" size="36"/>
+      </Label>
+      <Label text="TV Livre" translation="[0,400]" width="200" horizAlign="center" color="0x9AA4B2FF">
+        <Font role="font" uri="font:SystemFontFile" size="20"/>
+      </Label>
+    </Group>
+    <Timer id="clockTimer" duration="1" repeat="true"/>
+    <Timer id="moveTimer" duration="8" repeat="true"/>
+  </children>
+</component>
