@@ -71,6 +71,12 @@
       <Label id="epLabel" translation="[490,866]" width="920" height="64" vertAlign="center" color="0x9AA4B2FF">
         <Font role="font" uri="font:SystemFontFile" size="26"/>
       </Label>
+      <!-- Shuffle -->
+      <Rectangle id="shuffleRing" translation="[1196,862]" width="228" height="72" color="0x9B5DE5FF" opacity="0"/>
+      <Rectangle translation="[1200,866]" width="220" height="64" color="0x1C2333FF"/>
+      <Label id="shuffleText" text="🔀 Aleatório" translation="[1200,866]" width="220" height="64" horizAlign="center" vertAlign="center" color="0xFFFFFFFF">
+        <Font role="font" uri="font:BoldSystemFontFile" size="26"/>
+      </Label>
       <!-- Minha Lista -->
       <Rectangle id="favRing" translation="[1436,862]" width="408" height="72" color="0x9B5DE5FF" opacity="0"/>
       <Rectangle translation="[1440,866]" width="400" height="64" color="0x1C2333FF"/>

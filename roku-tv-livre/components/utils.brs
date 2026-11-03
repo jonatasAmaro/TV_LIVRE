@@ -283,6 +283,41 @@ sub Grid_SaveResume(key as String, season as Integer, ep as Integer, at as Integ
     Store_Set("gridResume", out)
 end sub
 
+' ---------- Watched episodes ----------
+
+' watched = { "grid:id:title": { "1:3": true, "1:5": true } }
+function Watched_Get(key as String) as Object
+    all = Store_Get("watched", {})
+    if all[key] <> invalid then return all[key]
+    return {}
+end function
+
+function Watched_Has(key as String, season as Integer, ep as Integer) as Boolean
+    w = Watched_Get(key)
+    k = season.ToStr() + ":" + ep.ToStr()
+    return w[k] = true
+end function
+
+sub Watched_Mark(key as String, season as Integer, ep as Integer)
+    all = Store_Get("watched", {})
+    w = all[key]
+    if w = invalid then w = {}
+    k = season.ToStr() + ":" + ep.ToStr()
+    w[k] = true
+    all[key] = w
+    Store_Set("watched", all)
+end sub
+
+function Watched_CountSeason(key as String, season as Integer, total as Integer) as Integer
+    w = Watched_Get(key)
+    c = 0
+    for i = 0 to total - 1
+        k = season.ToStr() + ":" + i.ToStr()
+        if w[k] = true then c++
+    end for
+    return c
+end function
+
 function Anime_LastSeen() as Integer
     v = To_Int(Store_Get("animeSeen", 0))
     if v = 0 then v = Now_Seconds() - 86400

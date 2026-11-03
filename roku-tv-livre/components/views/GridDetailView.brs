@@ -61,6 +61,7 @@ sub init()
     m.cinemetaTask = invalid
     m.cinemetaEps = {}
     m.metaLbl = m.top.findNode("metaLbl")
+    m.shuffleRing = m.top.findNode("shuffleRing")
 end sub
 
 sub onFocusChange()
@@ -74,6 +75,7 @@ sub setFocusArea(area as String)
     m.backLabel.color = "0x9AA4B2FF"
     m.previewRing.opacity = 0
     m.comboRing.opacity = 0
+    m.shuffleRing.opacity = 0
     m.favRing.opacity = 0
     m.fullscreenHint.visible = false
     if area = "back"
@@ -85,6 +87,9 @@ sub setFocusArea(area as String)
         m.keySink.setFocus(true)
     else if area = "combo"
         m.comboRing.opacity = 1
+        m.keySink.setFocus(true)
+    else if area = "shuffle"
+        m.shuffleRing.opacity = 1
         m.keySink.setFocus(true)
     else if area = "fav"
         m.favRing.opacity = 1
@@ -186,6 +191,7 @@ sub loadEpisodes(seasonIdx as Integer, epIdx as Integer, startAt as Integer)
     for i = 0 to eps.Count() - 1
         n = row.createChild("ContentNode")
         n.title = (i + 1).ToStr()
+        if Watched_Has(m.key, seasonIdx, i) then n.addField("WATCHED", "string", false) : n.WATCHED = "true"
     end for
     m.episodes.content = root
 
@@ -194,7 +200,10 @@ sub loadEpisodes(seasonIdx as Integer, epIdx as Integer, startAt as Integer)
         m.video.control = "stop"
         return
     end if
-    epCountTxt = eps.Count().ToStr() + " episódio(s)"
+    total = eps.Count()
+    wc = Watched_CountSeason(m.key, m.currentSeason, total)
+    epCountTxt = total.ToStr() + " episódio(s)"
+    if wc > 0 then epCountTxt = epCountTxt + "   |   ✓ " + wc.ToStr() + " assistido(s)"
     if m.resumeNote <> "" then epCountTxt = epCountTxt + "   |   " + m.resumeNote
     m.epLabel.text = epCountTxt
     if epIdx >= eps.Count() then epIdx = 0
@@ -302,6 +311,9 @@ sub onVideoState()
         m.videoStatus.text = "Erro ao carregar o vídeo"
         m.videoStatus.visible = true
     else if s = "finished" and m.fullscreen
+        Watched_Mark(m.key, m.currentSeason, m.currentEp)
+        markEpWatched(m.currentEp)
+        updateWatchedCount()
         eps = m.seasonData[m.currentSeason].episodes
         if eps = invalid then eps = []
         nextIdx = m.currentEp + 1
@@ -312,6 +324,37 @@ sub onVideoState()
             exitFullscreen()
         end if
     end if
+end sub
+
+' ---------- Watched / Shuffle ----------
+
+sub markEpWatched(idx as Integer)
+    row = m.episodes.content.getChild(0)
+    if row = invalid then return
+    n = row.getChild(idx)
+    if n = invalid then return
+    if not n.doesExist("WATCHED") then n.addField("WATCHED", "string", false)
+    n.WATCHED = "true"
+end sub
+
+sub updateWatchedCount()
+    eps = m.seasonData[m.currentSeason].episodes
+    if eps = invalid then eps = []
+    total = eps.Count()
+    wc = Watched_CountSeason(m.key, m.currentSeason, total)
+    base = total.ToStr() + " episódio(s)"
+    if wc > 0 then base = base + "   |   ✓ " + wc.ToStr() + " assistido(s)"
+    if m.resumeNote <> "" then base = base + "   |   " + m.resumeNote
+    m.epLabel.text = base
+end sub
+
+sub shuffleEpisode()
+    eps = m.seasonData[m.currentSeason].episodes
+    if eps = invalid or eps.Count() = 0 then return
+    idx = Rnd(eps.Count()) - 1
+    playEpisode(idx, 0)
+    m.episodes.jumpToRowItem = [0, idx]
+    enterFullscreen()
 end sub
 
 ' ---------- Cinemeta ----------
@@ -559,6 +602,19 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
         if key = "OK"
             openSeasons()
         else if key = "right"
+            setFocusArea("shuffle")
+        else if key = "up"
+            setFocusArea("preview")
+        else if key = "down"
+            setFocusArea("episodes")
+        end if
+        return true
+    else if area = "shuffle"
+        if key = "OK"
+            shuffleEpisode()
+        else if key = "left"
+            setFocusArea("combo")
+        else if key = "right"
             setFocusArea("fav")
         else if key = "up"
             setFocusArea("preview")
@@ -570,7 +626,7 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
         if key = "OK"
             toggleFav()
         else if key = "left"
-            setFocusArea("combo")
+            setFocusArea("shuffle")
         else if key = "up"
             setFocusArea("preview")
         else if key = "down"

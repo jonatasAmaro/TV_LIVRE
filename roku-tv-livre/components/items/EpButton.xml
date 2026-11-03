@@ -16,5 +16,9 @@
     <Label id="lbl" width="80" height="60" horizAlign="center" vertAlign="center" color="0xFFFFFFFF">
       <Font role="font" uri="font:BoldSystemFontFile" size="26"/>
     </Label>
+    <!-- Watched checkmark -->
+    <Label id="check" text="✓" translation="[54,0]" width="26" height="26" horizAlign="center" vertAlign="center" color="0x2ECC71FF" visible="false">
+      <Font role="font" uri="font:BoldSystemFontFile" size="20"/>
+    </Label>
   </children>
 </component>
