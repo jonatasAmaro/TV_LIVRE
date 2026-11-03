@@ -256,7 +256,8 @@ sub saveResume(at as Integer)
     ' Also listed in "Continuar assistindo" (Minha Lista).
     it = m.top.item
     info = "T" + (m.currentSeason + 1).ToStr() + " EP " + (m.currentEp + 1).ToStr()
-    Recent_Save({ id: m.key, kind: "grid", title: To_Str(it.title), poster: To_Str(it.poster), info: info, at: at })
+    dur = Int(m.video.duration)
+    Recent_Save({ id: m.key, kind: "grid", title: To_Str(it.title), poster: To_Str(it.poster), info: info, at: at, duration: dur })
 end sub
 
 sub onPosition()

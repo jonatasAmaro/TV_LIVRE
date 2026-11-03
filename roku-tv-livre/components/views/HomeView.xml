@@ -22,6 +22,18 @@
       <Font role="font" uri="font:BoldSystemFontFile" size="46"/>
     </Label>
     <Group id="tabs" translation="[80,128]"/>
+    <!-- "Continuar assistindo" row, visible when there are items in progress -->
+    <Group id="cwGroup" visible="false" translation="[0,200]">
+      <Label id="cwTitle" text="▶ Continuar assistindo" translation="[80,10]" color="0xC8D0DCFF">
+        <Font role="font" uri="font:BoldSystemFontFile" size="26"/>
+      </Label>
+      <MarkupGrid id="cwGrid" translation="[80,48]"
+          itemComponentName="CWItem"
+          numColumns="8" numRows="1"
+          itemSize="[214,360]" itemSpacing="[10,0]"
+          drawFocusFeedback="false"
+          vertFocusAnimationStyle="floatingFocus"/>
+    </Group>
     <Group id="content"/>
     <Timer id="tabTimer" duration="0.35"/>
     <Timer id="clockTimer" repeat="true" duration="20"/>

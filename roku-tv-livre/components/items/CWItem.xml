@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- "Continue Watching" poster card with a progress bar at the bottom.
+     Used as itemComponentName in the HomeView MarkupGrid. -->
+<component name="CWItem" extends="Group">
+  <interface>
+    <field id="itemContent" type="node" onChange="onContent"/>
+    <field id="focusPercent" type="float" onChange="onFocus"/>
+  </interface>
+  <script type="text/brightscript" uri="pkg:/components/items/CWItem.brs"/>
+  <children>
+    <!-- Card background (visible on focus) -->
+    <Rectangle id="ring" width="196" height="302" translation="[-3,-3]"
+        color="0x9B5DE5FF" cornerRadius="8" visible="false"/>
+    <!-- Poster -->
+    <Poster id="poster" width="190" height="296" loadDisplayMode="scaleToZoom"/>
+    <!-- Progress bar -->
+    <Rectangle id="pbarBg" translation="[0,286]" width="190" height="10" color="0x44444488"/>
+    <Rectangle id="pbarFill" translation="[0,286]" width="0" height="10" color="0x9B5DE5FF"/>
+    <!-- Title + info below the poster -->
+    <Label id="title" translation="[0,302]" width="190" maxLines="1" color="0xC8D0DCFF">
+      <Font role="font" uri="font:BoldSystemFontFile" size="20"/>
+    </Label>
+    <Label id="info" translation="[0,326]" width="190" maxLines="1" color="0x9AA4B2FF">
+      <Font role="font" uri="font:SystemFontFile" size="18"/>
+    </Label>
+  </children>
+</component>

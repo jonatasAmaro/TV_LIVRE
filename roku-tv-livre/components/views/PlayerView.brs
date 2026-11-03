@@ -89,7 +89,8 @@ end sub
 sub saveProgress(curPos as Integer)
     p = m.top.params
     if m.isLive or p.id = invalid then return
-    entry = { id: p.id, title: To_Str(p.itemTitle), poster: To_Str(p.poster), file: To_Str(p.file), at: curPos }
+    dur = Int(m.video.duration)
+    entry = { id: p.id, title: To_Str(p.itemTitle), poster: To_Str(p.poster), file: To_Str(p.file), at: curPos, duration: dur }
     ' Extra fields the caller wants back in "Continuar assistindo" (e.g. a movie's url and summary).
     if type(p.extra) = "roAssociativeArray" then entry.Append(p.extra)
     Recent_Save(entry)

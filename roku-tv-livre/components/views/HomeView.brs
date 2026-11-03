@@ -15,8 +15,15 @@ sub init()
     m.shownIndex = -1
     m.inTabs = false
     m.inGear = false
+    m.inCW = false
     m.animeTask = invalid
     m.animeEntries = invalid
+
+    ' Continue Watching row
+    m.cwGroup = m.top.findNode("cwGroup")
+    m.cwGrid = m.top.findNode("cwGrid")
+    m.cwGrid.observeField("itemSelected", "onCWSelected")
+    m.cwItems = []
 
     m.top.observeField("focusedChild", "onFocusChange")
     m.top.observeField("resumed", "onResumed")
@@ -36,6 +43,7 @@ sub onConfig()
     m.epgUrl = To_Str(cfg.epgUrl)
     buildTabs()
     buildGear()
+    refreshContinueWatching()
     showTab(0)
     focusContent()
 
@@ -246,15 +254,26 @@ sub focusContent()
     m.tabTimer.control = "stop"
     showTab(m.tabIndex)
     m.inTabs = false
+    m.inCW = false
     refreshTabs()
     v = currentView()
     if v <> invalid then v.setFocus(true)
 end sub
 
+sub focusCW()
+    m.tabTimer.control = "stop"
+    showTab(m.tabIndex)
+    m.inTabs = false
+    m.inCW = true
+    refreshTabs()
+    m.cwGrid.setFocus(true)
+end sub
+
 sub onFocusChange()
     if m.inTabs
-        ' Home itself got focus (back from a pushed screen or a dialog).
         if m.top.hasFocus() then m.tabsGroup.setFocus(true)
+    else if m.inCW
+        if m.top.hasFocus() then m.cwGrid.setFocus(true)
     else if m.top.hasFocus()
         v = currentView()
         if v <> invalid then v.setFocus(true)
@@ -268,6 +287,7 @@ sub onVisible()
 end sub
 
 sub onResumed()
+    refreshContinueWatching()
     v = currentView()
     if v <> invalid then v.resumed = true
     if m.animeEntries <> invalid then updateAnimeBadge()
@@ -294,7 +314,11 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
             selectTab(wrapTab(m.tabIndex + 1))
             return true
         else if key = "down" or key = "OK"
-            focusContent()
+            if m.cwGroup.visible
+                focusCW()
+            else
+                focusContent()
+            end if
             return true
         else if key = "options"
             setGear(true)
@@ -309,8 +333,22 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
         end if
         return false
     end if
+    if m.inCW
+        if key = "up" or key = "back"
+            focusTabs()
+            return true
+        else if key = "down"
+            focusContent()
+            return true
+        end if
+        return false
+    end if
     if key = "up" or key = "back"
-        focusTabs()
+        if m.cwGroup.visible
+            focusCW()
+        else
+            focusTabs()
+        end if
         return true
     end if
     return false
@@ -335,6 +373,91 @@ end sub
 
 sub onExitClosed()
     m.tabsGroup.setFocus(true)
+end sub
+
+' ---------- Continue Watching ----------
+
+sub refreshContinueWatching()
+    recent = Recent_List()
+    items = []
+    root = CreateObject("roSGNode", "ContentNode")
+    for each r in recent
+        at = To_Int(r.at)
+        if at <= 30 then continue for
+        it = root.createChild("ContentNode")
+        it.title = To_Str(r.title)
+        kind = To_Str(r.kind)
+        if kind = "grid"
+            it.shortDescriptionLine1 = To_Str(r.info) + " - " + Fmt_Time(at)
+        else
+            it.shortDescriptionLine1 = "Parou em " + Fmt_Time(at)
+        end if
+        it.hdPosterUrl = To_Str(r.poster)
+        ' Calculate progress percentage from saved duration; estimate if unknown
+        dur = To_Int(r.duration)
+        if dur > 60
+            pct = Int(100 * at / dur)
+        else
+            ' No duration saved — rough estimate based on position
+            pct = 25
+            if at > 600 then pct = 35
+            if at > 1800 then pct = 55
+            if at > 3600 then pct = 75
+        end if
+        if pct > 95 then pct = 95
+        if pct < 5 then pct = 5
+        it.addFields({ progressPct: pct })
+        items.Push(r)
+        if items.Count() >= 8 then exit for
+    end for
+    m.cwItems = items
+    m.cwGrid.content = root
+
+    visible = items.Count() > 0
+    m.cwGroup.visible = visible
+    ' Shift tab content down when CW row is visible
+    if visible
+        m.cwGroup.translation = [0, 200]
+        adjustContentOffset(620)
+    else
+        adjustContentOffset(200)
+    end if
+end sub
+
+sub adjustContentOffset(y as Integer)
+    ' Each embedded tab view positions itself relative to the content group.
+    ' The content group doesn't move, but the tabs built inside adapt via their
+    ' own translation. We shift the content group.
+    m.content.translation = [0, y - 200]
+end sub
+
+sub onCWSelected()
+    idx = m.cwGrid.itemSelected
+    if idx < 0 or idx >= m.cwItems.Count() then return
+    r = m.cwItems[idx]
+    kind = To_Str(r.kind)
+    if kind = "movie"
+        m.top.navigate = {
+            to: "play", urls: [To_Str(r.url)], title: To_Str(r.title),
+            start: To_Int(r.at), id: To_Str(r.id),
+            itemTitle: To_Str(r.title), poster: To_Str(r.poster),
+            imdb: To_Str(r.imdb),
+            extra: { kind: "movie", movieId: To_Str(r.movieId), url: To_Str(r.url), summary: To_Str(r.summary) }
+        }
+    else if kind = "grid"
+        ' Open the series screen; it will resume at the saved position.
+        item = Grid_FindItem(To_Str(r.id))
+        if item <> invalid
+            m.top.navigate = { to: "gridDetail", item: item }
+        end if
+    else
+        ' Archive item
+        m.top.navigate = {
+            to: "play", urls: [To_Str(r.file)], title: To_Str(r.title),
+            start: To_Int(r.at), id: To_Str(r.id),
+            itemTitle: To_Str(r.title), poster: To_Str(r.poster)
+        }
+    end if
 end sub
 
 ' ---------- Clock ----------
