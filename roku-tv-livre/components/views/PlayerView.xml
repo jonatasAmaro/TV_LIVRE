@@ -5,6 +5,7 @@
   </interface>
   <script type="text/brightscript" uri="pkg:/components/utils.brs"/>
   <script type="text/brightscript" uri="pkg:/components/views/PlayerView.brs"/>
+  <script type="text/brightscript" uri="pkg:/components/views/PlayerSubtitleHelper.brs"/>
   <children>
     <Rectangle width="1920" height="1080" color="0x000000FF"/>
     <Video id="video" width="1920" height="1080" enableUI="false"/>

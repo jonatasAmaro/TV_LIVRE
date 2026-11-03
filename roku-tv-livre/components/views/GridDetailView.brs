@@ -44,8 +44,14 @@ sub init()
     m.video.observeField("position", "onPosition")
     m.controls.observeField("onNextEpisode", "onCtrlNextEpisode")
     m.controls.observeField("onRestartEpisode", "onCtrlRestart")
+    m.controls.observeField("subtitleIndex", "onSubtitleChanged")
     m.top.observeField("focusedChild", "onFocusChange")
     m.top.observeField("closing", "onClosing")
+
+    ' Subtitles
+    m.subTask = invalid
+    m.subTracks = []
+    m.imdb = ""
 end sub
 
 sub onFocusChange()
@@ -113,6 +119,7 @@ sub onItem()
     m.seasonPop.translation = [80, 866 - 8 - h]
 
     refreshFav()
+    m.imdb = To_Str(item.imdb)
 
     ' Reopen where the viewer stopped.
     season = 0
@@ -234,6 +241,11 @@ sub playEpisode(idx as Integer, startAt as Integer)
     m.video.control = "stop"
     m.video.content = c
     m.video.control = "play"
+
+    ' Fetch subtitles for this episode
+    if m.imdb <> ""
+        fetchSubtitles(m.imdb, m.currentSeason + 1, idx + 1)
+    end if
 end sub
 
 ' Progress counts only while watching in full screen; the small preview does not move it.

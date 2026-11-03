@@ -18,6 +18,10 @@
     <field id="showEpisodeActions" type="boolean" value="false"/>
     <field id="onNextEpisode" type="boolean" alwaysNotify="true"/>
     <field id="onRestartEpisode" type="boolean" alwaysNotify="true"/>
+    <!-- Subtitle tracks: array of { lang, label, url } from SubtitleTask -->
+    <field id="subtitleTracks" type="array" value="[]"/>
+    <!-- Current subtitle index (-1 = off). Fires when user toggles. -->
+    <field id="subtitleIndex" type="integer" value="-1" alwaysNotify="true"/>
   </interface>
   <script type="text/brightscript" uri="pkg:/components/utils.brs"/>
   <script type="text/brightscript" uri="pkg:/components/items/PlayerControls.brs"/>
@@ -56,12 +60,20 @@
       <Rectangle id="barFill" translation="[80,968]" width="0" height="12" color="0x9B5DE5FF"/>
       <Rectangle id="knob" translation="[74,956]" width="12" height="36" color="0xFFFFFFFF"/>
       <Label id="hintLbl" translation="[80,1004]" width="1760" color="0x9AA4B2FF"
-          text="OK pausa / continua   |   Segure Esquerda ou Direita para voltar ou avançar">
+          text="OK pausa / continua   |   Segure ◀▶ p/ buscar   |   ★ Legendas">
         <Font role="font" uri="font:SystemFontFile" size="24"/>
+      </Label>
+      <!-- Subtitle toast (briefly shown when user presses * to toggle) -->
+      <Rectangle id="subToastBg" translation="[640,390]" width="640" height="64"
+          color="0x000000CC" cornerRadius="12" visible="false"/>
+      <Label id="subToast" translation="[660,400]" width="600" horizAlign="center"
+          color="0xFFFFFFFF" visible="false">
+        <Font role="font" uri="font:BoldSystemFontFile" size="36"/>
       </Label>
     </Group>
     <Timer id="seekTimer" duration="0.25" repeat="true"/>
     <Timer id="hideTimer" duration="3"/>
     <Timer id="panelTimer" duration="6"/>
+    <Timer id="subToastTimer" duration="2.5"/>
   </children>
 </component>

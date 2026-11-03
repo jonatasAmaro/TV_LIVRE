@@ -15,6 +15,11 @@ sub init()
     m.video.observeField("position", "onPosition")
     m.top.observeField("closing", "onClosing")
     m.top.observeField("focusedChild", "onFocusChange")
+
+    ' Subtitles
+    m.subTask = invalid
+    m.subTracks = []
+    m.controls.observeField("subtitleIndex", "onSubtitleChanged")
 end sub
 
 sub onFocusChange()
@@ -30,6 +35,12 @@ sub onParams()
     m.urlIndex = 0
     m.lastSave = To_Int(p.start)
     startUrl(m.lastSave)
+
+    ' Fetch subtitles if IMDb ID is available
+    imdb = To_Str(p.imdb)
+    if imdb <> "" and not m.isLive
+        fetchSubtitles(imdb, To_Int(p.subSeason), To_Int(p.subEpisode))
+    end if
 end sub
 
 sub startUrl(startPos as Integer)

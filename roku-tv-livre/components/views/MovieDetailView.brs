@@ -82,6 +82,7 @@ sub watch(fromStart as Boolean)
     m.top.navigate = {
         to: "play", urls: [url], title: To_Str(it.title), start: start,
         id: recentId(), itemTitle: To_Str(it.title), poster: To_Str(it.poster),
+        imdb: To_Str(it.imdb),
         extra: { kind: "movie", movieId: To_Str(it.id), url: url, summary: To_Str(it.summary) }
     }
 end sub

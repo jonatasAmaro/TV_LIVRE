@@ -30,6 +30,12 @@ sub init()
     m.btn = 1
     m.panelRow = 0
     m.actionBtn = 0
+
+    ' Subtitle toast
+    m.subToast = m.top.findNode("subToast")
+    m.subToastBg = m.top.findNode("subToastBg")
+    m.subToastTimer = m.top.findNode("subToastTimer")
+    m.subToastTimer.observeField("fire", "onSubToastHide")
 end sub
 
 sub onActive()
@@ -53,6 +59,11 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
     end if
     if key = "OK" or key = "play"
         if press then togglePause()
+        return true
+    end if
+    ' * key (options) toggles subtitles
+    if key = "options" and press
+        toggleSubtitle()
         return true
     end if
     dir = 0
@@ -312,4 +323,35 @@ end sub
 sub onHide()
     if m.panel then return
     if m.seekDir = 0 and m.top.video.state <> "paused" then m.osd.visible = false
+end sub
+
+' ---------- Subtitles ----------
+
+sub toggleSubtitle()
+    tracks = m.top.subtitleTracks
+    if tracks = invalid or tracks.Count() = 0
+        showSubToast("Legendas indisponíveis")
+        return
+    end if
+    idx = m.top.subtitleIndex + 1
+    if idx >= tracks.Count() then idx = -1
+    m.top.subtitleIndex = idx
+    if idx = -1
+        showSubToast("Legenda: Desligada")
+    else
+        showSubToast("Legenda: " + To_Str(tracks[idx].label))
+    end if
+end sub
+
+sub showSubToast(msg as String)
+    m.subToastBg.visible = true
+    m.subToast.text = msg
+    m.subToast.visible = true
+    m.subToastTimer.control = "stop"
+    m.subToastTimer.control = "start"
+end sub
+
+sub onSubToastHide()
+    m.subToast.visible = false
+    m.subToastBg.visible = false
 end sub

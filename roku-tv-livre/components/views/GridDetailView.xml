@@ -7,6 +7,7 @@
   </interface>
   <script type="text/brightscript" uri="pkg:/components/utils.brs"/>
   <script type="text/brightscript" uri="pkg:/components/views/GridDetailView.brs"/>
+  <script type="text/brightscript" uri="pkg:/components/views/PlayerSubtitleHelper.brs"/>
   <children>
     <Rectangle width="1920" height="1080" color="0x0B0F1AFF"/>
     <!-- Holds focus for back/preview/combo/fav: focusing this view itself is ignored
