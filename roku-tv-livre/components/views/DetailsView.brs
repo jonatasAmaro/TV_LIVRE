@@ -60,7 +60,7 @@ sub onMeta()
         for each f in r.files
             row = root.createChild("ContentNode")
             row.title = i.ToStr() + ".  " + f.title
-            i++
+            i = i + 1
         end for
         m.episodes.content = root
         m.episodes.visible = true

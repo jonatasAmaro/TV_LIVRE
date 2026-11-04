@@ -64,7 +64,7 @@ sub onState()
     s = m.video.state
     if s = "error"
         if m.urlIndex + 1 < m.urls.Count()
-            m.urlIndex++
+            m.urlIndex = m.urlIndex + 1
             startUrl(m.lastSave)
         else
             m.error.text = "Não foi possível reproduzir este vídeo." + Chr(10) + m.video.errorMsg + Chr(10) + Chr(10) + "Pressione Voltar."

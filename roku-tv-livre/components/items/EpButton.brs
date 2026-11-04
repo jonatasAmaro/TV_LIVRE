@@ -10,7 +10,7 @@ sub onContent()
     if c = invalid then return
     m.lbl.text = c.title
     watched = false
-    if c.doesExist("WATCHED") then watched = (c.WATCHED = "true")
+    if c.doesExist("WATCHED") then watched = (c.WATCHED.ToStr() = "true")
     m.check.visible = watched
     if watched
         m.bg.color = "0x1A2A40FF"

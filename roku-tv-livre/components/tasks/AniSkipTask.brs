@@ -25,7 +25,7 @@ sub execute()
         t = To_Str(r.skipType)
         iv = r.interval
         if iv = invalid then continue for
-        seg = { start: Int(iv.startTime), end: Int(iv.endTime) }
+        seg = { start: Int(iv.startTime), finish: Int(iv.endTime) }
         if t = "op" then out.op = seg
         if t = "ed" then out.ed = seg
     end for

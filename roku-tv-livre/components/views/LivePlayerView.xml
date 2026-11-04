@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- TV AO VIVO default: near-fullscreen player with last channel + action buttons -->
+<component name="LivePlayerView" extends="BaseView">
+  <interface>
+    <field id="channels" type="array" onChange="onChannels"/>
+    <field id="epgUrl" type="string" value=""/>
+  </interface>
+  <script type="text/brightscript" uri="pkg:/components/utils.brs"/>
+  <script type="text/brightscript" uri="pkg:/components/views/LivePlayerView.brs"/>
+  <children>
+    <!-- Live video player (~20px gap below top bar, fills to bottom) -->
+    <Video id="video" translation="[0,100]" width="1920" height="980" enableUI="false"/>
+
+    <!-- Status overlay -->
+    <Label id="status" translation="[0,480]" width="1920" horizAlign="center"
+        wrap="true" color="0xFFFFFFFF" visible="false">
+      <Font role="font" uri="pkg:/fonts/Inter-Medium.ttf" size="30"/>
+    </Label>
+
+    <!-- Action buttons row -->
+    <Group id="btnRow" translation="[80,820]">
+      <Group id="btn0">
+        <Poster id="btnBg0" uri="pkg:/images/pill_bg.png" width="320" height="50"
+            blendColor="0x3A3F4BFF" opacity="0.9"/>
+        <Label id="btnLbl0" text="MODO TELA CHEIA" width="320" height="50"
+            horizAlign="center" vertAlign="center" color="0xFFFFFFFF">
+          <Font role="font" uri="pkg:/fonts/Inter-Bold.ttf" size="22"/>
+        </Label>
+      </Group>
+      <Group id="btn1" translation="[340,0]">
+        <Poster id="btnBg1" uri="pkg:/images/pill_bg.png" width="320" height="50"
+            blendColor="0x3A3F4BFF" opacity="0.9"/>
+        <Label id="btnLbl1" text="VER GRADE DE CANAIS" width="320" height="50"
+            horizAlign="center" vertAlign="center" color="0xFFFFFFFF">
+          <Font role="font" uri="pkg:/fonts/Inter-Bold.ttf" size="22"/>
+        </Label>
+      </Group>
+    </Group>
+
+    <!-- Bottom info strip (fills to screen bottom) -->
+    <Rectangle id="infoStrip" translation="[0,880]" width="1920" height="200"
+        color="0x0B0F1AEE"/>
+    <Label id="chName" translation="[80,888]" width="1400" color="0xFFFFFFFF">
+      <Font role="font" uri="pkg:/fonts/Inter-Bold.ttf" size="42"/>
+    </Label>
+    <Label id="chInfo" translation="[80,940]" width="1400" color="0x9AA4B2FF">
+      <Font role="font" uri="pkg:/fonts/Inter-Regular.ttf" size="30"/>
+    </Label>
+    <Label id="epgNow" translation="[80,978]" width="1400" color="0x4ADE80FF" visible="false">
+      <Font role="font" uri="pkg:/fonts/Inter-Bold.ttf" size="28"/>
+    </Label>
+
+    <!-- OSD for fullscreen -->
+    <Group id="osd" visible="false">
+      <Rectangle translation="[60,50]" width="900" height="140" color="0x0B0F1ACC"/>
+      <Label id="osdName" translation="[90,66]" width="840" color="0xFFFFFFFF">
+        <Font role="font" uri="pkg:/fonts/Inter-Bold.ttf" size="42"/>
+      </Label>
+      <Label id="osdInfo" translation="[90,116]" width="840" color="0xC8D0DCFF">
+        <Font role="font" uri="pkg:/fonts/Inter-Regular.ttf" size="26"/>
+      </Label>
+      <Label id="osdEpg" translation="[90,150]" width="840" color="0x4ADE80FF">
+        <Font role="font" uri="pkg:/fonts/Inter-Bold.ttf" size="22"/>
+      </Label>
+    </Group>
+
+    <Timer id="osdTimer" duration="4"/>
+    <Timer id="epgTimer" repeat="true" duration="60"/>
+  </children>
+</component>

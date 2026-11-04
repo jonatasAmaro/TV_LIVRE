@@ -4,19 +4,13 @@ sub init()
     m.top.backgroundColor = "0x0B0F1AFF"
     m.views = m.top.findNode("views")
     m.stack = []
-    ' The launcher (wallpaper + app carousel) is the first screen; TV Livre opens from it.
-    pushView(CreateObject("roSGNode", "LauncherView"))
+    ' Profile selection is the first screen
+    pushView(CreateObject("roSGNode", "ProfileView"))
     ' Online catalog refresh; TV Livre reads it the next time it opens.
     m.sync = CreateObject("roSGNode", "CatalogSyncTask")
     m.sync.observeField("result", "onCatalogSync")
     m.sync.control = "run"
 
-    ' Screensaver after 5 min idle
-    m.screenSaver = m.top.findNode("screenSaver")
-    m.idleTimer = m.top.findNode("idleTimer")
-    m.idleTimer.observeField("fire", "onIdleTimeout")
-    m.ssActive = false
-    resetIdleTimer()
 end sub
 
 sub onCatalogSync()
@@ -49,6 +43,8 @@ sub onNavigate(ev as Object)
     target = nav.to
     if target = "back"
         popView()
+    else if target = "launcher"
+        pushView(CreateObject("roSGNode", "LauncherView"))
     else if target = "tvlivre"
         v = CreateObject("roSGNode", "HomeView")
         v.canGoBack = true
@@ -110,37 +106,8 @@ sub onNavigate(ev as Object)
     end if
 end sub
 
-sub resetIdleTimer()
-    m.idleTimer.control = "stop"
-    m.idleTimer.control = "start"
-end sub
-
-sub onIdleTimeout()
-    if m.ssActive then return
-    m.ssActive = true
-    v = m.stack.Peek()
-    if v <> invalid
-        m.screenSaver.posterUri = To_Str(v.getField("poster"))
-        m.screenSaver.title = To_Str(v.getField("title"))
-    end if
-    m.screenSaver.active = true
-end sub
-
-sub dismissScreenSaver()
-    m.ssActive = false
-    m.screenSaver.active = false
-    resetIdleTimer()
-    top = m.stack.Peek()
-    if top <> invalid then top.setFocus(true)
-end sub
-
 function onKeyEvent(key as String, press as Boolean) as Boolean
     if not press then return false
-    resetIdleTimer()
-    if m.ssActive
-        dismissScreenSaver()
-        return true
-    end if
     if key = "back" and m.stack.Count() > 1
         popView()
         return true

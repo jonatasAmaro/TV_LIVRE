@@ -257,7 +257,7 @@ sub rebuild()
     defaults = []
     for each it in allItems()
         if inList(hidden, it.key)
-            m.hiddenCount++
+            m.hiddenCount = m.hiddenCount + 1
         else
             defaults.Push(it)
             byKey[it.key] = it
@@ -1316,10 +1316,10 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
 
     if m.mode = "menu"
         if key = "up" and m.menuIdx > 0
-            m.menuIdx--
+            m.menuIdx = m.menuIdx - 1
             refreshMenu()
         else if key = "down" and m.menuIdx < m.menuOpts.Count() - 1
-            m.menuIdx++
+            m.menuIdx = m.menuIdx + 1
             refreshMenu()
         else if key = "OK"
             menuChoose()
@@ -1342,10 +1342,10 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
 
     if m.mode = "inputs"
         if key = "left" and m.inIdx > 0
-            m.inIdx--
+            m.inIdx = m.inIdx - 1
             refreshInputs()
         else if key = "right" and m.inIdx < m.inputCards.Count() - 1
-            m.inIdx++
+            m.inIdx = m.inIdx + 1
             refreshInputs()
         else if key = "OK"
             a = m.inputList[m.inIdx]

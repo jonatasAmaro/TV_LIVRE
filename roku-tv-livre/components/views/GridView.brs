@@ -10,6 +10,10 @@ sub init()
     m.searchLbl = m.top.findNode("searchLbl")
     m.bgGradient = m.top.findNode("bgGradient")
     m.dividers = m.top.findNode("dividers")
+    m.bannerArea = m.top.findNode("bannerArea")
+    m.bannerImg = m.top.findNode("bannerImg")
+    m.bannerTitle = m.top.findNode("bannerTitle")
+    m.bannerDesc = m.top.findNode("bannerDesc")
     m.items = []
     m.hasCategories = false
     m.hasSearch = false
@@ -28,6 +32,8 @@ sub onFocusChange()
     if not m.top.hasFocus() then return
     if m.searchFocused
         return
+    else if m.top.embedded and m.hasSearch
+        focusSearch()
     else if m.hasCategories
         m.rows.setFocus(true)
     else if m.items.Count() > 0
@@ -39,11 +45,14 @@ sub focusSearch()
     m.searchFocused = true
     m.searchRing.visible = true
     if m.sectionId = "anime_tab"
-        m.searchBg.color = "0xF0E8F5FF"
+        m.searchBg.color = "0xDBC8F0FF"
+        m.searchLbl.text = chr(9654) + "  Buscar animes..."
     else if m.sectionId = "filmes"
-        m.searchBg.color = "0xFFF0E0FF"
+        m.searchBg.color = "0xF5D6A8FF"
+        m.searchLbl.text = chr(9654) + "  Buscar filmes..."
     else
-        m.searchBg.color = "0xF0F5E8FF"
+        m.searchBg.color = "0xD4E6BAFF"
+        m.searchLbl.text = chr(9654) + "  Buscar séries..."
     end if
     m.rows.setFocus(false)
     m.top.setFocus(true)
@@ -53,6 +62,13 @@ sub unfocusSearch()
     m.searchFocused = false
     m.searchRing.visible = false
     m.searchBg.color = "0xFFFFFFFF"
+    if m.sectionId = "anime_tab"
+        m.searchLbl.text = "Buscar animes..."
+    else if m.sectionId = "filmes"
+        m.searchLbl.text = "Buscar filmes..."
+    else
+        m.searchLbl.text = "Buscar séries..."
+    end if
     m.rows.setFocus(true)
 end sub
 
@@ -88,30 +104,40 @@ sub onSection()
     m.hasCategories = (s.categories <> invalid and s.categories.Count() > 0)
 
     contentY = 250
+    gap = 24
     if m.top.embedded
-        contentY = 200
-    end if
-    if m.hasSearch
-        if m.top.embedded
-            m.searchBar.visible = true
-            m.searchBar.translation = [80, 150]
-            contentY = 240
-        else
-            m.searchBar.visible = true
-            m.searchBar.translation = [80, 160]
-            contentY = 260
-        end if
+        searchY = gap
+        m.searchBar.visible = true
+        m.searchBar.translation = [80, searchY]
+        bannerY = searchY + 60 + gap
+        m.bannerArea.visible = true
+        m.bannerArea.translation = [80, bannerY]
+        contentY = bannerY + 400 + gap
         if m.sectionId = "series_tab"
-            m.searchBg.color = "0xFFFFFFFF"
             m.searchLbl.color = "0x556B2FCC"
+            m.searchRing.color = "0x556B2FFF"
             m.searchLbl.text = "Buscar séries..."
         else if m.sectionId = "anime_tab"
-            m.searchBg.color = "0xFFFFFFFF"
             m.searchLbl.color = "0x7B2D8ECC"
             m.searchRing.color = "0x7B2D8EFF"
             m.searchLbl.text = "Buscar animes..."
         else if m.sectionId = "filmes"
-            m.searchBg.color = "0xFFFFFFFF"
+            m.searchLbl.color = "0xB85C1ECC"
+            m.searchRing.color = "0xE67E22FF"
+            m.searchLbl.text = "Buscar filmes..."
+        end if
+    else if m.hasSearch
+        m.searchBar.visible = true
+        m.searchBar.translation = [80, 160]
+        contentY = 260
+        if m.sectionId = "series_tab"
+            m.searchLbl.color = "0x556B2FCC"
+            m.searchLbl.text = "Buscar séries..."
+        else if m.sectionId = "anime_tab"
+            m.searchLbl.color = "0x7B2D8ECC"
+            m.searchRing.color = "0x7B2D8EFF"
+            m.searchLbl.text = "Buscar animes..."
+        else if m.sectionId = "filmes"
             m.searchLbl.color = "0xB85C1ECC"
             m.searchRing.color = "0xE67E22FF"
             m.searchLbl.text = "Buscar filmes..."
@@ -161,6 +187,9 @@ sub loadCategories(categories as Object)
         m.status.text = "Nenhum item configurado."
         m.status.visible = true
     end if
+    if m.allItems.Count() > 0 and m.top.embedded
+        updateBanner(m.allItems[0])
+    end if
     if m.top.hasFocus() then m.rows.setFocus(true)
     buildDividers(root.getChildCount())
 end sub
@@ -200,13 +229,22 @@ sub loadGrid()
     end if
 end sub
 
+sub updateBanner(item as Object)
+    bannerUrl = To_Str(item.banner)
+    if bannerUrl = "" then bannerUrl = To_Str(item.poster)
+    m.bannerImg.uri = bannerUrl
+    m.bannerTitle.text = To_Str(item.title)
+    summary = To_Str(item.summary)
+    if summary = "" then summary = To_Str(item.description)
+    m.bannerDesc.text = summary
+end sub
+
 sub onGridItemFocused()
     if not m.top.embedded then return
     idx = m.grid.itemFocused
     if idx < 0 or idx >= m.items.Count() then return
     item = m.items[idx]
-    hero = { title: To_Str(item.title), description: "", meta: "", background: To_Str(item.poster) }
-    m.top.navigate = { to: "hero", hero: hero }
+    updateBanner(item)
 end sub
 
 sub onRowItemFocused()
@@ -221,8 +259,7 @@ sub onRowItemFocused()
     idx = idx + sel[1]
     if idx >= 0 and idx < m.allItems.Count()
         item = m.allItems[idx]
-        hero = { title: To_Str(item.title), description: "", meta: "", background: To_Str(item.poster) }
-        m.top.navigate = { to: "hero", hero: hero }
+        updateBanner(item)
     end if
 end sub
 
@@ -349,20 +386,31 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
         else if key = "down"
             unfocusSearch()
             return true
+        else if key = "up"
+            unfocusSearch()
+            m.top.navigate = { to: "tabs" }
+            return true
         else if key = "back"
             unfocusSearch()
-            return false
+            m.top.navigate = { to: "tabs" }
+            return true
         end if
         return true
     end if
 
-    if key = "up" and m.hasSearch
-        if m.hasCategories
-            ri = m.rows.rowItemFocused
-            if ri <> invalid and ri[0] = 0
-                focusSearch()
-                return true
+    if m.top.embedded and m.hasSearch
+        if key = "up"
+            if m.hasCategories
+                ri = m.rows.rowItemFocused
+                if ri <> invalid and ri[0] = 0
+                    focusSearch()
+                    return true
+                end if
             end if
+        end if
+        if key = "back"
+            m.top.navigate = { to: "tabs" }
+            return true
         end if
     end if
 

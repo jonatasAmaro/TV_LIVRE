@@ -3,7 +3,6 @@
 sub init()
     m.tabsGroup = m.top.findNode("tabs")
     m.content = m.top.findNode("content")
-    m.clock = m.top.findNode("clock")
     m.tabTimer = m.top.findNode("tabTimer")
     m.tabTimer.observeField("fire", "onTabTimer")
     m.sections = []
@@ -13,6 +12,7 @@ sub init()
     m.shownIndex = -1
     m.inTabs = false
     m.inGear = false
+    m.inSearch = false
     m.inCW = false
     m.animeTask = invalid
     m.animeEntries = invalid
@@ -22,6 +22,9 @@ sub init()
     m.heroTitle = m.top.findNode("heroTitle")
     m.heroMeta = m.top.findNode("heroMeta")
     m.heroDesc = m.top.findNode("heroDesc")
+
+    ' Search
+    m.searchIcon = m.top.findNode("searchIcon")
 
     ' Gear
     m.gearSel = m.top.findNode("gearSel")
@@ -37,22 +40,42 @@ sub init()
     m.top.observeField("resumed", "onResumed")
     m.top.observeField("visible", "onVisible")
 
-    clockTimer = m.top.findNode("clockTimer")
-    clockTimer.observeField("fire", "updateClock")
-    clockTimer.control = "start"
+    ' Clock
+    m.clock = m.top.findNode("clock")
+    m.clockTimer = m.top.findNode("clockTimer")
+    m.clockTimer.observeField("fire", "updateClock")
+    updateClock()
+    m.clockTimer.control = "start"
+
     m.animeTimer = m.top.findNode("animeTimer")
     m.animeTimer.observeField("fire", "checkAnime")
-    updateClock()
+end sub
+
+sub updateClock()
+    dt = CreateObject("roDateTime")
+    dt.ToLocalTime()
+    h = dt.GetHours().ToStr()
+    mn = dt.GetMinutes().ToStr()
+    if h.Len() < 2 then h = "0" + h
+    if mn.Len() < 2 then mn = "0" + mn
+    m.clock.text = h + ":" + mn
 end sub
 
 sub onConfig()
     cfg = m.top.config
-    m.sections = cfg.sections
+    allowed = { "TV AO VIVO": true, "SÉRIES": true, "CANAIS 24 HS": true, "FILMES": true, "ANIMES": true }
+    filtered = []
+    for each s in cfg.sections
+        t = To_Str(s.tab)
+        if t = "" then t = To_Str(s.title)
+        if allowed.DoesExist(t) then filtered.Push(s)
+    end for
+    m.sections = filtered
     m.epgUrl = To_Str(cfg.epgUrl)
     buildTabs()
     refreshContinueWatching()
     showTab(0)
-    focusContent()
+    focusTabs()
 
     hours = To_Int(cfg.animeRefreshHours)
     if hours > 0 then m.animeTimer.duration = hours * 3600
@@ -70,46 +93,43 @@ function tabLabel(s as Object) as String
 end function
 
 sub buildTabs()
-    ' First pass: compute total width to center
     labels = []
-    totalW = 0
     for each s in m.sections
-        lbl = tabLabel(s)
-        labels.Push(lbl)
-        totalW = totalW + lbl.Len() * 16 + 60
+        labels.Push(tabLabel(s))
     end for
-    ' Build tabs
     x = 0
+    padH = 16
+    padV = 8
     for i = 0 to m.sections.Count() - 1
         g = m.tabsGroup.createChild("Group")
         g.translation = [x, 0]
-        ' Underline (active indicator)
-        underline = g.createChild("Rectangle")
-        underline.color = "0x9B5DE5FF"
-        underline.height = 3
-        underline.translation = [12, 42]
-        underline.visible = false
+        ' Pill background (rounded via PNG image)
+        pill = g.createChild("Poster")
+        pill.uri = "pkg:/images/pill_bg.png"
+        pill.blendColor = "0x3A3F4BFF"
+        pill.visible = false
         ' Label
         lbl = g.createChild("Label")
         font = CreateObject("roSGNode", "Font")
-        font.uri = "font:BoldSystemFontFile"
-        font.size = 26
+        font.uri = "pkg:/fonts/Inter-Medium.ttf"
+        font.size = 24
         lbl.font = font
         lbl.color = "0x9AA4B2FF"
         lbl.text = labels[i]
-        lbl.translation = [12, 8]
-        w = lbl.boundingRect().width + 24
-        underline.width = w
+        lbl.translation = [padH, padV]
+        w = lbl.boundingRect().width + padH * 2
+        h = lbl.boundingRect().height + padV * 2
+        pill.width = w
+        pill.height = h
         ' Badge (anime new episodes)
         badgeBg = g.createChild("Rectangle")
         badgeBg.color = "0xFF006EFF"
         badgeBg.height = 22
         badgeBg.translation = [w, 0]
         badgeBg.visible = false
-        badgeBg.cornerRadius = 11
         badge = g.createChild("Label")
         bfont = CreateObject("roSGNode", "Font")
-        bfont.uri = "font:BoldSystemFontFile"
+        bfont.uri = "pkg:/fonts/Inter-Bold.ttf"
         bfont.size = 16
         badge.font = bfont
         badge.color = "0xFFFFFFFF"
@@ -118,21 +138,15 @@ sub buildTabs()
         badge.vertAlign = "center"
         badge.translation = [w, 0]
         badge.visible = false
-        m.tabNodes.Push({ underline: underline, label: lbl, badge: badge, badgeBg: badgeBg })
-        x = x + w + 30
+        m.tabNodes.Push({ pill: pill, label: lbl, badge: badge, badgeBg: badgeBg })
+        x = x + w + 12
     end for
-    ' Add settings text tab at end
-    g = m.tabsGroup.createChild("Group")
-    g.translation = [x, 0]
-    settingsLbl = g.createChild("Label")
-    sf = CreateObject("roSGNode", "Font")
-    sf.uri = "font:SystemFontFile"
-    sf.size = 24
-    settingsLbl.font = sf
-    settingsLbl.color = "0x9AA4B2FF"
-    settingsLbl.text = "Configurações"
-    settingsLbl.translation = [12, 10]
-    m.settingsLbl = settingsLbl
+    ' Center tabs in col-8 area (384..1536 = 1152px wide)
+    totalW = x - 12
+    colW = 1152
+    offsetX = Int((colW - totalW) / 2)
+    if offsetX < 0 then offsetX = 0
+    m.tabsGroup.translation = [384 + offsetX, 0]
     refreshTabs()
 end sub
 
@@ -140,17 +154,16 @@ sub refreshTabs()
     for i = 0 to m.tabNodes.Count() - 1
         t = m.tabNodes[i]
         selected = (i = m.tabIndex)
-        t.underline.visible = selected
+        t.pill.visible = selected
         if selected
             t.label.color = "0xFFFFFFFF"
         else
             t.label.color = "0x9AA4B2FF"
         end if
-        ' Brighter when tab bar is focused
         if m.inTabs and not m.inGear and selected
-            t.underline.opacity = 1
+            t.pill.blendColor = "0x4A5060FF"
         else
-            t.underline.opacity = 0.6
+            t.pill.blendColor = "0x3A3F4BFF"
         end if
     end for
     refreshGear()
@@ -160,16 +173,33 @@ sub refreshGear()
     if m.inGear
         m.gearSel.opacity = 0.85
         m.gearIcon.blendColor = "0xFFFFFFFF"
-        m.settingsLbl.color = "0xFFFFFFFF"
     else
         m.gearSel.opacity = 0
         m.gearIcon.blendColor = "0x9AA4B2FF"
-        m.settingsLbl.color = "0x9AA4B2FF"
     end if
 end sub
 
 sub setGear(on as Boolean)
     m.inGear = on
+    m.inSearch = false
+    refreshGear()
+    refreshSearch()
+    refreshTabs()
+end sub
+
+sub refreshSearch()
+    if m.inSearch
+        m.searchIcon.blendColor = "0xFFFFFFFF"
+    else
+        m.searchIcon.blendColor = "0x9AA4B2FF"
+    end if
+end sub
+
+sub setSearch(on as Boolean)
+    m.inSearch = on
+    m.inGear = false
+    m.inTabs = not on
+    refreshSearch()
     refreshGear()
     refreshTabs()
 end sub
@@ -213,14 +243,25 @@ sub showTab(i as Integer)
     end if
     v.visible = true
     v.active = true
-    ' Set hero for this tab
+    kind = To_Str(m.sections[i].kind)
+    if kind = "live"
+        m.content.translation = [0, 0]
+    else if kind = "grid" or kind = "movies"
+        m.content.translation = [0, 88]
+    else
+        if m.cwGroup.visible
+            m.content.translation = [0, 640]
+        else
+            m.content.translation = [0, 440]
+        end if
+    end if
     updateHeroForTab(i)
 end sub
 
 function createTabView(s as Object) as Object
     kind = To_Str(s.kind)
     if kind = "live"
-        v = CreateObject("roSGNode", "LiveTab")
+        v = CreateObject("roSGNode", "LivePlayerView")
         v.channels = s.channels
         v.epgUrl = m.epgUrl
     else if kind = "anime"
@@ -248,11 +289,24 @@ sub onTabNavigate(ev as Object)
     nav = ev.getData()
     if nav <> invalid and nav.to = "tabs"
         focusTabs()
+    else if nav <> invalid and nav.to = "liveGrid"
+        si = 0
+        if nav.startIndex <> invalid then si = nav.startIndex
+        openLiveGrid(si)
     else if nav <> invalid and nav.hero <> invalid
         setHero(nav.hero)
     else
         m.top.navigate = nav
     end if
+end sub
+
+sub openLiveGrid(startIdx as Integer)
+    for each s in m.sections
+        if To_Str(s.kind) = "live"
+            m.top.navigate = { to: "liveGrid", channels: s.channels, epgUrl: m.epgUrl, startIndex: startIdx }
+            return
+        end if
+    end for
 end sub
 
 ' ---------- Hero ----------
@@ -261,12 +315,25 @@ sub updateHeroForTab(i as Integer)
     s = m.sections[i]
     kind = To_Str(s.kind)
     title = tabLabel(s)
-    if kind = "live"
-        m.heroTitle.text = "TV Ao Vivo"
+    heroInfo = m.top.findNode("heroInfo")
+    grad1 = m.top.findNode("grad1")
+    grad2 = m.top.findNode("grad2")
+    grad3 = m.top.findNode("grad3")
+    if kind = "live" or kind = "grid" or kind = "movies"
+        m.heroTitle.text = ""
         m.heroMeta.text = ""
-        m.heroDesc.text = "Selecione um canal para assistir"
+        m.heroDesc.text = ""
         m.heroBg.uri = ""
+        heroInfo.visible = false
+        m.cwGroup.visible = false
+        grad1.visible = (kind <> "grid" and kind <> "movies")
+        grad2.visible = (kind <> "grid" and kind <> "movies")
+        grad3.visible = (kind <> "grid" and kind <> "movies")
     else
+        heroInfo.visible = true
+        grad1.visible = true
+        grad2.visible = true
+        grad3.visible = true
         m.heroTitle.text = title
         m.heroMeta.text = ""
         m.heroDesc.text = ""
@@ -317,7 +384,9 @@ sub focusCW()
 end sub
 
 sub onFocusChange()
-    if m.inTabs
+    if m.inSearch or m.inGear
+        if m.top.hasFocus() then m.tabsGroup.setFocus(true)
+    else if m.inTabs
         if m.top.hasFocus() then m.tabsGroup.setFocus(true)
     else if m.inCW
         if m.top.hasFocus() then m.cwGrid.setFocus(true)
@@ -337,13 +406,34 @@ sub onResumed()
     v = currentView()
     if v <> invalid then v.resumed = true
     if m.animeEntries <> invalid then updateAnimeBadge()
+    focusTabs()
 end sub
 
 function onKeyEvent(key as String, press as Boolean) as Boolean
     if not press then return false
+    if m.inSearch
+        if key = "OK"
+            m.top.navigate = { to: "search" }
+        else if key = "right" or key = "back"
+            setSearch(false)
+            m.inTabs = true
+            m.tabIndex = 0
+            refreshTabs()
+        else if key = "down"
+            setSearch(false)
+            m.inTabs = false
+            focusContent()
+        end if
+        return true
+    end if
     if m.inGear
         if key = "OK"
             m.top.navigate = { to: "settings", config: m.top.config }
+        else if key = "left"
+            setGear(false)
+            m.inTabs = true
+            m.tabIndex = m.sections.Count() - 1
+            refreshTabs()
         else if key = "down" or key = "back"
             setGear(false)
         end if
@@ -354,10 +444,19 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
             setGear(true)
             return true
         else if key = "left"
-            selectTab(wrapTab(m.tabIndex - 1))
+            if m.tabIndex = 0
+                setSearch(true)
+            else
+                selectTab(m.tabIndex - 1)
+            end if
             return true
         else if key = "right"
-            selectTab(wrapTab(m.tabIndex + 1))
+            if m.tabIndex = m.sections.Count() - 1
+                m.inTabs = false
+                setGear(true)
+            else
+                selectTab(m.tabIndex + 1)
+            end if
             return true
         else if key = "down" or key = "OK"
             if m.cwGroup.visible
@@ -458,8 +557,18 @@ sub refreshContinueWatching()
     m.cwGrid.content = root
 
     visible = items.Count() > 0
-    m.cwGroup.visible = visible
-    if visible
+    curKind = ""
+    if m.shownIndex >= 0 then curKind = To_Str(m.sections[m.shownIndex].kind)
+    if curKind = "live" or curKind = "grid"
+        m.cwGroup.visible = false
+    else
+        m.cwGroup.visible = visible
+    end if
+    if curKind = "live"
+        m.content.translation = [0, 0]
+    else if curKind = "grid"
+        m.content.translation = [0, 88]
+    else if visible
         m.content.translation = [0, 640]
     else
         m.content.translation = [0, 440]
@@ -493,14 +602,6 @@ sub onCWSelected()
     end if
 end sub
 
-' ---------- Clock ----------
-
-sub updateClock()
-    dt = CreateObject("roDateTime")
-    dt.ToLocalTime()
-    m.clock.text = Pad2(dt.GetHours()) + ":" + Pad2(dt.GetMinutes())
-end sub
-
 ' ---------- New anime episodes (AniList) ----------
 
 sub checkAnime()
@@ -521,7 +622,7 @@ sub updateAnimeBadge()
     now = Now_Seconds()
     n = 0
     for each e in m.animeEntries
-        if e.airingAt > lastSeen and e.airingAt <= now then n++
+        if e.airingAt > lastSeen and e.airingAt <= now then n = n + 1
     end for
     for i = 0 to m.sections.Count() - 1
         if m.sections[i].kind = "anime" and i < m.tabNodes.Count()

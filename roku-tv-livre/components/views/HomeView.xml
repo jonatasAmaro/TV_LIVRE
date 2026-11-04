@@ -12,47 +12,47 @@
     <Poster id="heroBg" width="1920" height="1080" loadDisplayMode="scaleToZoom"
         loadingBitmapUri="" failedBitmapUri="" opacity="0.4"/>
     <!-- Gradient overlay: dark at top (for menu) and at bottom (for cards) -->
-    <Rectangle width="1920" height="300" color="0x0B0F1AFF" opacity="0.8"/>
-    <Rectangle translation="[0,300]" width="1920" height="200" color="0x0B0F1AFF" opacity="0.3"/>
-    <Rectangle translation="[0,600]" width="1920" height="480" color="0x0B0F1AFF" opacity="0.85"/>
+    <Rectangle id="grad1" width="1920" height="300" color="0x0B0F1AFF" opacity="0.8"/>
+    <Rectangle id="grad2" translation="[0,300]" width="1920" height="200" color="0x0B0F1AFF" opacity="0.3"/>
+    <Rectangle id="grad3" translation="[0,600]" width="1920" height="480" color="0x0B0F1AFF" opacity="0.85"/>
 
-    <!-- Top bar: logo + centered tabs + clock/gear -->
-    <Group id="topBar">
-      <!-- Small logo -->
-      <Rectangle translation="[60,20]" width="6" height="36" color="0x9B5DE5FF"/>
-      <Label text="TV Livre" translation="[76,14]" color="0xFFFFFFFF">
-        <Font role="font" uri="font:BoldSystemFontFile" size="32"/>
+    <!-- Top bar: col-2 (logo+search) | col-8 (tabs) | col-2 (gear+clock) -->
+    <Group id="topBar" translation="[0,30]">
+      <!-- COL-2 left: "A" logo + search icon -->
+      <Label id="logoA" text="A" translation="[60,2]" color="0xFF6B00FF">
+        <Font role="font" uri="pkg:/fonts/Inter-Bold.ttf" size="40"/>
       </Label>
-      <!-- Clock (right side) -->
-      <Label id="clock" translation="[1680,16]" width="180" horizAlign="right" color="0xFFFFFFFF">
-        <Font role="font" uri="font:BoldSystemFontFile" size="30"/>
-      </Label>
-      <!-- Settings gear -->
-      <Group id="gearGroup" translation="[1860,14]">
-        <Rectangle id="gearSel" width="44" height="44" color="0x9B5DE5FF" opacity="0" cornerRadius="22"/>
-        <Poster id="gearIcon" uri="pkg:/images/gear.png" width="32" height="32" translation="[6,6]"/>
+      <Poster id="searchIcon" uri="pkg:/images/icon_search.png" width="40" height="40"
+          translation="[130,2]" blendColor="0x9AA4B2FF"/>
+      <!-- COL-8 center: tabs (centered in 1920px) -->
+      <Group id="tabs" translation="[384,0]"/>
+      <!-- COL-2 right: gear + clock -->
+      <Group id="gearGroup" translation="[1720,0]">
+        <Rectangle id="gearSel" width="48" height="48" color="0x9B5DE5FF" opacity="0"/>
+        <Poster id="gearIcon" uri="pkg:/images/gear.png" width="40" height="40" translation="[4,4]"/>
       </Group>
-      <!-- Centered tab menu -->
-      <Group id="tabs" translation="[480,8]"/>
+      <Label id="clock" translation="[1780,4]" width="120" horizAlign="right" color="0x9AA4B2FF">
+        <Font role="font" uri="pkg:/fonts/Inter-Medium.ttf" size="34"/>
+      </Label>
     </Group>
 
     <!-- Hero content: title, description, metadata -->
     <Group id="heroInfo" translation="[80,200]">
       <Label id="heroTitle" width="900" color="0xFFFFFFFF" maxLines="2">
-        <Font role="font" uri="font:BoldSystemFontFile" size="56"/>
+        <Font role="font" uri="pkg:/fonts/Inter-Bold.ttf" size="56"/>
       </Label>
       <Label id="heroMeta" translation="[0,130]" width="900" color="0x9AA4B2FF">
-        <Font role="font" uri="font:SystemFontFile" size="24"/>
+        <Font role="font" uri="pkg:/fonts/Inter-Regular.ttf" size="24"/>
       </Label>
       <Label id="heroDesc" translation="[0,168]" width="800" color="0xC8D0DCFF" maxLines="3" wrap="true">
-        <Font role="font" uri="font:SystemFontFile" size="26"/>
+        <Font role="font" uri="pkg:/fonts/Inter-Regular.ttf" size="26"/>
       </Label>
     </Group>
 
     <!-- Continue watching row -->
     <Group id="cwGroup" visible="false" translation="[0,530]">
       <Label id="cwTitle" text="▶ Continuar assistindo" translation="[80,0]" color="0xC8D0DCFF">
-        <Font role="font" uri="font:BoldSystemFontFile" size="24"/>
+        <Font role="font" uri="pkg:/fonts/Inter-Bold.ttf" size="24"/>
       </Label>
       <MarkupGrid id="cwGrid" translation="[80,34]"
           itemComponentName="CWItem"

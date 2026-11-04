@@ -5069,7 +5069,8 @@
                   ]
                 }
               ],
-              "imdb": "tt0898266"
+              "imdb": "tt0898266",
+              "banner": "https://image.tmdb.org/t/p/w1280/rwYvhVv0vwbulMwxOfEsuAr1JrT.jpg"
             },
             {
               "id": "euapatroa",
@@ -5726,7 +5727,8 @@
                   ]
                 }
               ],
-              "imdb": "tt0312081"
+              "imdb": "tt0312081",
+              "banner": "https://image.tmdb.org/t/p/w1280/v9CyGKG1P2McFMAnOG4X59b7CI7.jpg"
             },
             {
               "id": "todo_mundo_odeia_o_chris",
@@ -6106,7 +6108,347 @@
                   ]
                 }
               ],
-              "imdb": "tt0460637"
+              "imdb": "tt0460637",
+              "banner": "https://image.tmdb.org/t/p/w1280/qji729gwCW88RpIIWidlaLTul3V.jpg"
+            },
+            {
+              "id": "doishomensemeio",
+              "kind": "series",
+              "title": "Dois Homens e Meio",
+              "subtitle": "Two and a Half Men",
+              "glyph": "SÉRIES",
+              "color": "0xE76F51FF",
+              "tab": "SÉRIES",
+              "poster": "https://image.tmdb.org/t/p/w342/xgfjxyV3g1S68opGBZdB2LMMF2s.jpg",
+              "summary": "A vida mulherenga do solteirão Charlie é afetada quando seu irmão divorciado e seu sobrinho de língua afiada vão morar com ele.",
+              "year": "2003",
+              "rating": "7.4",
+              "genres": "Comédia",
+              "tmdbId": "2691",
+              "seasons": [
+                {
+                  "title": "Temporada 1",
+                  "episodes": [
+                    { "title": "EP 1", "source": "kairou" },
+                    { "title": "EP 2", "source": "kairou" },
+                    { "title": "EP 3", "source": "kairou" },
+                    { "title": "EP 4", "source": "kairou" },
+                    { "title": "EP 5", "source": "kairou" },
+                    { "title": "EP 6", "source": "kairou" },
+                    { "title": "EP 7", "source": "kairou" },
+                    { "title": "EP 8", "source": "kairou" },
+                    { "title": "EP 9", "source": "kairou" },
+                    { "title": "EP 10", "source": "kairou" },
+                    { "title": "EP 11", "source": "kairou" },
+                    { "title": "EP 12", "source": "kairou" },
+                    { "title": "EP 13", "source": "kairou" },
+                    { "title": "EP 14", "source": "kairou" },
+                    { "title": "EP 15", "source": "kairou" },
+                    { "title": "EP 16", "source": "kairou" },
+                    { "title": "EP 17", "source": "kairou" },
+                    { "title": "EP 18", "source": "kairou" },
+                    { "title": "EP 19", "source": "kairou" },
+                    { "title": "EP 20", "source": "kairou" },
+                    { "title": "EP 21", "source": "kairou" },
+                    { "title": "EP 22", "source": "kairou" },
+                    { "title": "EP 23", "source": "kairou" },
+                    { "title": "EP 24", "source": "kairou" }
+                  ]
+                },
+                {
+                  "title": "Temporada 2",
+                  "episodes": [
+                    { "title": "EP 1", "source": "kairou" },
+                    { "title": "EP 2", "source": "kairou" },
+                    { "title": "EP 3", "source": "kairou" },
+                    { "title": "EP 4", "source": "kairou" },
+                    { "title": "EP 5", "source": "kairou" },
+                    { "title": "EP 6", "source": "kairou" },
+                    { "title": "EP 7", "source": "kairou" },
+                    { "title": "EP 8", "source": "kairou" },
+                    { "title": "EP 9", "source": "kairou" },
+                    { "title": "EP 10", "source": "kairou" },
+                    { "title": "EP 11", "source": "kairou" },
+                    { "title": "EP 12", "source": "kairou" },
+                    { "title": "EP 13", "source": "kairou" },
+                    { "title": "EP 14", "source": "kairou" },
+                    { "title": "EP 15", "source": "kairou" },
+                    { "title": "EP 16", "source": "kairou" },
+                    { "title": "EP 17", "source": "kairou" },
+                    { "title": "EP 18", "source": "kairou" },
+                    { "title": "EP 19", "source": "kairou" },
+                    { "title": "EP 20", "source": "kairou" },
+                    { "title": "EP 21", "source": "kairou" },
+                    { "title": "EP 22", "source": "kairou" },
+                    { "title": "EP 23", "source": "kairou" },
+                    { "title": "EP 24", "source": "kairou" }
+                  ]
+                },
+                {
+                  "title": "Temporada 3",
+                  "episodes": [
+                    { "title": "EP 1", "source": "kairou" },
+                    { "title": "EP 2", "source": "kairou" },
+                    { "title": "EP 3", "source": "kairou" },
+                    { "title": "EP 4", "source": "kairou" },
+                    { "title": "EP 5", "source": "kairou" },
+                    { "title": "EP 6", "source": "kairou" },
+                    { "title": "EP 7", "source": "kairou" },
+                    { "title": "EP 8", "source": "kairou" },
+                    { "title": "EP 9", "source": "kairou" },
+                    { "title": "EP 10", "source": "kairou" },
+                    { "title": "EP 11", "source": "kairou" },
+                    { "title": "EP 12", "source": "kairou" },
+                    { "title": "EP 13", "source": "kairou" },
+                    { "title": "EP 14", "source": "kairou" },
+                    { "title": "EP 15", "source": "kairou" },
+                    { "title": "EP 16", "source": "kairou" },
+                    { "title": "EP 17", "source": "kairou" },
+                    { "title": "EP 18", "source": "kairou" },
+                    { "title": "EP 19", "source": "kairou" },
+                    { "title": "EP 20", "source": "kairou" },
+                    { "title": "EP 21", "source": "kairou" },
+                    { "title": "EP 22", "source": "kairou" }
+                  ]
+                },
+                {
+                  "title": "Temporada 4",
+                  "episodes": [
+                    { "title": "EP 1", "source": "kairou" },
+                    { "title": "EP 2", "source": "kairou" },
+                    { "title": "EP 3", "source": "kairou" },
+                    { "title": "EP 4", "source": "kairou" },
+                    { "title": "EP 5", "source": "kairou" },
+                    { "title": "EP 6", "source": "kairou" },
+                    { "title": "EP 7", "source": "kairou" },
+                    { "title": "EP 8", "source": "kairou" },
+                    { "title": "EP 9", "source": "kairou" },
+                    { "title": "EP 10", "source": "kairou" },
+                    { "title": "EP 11", "source": "kairou" },
+                    { "title": "EP 12", "source": "kairou" },
+                    { "title": "EP 13", "source": "kairou" },
+                    { "title": "EP 14", "source": "kairou" },
+                    { "title": "EP 15", "source": "kairou" },
+                    { "title": "EP 16", "source": "kairou" },
+                    { "title": "EP 17", "source": "kairou" },
+                    { "title": "EP 18", "source": "kairou" },
+                    { "title": "EP 19", "source": "kairou" },
+                    { "title": "EP 20", "source": "kairou" },
+                    { "title": "EP 21", "source": "kairou" },
+                    { "title": "EP 22", "source": "kairou" },
+                    { "title": "EP 23", "source": "kairou" },
+                    { "title": "EP 24", "source": "kairou" }
+                  ]
+                },
+                {
+                  "title": "Temporada 5",
+                  "episodes": [
+                    { "title": "EP 1", "source": "kairou" },
+                    { "title": "EP 2", "source": "kairou" },
+                    { "title": "EP 3", "source": "kairou" },
+                    { "title": "EP 4", "source": "kairou" },
+                    { "title": "EP 5", "source": "kairou" },
+                    { "title": "EP 6", "source": "kairou" },
+                    { "title": "EP 7", "source": "kairou" },
+                    { "title": "EP 8", "source": "kairou" },
+                    { "title": "EP 9", "source": "kairou" },
+                    { "title": "EP 10", "source": "kairou" },
+                    { "title": "EP 11", "source": "kairou" },
+                    { "title": "EP 12", "source": "kairou" },
+                    { "title": "EP 13", "source": "kairou" },
+                    { "title": "EP 14", "source": "kairou" },
+                    { "title": "EP 15", "source": "kairou" },
+                    { "title": "EP 16", "source": "kairou" },
+                    { "title": "EP 17", "source": "kairou" },
+                    { "title": "EP 18", "source": "kairou" },
+                    { "title": "EP 19", "source": "kairou" }
+                  ]
+                },
+                {
+                  "title": "Temporada 6",
+                  "episodes": [
+                    { "title": "EP 1", "source": "kairou" },
+                    { "title": "EP 2", "source": "kairou" },
+                    { "title": "EP 3", "source": "kairou" },
+                    { "title": "EP 4", "source": "kairou" },
+                    { "title": "EP 5", "source": "kairou" },
+                    { "title": "EP 6", "source": "kairou" },
+                    { "title": "EP 7", "source": "kairou" },
+                    { "title": "EP 8", "source": "kairou" },
+                    { "title": "EP 9", "source": "kairou" },
+                    { "title": "EP 10", "source": "kairou" },
+                    { "title": "EP 11", "source": "kairou" },
+                    { "title": "EP 12", "source": "kairou" },
+                    { "title": "EP 13", "source": "kairou" },
+                    { "title": "EP 14", "source": "kairou" },
+                    { "title": "EP 15", "source": "kairou" },
+                    { "title": "EP 16", "source": "kairou" },
+                    { "title": "EP 17", "source": "kairou" },
+                    { "title": "EP 18", "source": "kairou" },
+                    { "title": "EP 19", "source": "kairou" },
+                    { "title": "EP 20", "source": "kairou" },
+                    { "title": "EP 21", "source": "kairou" },
+                    { "title": "EP 22", "source": "kairou" },
+                    { "title": "EP 23", "source": "kairou" },
+                    { "title": "EP 24", "source": "kairou" }
+                  ]
+                },
+                {
+                  "title": "Temporada 7",
+                  "episodes": [
+                    { "title": "EP 1", "source": "kairou" },
+                    { "title": "EP 2", "source": "kairou" },
+                    { "title": "EP 3", "source": "kairou" },
+                    { "title": "EP 4", "source": "kairou" },
+                    { "title": "EP 5", "source": "kairou" },
+                    { "title": "EP 6", "source": "kairou" },
+                    { "title": "EP 7", "source": "kairou" },
+                    { "title": "EP 8", "source": "kairou" },
+                    { "title": "EP 9", "source": "kairou" },
+                    { "title": "EP 10", "source": "kairou" },
+                    { "title": "EP 11", "source": "kairou" },
+                    { "title": "EP 12", "source": "kairou" },
+                    { "title": "EP 13", "source": "kairou" },
+                    { "title": "EP 14", "source": "kairou" },
+                    { "title": "EP 15", "source": "kairou" },
+                    { "title": "EP 16", "source": "kairou" },
+                    { "title": "EP 17", "source": "kairou" },
+                    { "title": "EP 18", "source": "kairou" },
+                    { "title": "EP 19", "source": "kairou" },
+                    { "title": "EP 20", "source": "kairou" },
+                    { "title": "EP 21", "source": "kairou" },
+                    { "title": "EP 22", "source": "kairou" }
+                  ]
+                },
+                {
+                  "title": "Temporada 8",
+                  "episodes": [
+                    { "title": "EP 1", "source": "kairou" },
+                    { "title": "EP 2", "source": "kairou" },
+                    { "title": "EP 3", "source": "kairou" },
+                    { "title": "EP 4", "source": "kairou" },
+                    { "title": "EP 5", "source": "kairou" },
+                    { "title": "EP 6", "source": "kairou" },
+                    { "title": "EP 7", "source": "kairou" },
+                    { "title": "EP 8", "source": "kairou" },
+                    { "title": "EP 9", "source": "kairou" },
+                    { "title": "EP 10", "source": "kairou" },
+                    { "title": "EP 11", "source": "kairou" },
+                    { "title": "EP 12", "source": "kairou" },
+                    { "title": "EP 13", "source": "kairou" },
+                    { "title": "EP 14", "source": "kairou" },
+                    { "title": "EP 15", "source": "kairou" },
+                    { "title": "EP 16", "source": "kairou" }
+                  ]
+                },
+                {
+                  "title": "Temporada 9",
+                  "episodes": [
+                    { "title": "EP 1", "source": "kairou" },
+                    { "title": "EP 2", "source": "kairou" },
+                    { "title": "EP 3", "source": "kairou" },
+                    { "title": "EP 4", "source": "kairou" },
+                    { "title": "EP 5", "source": "kairou" },
+                    { "title": "EP 6", "source": "kairou" },
+                    { "title": "EP 7", "source": "kairou" },
+                    { "title": "EP 8", "source": "kairou" },
+                    { "title": "EP 9", "source": "kairou" },
+                    { "title": "EP 10", "source": "kairou" },
+                    { "title": "EP 11", "source": "kairou" },
+                    { "title": "EP 12", "source": "kairou" },
+                    { "title": "EP 13", "source": "kairou" },
+                    { "title": "EP 14", "source": "kairou" },
+                    { "title": "EP 15", "source": "kairou" },
+                    { "title": "EP 16", "source": "kairou" },
+                    { "title": "EP 17", "source": "kairou" },
+                    { "title": "EP 18", "source": "kairou" },
+                    { "title": "EP 19", "source": "kairou" },
+                    { "title": "EP 20", "source": "kairou" },
+                    { "title": "EP 21", "source": "kairou" },
+                    { "title": "EP 22", "source": "kairou" },
+                    { "title": "EP 23", "source": "kairou" },
+                    { "title": "EP 24", "source": "kairou" }
+                  ]
+                },
+                {
+                  "title": "Temporada 10",
+                  "episodes": [
+                    { "title": "EP 1", "source": "kairou" },
+                    { "title": "EP 2", "source": "kairou" },
+                    { "title": "EP 3", "source": "kairou" },
+                    { "title": "EP 4", "source": "kairou" },
+                    { "title": "EP 5", "source": "kairou" },
+                    { "title": "EP 6", "source": "kairou" },
+                    { "title": "EP 7", "source": "kairou" },
+                    { "title": "EP 8", "source": "kairou" },
+                    { "title": "EP 9", "source": "kairou" },
+                    { "title": "EP 10", "source": "kairou" },
+                    { "title": "EP 11", "source": "kairou" },
+                    { "title": "EP 12", "source": "kairou" },
+                    { "title": "EP 13", "source": "kairou" },
+                    { "title": "EP 14", "source": "kairou" },
+                    { "title": "EP 15", "source": "kairou" },
+                    { "title": "EP 16", "source": "kairou" },
+                    { "title": "EP 17", "source": "kairou" },
+                    { "title": "EP 18", "source": "kairou" },
+                    { "title": "EP 19", "source": "kairou" },
+                    { "title": "EP 20", "source": "kairou" },
+                    { "title": "EP 21", "source": "kairou" },
+                    { "title": "EP 22", "source": "kairou" },
+                    { "title": "EP 23", "source": "kairou" }
+                  ]
+                },
+                {
+                  "title": "Temporada 11",
+                  "episodes": [
+                    { "title": "EP 1", "source": "kairou" },
+                    { "title": "EP 2", "source": "kairou" },
+                    { "title": "EP 3", "source": "kairou" },
+                    { "title": "EP 4", "source": "kairou" },
+                    { "title": "EP 5", "source": "kairou" },
+                    { "title": "EP 6", "source": "kairou" },
+                    { "title": "EP 7", "source": "kairou" },
+                    { "title": "EP 8", "source": "kairou" },
+                    { "title": "EP 9", "source": "kairou" },
+                    { "title": "EP 10", "source": "kairou" },
+                    { "title": "EP 11", "source": "kairou" },
+                    { "title": "EP 12", "source": "kairou" },
+                    { "title": "EP 13", "source": "kairou" },
+                    { "title": "EP 14", "source": "kairou" },
+                    { "title": "EP 15", "source": "kairou" },
+                    { "title": "EP 16", "source": "kairou" },
+                    { "title": "EP 17", "source": "kairou" },
+                    { "title": "EP 18", "source": "kairou" },
+                    { "title": "EP 19", "source": "kairou" },
+                    { "title": "EP 20", "source": "kairou" },
+                    { "title": "EP 21", "source": "kairou" },
+                    { "title": "EP 22", "source": "kairou" }
+                  ]
+                },
+                {
+                  "title": "Temporada 12",
+                  "episodes": [
+                    { "title": "EP 1", "source": "kairou" },
+                    { "title": "EP 2", "source": "kairou" },
+                    { "title": "EP 3", "source": "kairou" },
+                    { "title": "EP 4", "source": "kairou" },
+                    { "title": "EP 5", "source": "kairou" },
+                    { "title": "EP 6", "source": "kairou" },
+                    { "title": "EP 7", "source": "kairou" },
+                    { "title": "EP 8", "source": "kairou" },
+                    { "title": "EP 9", "source": "kairou" },
+                    { "title": "EP 10", "source": "kairou" },
+                    { "title": "EP 11", "source": "kairou" },
+                    { "title": "EP 12", "source": "kairou" },
+                    { "title": "EP 13", "source": "kairou" },
+                    { "title": "EP 14", "source": "kairou" },
+                    { "title": "EP 15", "source": "kairou" },
+                    { "title": "EP 16", "source": "kairou" }
+                  ]
+                }
+              ],
+              "imdb": "tt0369179",
+              "banner": "https://image.tmdb.org/t/p/w1280/nFRP6FnrKC4ol0saBPoIzEG7szP.jpg"
             }
           ]
         },
@@ -6157,7 +6499,8 @@
                   ]
                 }
               ],
-              "imdb": "tt21084296"
+              "imdb": "tt21084296",
+              "banner": "https://image.tmdb.org/t/p/w1280/1gajPADcRyzmYvfAefbJwhCy4bk.jpg"
             }
           ]
         }
@@ -6292,7 +6635,8 @@
                     }
                   ]
                 }
-              ]
+              ],
+              "banner": "https://image.tmdb.org/t/p/w1280/xMNH87maNLt9n2bMDYeI6db5VFm.jpg"
             },
             {
               "id": "re_zero_dub",
@@ -6528,7 +6872,8 @@
                     }
                   ]
                 }
-              ]
+              ],
+              "banner": "https://image.tmdb.org/t/p/w1280/7ZruEnSnHD6Jx5mF0hBt1E306Vt.jpg"
             },
             {
               "id": "yu_yu_hakusho_dub",
@@ -7004,7 +7349,8 @@
                     }
                   ]
                 }
-              ]
+              ],
+              "banner": "https://image.tmdb.org/t/p/w1280/uNM5dbnPJXJJs1eggepRWjSvdIR.jpg"
             }
           ]
         }
@@ -7101,7 +7447,8 @@
               "poster": "https://image.tmdb.org/t/p/w500/lBcQGk1ygGM2wYmpypFrPp0YohN.jpg",
               "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=http%3A%2F%2Fdbonline.tech-cdn.top%3A80%2Fmovie%2Fke-vin-0928392083%2FPZjF6XATTZ%2F4410.mp4",
               "summary": "John Wick é um lendário assassino de aluguel aposentado, lidando com o luto após perder o grande amor de sua vida. Quando um gângster invade sua casa, mata seu cachorro e rouba seu carro, ele é forçado a voltar à ativa e inicia sua vingança.",
-              "imdb": "tt2911666"
+              "imdb": "tt2911666",
+              "banner": "https://image.tmdb.org/t/p/w1280/ff2ti5DkA9UYLzyqhQfI2kZqEuh.jpg"
             },
             {
               "id": "john_wick_2",
@@ -7110,7 +7457,8 @@
               "poster": "https://image.tmdb.org/t/p/w500/kRAHy9CQnNT16vTvtJtu9pRgjEG.jpg",
               "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=http%3A%2F%2Fdbonline.tech-cdn.top%3A80%2Fmovie%2Fke-vin-0928392083%2FPZjF6XATTZ%2F4406.mp4",
               "summary": "O lendário John Wick é forçado a deixar a aposentadoria em função de um criminoso que conspira para tomar o controle de um clã de assassinos internacionais. Por causa de um pacto de sangue, John Wick viaja para Roma, com o objetivo de ajudar um velho amigo a derrubar a organização internacional secreta, perigosa e mortal de assassinos procurados em todo o mundo.",
-              "imdb": "tt4425200"
+              "imdb": "tt4425200",
+              "banner": "https://image.tmdb.org/t/p/w1280/Aa9Lx6gotP0szl9tlt5SPCN08oF.jpg"
             },
             {
               "id": "john_wick_3",
@@ -7119,7 +7467,8 @@
               "poster": "https://image.tmdb.org/t/p/w500/bE6XutmB6tcvzTHBx4JGJLlzouM.jpg",
               "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=http%3A%2F%2Fdbonline.tech-cdn.top%3A80%2Fmovie%2Fke-vin-0928392083%2FPZjF6XATTZ%2F4418.mp4",
               "summary": "Após assassinar o chefe da máfia Santino D'Antonio no Hotel Continental, John Wick passa a ser perseguido pelos membros da Alta Cúpula sob a recompensa de U$14 milhões. Agora, ele precisa unir forças com antigos parceiros que o ajudaram no passado enquanto luta por sua sobrevivência.",
-              "imdb": "tt6146586"
+              "imdb": "tt6146586",
+              "banner": "https://image.tmdb.org/t/p/w1280/vVpEOvdxVBP2aV166j5Xlvb5Cdc.jpg"
             },
             {
               "id": "john_wick_4",
@@ -7128,7 +7477,8 @@
               "poster": "https://image.tmdb.org/t/p/w500/rXTqhpkpj6E0YilQ49PK1SSqLhm.jpg",
               "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=http%3A%2F%2Fdbonline.tech-cdn.top%3A80%2Fmovie%2Fke-vin-0928392083%2FPZjF6XATTZ%2F254580.mp4",
               "summary": "Com o preço por sua cabeça cada vez maior, John Wick leva sua luta contra a alta mesa global enquanto procura os jogadores mais poderosos do submundo, de Nova York a Paris, de Osaka a Berlim.",
-              "imdb": "tt10366206"
+              "imdb": "tt10366206",
+              "banner": "https://image.tmdb.org/t/p/w1280/7I6VUdPj6tQECNHdviJkUHD2u89.jpg"
             },
             {
               "id": "bailarina",
@@ -7137,7 +7487,8 @@
               "poster": "https://image.tmdb.org/t/p/w500/by5hjYJp3OJ8GW118kPeURp1rFo.jpg",
               "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=http%3A%2F%2Fdbonline.tech-cdn.top%3A80%2Fmovie%2Fke-vin-0928392083%2FPZjF6XATTZ%2F4414.mp4",
               "summary": "Bailarina se passa durante os eventos de 'John Wick 3: Parabellum' e acompanha Eve Macarro, que está começando seu treinamento nas tradições da organização Ruska Roma para se tornar uma assassina que buscará vingança contra aqueles que destruíram sua família.",
-              "imdb": "tt8344790"
+              "imdb": "tt8344790",
+              "banner": "https://image.tmdb.org/t/p/w1280/1yktYsxkmUtUFTUnCAUaqG6FEiz.jpg"
             }
           ]
         },
@@ -7151,7 +7502,8 @@
               "poster": "https://image.tmdb.org/t/p/w500/xTSOdJ0Ljs439lnKB7NsWlTibZN.jpg",
               "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=https%3A%2F%2Fembedplayer2.xyz%2Fcdn%2Fhls%2F9272bf7264443fbf0e005878776f11b9%2Fmaster.txt",
               "summary": "O ex-agente secreto Robert McCall acredita que seu passado ficou para trás e tenta viver uma nova vida. Porém, quando ele conhece Teri, uma jovem que está em poder de uma quadrilha russa, ele simplesmente não consegue ignorá-la. Munido de suas extraordinárias habilidades, ele ressurge como um verdadeiro anjo vingador. Fora da aposentadoria e com um novo desejo de fazer justiça, McCall decide ajudar quem foi brutalizado e oprimido.",
-              "imdb": "tt2671706"
+              "imdb": "tt2671706",
+              "banner": "https://image.tmdb.org/t/p/w1280/9vAoubhoZE8aSkUZoSfxs3UWZhO.jpg"
             },
             {
               "id": "o_protetor_2",
@@ -7160,7 +7512,8 @@
               "poster": "https://image.tmdb.org/t/p/w500/xl3oO2j1vfKasDLyUNwghWjl4jV.jpg",
               "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=https%3A%2F%2Fpatient-ember-8bff.o18hih2icxag.workers.dev%2Ft%2F1793673138.6509c3ec3607e33d0da19456b98219bac548d6f1bd042a42bcc309456e1bd7b2%2Fu%2FLinhaZed099183u%2Fe1.LMQij2jvUIvZjCIilQHBTd1qF4Ro_P29F8FqEQxUGFe-4ViljIBoQJKb2t6Em_j8",
               "summary": "Criminosos assassinam Susan Plummer, a melhor amiga de Robert McCall e sua ex-colega de trabalho. Obcecado, Robert pensa apenas em eliminar o bando de assassinos profissionais que destruiu sua vida.",
-              "imdb": "tt3766354"
+              "imdb": "tt3766354",
+              "banner": "https://image.tmdb.org/t/p/w1280/z7noaCJ4KtmhwHw7QcNtnMMo4Qy.jpg"
             },
             {
               "id": "o_protetor_3",
@@ -7169,7 +7522,8 @@
               "poster": "https://image.tmdb.org/t/p/w500/eq2Ytq08C9KddMiOzQ74g36Tdpg.jpg",
               "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=https%3A%2F%2Fpatient-ember-8bff.o18hih2icxag.workers.dev%2Ft%2F1793673147.f8c61a2c9f991c6921e877ced56a35bab8c8591fd845b8e62f3d01b5f9b2f5aa%2Fu%2FLinhaZed099183u%2Fe1.k2M2UNjGqkKUHcbBK7V8wBlI94n8yTWDVvgUeFMBFcBvWrXp-cEmInpfN4aRHVA4EREAw006Js6cMl2skkIwUg",
               "summary": "Sentindo-se em casa no sul da Itália, o ex-agente Robert McCall logo descobre que seus novos amigos estão sob o controle dos chefes do crime local. À medida que os acontecimentos se tornam mortais, McCall sabe o que tem de fazer: tornar-se o protetor dos seus amigos, enfrentando a máfia.",
-              "imdb": "tt17024450"
+              "imdb": "tt17024450",
+              "banner": "https://image.tmdb.org/t/p/w1280/gystuaqp5AkVqqu3Nf0564zeOv4.jpg"
             }
           ]
         }

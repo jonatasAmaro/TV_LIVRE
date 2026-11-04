@@ -138,7 +138,7 @@ sub buildGroupChips()
             tmp = sorted[j]
             sorted[j] = sorted[j - 1]
             sorted[j - 1] = tmp
-            j--
+            j = j - 1
         end while
     end for
     for each c in sorted

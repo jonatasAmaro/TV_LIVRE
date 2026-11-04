@@ -152,12 +152,12 @@ function panelKey(key as String, press as Boolean) as Boolean
     if key = "left" or key = "right"
         if press and m.seekDir = 0
             if m.panelRow = 0
-                if key = "left" and m.btn > 0 then m.btn--
-                if key = "right" and m.btn < 2 then m.btn++
+                if key = "left" and m.btn > 0 then m.btn = m.btn - 1
+                if key = "right" and m.btn < 2 then m.btn = m.btn + 1
                 updateButtons(m.top.video.state = "paused")
             else
-                if key = "left" and m.actionBtn > 0 then m.actionBtn--
-                if key = "right" and m.actionBtn < 1 then m.actionBtn++
+                if key = "left" and m.actionBtn > 0 then m.actionBtn = m.actionBtn - 1
+                if key = "right" and m.actionBtn < 1 then m.actionBtn = m.actionBtn + 1
                 updateActionHighlight()
             end if
             m.panelTimer.control = "start"
@@ -284,7 +284,7 @@ sub startSeek(dir as Integer)
 end sub
 
 sub onSeekTick()
-    m.seekTicks++
+    m.seekTicks = m.seekTicks + 1
     stepSecs = 10
     if m.seekTicks >= 8 then stepSecs = 30
     if m.seekTicks >= 20 then stepSecs = 60
@@ -403,19 +403,25 @@ sub onSkipPosition()
     checkSkip(Int(v.position))
 end sub
 
-sub checkSkip(pos as Integer)
+sub checkSkip(curPos as Integer)
     segs = m.top.skipSegments
     if segs = invalid
         hideSkip()
         return
     end if
-    if segs.op <> invalid and pos >= segs.op.start and pos < segs.op["end"]
-        showSkip("▶▶ Pular abertura", segs.op["end"])
-        return
+    opSeg = segs.op
+    if opSeg <> invalid
+        if curPos >= opSeg.start and curPos < opSeg.finish
+            showSkip("Pular abertura", opSeg.finish)
+            return
+        end if
     end if
-    if segs.ed <> invalid and pos >= segs.ed.start and pos < segs.ed["end"]
-        showSkip("▶▶ Pular encerramento", segs.ed["end"])
-        return
+    edSeg = segs.ed
+    if edSeg <> invalid
+        if curPos >= edSeg.start and curPos < edSeg.finish
+            showSkip("Pular encerramento", edSeg.finish)
+            return
+        end if
     end if
     hideSkip()
 end sub
@@ -448,7 +454,7 @@ end sub
 ' ---------- Playback speed ----------
 
 sub cycleSpeed()
-    m.speedIdx++
+    m.speedIdx = m.speedIdx + 1
     if m.speedIdx >= m.speeds.Count() then m.speedIdx = 0
     spd = m.speeds[m.speedIdx]
     v = m.top.video

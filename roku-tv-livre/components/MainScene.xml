@@ -8,7 +8,5 @@
   <children>
     <Rectangle id="bg" width="1920" height="1080" color="0x0B0F1AFF"/>
     <Group id="views"/>
-    <ScreenSaver id="screenSaver"/>
-    <Timer id="idleTimer" duration="300" repeat="false"/>
   </children>
 </component>

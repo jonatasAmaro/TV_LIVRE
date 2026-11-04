@@ -19,7 +19,7 @@
     <field id="onNextEpisode" type="boolean" alwaysNotify="true"/>
     <field id="onRestartEpisode" type="boolean" alwaysNotify="true"/>
     <!-- Subtitle tracks: array of { lang, label, url } from SubtitleTask -->
-    <field id="subtitleTracks" type="array" value="[]"/>
+    <field id="subtitleTracks" type="array"/>
     <!-- Current subtitle index (-1 = off). Fires when user toggles. -->
     <field id="subtitleIndex" type="integer" value="-1" alwaysNotify="true"/>
     <!-- AniSkip: { op: { start, end }, ed: { start, end } } -->
@@ -42,11 +42,11 @@
       </Group>
       <!-- Episode action labels (next / restart) -->
       <Group id="actionRow" visible="false" translation="[0,900]">
-        <Rectangle id="actionBg0" translation="[560,0]" width="420" height="50" color="0x9B5DE5FF" cornerRadius="8" opacity="0.3"/>
+        <Rectangle id="actionBg0" translation="[560,0]" width="420" height="50" color="0x9B5DE5FF" opacity="0.3"/>
         <Label id="actionLbl0" translation="[560,8]" width="420" horizAlign="center" text="PRÓXIMO EPISÓDIO" color="0xFFFFFFFF">
           <Font role="font" uri="font:BoldSystemFontFile" size="24"/>
         </Label>
-        <Rectangle id="actionBg1" translation="[1000,0]" width="360" height="50" color="0x9B5DE5FF" cornerRadius="8" opacity="0.3"/>
+        <Rectangle id="actionBg1" translation="[1000,0]" width="360" height="50" color="0x9B5DE5FF" opacity="0.3"/>
         <Label id="actionLbl1" translation="[1000,8]" width="360" horizAlign="center" text="VOLTAR AO INÍCIO" color="0xFFFFFFFF">
           <Font role="font" uri="font:BoldSystemFontFile" size="24"/>
         </Label>
@@ -69,7 +69,7 @@
       </Label>
       <!-- Subtitle toast (briefly shown when user presses * to toggle) -->
       <Rectangle id="subToastBg" translation="[640,390]" width="640" height="64"
-          color="0x000000CC" cornerRadius="12" visible="false"/>
+          color="0x000000CC" visible="false"/>
       <Label id="subToast" translation="[660,400]" width="600" horizAlign="center"
           color="0xFFFFFFFF" visible="false">
         <Font role="font" uri="font:BoldSystemFontFile" size="36"/>
@@ -80,7 +80,7 @@
       </Label>
       <!-- Skip intro/outro button (appears when AniSkip provides timestamps) -->
       <Group id="skipBtn" visible="false" translation="[1500,740]">
-        <Rectangle width="360" height="60" color="0x9B5DE5FF" cornerRadius="8"/>
+        <Rectangle width="360" height="60" color="0x9B5DE5FF"/>
         <Label id="skipLbl" translation="[0,10]" width="360" horizAlign="center" color="0xFFFFFFFF"
             text="▶▶ Pular abertura">
           <Font role="font" uri="font:BoldSystemFontFile" size="28"/>

@@ -57,6 +57,10 @@ sub init()
     m.skipTask = invalid
     m.malId = 0
 
+    ' Kairou
+    m.kairouTask = invalid
+    m.pendingStartAt = 0
+
     ' Cinemeta
     m.cinemetaTask = invalid
     m.cinemetaEps = {}
@@ -252,6 +256,25 @@ sub playEpisode(idx as Integer, startAt as Integer)
     if eps = invalid or idx < 0 or idx >= eps.Count() then return
     m.currentEp = idx
     m.lastSave = startAt
+
+    source = ""
+    if eps[idx].DoesExist("source") then source = To_Str(eps[idx].source)
+
+    if source = "kairou"
+        m.videoStatus.text = "Resolvendo stream (Kairou)..."
+        m.videoStatus.visible = true
+        m.video.control = "stop"
+        m.pendingStartAt = startAt
+        m.kairouTask = CreateObject("roSGNode", "KairouTask")
+        m.kairouTask.tmdbId = To_Str(m.top.item.tmdbId)
+        m.kairouTask.season = m.currentSeason + 1
+        m.kairouTask.episode = idx + 1
+        m.kairouTask.title = To_Str(m.top.item.title)
+        m.kairouTask.observeField("result", "onKairouResolved")
+        m.kairouTask.control = "run"
+        return
+    end if
+
     url = To_Str(eps[idx].url)
     if url = ""
         m.video.control = "stop"
@@ -259,6 +282,22 @@ sub playEpisode(idx as Integer, startAt as Integer)
         m.videoStatus.visible = true
         return
     end if
+    startPlayback(url, idx, startAt)
+end sub
+
+sub onKairouResolved()
+    if m.kairouTask = invalid then return
+    r = m.kairouTask.result
+    m.kairouTask = invalid
+    if r = invalid or not Is_True(r.ok) or r.url = ""
+        m.videoStatus.text = "Falha ao resolver stream"
+        m.videoStatus.visible = true
+        return
+    end if
+    startPlayback(r.url, m.currentEp, m.pendingStartAt)
+end sub
+
+sub startPlayback(url as String, idx as Integer, startAt as Integer)
     m.videoStatus.text = "Carregando EP " + (idx + 1).ToStr() + "..."
     m.videoStatus.visible = true
     epInfo = To_Str(m.top.item.title) + "  |  " + To_Str(m.seasonData[m.currentSeason].title) + " - EP " + (idx + 1).ToStr()
@@ -272,9 +311,8 @@ sub playEpisode(idx as Integer, startAt as Integer)
     c = CreateObject("roSGNode", "ContentNode")
     c.url = url
     c.title = To_Str(m.top.item.title) + " - EP " + (idx + 1).ToStr()
-    ' Plain .mp4 files (no playlist) need "mp4"; ".mp4/index.m3u8" playlists stay HLS.
     c.streamFormat = "mp4"
-    if Instr(1, LCase(url), ".m3u8") > 0 then c.streamFormat = "hls"
+    if Instr(1, LCase(url), ".m3u8") > 0 or Instr(1, LCase(url), "hls") > 0 then c.streamFormat = "hls"
     if startAt > 0 then c.playStart = startAt
     m.video.control = "stop"
     m.video.content = c
@@ -438,6 +476,7 @@ end sub
 
 sub onClosing()
     m.nextTimer.control = "stop"
+    if m.kairouTask <> invalid then m.kairouTask.control = "stop" : m.kairouTask = invalid
     if m.fullscreen and m.video.state <> "finished" then saveResume(Int(m.video.position))
     m.video.control = "stop"
 end sub
@@ -503,7 +542,7 @@ sub drawNextCount()
 end sub
 
 sub onNextTick()
-    m.nextLeft--
+    m.nextLeft = m.nextLeft - 1
     if m.nextLeft <= 0
         playNext()
     else
@@ -520,7 +559,7 @@ end sub
 sub playNext()
     idx = m.nextIdx
     stopNextCountdown()
-    m.autoPlayCount++
+    m.autoPlayCount = m.autoPlayCount + 1
     playEpisode(idx, 0)
     saveResume(0)
     m.episodes.jumpToRowItem = [0, idx]

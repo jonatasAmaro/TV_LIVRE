@@ -23,14 +23,14 @@ sub run()
 
         if url = ""
             results.Push({ id: id, title: title, status: "offline", code: 0 })
-            offline++
+            offline = offline + 1
         else
             status = checkUrl(url, port)
             results.Push({ id: id, title: title, status: status.status, code: status.code })
             if status.status = "online"
-                online++
+                online = online + 1
             else
-                offline++
+                offline = offline + 1
             end if
         end if
 

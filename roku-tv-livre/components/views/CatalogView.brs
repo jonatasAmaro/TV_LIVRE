@@ -5,11 +5,21 @@ sub init()
     m.status = m.top.findNode("status")
     m.title = m.top.findNode("title")
     m.subtitle = m.top.findNode("subtitle")
+    m.searchBar = m.top.findNode("searchBar")
+    m.searchBg = m.top.findNode("searchBg")
+    m.searchRing = m.top.findNode("searchRing")
+    m.searchLbl = m.top.findNode("searchLbl")
+    m.bannerArea = m.top.findNode("bannerArea")
+    m.bannerImg = m.top.findNode("bannerImg")
+    m.bannerTitle = m.top.findNode("bannerTitle")
+    m.bannerDesc = m.top.findNode("bannerDesc")
     m.root = CreateObject("roSGNode", "ContentNode")
     m.task = invalid
     m.kb = invalid
     m.kind = ""
     m.moviesSig = ""
+    m.searchFocused = false
+    m.allMovieItems = []
 
     m.rows.observeField("rowItemSelected", "onItemSelected")
     m.rows.observeField("rowItemFocused", "onItemFocused")
@@ -21,11 +31,45 @@ end sub
 
 sub onFocusChange()
     if not m.top.hasFocus() then return
-    if m.root.getChildCount() > 0
+    if m.searchFocused
+        return
+    else if m.top.embedded and m.kind = "movies" and m.bannerArea.visible
+        focusSearch()
+    else if m.root.getChildCount() > 0
         m.rows.setFocus(true)
     else if m.kind = "search" and m.kb = invalid
         openKeyboard()
     end if
+end sub
+
+sub focusSearch()
+    m.searchFocused = true
+    m.searchRing.visible = true
+    m.searchBg.color = "0xF5D6A8FF"
+    m.searchLbl.text = chr(9654) + "  Buscar filmes..."
+    m.rows.setFocus(false)
+    m.top.setFocus(true)
+end sub
+
+sub unfocusSearch()
+    m.searchFocused = false
+    m.searchRing.visible = false
+    m.searchBg.color = "0xFFFFFFFF"
+    m.searchLbl.text = "Buscar filmes..."
+    m.rows.setFocus(true)
+end sub
+
+sub updateBanner(item as Object)
+    bannerUrl = ""
+    if item.banner <> invalid then bannerUrl = To_Str(item.banner)
+    if bannerUrl = "" then bannerUrl = To_Str(item.poster)
+    if bannerUrl = "" and item.hdPosterUrl <> invalid then bannerUrl = To_Str(item.hdPosterUrl)
+    m.bannerImg.uri = bannerUrl
+    m.bannerTitle.text = To_Str(item.title)
+    desc = ""
+    if item.summary <> invalid then desc = To_Str(item.summary)
+    if desc = "" and item.description <> invalid then desc = To_Str(item.description)
+    m.bannerDesc.text = desc
 end sub
 
 sub onSection()
@@ -34,11 +78,23 @@ sub onSection()
     m.title.text = To_Str(s.title)
     m.subtitle.text = To_Str(s.subtitle)
     if m.top.embedded
-        ' Home draws the header; the rows start right under the tab bar.
         m.title.visible = false
         m.subtitle.visible = false
-        m.rows.translation = [80, 250]
-        m.status.translation = [80, 560]
+        if m.kind = "movies"
+            gap = 24
+            searchY = gap
+            m.searchBar.visible = true
+            m.searchBar.translation = [80, searchY]
+            bannerY = searchY + 60 + gap
+            m.bannerArea.visible = true
+            m.bannerArea.translation = [80, bannerY]
+            contentY = bannerY + 400 + gap
+            m.rows.translation = [80, contentY]
+            m.status.translation = [80, contentY + 100]
+        else
+            m.rows.translation = [80, 250]
+            m.status.translation = [80, 560]
+        end if
     end if
     if m.kind = "live" or m.kind = "youtube"
         loadLive(s.channels, m.kind)
@@ -168,6 +224,7 @@ end sub
 ' OK opens the movie's details screen, whose Assistir plays "url".
 sub loadMovies(rows as Object)
     resetRows()
+    m.allMovieItems = []
     m.rows.itemSize = [1840, 370]
     m.rows.itemSpacing = [0, 60]
     m.rows.rowItemSize = [[200, 370]]
@@ -193,12 +250,16 @@ sub loadMovies(rows as Object)
                 it.title = To_Str(mv.title)
                 it.shortDescriptionLine1 = To_Str(mv.year)
                 it.hdPosterUrl = To_Str(mv.poster)
-                it.addFields({ itype: "movie", itemId: To_Str(mv.id), streamUrl: To_Str(mv.url), summary: To_Str(mv.summary), fit: true })
+                it.addFields({ itype: "movie", itemId: To_Str(mv.id), streamUrl: To_Str(mv.url), summary: To_Str(mv.summary), fit: true, banner: To_Str(mv.banner) })
+                m.allMovieItems.Push(mv)
             end for
         end if
         if row.getChildCount() > 0 then addRow(row)
     end for
     if m.root.getChildCount() = 0 then showStatus("Nenhum filme configurado.")
+    if m.allMovieItems.Count() > 0 and m.top.embedded and m.bannerArea.visible
+        updateBanner(m.allMovieItems[0])
+    end if
 end sub
 
 sub loadArchive(rows as Object)
@@ -313,12 +374,74 @@ sub onKbClosed()
     if m.root.getChildCount() > 0
         m.rows.setFocus(true)
     else if m.top.embedded
-        ' Back to the tab bar; results (if any) show up when they arrive.
         m.top.navigate = { to: "tabs" }
     else if m.task = invalid
         m.top.navigate = { to: "back" }
     else
         m.top.setFocus(true)
+    end if
+end sub
+
+sub openMovieKeyboard()
+    kb = CreateObject("roSGNode", "StandardKeyboardDialog")
+    kb.title = "Buscar filmes"
+    kb.buttons = ["Buscar", "Cancelar"]
+    kb.observeField("buttonSelected", "onMovieKbButton")
+    kb.observeField("wasClosed", "onMovieKbClosed")
+    m.kb = kb
+    m.top.getScene().dialog = kb
+end sub
+
+sub onMovieKbButton()
+    idx = m.kb.buttonSelected
+    query = m.kb.text.Trim()
+    m.kb.close = true
+    if idx = 0 and query <> ""
+        filterMovies(query)
+    end if
+end sub
+
+sub onMovieKbClosed()
+    m.kb = invalid
+    if m.root.getChildCount() > 0
+        m.rows.setFocus(true)
+    else
+        m.rows.setFocus(true)
+    end if
+end sub
+
+sub filterMovies(query as String)
+    q = LCase(query)
+    s = m.top.section
+    if s.rows = invalid then return
+    resetRows()
+    m.rows.itemSize = [1840, 370]
+    m.rows.itemSpacing = [0, 60]
+    m.rows.rowItemSize = [[200, 370]]
+    m.rows.rowItemSpacing = [[24, 0]]
+    m.rows.numRows = 2
+    row = CreateObject("roSGNode", "ContentNode")
+    row.title = "Resultados: " + query
+    m.allMovieItems = []
+    for each r in s.rows
+        if r.items <> invalid
+            for each mv in r.items
+                if Instr(1, LCase(To_Str(mv.title)), q) > 0
+                    it = row.createChild("ContentNode")
+                    it.title = To_Str(mv.title)
+                    it.shortDescriptionLine1 = To_Str(mv.year)
+                    it.hdPosterUrl = To_Str(mv.poster)
+                    it.addFields({ itype: "movie", itemId: To_Str(mv.id), streamUrl: To_Str(mv.url), summary: To_Str(mv.summary), fit: true, banner: To_Str(mv.banner) })
+                    m.allMovieItems.Push(mv)
+                end if
+            end for
+        end if
+    end for
+    addRow(row)
+    if row.getChildCount() = 0
+        showStatus("Nenhum resultado para '" + query + "'.")
+    else
+        m.status.visible = false
     end if
 end sub
 
@@ -332,8 +455,12 @@ sub onItemFocused()
     if rowNode = invalid then return
     item = rowNode.getChild(sel[1])
     if item = invalid then return
-    hero = { title: item.title, description: To_Str(item.shortDescriptionLine1), meta: "", background: item.hdPosterUrl }
-    m.top.navigate = { to: "hero", hero: hero }
+    if m.kind = "movies" and m.bannerArea.visible
+        updateBanner(item)
+    else
+        hero = { title: item.title, description: To_Str(item.shortDescriptionLine1), meta: "", background: item.hdPosterUrl }
+        m.top.navigate = { to: "hero", hero: hero }
+    end if
 end sub
 
 ' ---------- Selection ----------
@@ -414,8 +541,51 @@ sub onDialogClosed()
 end sub
 
 function onKeyEvent(key as String, press as Boolean) as Boolean
-    if press and key = "options" and m.kind = "search"
+    if not press then return false
+
+    if m.searchFocused
+        if key = "OK"
+            openMovieKeyboard()
+            return true
+        else if key = "down"
+            unfocusSearch()
+            return true
+        else if key = "up"
+            unfocusSearch()
+            m.top.navigate = { to: "tabs" }
+            return true
+        else if key = "back"
+            unfocusSearch()
+            m.top.navigate = { to: "tabs" }
+            return true
+        end if
+        return true
+    end if
+
+    if m.kind = "movies" and m.top.embedded and m.bannerArea.visible
+        if key = "up"
+            ri = m.rows.rowItemFocused
+            if ri <> invalid and ri[0] = 0
+                focusSearch()
+                return true
+            end if
+        end if
+        if key = "back"
+            m.top.navigate = { to: "tabs" }
+            return true
+        end if
+    end if
+
+    if key = "options" and m.kind = "search"
         openKeyboard()
+        return true
+    end if
+    if key = "options" and m.kind = "movies" and m.top.embedded
+        openMovieKeyboard()
+        return true
+    end if
+    if key = "play" and m.kind = "movies" and m.top.embedded
+        openMovieKeyboard()
         return true
     end if
     return false

@@ -28,6 +28,17 @@ export default {
         return corsResponse(await handleStream(target));
       }
 
+      if (url.pathname === '/kairou') {
+        const tmdbId = url.searchParams.get('tmdbId');
+        const season = url.searchParams.get('season') || '1';
+        const episode = url.searchParams.get('episode') || '1';
+        const title = url.searchParams.get('title') || '';
+        if (!tmdbId) {
+          return corsResponse(json({ error: 'missing ?tmdbId= param' }, 400));
+        }
+        return corsResponse(await handleKairou(tmdbId, season, episode, title));
+      }
+
       if (url.pathname === '/health') {
         return corsResponse(json({ status: 'ok', ts: Date.now() }));
       }
@@ -103,6 +114,62 @@ async function handleStream(targetUrl) {
     contentType,
     status,
     ok: status >= 200 && status < 400,
+  });
+}
+
+// ---------- Kairou Extract ----------
+
+async function handleKairou(tmdbId, season, episode, title) {
+  const extractUrl =
+    `https://kairou.space/api/extract?type=series&season=${season}&episode=${episode}&tmdbId=${tmdbId}&title=${encodeURIComponent(title)}`;
+
+  const resp = await fetch(extractUrl, {
+    headers: {
+      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+      'Referer': 'https://kairou.space/',
+      'Accept': 'application/json',
+    },
+  });
+
+  if (!resp.ok) {
+    return json({ ok: false, error: 'kairou upstream error', status: resp.status }, 502);
+  }
+
+  const data = await resp.json();
+  if (!data || !data.streams || data.streams.length === 0) {
+    return json({ ok: false, error: 'no streams found' }, 404);
+  }
+
+  const stream = data.streams[0];
+  let streamUrl = stream.url || '';
+
+  // The stream URL is a relative proxy path — make it absolute
+  if (streamUrl.startsWith('/')) {
+    streamUrl = 'https://kairou.space' + streamUrl;
+  }
+
+  // Extract subtitles
+  const subs = [];
+  if (data.subtitles && Array.isArray(data.subtitles)) {
+    for (const sub of data.subtitles) {
+      let subUrl = sub.url || '';
+      if (subUrl.startsWith('/')) {
+        subUrl = 'https://kairou.space' + subUrl;
+      }
+      subs.push({
+        lang: sub.lang || '',
+        label: sub.label || '',
+        url: subUrl,
+      });
+    }
+  }
+
+  return json({
+    ok: true,
+    url: streamUrl,
+    quality: stream.quality || '',
+    format: stream.isHls ? 'hls' : 'mp4',
+    subtitles: subs,
   });
 }
 

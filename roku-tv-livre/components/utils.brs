@@ -313,7 +313,7 @@ function Watched_CountSeason(key as String, season as Integer, total as Integer)
     c = 0
     for i = 0 to total - 1
         k = season.ToStr() + ":" + i.ToStr()
-        if w[k] = true then c++
+        if w[k] = true then c = c + 1
     end for
     return c
 end function

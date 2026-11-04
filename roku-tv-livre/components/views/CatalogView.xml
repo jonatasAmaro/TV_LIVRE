@@ -15,6 +15,27 @@
     <Label id="status" text="Carregando..." translation="[80,500]" width="1760" horizAlign="center" color="0xC8D0DCFF">
       <Font role="font" uri="font:SystemFontFile" size="34"/>
     </Label>
+    <!-- Search bar (embedded mode) -->
+    <Group id="searchBar" visible="false" translation="[80,160]">
+      <Rectangle id="searchRing" width="1764" height="64" translation="[-2,-2]" color="0xE67E22FF" visible="false"/>
+      <Rectangle id="searchBg" width="1760" height="60" color="0xFFFFFFFF"/>
+      <Poster id="searchIcon2" translation="[20,14]" width="32" height="32" uri="pkg:/images/icon_search.png" blendColor="0xB85C1EFF"/>
+      <Label id="searchLbl" translation="[62,13]" text="Buscar filmes..." color="0xB85C1ECC" width="1670">
+        <Font role="font" uri="font:SystemFontFile" size="28"/>
+      </Label>
+    </Group>
+    <!-- Widescreen banner area (embedded mode) -->
+    <Group id="bannerArea" visible="false" translation="[80,64]">
+      <Poster id="bannerImg" width="1760" height="400" loadDisplayMode="scaleToZoom"
+          loadingBitmapUri="" failedBitmapUri=""/>
+      <Rectangle id="bannerGrad" translation="[0,220]" width="1760" height="180" color="0x000000CC"/>
+      <Label id="bannerTitle" translation="[30,280]" width="1200" maxLines="2" color="0xFFFFFFFF">
+        <Font role="font" uri="pkg:/fonts/Inter-Bold.ttf" size="36"/>
+      </Label>
+      <Label id="bannerDesc" translation="[30,330]" width="1200" maxLines="2" wrap="true" color="0xC8D0DCFF">
+        <Font role="font" uri="pkg:/fonts/Inter-Regular.ttf" size="22"/>
+      </Label>
+    </Group>
     <RowList id="rows" translation="[80,250]" itemComponentName="PosterItem"
         numRows="3" itemSize="[1840,295]" itemSpacing="[0,70]"
         rowItemSize="[[400,295]]" rowItemSpacing="[[28,0]]"

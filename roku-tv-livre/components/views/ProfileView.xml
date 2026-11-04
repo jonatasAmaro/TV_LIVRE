@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component name="ProfileView" extends="BaseView">
+  <script type="text/brightscript" uri="pkg:/components/views/ProfileView.brs"/>
+  <children>
+    <Rectangle width="1920" height="1080" color="0x0B0F1AFF"/>
+
+    <!-- App logo -->
+    <Poster id="logo" uri="pkg:/images/logo_amaro_tv_transparent.png"
+        width="180" height="180" translation="[870,60]"
+        loadDisplayMode="scaleToFit"/>
+
+    <!-- Title -->
+    <Label id="titleLbl" text="Quem está assistindo?"
+        translation="[0,260]" width="1920" horizAlign="center" color="0xFFFFFFFF">
+      <Font role="font" uri="pkg:/fonts/Inter-Bold.ttf" size="48"/>
+    </Label>
+
+    <!-- Subtitle -->
+    <Label id="subtitleLbl" text="Selecione um perfil para continuar"
+        translation="[0,325]" width="1920" horizAlign="center" color="0x9AA4B2FF">
+      <Font role="font" uri="pkg:/fonts/Inter-Regular.ttf" size="28"/>
+    </Label>
+
+    <!-- Profile cards container -->
+    <Group id="profiles" translation="[460,420]">
+      <!-- Profile 0 -->
+      <Group id="profile0" translation="[0,0]">
+        <Rectangle id="ring0" width="200" height="200" color="0x9B5DE5FF" visible="false" translation="[-8,-8]"/>
+        <Rectangle id="avatar0" width="184" height="184" color="0x3B82F6FF"/>
+        <Label id="initial0" text="J" width="184" height="184" horizAlign="center" vertAlign="center" color="0xFFFFFFFF">
+          <Font role="font" uri="pkg:/fonts/Inter-Bold.ttf" size="72"/>
+        </Label>
+        <Label id="name0" text="Jonatas" translation="[0,200]" width="184" horizAlign="center" color="0xC8D0DCFF">
+          <Font role="font" uri="pkg:/fonts/Inter-Regular.ttf" size="26"/>
+        </Label>
+        <Label id="badge0" text="PRINCIPAL" translation="[32,240]" width="120" horizAlign="center" color="0x9B5DE5FF">
+          <Font role="font" uri="pkg:/fonts/Inter-Bold.ttf" size="18"/>
+        </Label>
+      </Group>
+
+      <!-- Profile 1 -->
+      <Group id="profile1" translation="[334,0]">
+        <Rectangle id="ring1" width="200" height="200" color="0x9B5DE5FF" visible="false" translation="[-8,-8]"/>
+        <Rectangle id="avatar1" width="184" height="184" color="0xEF4444FF"/>
+        <Label id="initial1" text="M" width="184" height="184" horizAlign="center" vertAlign="center" color="0xFFFFFFFF">
+          <Font role="font" uri="pkg:/fonts/Inter-Bold.ttf" size="72"/>
+        </Label>
+        <Label id="name1" text="Maria" translation="[0,200]" width="184" horizAlign="center" color="0xC8D0DCFF">
+          <Font role="font" uri="pkg:/fonts/Inter-Regular.ttf" size="26"/>
+        </Label>
+      </Group>
+
+      <!-- Profile 2 -->
+      <Group id="profile2" translation="[668,0]">
+        <Rectangle id="ring2" width="200" height="200" color="0x9B5DE5FF" visible="false" translation="[-8,-8]"/>
+        <Rectangle id="avatar2" width="184" height="184" color="0x22C55EFF"/>
+        <Label id="initial2" text="C" width="184" height="184" horizAlign="center" vertAlign="center" color="0xFFFFFFFF">
+          <Font role="font" uri="pkg:/fonts/Inter-Bold.ttf" size="72"/>
+        </Label>
+        <Label id="name2" text="Criança" translation="[0,200]" width="184" horizAlign="center" color="0xC8D0DCFF">
+          <Font role="font" uri="pkg:/fonts/Inter-Regular.ttf" size="26"/>
+        </Label>
+      </Group>
+    </Group>
+
+    <!-- Bottom hint -->
+    <Label id="hintLbl" text="Use o D-pad para escolher um perfil"
+        translation="[0,740]" width="1920" horizAlign="center" color="0x6B7280FF">
+      <Font role="font" uri="pkg:/fonts/Inter-Regular.ttf" size="22"/>
+    </Label>
+  </children>
+</component>
