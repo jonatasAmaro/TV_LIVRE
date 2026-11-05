@@ -38,6 +38,10 @@
         <Font role="font" uri="pkg:/fonts/Inter-Regular.ttf" size="22"/>
       </Label>
     </Group>
+    <!-- Semi-transparent strip behind cards (embedded mode) -->
+    <Rectangle id="bottomStrip" width="1920" height="440" color="0x000000BB" visible="false"/>
+    <!-- Down arrow indicator (embedded mode) -->
+    <Poster id="arrowDown" width="60" height="60" uri="pkg:/images/icon_arrow_down.png" translation="[930,360]" visible="false" opacity="0.9"/>
     <!-- Dividers container for category separators -->
     <Group id="dividers"/>
     <!-- Flat grid (legacy/fallback) -->

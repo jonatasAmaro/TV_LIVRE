@@ -106,7 +106,8 @@ sub buildTabs()
         ' Pill background (rounded via PNG image)
         pill = g.createChild("Poster")
         pill.uri = "pkg:/images/pill_bg.png"
-        pill.blendColor = "0x3A3F4BFF"
+        pill.blendColor = "0xE67E22FF"
+        pill.opacity = 0.65
         pill.visible = false
         ' Label
         lbl = g.createChild("Label")
@@ -161,9 +162,9 @@ sub refreshTabs()
             t.label.color = "0x9AA4B2FF"
         end if
         if m.inTabs and not m.inGear and selected
-            t.pill.blendColor = "0x4A5060FF"
+            t.pill.opacity = 0.8
         else
-            t.pill.blendColor = "0x3A3F4BFF"
+            t.pill.opacity = 0.65
         end if
     end for
     refreshGear()
@@ -247,7 +248,7 @@ sub showTab(i as Integer)
     if kind = "live"
         m.content.translation = [0, 0]
     else if kind = "grid" or kind = "movies"
-        m.content.translation = [0, 88]
+        m.content.translation = [0, 660]
     else
         if m.cwGroup.visible
             m.content.translation = [0, 640]
@@ -319,21 +320,42 @@ sub updateHeroForTab(i as Integer)
     grad1 = m.top.findNode("grad1")
     grad2 = m.top.findNode("grad2")
     grad3 = m.top.findNode("grad3")
-    if kind = "live" or kind = "grid" or kind = "movies"
+    if kind = "live"
         m.heroTitle.text = ""
         m.heroMeta.text = ""
         m.heroDesc.text = ""
         m.heroBg.uri = ""
         heroInfo.visible = false
         m.cwGroup.visible = false
-        grad1.visible = (kind <> "grid" and kind <> "movies")
-        grad2.visible = (kind <> "grid" and kind <> "movies")
-        grad3.visible = (kind <> "grid" and kind <> "movies")
+        grad1.visible = true
+        grad2.visible = true
+        grad3.visible = true
+        grad1.opacity = 0.8
+        grad2.opacity = 0.3
+        grad3.opacity = 0.85
+        grad3.translation = [0, 600]
+        grad3.height = 480
+    else if kind = "grid" or kind = "movies"
+        heroInfo.visible = true
+        m.cwGroup.visible = false
+        grad1.visible = true
+        grad2.visible = true
+        grad3.visible = true
+        grad1.opacity = 0.3
+        grad2.opacity = 0.3
+        grad3.opacity = 0.3
+        grad3.translation = [0, 500]
+        grad3.height = 160
     else
         heroInfo.visible = true
         grad1.visible = true
         grad2.visible = true
         grad3.visible = true
+        grad1.opacity = 0.8
+        grad2.opacity = 0.3
+        grad3.opacity = 0.85
+        grad3.translation = [0, 600]
+        grad3.height = 480
         m.heroTitle.text = title
         m.heroMeta.text = ""
         m.heroDesc.text = ""
@@ -559,15 +581,15 @@ sub refreshContinueWatching()
     visible = items.Count() > 0
     curKind = ""
     if m.shownIndex >= 0 then curKind = To_Str(m.sections[m.shownIndex].kind)
-    if curKind = "live" or curKind = "grid"
+    if curKind = "live" or curKind = "grid" or curKind = "movies"
         m.cwGroup.visible = false
     else
         m.cwGroup.visible = visible
     end if
     if curKind = "live"
         m.content.translation = [0, 0]
-    else if curKind = "grid"
-        m.content.translation = [0, 88]
+    else if curKind = "grid" or curKind = "movies"
+        m.content.translation = [0, 660]
     else if visible
         m.content.translation = [0, 640]
     else

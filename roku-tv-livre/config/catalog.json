@@ -6119,7 +6119,8 @@
               "glyph": "SÉRIES",
               "color": "0xE76F51FF",
               "tab": "SÉRIES",
-              "poster": "https://image.tmdb.org/t/p/w342/xgfjxyV3g1S68opGBZdB2LMMF2s.jpg",
+              "poster": "https://image.tmdb.org/t/p/w500/u7iE4IxeaDRR4FSF7EfDGRhaI1k.jpg",
+              "banner": "https://image.tmdb.org/t/p/original/coHpOy9OJyFiHWeH36cSHMpLUHC.jpg",
               "summary": "A vida mulherenga do solteirão Charlie é afetada quando seu irmão divorciado e seu sobrinho de língua afiada vão morar com ele.",
               "year": "2003",
               "rating": "7.4",
@@ -6501,6 +6502,360 @@
               ],
               "imdb": "tt21084296",
               "banner": "https://image.tmdb.org/t/p/w1280/1gajPADcRyzmYvfAefbJwhCy4bk.jpg"
+            }
+          ]
+        },
+        {
+          "title": "RELIGIOSA",
+          "items": [
+            {
+              "id": "casa_de_davi",
+              "kind": "series",
+              "title": "Casa de Davi",
+              "subtitle": "The House of David",
+              "glyph": "SÉRIES",
+              "color": "0xE76F51FF",
+              "tab": "SÉRIES",
+              "poster": "https://image.tmdb.org/t/p/w500/fazOtYrDnlDi3YXdJeBSdr51exl.jpg",
+              "summary": "Conta a história da ascensão do ícone bíblico Davi, que se torna o mais famoso rei de Israel. O outrora poderoso rei Saul é vítima de seu próprio orgulho. Seguindo as ordens de Deus, o profeta Samuel unge um pária adolescente como o novo rei.",
+              "year": "2025",
+              "rating": "8.4",
+              "genres": "Drama",
+              "seasons": [
+                {
+                  "title": "Temporada 1",
+                  "episodes": [
+                    {
+                      "title": "Um Pastor e Um Rei",
+                      "episode": "S01E01",
+                      "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=http%3A%2F%2Fdbonline.tech-cdn.top%3A80%2Fseries%2Fke-vin-0928392083%2FPZjF6XATTZ%2F5151.mp4"
+                    },
+                    {
+                      "title": "Um Abismo Chama Outro Abismo",
+                      "episode": "S01E02",
+                      "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=https%3A%2F%2Fembedplayer2.xyz%2Fcdn%2Fhls%2Faa9d569c30c72bfafe39d58a01f75502%2Fmaster.txt"
+                    },
+                    {
+                      "title": "A Unção",
+                      "episode": "S01E03",
+                      "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=https%3A%2F%2Fembedplayer2.xyz%2Fcdn%2Fhls%2F2fef15db12d34846d3a8ba06c35f9140%2Fmaster.txt"
+                    },
+                    {
+                      "title": "A Canção de Moisés",
+                      "episode": "S01E04",
+                      "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=https%3A%2F%2Fembedplayer2.xyz%2Fcdn%2Fhls%2Fd0d7979ce26ab537db0537a14db7e067%2Fmaster.txt"
+                    },
+                    {
+                      "title": "O Lobo e o Leão",
+                      "episode": "S01E05",
+                      "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=http%3A%2F%2Fdbonline.tech-cdn.top%3A80%2Fseries%2Fke-vin-0928392083%2FPZjF6XATTZ%2F5155.mp4"
+                    },
+                    {
+                      "title": "Gigantes Despertados",
+                      "episode": "S01E06",
+                      "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=https%3A%2F%2Fembedplayer2.xyz%2Fcdn%2Fhls%2F3f1c50321761f0b0cc9c56ce6cc20406%2Fmaster.txt"
+                    },
+                    {
+                      "title": "Davi e Golias - Parte 1",
+                      "episode": "S01E07",
+                      "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=http%3A%2F%2Fdbonline.tech-cdn.top%3A80%2Fseries%2Fke-vin-0928392083%2FPZjF6XATTZ%2F5157.mp4"
+                    },
+                    {
+                      "title": "Davi e Golias - Parte 2",
+                      "episode": "S01E08",
+                      "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=http%3A%2F%2Fdbonline.tech-cdn.top%3A80%2Fseries%2Fke-vin-0928392083%2FPZjF6XATTZ%2F5158.mp4"
+                    }
+                  ]
+                },
+                {
+                  "title": "Temporada 2",
+                  "episodes": [
+                    {
+                      "title": "Uma História de Duas Espadas",
+                      "episode": "S02E01",
+                      "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=https%3A%2F%2Fembedplayer2.xyz%2Fcdn%2Fhls%2Fff346a6fddf5bc4f634b96c25f15902c%2Fmaster.txt"
+                    },
+                    {
+                      "title": "A Jornada Para Casa",
+                      "episode": "S02E02",
+                      "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=http%3A%2F%2Fdbonline.tech-cdn.top%3A80%2Fseries%2Fke-vin-0928392083%2FPZjF6XATTZ%2F5160.mp4"
+                    },
+                    {
+                      "title": "O Caminho do Meio",
+                      "episode": "S02E03",
+                      "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=https%3A%2F%2Fembedplayer2.xyz%2Fcdn%2Fhls%2Fd1019d094b18f520c37d4c2a99796ba1%2Fmaster.txt"
+                    },
+                    {
+                      "title": "A Estrada Para a Redenção",
+                      "episode": "S02E04",
+                      "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=https%3A%2F%2Fembedplayer2.xyz%2Fcdn%2Fhls%2Fcc3356910e3245df51609c9a7d05b4e9%2Fmaster.txt"
+                    },
+                    {
+                      "title": "Deus das Espadas",
+                      "episode": "S02E05",
+                      "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=http%3A%2F%2Fdbonline.tech-cdn.top%3A80%2Fseries%2Fke-vin-0928392083%2FPZjF6XATTZ%2F5163.mp4"
+                    },
+                    {
+                      "title": "Forjado no Fogo",
+                      "episode": "S02E06",
+                      "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=http%3A%2F%2Fdbonline.tech-cdn.top%3A80%2Fseries%2Fke-vin-0928392083%2FPZjF6XATTZ%2F5164.mp4"
+                    },
+                    {
+                      "title": "Um Casamento Real",
+                      "episode": "S02E07",
+                      "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=https%3A%2F%2Fembedplayer2.xyz%2Fcdn%2Fhls%2F34f96102e7a087ff835cea110a5cccd1%2Fmaster.txt"
+                    },
+                    {
+                      "title": "A Verdade Revelada",
+                      "episode": "S02E08",
+                      "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=http%3A%2F%2Fdbonline.tech-cdn.top%3A80%2Fseries%2Fke-vin-0928392083%2FPZjF6XATTZ%2F5166.mp4"
+                    }
+                  ]
+                }
+              ],
+              "banner": "https://image.tmdb.org/t/p/w1280/tWLGlPOYgiqkFgm3S1ub2MeXFGJ.jpg"
+            },
+            {
+              "id": "the_chosen_os_escolhidos",
+              "kind": "series",
+              "title": "The Chosen Os Escolhidos",
+              "subtitle": "Levante-se.",
+              "glyph": "SÉRIES",
+              "color": "0xD4A373FF",
+              "tab": "SÉRIES",
+              "poster": "https://image.tmdb.org/t/p/w500/pFoAMvEEqGvGCkkBLHoGaHKMhZg.jpg",
+              "summary": "Aprofundando-se nas histórias de fundo e no contexto das pessoas e eventos dos evangelhos, a série apresenta pessoas como Simão Pedro, Nicodemos, Maria Madalena, Mateus e, claro, Jesus de uma forma nunca antes vista em filme.",
+              "year": "2019",
+              "rating": "8.8",
+              "genres": "Drama",
+              "seasons": [
+                {
+                  "title": "Temporada 1",
+                  "episodes": [
+                    {
+                      "title": "Eu Te Chamei Pelo Nome",
+                      "episode": "S01E01",
+                      "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=http%3A%2F%2Fdbonline.tech-cdn.top%3A80%2Fseries%2Fke-vin-0928392083%2FPZjF6XATTZ%2F157973.mp4"
+                    },
+                    {
+                      "title": "Shabbat",
+                      "episode": "S01E02",
+                      "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=http%3A%2F%2Fdbonline.tech-cdn.top%3A80%2Fseries%2Fke-vin-0928392083%2FPZjF6XATTZ%2F157974.mp4"
+                    },
+                    {
+                      "title": "Jesus Ama as Criancinhas",
+                      "episode": "S01E03",
+                      "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=http%3A%2F%2Fdbonline.tech-cdn.top%3A80%2Fseries%2Fke-vin-0928392083%2FPZjF6XATTZ%2F157975.mp4"
+                    },
+                    {
+                      "title": "Sobre Esta Pedra",
+                      "episode": "S01E04",
+                      "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=http%3A%2F%2Fdbonline.tech-cdn.top%3A80%2Fseries%2Fke-vin-0928392083%2FPZjF6XATTZ%2F157976.mp4"
+                    },
+                    {
+                      "title": "O Presente de Casamento",
+                      "episode": "S01E05",
+                      "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=http%3A%2F%2Fdbonline.tech-cdn.top%3A80%2Fseries%2Fke-vin-0928392083%2FPZjF6XATTZ%2F157977.mp4"
+                    },
+                    {
+                      "title": "Compaixão Indescritível",
+                      "episode": "S01E06",
+                      "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=http%3A%2F%2Fdbonline.tech-cdn.top%3A80%2Fseries%2Fke-vin-0928392083%2FPZjF6XATTZ%2F157978.mp4"
+                    },
+                    {
+                      "title": "Convites",
+                      "episode": "S01E07",
+                      "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=http%3A%2F%2Fdbonline.tech-cdn.top%3A80%2Fseries%2Fke-vin-0928392083%2FPZjF6XATTZ%2F157979.mp4"
+                    },
+                    {
+                      "title": "Eu Sou Ele",
+                      "episode": "S01E08",
+                      "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=http%3A%2F%2Fdbonline.tech-cdn.top%3A80%2Fseries%2Fke-vin-0928392083%2FPZjF6XATTZ%2F157980.mp4"
+                    }
+                  ]
+                },
+                {
+                  "title": "Temporada 2",
+                  "episodes": [
+                    {
+                      "title": "Trovão",
+                      "episode": "S02E01",
+                      "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=http%3A%2F%2Fdbonline.tech-cdn.top%3A80%2Fseries%2Fke-vin-0928392083%2FPZjF6XATTZ%2F157981.mp4"
+                    },
+                    {
+                      "title": "Eu Vi Você",
+                      "episode": "S02E02",
+                      "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=http%3A%2F%2Fdbonline.tech-cdn.top%3A80%2Fseries%2Fke-vin-0928392083%2FPZjF6XATTZ%2F157982.mp4"
+                    },
+                    {
+                      "title": "Mateus 4:24",
+                      "episode": "S02E03",
+                      "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=http%3A%2F%2Fdbonline.tech-cdn.top%3A80%2Fseries%2Fke-vin-0928392083%2FPZjF6XATTZ%2F157983.mp4"
+                    },
+                    {
+                      "title": "A Oportunidade Perfeita",
+                      "episode": "S02E04",
+                      "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=http%3A%2F%2Fdbonline.tech-cdn.top%3A80%2Fseries%2Fke-vin-0928392083%2FPZjF6XATTZ%2F157984.mp4"
+                    },
+                    {
+                      "title": "Espírito",
+                      "episode": "S02E05",
+                      "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=http%3A%2F%2Fdbonline.tech-cdn.top%3A80%2Fseries%2Fke-vin-0928392083%2FPZjF6XATTZ%2F157985.mp4"
+                    },
+                    {
+                      "title": "Ilícito",
+                      "episode": "S02E06",
+                      "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=http%3A%2F%2Fdbonline.tech-cdn.top%3A80%2Fseries%2Fke-vin-0928392083%2FPZjF6XATTZ%2F157986.mp4"
+                    },
+                    {
+                      "title": "Acerto de Contas",
+                      "episode": "S02E07",
+                      "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=http%3A%2F%2Fdbonline.tech-cdn.top%3A80%2Fseries%2Fke-vin-0928392083%2FPZjF6XATTZ%2F157987.mp4"
+                    },
+                    {
+                      "title": "Além das Montanhas",
+                      "episode": "S02E08",
+                      "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=http%3A%2F%2Fdbonline.tech-cdn.top%3A80%2Fseries%2Fke-vin-0928392083%2FPZjF6XATTZ%2F157988.mp4"
+                    }
+                  ]
+                },
+                {
+                  "title": "Temporada 3",
+                  "episodes": [
+                    {
+                      "title": "De Volta Para Casa",
+                      "episode": "S03E01",
+                      "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=http%3A%2F%2Fdbonline.tech-cdn.top%3A80%2Fseries%2Fke-vin-0928392083%2FPZjF6XATTZ%2F157989.mp4"
+                    },
+                    {
+                      "title": "Dois em Dois",
+                      "episode": "S03E02",
+                      "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=http%3A%2F%2Fdbonline.tech-cdn.top%3A80%2Fseries%2Fke-vin-0928392083%2FPZjF6XATTZ%2F157990.mp4"
+                    },
+                    {
+                      "title": "Médico Cure-se",
+                      "episode": "S03E03",
+                      "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=http%3A%2F%2Fdbonline.tech-cdn.top%3A80%2Fseries%2Fke-vin-0928392083%2FPZjF6XATTZ%2F157991.mp4"
+                    },
+                    {
+                      "title": "Limpo Pt. 1",
+                      "episode": "S03E04",
+                      "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=http%3A%2F%2Fdbonline.tech-cdn.top%3A80%2Fseries%2Fke-vin-0928392083%2FPZjF6XATTZ%2F157992.mp4"
+                    },
+                    {
+                      "title": "Limpo Pt. 2",
+                      "episode": "S03E05",
+                      "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=http%3A%2F%2Fdbonline.tech-cdn.top%3A80%2Fseries%2Fke-vin-0928392083%2FPZjF6XATTZ%2F157993.mp4"
+                    },
+                    {
+                      "title": "Intensidade na Cidade das Tendas",
+                      "episode": "S03E06",
+                      "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=http%3A%2F%2Fdbonline.tech-cdn.top%3A80%2Fseries%2Fke-vin-0928392083%2FPZjF6XATTZ%2F157994.mp4"
+                    },
+                    {
+                      "title": "Ouvidos Para Ouvir",
+                      "episode": "S03E07",
+                      "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=http%3A%2F%2Fdbonline.tech-cdn.top%3A80%2Fseries%2Fke-vin-0928392083%2FPZjF6XATTZ%2F157995.mp4"
+                    },
+                    {
+                      "title": "Sustento",
+                      "episode": "S03E08",
+                      "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=http%3A%2F%2Fdbonline.tech-cdn.top%3A80%2Fseries%2Fke-vin-0928392083%2FPZjF6XATTZ%2F157996.mp4"
+                    }
+                  ]
+                },
+                {
+                  "title": "Temporada 4",
+                  "episodes": [
+                    {
+                      "title": "Promessas",
+                      "episode": "S04E01",
+                      "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=http%3A%2F%2Fdbonline.tech-cdn.top%3A80%2Fseries%2Fke-vin-0928392083%2FPZjF6XATTZ%2F157997.mp4"
+                    },
+                    {
+                      "title": "Confissões",
+                      "episode": "S04E02",
+                      "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=http%3A%2F%2Fdbonline.tech-cdn.top%3A80%2Fseries%2Fke-vin-0928392083%2FPZjF6XATTZ%2F157998.mp4"
+                    },
+                    {
+                      "title": "Da Lua ao Sangue",
+                      "episode": "S04E03",
+                      "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=http%3A%2F%2Fdbonline.tech-cdn.top%3A80%2Fseries%2Fke-vin-0928392083%2FPZjF6XATTZ%2F157999.mp4"
+                    },
+                    {
+                      "title": "Calmaria Antes...",
+                      "episode": "S04E04",
+                      "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=http%3A%2F%2Fdbonline.tech-cdn.top%3A80%2Fseries%2Fke-vin-0928392083%2FPZjF6XATTZ%2F158000.mp4"
+                    },
+                    {
+                      "title": "Sentar Servir Planejar",
+                      "episode": "S04E05",
+                      "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=http%3A%2F%2Fdbonline.tech-cdn.top%3A80%2Fseries%2Fke-vin-0928392083%2FPZjF6XATTZ%2F158001.mp4"
+                    },
+                    {
+                      "title": "Dedicação",
+                      "episode": "S04E06",
+                      "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=http%3A%2F%2Fdbonline.tech-cdn.top%3A80%2Fseries%2Fke-vin-0928392083%2FPZjF6XATTZ%2F158002.mp4"
+                    },
+                    {
+                      "title": "O Último Sinal",
+                      "episode": "S04E07",
+                      "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=http%3A%2F%2Fdbonline.tech-cdn.top%3A80%2Fseries%2Fke-vin-0928392083%2FPZjF6XATTZ%2F158003.mp4"
+                    },
+                    {
+                      "title": "Humilde",
+                      "episode": "S04E08",
+                      "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=http%3A%2F%2Fdbonline.tech-cdn.top%3A80%2Fseries%2Fke-vin-0928392083%2FPZjF6XATTZ%2F158004.mp4"
+                    }
+                  ]
+                },
+                {
+                  "title": "Temporada 5",
+                  "episodes": [
+                    {
+                      "title": "Entrada",
+                      "episode": "S05E01",
+                      "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=http%3A%2F%2Fdbonline.tech-cdn.top%3A80%2Fseries%2Fke-vin-0928392083%2FPZjF6XATTZ%2F158005.mp4"
+                    },
+                    {
+                      "title": "Castelo de Cartas",
+                      "episode": "S05E02",
+                      "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=http%3A%2F%2Fdbonline.tech-cdn.top%3A80%2Fseries%2Fke-vin-0928392083%2FPZjF6XATTZ%2F158006.mp4"
+                    },
+                    {
+                      "title": "Aflições",
+                      "episode": "S05E03",
+                      "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=http%3A%2F%2Fdbonline.tech-cdn.top%3A80%2Fseries%2Fke-vin-0928392083%2FPZjF6XATTZ%2F158007.mp4"
+                    },
+                    {
+                      "title": "A Mesma Moeda",
+                      "episode": "S05E04",
+                      "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=http%3A%2F%2Fdbonline.tech-cdn.top%3A80%2Fseries%2Fke-vin-0928392083%2FPZjF6XATTZ%2F158008.mp4"
+                    },
+                    {
+                      "title": "Por Minha Causa",
+                      "episode": "S05E05",
+                      "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=http%3A%2F%2Fdbonline.tech-cdn.top%3A80%2Fseries%2Fke-vin-0928392083%2FPZjF6XATTZ%2F158009.mp4"
+                    },
+                    {
+                      "title": "Reuniões",
+                      "episode": "S05E06",
+                      "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=http%3A%2F%2Fdbonline.tech-cdn.top%3A80%2Fseries%2Fke-vin-0928392083%2FPZjF6XATTZ%2F158010.mp4"
+                    },
+                    {
+                      "title": "O Cenáculo Parte I",
+                      "episode": "S05E07",
+                      "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=http%3A%2F%2Fdbonline.tech-cdn.top%3A80%2Fseries%2Fke-vin-0928392083%2FPZjF6XATTZ%2F158011.mp4"
+                    },
+                    {
+                      "title": "O Cenáculo Parte II",
+                      "episode": "S05E08",
+                      "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=http%3A%2F%2Fdbonline.tech-cdn.top%3A80%2Fseries%2Fke-vin-0928392083%2FPZjF6XATTZ%2F158012.mp4"
+                    }
+                  ]
+                }
+              ],
+              "banner": "https://image.tmdb.org/t/p/w1280/lGbNpKUphBxGMB0HeWFqj6dTF9E.jpg"
             }
           ]
         }

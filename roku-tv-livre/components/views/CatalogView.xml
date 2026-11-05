@@ -36,6 +36,10 @@
         <Font role="font" uri="pkg:/fonts/Inter-Regular.ttf" size="22"/>
       </Label>
     </Group>
+    <!-- Semi-transparent strip behind cards (embedded mode) -->
+    <Rectangle id="bottomStrip" width="1920" height="440" color="0x000000BB" visible="false"/>
+    <!-- Down arrow indicator (embedded mode) -->
+    <Poster id="arrowDown" width="60" height="60" uri="pkg:/images/icon_arrow_down.png" translation="[930,360]" visible="false" opacity="0.9"/>
     <RowList id="rows" translation="[80,250]" itemComponentName="PosterItem"
         numRows="3" itemSize="[1840,295]" itemSpacing="[0,70]"
         rowItemSize="[[400,295]]" rowItemSpacing="[[28,0]]"

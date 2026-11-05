@@ -14,6 +14,8 @@ sub init()
     m.bannerImg = m.top.findNode("bannerImg")
     m.bannerTitle = m.top.findNode("bannerTitle")
     m.bannerDesc = m.top.findNode("bannerDesc")
+    m.bottomStrip = m.top.findNode("bottomStrip")
+    m.arrowDown = m.top.findNode("arrowDown")
     m.items = []
     m.hasCategories = false
     m.hasSearch = false
@@ -32,8 +34,6 @@ sub onFocusChange()
     if not m.top.hasFocus() then return
     if m.searchFocused
         return
-    else if m.top.embedded and m.hasSearch
-        focusSearch()
     else if m.hasCategories
         m.rows.setFocus(true)
     else if m.items.Count() > 0
@@ -95,6 +95,7 @@ sub onSection()
     if m.top.embedded
         m.titleLbl.visible = false
         m.subtitle.visible = false
+        m.bgGradient.visible = false
     else if m.sectionId = "series_tab" or m.sectionId = "anime_tab" or m.sectionId = "filmes" or m.sectionId = "youtube"
         m.titleLbl.translation = [80, 36]
         m.subtitle.translation = [82, 106]
@@ -106,26 +107,12 @@ sub onSection()
     contentY = 250
     gap = 24
     if m.top.embedded
-        searchY = gap
-        m.searchBar.visible = true
-        m.searchBar.translation = [80, searchY]
-        bannerY = searchY + 60 + gap
-        m.bannerArea.visible = true
-        m.bannerArea.translation = [80, bannerY]
-        contentY = bannerY + 400 + gap
-        if m.sectionId = "series_tab"
-            m.searchLbl.color = "0x556B2FCC"
-            m.searchRing.color = "0x556B2FFF"
-            m.searchLbl.text = "Buscar séries..."
-        else if m.sectionId = "anime_tab"
-            m.searchLbl.color = "0x7B2D8ECC"
-            m.searchRing.color = "0x7B2D8EFF"
-            m.searchLbl.text = "Buscar animes..."
-        else if m.sectionId = "filmes"
-            m.searchLbl.color = "0xB85C1ECC"
-            m.searchRing.color = "0xE67E22FF"
-            m.searchLbl.text = "Buscar filmes..."
-        end if
+        m.searchBar.visible = false
+        m.bannerArea.visible = false
+        m.bottomStrip.visible = true
+        m.bottomStrip.translation = [0, -10]
+        m.arrowDown.translation = [930, 360]
+        contentY = 20
     else if m.hasSearch
         m.searchBar.visible = true
         m.searchBar.translation = [80, 160]
@@ -148,6 +135,13 @@ sub onSection()
         m.grid.visible = false
         m.rows.visible = true
         m.rows.translation = [80, contentY]
+        if m.top.embedded
+            m.rows.numRows = 1
+            m.rows.itemSize = [1760, 380]
+            m.rows.rowItemSize = [[180, 310]]
+            m.rows.rowItemSpacing = [[20, 0]]
+            m.rows.itemSpacing = [0, 30]
+        end if
         loadCategories(s.categories)
     else
         m.rows.visible = false
@@ -188,7 +182,18 @@ sub loadCategories(categories as Object)
         m.status.visible = true
     end if
     if m.allItems.Count() > 0 and m.top.embedded
-        updateBanner(m.allItems[0])
+        item = m.allItems[0]
+        hero = {
+            title: To_Str(item.title),
+            description: To_Str(item.summary),
+            meta: "",
+            background: To_Str(item.banner)
+        }
+        if hero.background = "" then hero.background = To_Str(item.poster)
+        m.top.navigate = { to: "hero", hero: hero }
+    end if
+    if m.top.embedded
+        m.arrowDown.visible = (root.getChildCount() > 1)
     end if
     if m.top.hasFocus() then m.rows.setFocus(true)
     buildDividers(root.getChildCount())
@@ -251,6 +256,14 @@ sub onRowItemFocused()
     if not m.top.embedded then return
     sel = m.rows.rowItemFocused
     if sel = invalid or sel.Count() < 2 then return
+
+    totalRows = m.rows.content.getChildCount()
+    if sel[0] >= totalRows - 1
+        m.arrowDown.uri = "pkg:/images/icon_arrow_up.png"
+    else
+        m.arrowDown.uri = "pkg:/images/icon_arrow_down.png"
+    end if
+
     idx = 0
     for r = 0 to sel[0] - 1
         row = m.rows.content.getChild(r)
@@ -259,7 +272,14 @@ sub onRowItemFocused()
     idx = idx + sel[1]
     if idx >= 0 and idx < m.allItems.Count()
         item = m.allItems[idx]
-        updateBanner(item)
+        hero = {
+            title: To_Str(item.title),
+            description: To_Str(item.summary),
+            meta: "",
+            background: To_Str(item.banner)
+        }
+        if hero.background = "" then hero.background = To_Str(item.poster)
+        m.top.navigate = { to: "hero", hero: hero }
     end if
 end sub
 
@@ -362,7 +382,7 @@ end sub
 
 sub buildDividers(rowCount as Integer)
     m.dividers.removeChildrenIndex(m.dividers.getChildCount(), 0)
-    if rowCount < 2 then return
+    if m.top.embedded or rowCount < 2 then return
     rowsY = m.rows.translation[1]
     rowH = 370
     spacing = 60
@@ -398,14 +418,12 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
         return true
     end if
 
-    if m.top.embedded and m.hasSearch
+    if m.top.embedded
         if key = "up"
-            if m.hasCategories
-                ri = m.rows.rowItemFocused
-                if ri <> invalid and ri[0] = 0
-                    focusSearch()
-                    return true
-                end if
+            ri = m.rows.rowItemFocused
+            if ri <> invalid and ri[0] = 0
+                m.top.navigate = { to: "tabs" }
+                return true
             end if
         end if
         if key = "back"

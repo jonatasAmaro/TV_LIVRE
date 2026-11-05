@@ -13,6 +13,8 @@ sub init()
     m.bannerImg = m.top.findNode("bannerImg")
     m.bannerTitle = m.top.findNode("bannerTitle")
     m.bannerDesc = m.top.findNode("bannerDesc")
+    m.bottomStrip = m.top.findNode("bottomStrip")
+    m.arrowDown = m.top.findNode("arrowDown")
     m.root = CreateObject("roSGNode", "ContentNode")
     m.task = invalid
     m.kb = invalid
@@ -81,16 +83,13 @@ sub onSection()
         m.title.visible = false
         m.subtitle.visible = false
         if m.kind = "movies"
-            gap = 24
-            searchY = gap
-            m.searchBar.visible = true
-            m.searchBar.translation = [80, searchY]
-            bannerY = searchY + 60 + gap
-            m.bannerArea.visible = true
-            m.bannerArea.translation = [80, bannerY]
-            contentY = bannerY + 400 + gap
-            m.rows.translation = [80, contentY]
-            m.status.translation = [80, contentY + 100]
+            m.searchBar.visible = false
+            m.bannerArea.visible = false
+            m.bottomStrip.visible = true
+            m.bottomStrip.translation = [0, -10]
+            m.arrowDown.translation = [930, 360]
+            m.rows.translation = [80, 20]
+            m.status.translation = [80, 200]
         else
             m.rows.translation = [80, 250]
             m.status.translation = [80, 560]
@@ -182,6 +181,9 @@ sub addRow(row as Object)
     m.root.appendChild(row)
     if m.rows.content = invalid then m.rows.content = m.root
     m.status.visible = false
+    if m.top.embedded and m.kind = "movies"
+        m.arrowDown.visible = (m.root.getChildCount() > 1)
+    end if
     if m.top.hasFocus() then m.rows.setFocus(true)
 end sub
 
@@ -225,11 +227,19 @@ end sub
 sub loadMovies(rows as Object)
     resetRows()
     m.allMovieItems = []
-    m.rows.itemSize = [1840, 370]
-    m.rows.itemSpacing = [0, 60]
-    m.rows.rowItemSize = [[200, 370]]
-    m.rows.rowItemSpacing = [[24, 0]]
-    m.rows.numRows = 2
+    if m.top.embedded
+        m.rows.itemSize = [1760, 380]
+        m.rows.itemSpacing = [0, 30]
+        m.rows.rowItemSize = [[180, 310]]
+        m.rows.rowItemSpacing = [[20, 0]]
+        m.rows.numRows = 1
+    else
+        m.rows.itemSize = [1840, 370]
+        m.rows.itemSpacing = [0, 60]
+        m.rows.rowItemSize = [[200, 370]]
+        m.rows.rowItemSpacing = [[24, 0]]
+        m.rows.numRows = 2
+    end if
     if rows = invalid then rows = []
     recent = recentMovies()
     m.moviesSig = recentSignature(recent)
@@ -257,8 +267,12 @@ sub loadMovies(rows as Object)
         if row.getChildCount() > 0 then addRow(row)
     end for
     if m.root.getChildCount() = 0 then showStatus("Nenhum filme configurado.")
-    if m.allMovieItems.Count() > 0 and m.top.embedded and m.bannerArea.visible
-        updateBanner(m.allMovieItems[0])
+    if m.allMovieItems.Count() > 0 and m.top.embedded
+        mv = m.allMovieItems[0]
+        bg = To_Str(mv.banner)
+        if bg = "" then bg = To_Str(mv.poster)
+        hero = { title: To_Str(mv.title), description: To_Str(mv.summary), meta: To_Str(mv.year), background: bg }
+        m.top.navigate = { to: "hero", hero: hero }
     end if
 end sub
 
@@ -415,11 +429,19 @@ sub filterMovies(query as String)
     s = m.top.section
     if s.rows = invalid then return
     resetRows()
-    m.rows.itemSize = [1840, 370]
-    m.rows.itemSpacing = [0, 60]
-    m.rows.rowItemSize = [[200, 370]]
-    m.rows.rowItemSpacing = [[24, 0]]
-    m.rows.numRows = 2
+    if m.top.embedded
+        m.rows.itemSize = [1760, 380]
+        m.rows.itemSpacing = [0, 30]
+        m.rows.rowItemSize = [[180, 310]]
+        m.rows.rowItemSpacing = [[20, 0]]
+        m.rows.numRows = 1
+    else
+        m.rows.itemSize = [1840, 370]
+        m.rows.itemSpacing = [0, 60]
+        m.rows.rowItemSize = [[200, 370]]
+        m.rows.rowItemSpacing = [[24, 0]]
+        m.rows.numRows = 2
+    end if
     row = CreateObject("roSGNode", "ContentNode")
     row.title = "Resultados: " + query
     m.allMovieItems = []
@@ -451,16 +473,29 @@ sub onItemFocused()
     if not m.top.embedded then return
     sel = m.rows.rowItemFocused
     if sel = invalid or sel.Count() < 2 then return
+
+    totalRows = m.rows.content.getChildCount()
+    if sel[0] >= totalRows - 1
+        m.arrowDown.uri = "pkg:/images/icon_arrow_up.png"
+    else
+        m.arrowDown.uri = "pkg:/images/icon_arrow_down.png"
+    end if
+
     rowNode = m.rows.content.getChild(sel[0])
     if rowNode = invalid then return
     item = rowNode.getChild(sel[1])
     if item = invalid then return
-    if m.kind = "movies" and m.bannerArea.visible
-        updateBanner(item)
+    if m.kind = "movies"
+        bg = ""
+        if item.hasField("banner") then bg = To_Str(item.banner)
+        if bg = "" then bg = To_Str(item.hdPosterUrl)
+        desc = ""
+        if item.hasField("summary") then desc = To_Str(item.summary)
+        hero = { title: item.title, description: desc, meta: To_Str(item.shortDescriptionLine1), background: bg }
     else
         hero = { title: item.title, description: To_Str(item.shortDescriptionLine1), meta: "", background: item.hdPosterUrl }
-        m.top.navigate = { to: "hero", hero: hero }
     end if
+    m.top.navigate = { to: "hero", hero: hero }
 end sub
 
 ' ---------- Selection ----------
@@ -562,11 +597,11 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
         return true
     end if
 
-    if m.kind = "movies" and m.top.embedded and m.bannerArea.visible
+    if m.kind = "movies" and m.top.embedded
         if key = "up"
             ri = m.rows.rowItemFocused
             if ri <> invalid and ri[0] = 0
-                focusSearch()
+                m.top.navigate = { to: "tabs" }
                 return true
             end if
         end if
