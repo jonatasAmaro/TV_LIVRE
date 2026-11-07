@@ -64,7 +64,7 @@
       <Rectangle id="barFill" translation="[80,968]" width="0" height="12" color="0x9B5DE5FF"/>
       <Rectangle id="knob" translation="[74,956]" width="12" height="36" color="0xFFFFFFFF"/>
       <Label id="hintLbl" translation="[80,1004]" width="1760" color="0x9AA4B2FF"
-          text="OK pausa / continua   |   Segure << >> p/ buscar   |   * Legendas   |   # Velocidade">
+          text="OK pausa / continua   |   Segure &lt;&lt; &gt;&gt; p/ buscar   |   * Legendas   |   # Velocidade">
         <Font role="font" uri="font:SystemFontFile" size="24"/>
       </Label>
       <!-- Subtitle toast (briefly shown when user presses * to toggle) -->
