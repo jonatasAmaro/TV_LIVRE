@@ -120,6 +120,21 @@ sub watch(fromStart as Boolean)
         m.status.text = "Este filme ainda não tem URL configurada."
         return
     end if
+
+    ' Resolve tokyvideo: URLs via worker before playing
+    if Left(url, 10) = "tokyvideo:"
+        m.status.text = "Carregando vídeo..."
+        m.status.visible = true
+        pageUrl = Mid(url, 11)
+        m.tokyFromStart = fromStart
+        m.tokyTask = CreateObject("roSGNode", "HttpJsonTask")
+        xfer = CreateObject("roUrlTransfer")
+        m.tokyTask.url = "https://tv-livre-catalog.jonatas-amaro2.workers.dev/tokyvideo?url=" + xfer.Escape(pageUrl)
+        m.tokyTask.observeField("result", "onTokyResult")
+        m.tokyTask.control = "run"
+        return
+    end if
+
     start = m.resumeAt
     if fromStart then start = 0
     m.top.navigate = {
@@ -127,6 +142,30 @@ sub watch(fromStart as Boolean)
         id: recentId(), itemTitle: To_Str(it.title), poster: To_Str(it.poster),
         imdb: To_Str(it.imdb),
         extra: { kind: "movie", movieId: To_Str(it.id), url: url, summary: To_Str(it.summary), imdb: To_Str(it.imdb) }
+    }
+end sub
+
+sub onTokyResult()
+    m.status.visible = false
+    if m.tokyTask = invalid then return
+    r = m.tokyTask.result
+    m.tokyTask = invalid
+    it = m.top.item
+
+    if r = invalid or not Is_True(r.ok) or To_Str(r.url) = ""
+        m.status.text = "Não foi possível carregar o vídeo."
+        m.status.visible = true
+        return
+    end if
+
+    resolvedUrl = To_Str(r.url)
+    start = m.resumeAt
+    if m.tokyFromStart then start = 0
+    m.top.navigate = {
+        to: "play", urls: [resolvedUrl], title: To_Str(it.title), start: start,
+        id: recentId(), itemTitle: To_Str(it.title), poster: To_Str(it.poster),
+        imdb: To_Str(it.imdb),
+        extra: { kind: "movie", movieId: To_Str(it.id), url: To_Str(it.url), summary: To_Str(it.summary), imdb: To_Str(it.imdb) }
     }
 end sub
 
