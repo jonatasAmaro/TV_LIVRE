@@ -24,6 +24,7 @@ sub init()
     m.heroDesc = m.top.findNode("heroDesc")
 
     ' Search
+    m.searchSel = m.top.findNode("searchSel")
     m.searchIcon = m.top.findNode("searchIcon")
 
     ' Gear
@@ -107,7 +108,7 @@ sub buildTabs()
         pill = g.createChild("Poster")
         pill.uri = "pkg:/images/pill_bg.png"
         pill.blendColor = "0xE67E22FF"
-        pill.opacity = 0.65
+        pill.opacity = 0.5
         pill.visible = false
         ' Label
         lbl = g.createChild("Label")
@@ -155,16 +156,21 @@ sub refreshTabs()
     for i = 0 to m.tabNodes.Count() - 1
         t = m.tabNodes[i]
         selected = (i = m.tabIndex)
-        t.pill.visible = selected
-        if selected
-            t.label.color = "0xFFFFFFFF"
+        if m.inTabs and not m.inGear and not m.inSearch
+            t.pill.visible = selected
+            if selected
+                t.label.color = "0xFFFFFFFF"
+                t.pill.opacity = 0.7
+            else
+                t.label.color = "0x9AA4B2FF"
+            end if
         else
-            t.label.color = "0x9AA4B2FF"
-        end if
-        if m.inTabs and not m.inGear and selected
-            t.pill.opacity = 0.8
-        else
-            t.pill.opacity = 0.65
+            t.pill.visible = false
+            if selected
+                t.label.color = "0xC8D0DCFF"
+            else
+                t.label.color = "0x9AA4B2FF"
+            end if
         end if
     end for
     refreshGear()
@@ -172,9 +178,11 @@ end sub
 
 sub refreshGear()
     if m.inGear
-        m.gearSel.opacity = 0.85
+        m.gearSel.visible = true
+        m.gearSel.opacity = 0.7
         m.gearIcon.blendColor = "0xFFFFFFFF"
     else
+        m.gearSel.visible = false
         m.gearSel.opacity = 0
         m.gearIcon.blendColor = "0x9AA4B2FF"
     end if
@@ -183,6 +191,7 @@ end sub
 sub setGear(on as Boolean)
     m.inGear = on
     m.inSearch = false
+    if on then m.inTabs = false
     refreshGear()
     refreshSearch()
     refreshTabs()
@@ -190,8 +199,12 @@ end sub
 
 sub refreshSearch()
     if m.inSearch
+        m.searchSel.visible = true
+        m.searchSel.opacity = 0.7
         m.searchIcon.blendColor = "0xFFFFFFFF"
     else
+        m.searchSel.visible = false
+        m.searchSel.opacity = 0
         m.searchIcon.blendColor = "0x9AA4B2FF"
     end if
 end sub
@@ -436,15 +449,23 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
     if m.inSearch
         if key = "OK"
             m.top.navigate = { to: "search" }
-        else if key = "right" or key = "back"
+        else if key = "right"
             setSearch(false)
             m.inTabs = true
             m.tabIndex = 0
             refreshTabs()
+        else if key = "left"
+            setSearch(false)
+            setGear(true)
         else if key = "down"
             setSearch(false)
             m.inTabs = false
             focusContent()
+        else if key = "back"
+            setSearch(false)
+            m.inTabs = true
+            m.tabIndex = 0
+            refreshTabs()
         end if
         return true
     end if
@@ -456,16 +477,23 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
             m.inTabs = true
             m.tabIndex = m.sections.Count() - 1
             refreshTabs()
-        else if key = "down" or key = "back"
+        else if key = "right"
             setGear(false)
+            setSearch(true)
+        else if key = "down"
+            setGear(false)
+            m.inTabs = false
+            focusContent()
+        else if key = "back"
+            setGear(false)
+            m.inTabs = true
+            m.tabIndex = m.sections.Count() - 1
+            refreshTabs()
         end if
         return true
     end if
     if m.inTabs
-        if key = "up"
-            setGear(true)
-            return true
-        else if key = "left"
+        if key = "left"
             if m.tabIndex = 0
                 setSearch(true)
             else

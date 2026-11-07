@@ -22,13 +22,16 @@
       <Label id="logoA" text="A" translation="[60,2]" color="0xFF6B00FF">
         <Font role="font" uri="pkg:/fonts/Inter-Bold.ttf" size="40"/>
       </Label>
+      <Poster id="searchSel" uri="pkg:/images/pill_bg.png" width="48" height="48"
+          translation="[126,-2]" blendColor="0xE67E22FF" opacity="0" visible="false"/>
       <Poster id="searchIcon" uri="pkg:/images/icon_search.png" width="40" height="40"
           translation="[130,2]" blendColor="0x9AA4B2FF"/>
       <!-- COL-8 center: tabs (centered in 1920px) -->
       <Group id="tabs" translation="[384,0]"/>
       <!-- COL-2 right: gear + clock -->
       <Group id="gearGroup" translation="[1720,0]">
-        <Rectangle id="gearSel" width="48" height="48" color="0x9B5DE5FF" opacity="0"/>
+        <Poster id="gearSel" uri="pkg:/images/pill_bg.png" width="48" height="48"
+            blendColor="0xE67E22FF" opacity="0" visible="false"/>
         <Poster id="gearIcon" uri="pkg:/images/gear.png" width="40" height="40" translation="[4,4]"/>
       </Group>
       <Label id="clock" translation="[1780,4]" width="120" horizAlign="right" color="0x9AA4B2FF">
