@@ -1,6 +1,6 @@
 {
   "versionUrl": "",
-  "catalogUrl": "",
+  "catalogUrl": "https://tv-livre-catalog.jonatas-amaro2.workers.dev/catalog.json",
   "animeRefreshHours": 6,
   "epgUrl": "https://raw.githubusercontent.com/limaalef/BrazilTVEPG/main/epg.xml",
   "sections": [
@@ -7855,7 +7855,7 @@
               "title": "O Protetor",
               "year": "2014",
               "poster": "https://image.tmdb.org/t/p/w500/xTSOdJ0Ljs439lnKB7NsWlTibZN.jpg",
-              "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=https%3A%2F%2Fembedplayer2.xyz%2Fcdn%2Fhls%2F9272bf7264443fbf0e005878776f11b9%2Fmaster.txt",
+              "url": "https://tv-livre-catalog.jonatas-amaro2.workers.dev/tokyvideo?mode=proxy&url=https%3A%2F%2Fwww.tokyvideo.com%2Fbr%2Fvideo%2Fo-protetor",
               "summary": "O ex-agente secreto Robert McCall acredita que seu passado ficou para trás e tenta viver uma nova vida. Porém, quando ele conhece Teri, uma jovem que está em poder de uma quadrilha russa, ele simplesmente não consegue ignorá-la. Munido de suas extraordinárias habilidades, ele ressurge como um verdadeiro anjo vingador. Fora da aposentadoria e com um novo desejo de fazer justiça, McCall decide ajudar quem foi brutalizado e oprimido.",
               "imdb": "tt2671706",
               "banner": "https://image.tmdb.org/t/p/w1280/9vAoubhoZE8aSkUZoSfxs3UWZhO.jpg"

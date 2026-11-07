@@ -39,6 +39,15 @@ export default {
         return corsResponse(await handleKairou(tmdbId, season, episode, title));
       }
 
+      if (url.pathname === '/tokyvideo') {
+        const pageUrl = url.searchParams.get('url');
+        if (!pageUrl) {
+          return corsResponse(json({ error: 'missing ?url= param' }, 400));
+        }
+        const mode = url.searchParams.get('mode') || 'json';
+        return corsResponse(await handleTokyvideo(pageUrl, mode, request));
+      }
+
       if (url.pathname === '/health') {
         return corsResponse(json({ status: 'ok', ts: Date.now() }));
       }
@@ -170,6 +179,75 @@ async function handleKairou(tmdbId, season, episode, title) {
     quality: stream.quality || '',
     format: stream.isHls ? 'hls' : 'mp4',
     subtitles: subs,
+  });
+}
+
+// ---------- Tokyvideo Extract ----------
+
+async function handleTokyvideo(pageUrl, mode, clientReq) {
+  const pageResp = await fetch(pageUrl, {
+    headers: {
+      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+      'Accept': 'text/html',
+    },
+  });
+
+  if (!pageResp.ok) {
+    return json({ ok: false, error: 'tokyvideo upstream error', status: pageResp.status }, 502);
+  }
+
+  const html = await pageResp.text();
+
+  const mp4Match = html.match(/https?:\/\/cdn[^"'\s]+\.mp4[^"'\s]*/);
+  if (!mp4Match) {
+    return json({ ok: false, error: 'no mp4 found on page' }, 404);
+  }
+
+  const mp4Url = mp4Match[0].replace(/&amp;/g, '&');
+
+  if (mode === 'redirect') {
+    return new Response(null, {
+      status: 302,
+      headers: { 'Location': mp4Url },
+    });
+  }
+
+  if (mode === 'proxy') {
+    const upstreamHeaders = {
+      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+      'Referer': pageUrl,
+    };
+    const rangeHeader = clientReq.headers.get('Range');
+    if (rangeHeader) {
+      upstreamHeaders['Range'] = rangeHeader;
+    }
+
+    const videoResp = await fetch(mp4Url, { headers: upstreamHeaders });
+
+    if (!videoResp.ok && videoResp.status !== 206) {
+      return json({ ok: false, error: 'mp4 fetch failed', status: videoResp.status }, 502);
+    }
+
+    const respHeaders = {
+      'Content-Type': 'video/mp4',
+      'Accept-Ranges': 'bytes',
+    };
+    const cl = videoResp.headers.get('Content-Length');
+    if (cl) respHeaders['Content-Length'] = cl;
+    const cr = videoResp.headers.get('Content-Range');
+    if (cr) respHeaders['Content-Range'] = cr;
+
+    return new Response(videoResp.body, {
+      status: videoResp.status,
+      headers: respHeaders,
+    });
+  }
+
+  return json({
+    ok: true,
+    url: mp4Url,
+    format: 'mp4',
+    source: pageUrl,
   });
 }
 
