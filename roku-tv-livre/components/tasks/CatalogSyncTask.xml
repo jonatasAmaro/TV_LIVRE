@@ -2,7 +2,7 @@
 <!-- Refreshes the online catalog (catalogUrl) in the background; see Cfg_Sync. -->
 <component name="CatalogSyncTask" extends="Task">
   <interface>
-    <field id="result" type="string"/>
+    <field id="result" type="string" alwaysNotify="true"/>
   </interface>
   <script type="text/brightscript" uri="pkg:/components/utils.brs"/>
   <script type="text/brightscript" uri="pkg:/components/tasks/CatalogSyncTask.brs"/>

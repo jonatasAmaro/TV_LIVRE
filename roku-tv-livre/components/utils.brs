@@ -130,14 +130,25 @@ end function
 ' ---------- Config ----------
 
 ' With "catalogUrl" set in the packaged catalog, the online copy (saved by CatalogSyncTask
-' in cachefs:) wins, so content changes need no deploy. Any problem falls back to the package.
+' in cachefs:) is used when it is at least as new as the package ("catalogVersion",
+' YYYYMMDDNN), so content changes need no deploy but a fresher sideload is never masked
+' by an old cache. Any problem falls back to the package.
+' The returned config carries "catalogSource": "online" or "pacote".
 function Cfg_Load() as Object
     pkg = ParseJson(ReadAsciiFile("pkg:/config/catalog.json"))
     if pkg = invalid then pkg = { sections: [] }
+    pkg.catalogSource = "pacote"
     if To_Str(pkg.catalogUrl) = "" then return pkg
     online = Cfg_Parse(ReadAsciiFile(CATALOG_CACHE()))
     if online = invalid then return pkg
+    if Cfg_Version(online) < Cfg_Version(pkg) then return pkg
+    online.catalogSource = "online"
     return online
+end function
+
+' "catalogVersion" as a fixed-width string so plain string comparison orders it; "" when missing.
+function Cfg_Version(cfg as Object) as String
+    return To_Str(cfg.catalogVersion)
 end function
 
 function CATALOG_CACHE() as String
@@ -153,8 +164,15 @@ function Cfg_Parse(text as String) as Dynamic
 end function
 
 ' Downloads the online catalog; keeps the previous copy when the download or the JSON is bad.
-' Returns "updated", "same", "off" (no catalogUrl) or "error".
+' Returns "updated", "same", "off" (no catalogUrl) or "error"; the outcome and time are
+' kept in the registry ("catalogSync") for the Settings screen.
 function Cfg_Sync() as String
+    res = Cfg_SyncOnce()
+    Store_Set("catalogSync", { result: res, at: Now_Seconds() })
+    return res
+end function
+
+function Cfg_SyncOnce() as String
     pkg = ParseJson(ReadAsciiFile("pkg:/config/catalog.json"))
     url = ""
     if pkg <> invalid then url = To_Str(pkg.catalogUrl)

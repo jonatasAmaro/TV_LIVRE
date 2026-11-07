@@ -85,10 +85,27 @@ function aboutText() as String
         "Roku OS: " + osText,
         "Endereço na rede: " + ips.Join(", "),
         "Canais e atalhos configurados: " + channels.ToStr(),
+        catalogText(),
         "",
         "Conteúdo de fontes oficiais e gratuitas: emissoras públicas e abertas, Internet Archive (domínio público), Blender, AniList e YouTube."
     ]
     return lines.Join(Chr(10))
+end function
+
+' "Catálogo: 2026110701 (online) · sincronizado sex 07/11 14:32 (atualizado)"
+function catalogText() as String
+    cfg = Cfg_Load()
+    ver = To_Str(cfg.catalogVersion)
+    if ver = "" then ver = "sem versão"
+    line = "Catálogo: " + ver + " (" + To_Str(cfg.catalogSource) + ")"
+    sync = Store_Get("catalogSync", invalid)
+    if sync <> invalid and To_Int(sync.at) > 0
+        names = { updated: "atualizado", same: "sem mudanças", error: "falhou", off: "desligado" }
+        res = To_Str(sync.result)
+        if names[res] <> invalid then res = names[res]
+        line = line + Chr(10) + "Última sincronização: " + Fmt_LocalDate(To_Int(sync.at)) + " (" + res + ")"
+    end if
+    return line
 end function
 
 sub onSelected()

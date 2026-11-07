@@ -118,6 +118,7 @@ sub init()
     m.previewTimer.observeField("fire", "onPreviewTimer")
 
     m.top.observeField("resumed", "onResumed")
+    m.top.observeField("catalogUpdated", "onCatalogUpdated")
 
     loadCatalog()
     rebuild()
@@ -180,6 +181,23 @@ sub loadCatalog()
             end if
         end for
     end if
+end sub
+
+' A newer online catalog arrived while the launcher is open: swap the data in place and
+' let the series/anime decks rebuild from it (open grids keep their copy until reopened).
+sub onCatalogUpdated()
+    m.liveChannels = []
+    m.live24Channels = []
+    m.seriesCategories = []
+    m.animeCategories = []
+    loadCatalog()
+    if m.liveChIndex >= m.liveChannels.Count() then m.liveChIndex = 0
+    m.seriesDeck.removeChildrenIndex(m.seriesDeck.getChildCount(), 0)
+    m.animeDeck.removeChildrenIndex(m.animeDeck.getChildCount(), 0)
+    m.seriesBuilt = false
+    m.animeBuilt = false
+    if m.seriesPanel.visible then buildSeriesPanel()
+    if m.animePanel.visible then buildAnimePanel()
 end sub
 
 ' ---------- Card list ----------

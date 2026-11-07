@@ -1,0 +1,36 @@
+#!/bin/sh
+# Bumps "catalogVersion" (YYYYMMDDNN) whenever roku-tv-livre/config/catalog.json is staged,
+# so TVs know the online catalog is newer than the one they have. Also refuses invalid JSON.
+# Enable once per clone:  git config core.hooksPath .githooks
+
+CATALOG="roku-tv-livre/config/catalog.json"
+
+git diff --cached --name-only | grep -qx "$CATALOG" || exit 0
+
+if command -v python >/dev/null 2>&1; then PY=python; else PY=python3; fi
+
+$PY - "$CATALOG" <<'EOF' || exit 1
+import json, re, sys, datetime
+path = sys.argv[1]
+with open(path, encoding="utf-8", newline="") as f:
+    text = f.read()
+try:
+    json.loads(text)
+except ValueError as e:
+    sys.exit("pre-commit: %s is not valid JSON: %s" % (path, e))
+today = datetime.date.today().strftime("%Y%m%d")
+m = re.search(r'"catalogVersion":\s*"(\d{10})"', text)
+if not m:
+    sys.exit('pre-commit: "catalogVersion" not found in %s' % path)
+old = m.group(1)
+n = int(old[8:]) + 1 if old[:8] == today else 1
+new = "%s%02d" % (today, min(n, 99))
+if new != old:
+    # Text edit only: the catalog must never be re-serialized (duplicate keys, inline formatting).
+    text = text[:m.start(1)] + new + text[m.end(1):]
+    with open(path, "w", encoding="utf-8", newline="") as f:
+        f.write(text)
+print("pre-commit: catalogVersion %s -> %s" % (old, new))
+EOF
+
+git add "$CATALOG"

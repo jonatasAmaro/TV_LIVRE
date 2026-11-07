@@ -2,6 +2,10 @@
 <!-- Start screen: wallpaper + carousel at the bottom (gear, TV ao vivo, TV Livre,
      Conexões, installed apps, Central de Apps). Hold OK on a card to move or hide it. -->
 <component name="LauncherView" extends="BaseView">
+  <interface>
+    <!-- Set by MainScene when CatalogSyncTask downloaded a newer catalog. -->
+    <field id="catalogUpdated" type="boolean" alwaysNotify="true"/>
+  </interface>
   <script type="text/brightscript" uri="pkg:/components/utils.brs"/>
   <script type="text/brightscript" uri="pkg:/components/views/LauncherView.brs"/>
   <children>

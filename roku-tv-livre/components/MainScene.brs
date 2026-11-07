@@ -6,15 +6,29 @@ sub init()
     m.stack = []
     ' Profile selection is the first screen
     pushView(CreateObject("roSGNode", "ProfileView"))
-    ' Online catalog refresh; TV Livre reads it the next time it opens.
+    ' Online catalog refresh at start and every 30 min (the launcher stays open for hours).
+    ' A newer catalog is pushed into the open launcher right away; other screens read it
+    ' (Cfg_Load) the next time they are created.
     m.sync = CreateObject("roSGNode", "CatalogSyncTask")
     m.sync.observeField("result", "onCatalogSync")
     m.sync.control = "run"
+    m.syncTimer = CreateObject("roSGNode", "Timer")
+    m.syncTimer.duration = 1800
+    m.syncTimer.repeat = true
+    m.syncTimer.observeField("fire", "onSyncTimer")
+    m.syncTimer.control = "start"
+end sub
 
+sub onSyncTimer()
+    if m.sync.state <> "run" then m.sync.control = "run"
 end sub
 
 sub onCatalogSync()
     print "[catalog] "; m.sync.result
+    if m.sync.result <> "updated" then return
+    for each v in m.stack
+        if v.hasField("catalogUpdated") then v.catalogUpdated = true
+    end for
 end sub
 
 sub pushView(v as Object)
