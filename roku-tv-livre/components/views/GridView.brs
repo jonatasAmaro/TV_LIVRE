@@ -50,6 +50,9 @@ sub focusSearch()
     else if m.sectionId = "filmes"
         m.searchBg.color = "0xF5D6A8FF"
         m.searchLbl.text = chr(9654) + "  Buscar filmes..."
+    else if m.sectionId = "desenhos_tab"
+        m.searchBg.color = "0xFFE0B2FF"
+        m.searchLbl.text = chr(9654) + "  Buscar desenhos..."
     else
         m.searchBg.color = "0xD4E6BAFF"
         m.searchLbl.text = chr(9654) + "  Buscar séries..."
@@ -66,6 +69,8 @@ sub unfocusSearch()
         m.searchLbl.text = "Buscar animes..."
     else if m.sectionId = "filmes"
         m.searchLbl.text = "Buscar filmes..."
+    else if m.sectionId = "desenhos_tab"
+        m.searchLbl.text = "Buscar desenhos..."
     else
         m.searchLbl.text = "Buscar séries..."
     end if
@@ -96,7 +101,7 @@ sub onSection()
         m.titleLbl.visible = false
         m.subtitle.visible = false
         m.bgGradient.visible = false
-    else if m.sectionId = "series_tab" or m.sectionId = "anime_tab" or m.sectionId = "filmes" or m.sectionId = "youtube"
+    else if m.sectionId = "series_tab" or m.sectionId = "anime_tab" or m.sectionId = "filmes" or m.sectionId = "youtube" or m.sectionId = "desenhos_tab"
         m.titleLbl.translation = [80, 36]
         m.subtitle.translation = [82, 106]
     end if
@@ -128,6 +133,10 @@ sub onSection()
             m.searchLbl.color = "0xB85C1ECC"
             m.searchRing.color = "0xE67E22FF"
             m.searchLbl.text = "Buscar filmes..."
+        else if m.sectionId = "desenhos_tab"
+            m.searchLbl.color = "0xE65100CC"
+            m.searchRing.color = "0xFF8F00FF"
+            m.searchLbl.text = "Buscar desenhos..."
         end if
     end if
 

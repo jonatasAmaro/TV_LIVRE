@@ -61,6 +61,9 @@ sub init()
     m.kairouTask = invalid
     m.pendingStartAt = 0
 
+    ' Saimo
+    m.saimoTask = invalid
+
     ' Cinemeta
     m.cinemetaTask = invalid
     m.cinemetaEps = {}
@@ -275,6 +278,20 @@ sub playEpisode(idx as Integer, startAt as Integer)
         return
     end if
 
+    if source = "saimo"
+        m.videoStatus.text = "Resolvendo stream (Saimo)..."
+        m.videoStatus.visible = true
+        m.video.control = "stop"
+        m.pendingStartAt = startAt
+        m.saimoTask = CreateObject("roSGNode", "SaimoTask")
+        m.saimoTask.seriesId = To_Str(m.top.item.saimoId)
+        m.saimoTask.season = m.currentSeason + 1
+        m.saimoTask.episode = idx + 1
+        m.saimoTask.observeField("result", "onSaimoResolved")
+        m.saimoTask.control = "run"
+        return
+    end if
+
     url = To_Str(eps[idx].url)
     if url = ""
         m.video.control = "stop"
@@ -289,6 +306,18 @@ sub onKairouResolved()
     if m.kairouTask = invalid then return
     r = m.kairouTask.result
     m.kairouTask = invalid
+    if r = invalid or not Is_True(r.ok) or r.url = ""
+        m.videoStatus.text = "Falha ao resolver stream"
+        m.videoStatus.visible = true
+        return
+    end if
+    startPlayback(r.url, m.currentEp, m.pendingStartAt)
+end sub
+
+sub onSaimoResolved()
+    if m.saimoTask = invalid then return
+    r = m.saimoTask.result
+    m.saimoTask = invalid
     if r = invalid or not Is_True(r.ok) or r.url = ""
         m.videoStatus.text = "Falha ao resolver stream"
         m.videoStatus.visible = true
@@ -477,6 +506,7 @@ end sub
 sub onClosing()
     m.nextTimer.control = "stop"
     if m.kairouTask <> invalid then m.kairouTask.control = "stop" : m.kairouTask = invalid
+    if m.saimoTask <> invalid then m.saimoTask.control = "stop" : m.saimoTask = invalid
     if m.fullscreen and m.video.state <> "finished" then saveResume(Int(m.video.position))
     m.video.control = "stop"
 end sub

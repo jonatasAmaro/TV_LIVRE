@@ -48,6 +48,16 @@ export default {
         return corsResponse(await handleTokyvideo(pageUrl, mode, request));
       }
 
+      if (url.pathname === '/saimo') {
+        const seriesId = url.searchParams.get('id');
+        const season = url.searchParams.get('season') || '1';
+        const episode = url.searchParams.get('episode') || '1';
+        if (!seriesId) {
+          return corsResponse(json({ error: 'missing ?id= param' }, 400));
+        }
+        return corsResponse(await handleSaimo(seriesId, season, episode));
+      }
+
       if (url.pathname === '/health') {
         return corsResponse(json({ status: 'ok', ts: Date.now() }));
       }
@@ -248,6 +258,36 @@ async function handleTokyvideo(pageUrl, mode, clientReq) {
     url: mp4Url,
     format: 'mp4',
     source: pageUrl,
+  });
+}
+
+// ---------- Saimo Stream Resolver ----------
+
+async function handleSaimo(seriesId, season, episode) {
+  const streamUrl =
+    `https://saimo-tv.pages.dev/api/stream?tipo=series&id=${seriesId}&s=${season}&e=${episode}&versao=dub&json=1`;
+
+  const resp = await fetch(streamUrl, {
+    headers: {
+      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+      'Referer': 'https://saimo-tv.pages.dev/',
+      'Accept': 'application/json',
+    },
+  });
+
+  if (!resp.ok) {
+    return json({ ok: false, error: 'saimo upstream error', status: resp.status }, 502);
+  }
+
+  const data = await resp.json();
+  if (!data || !data.url) {
+    return json({ ok: false, error: 'no stream found' }, 404);
+  }
+
+  return json({
+    ok: true,
+    url: data.url,
+    format: 'mp4',
   });
 }
 

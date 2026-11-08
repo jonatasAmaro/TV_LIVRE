@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component name="SaimoTask" extends="Task">
+  <interface>
+    <field id="seriesId" type="string" value=""/>
+    <field id="season" type="integer" value="1"/>
+    <field id="episode" type="integer" value="1"/>
+    <field id="result" type="assocarray"/>
+  </interface>
+  <script type="text/brightscript" uri="pkg:/components/utils.brs"/>
+  <script type="text/brightscript" uri="pkg:/components/tasks/SaimoTask.brs"/>
+</component>

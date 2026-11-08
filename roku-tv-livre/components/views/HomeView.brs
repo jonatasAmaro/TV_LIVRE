@@ -64,7 +64,7 @@ end sub
 
 sub onConfig()
     cfg = m.top.config
-    allowed = { "TV AO VIVO": true, "SÉRIES": true, "CANAIS 24 HS": true, "FILMES": true, "ANIMES": true }
+    allowed = { "TV AO VIVO": true, "SÉRIES": true, "CANAIS 24 HS": true, "FILMES": true, "ANIMES": true, "DESENHOS": true }
     filtered = []
     for each s in cfg.sections
         t = To_Str(s.tab)
