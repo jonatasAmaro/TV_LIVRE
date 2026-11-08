@@ -1,5 +1,5 @@
 {
-  "catalogVersion": "2026110801",
+  "catalogVersion": "2026110802",
   "versionUrl": "",
   "catalogUrl": "https://tv-livre-catalog.jonatas-amaro2.workers.dev/catalog.json",
   "animeRefreshHours": 6,
@@ -8543,6 +8543,364 @@
                       "title": "Episódio Final",
                       "episode": "S11E17",
                       "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=http%3A%2F%2Fdbonline.tech-cdn.top%3A80%2Fseries%2Fke-vin-0928392083%2FPZjF6XATTZ%2F236497.mp4"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "the_ranch",
+              "kind": "series",
+              "title": "The Ranch",
+              "subtitle": "The Ranch",
+              "glyph": "SÉRIES",
+              "color": "0xE76F51FF",
+              "tab": "SÉRIES",
+              "poster": "https://image.tmdb.org/t/p/w342/lKb0yyEnQnIMYJr5M2yGLrjBhjM.jpg",
+              "banner": "https://image.tmdb.org/t/p/w1280/rPVTq8LOFwz3yT8YGQoE2gYD0TU.jpg",
+              "summary": "Colt Bennett retorna ao rancho da família no Colorado após uma fracassada carreira no futebol americano. Ele tenta se reconectar com seu irmão e seu pai alcoólatra.",
+              "year": "2016",
+              "rating": "7.5",
+              "genres": "Comédia, Drama",
+              "tmdbId": "65493",
+              "seasons": [
+                {
+                  "title": "Temporada 1",
+                  "episodes": [
+                    {
+                      "title": "EP 1",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 2",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 3",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 4",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 5",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 6",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 7",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 8",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 9",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 10",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 11",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 12",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 13",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 14",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 15",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 16",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 17",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 18",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 19",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 20",
+                      "source": "kairou"
+                    }
+                  ]
+                },
+                {
+                  "title": "Temporada 2",
+                  "episodes": [
+                    {
+                      "title": "EP 1",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 2",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 3",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 4",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 5",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 6",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 7",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 8",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 9",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 10",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 11",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 12",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 13",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 14",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 15",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 16",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 17",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 18",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 19",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 20",
+                      "source": "kairou"
+                    }
+                  ]
+                },
+                {
+                  "title": "Temporada 3",
+                  "episodes": [
+                    {
+                      "title": "EP 1",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 2",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 3",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 4",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 5",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 6",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 7",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 8",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 9",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 10",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 11",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 12",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 13",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 14",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 15",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 16",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 17",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 18",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 19",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 20",
+                      "source": "kairou"
+                    }
+                  ]
+                },
+                {
+                  "title": "Temporada 4",
+                  "episodes": [
+                    {
+                      "title": "EP 1",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 2",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 3",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 4",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 5",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 6",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 7",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 8",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 9",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 10",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 11",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 12",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 13",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 14",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 15",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 16",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 17",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 18",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 19",
+                      "source": "kairou"
+                    },
+                    {
+                      "title": "EP 20",
+                      "source": "kairou"
                     }
                   ]
                 }
