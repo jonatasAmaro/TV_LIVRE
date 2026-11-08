@@ -1,5 +1,5 @@
 {
-  "catalogVersion": "2026110804",
+  "catalogVersion": "2026110805",
   "versionUrl": "",
   "catalogUrl": "https://tv-livre-catalog.jonatas-amaro2.workers.dev/catalog.json",
   "animeRefreshHours": 6,
@@ -7229,7 +7229,8 @@
                   ]
                 }
               ],
-              "imdb": "tt0369179"
+              "imdb": "tt0369179",
+              "background": "https://image.tmdb.org/t/p/w1280/coHpOy9OJyFiHWeH36cSHMpLUHC.jpg"
             },
             {
               "id": "familia_moderna",

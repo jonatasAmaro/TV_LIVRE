@@ -122,6 +122,13 @@ sub onItem()
     m.headerTitle.text = To_Str(item.title)
     m.poster.uri = To_Str(item.poster)
 
+    bgUrl = ""
+    if item.background <> invalid then bgUrl = To_Str(item.background)
+    if bgUrl <> ""
+        m.posterBg.uri = bgUrl
+        m.posterBg.opacity = 0.15
+    end if
+
     m.seasonData = []
     if item.seasons <> invalid
         for each s in item.seasons
