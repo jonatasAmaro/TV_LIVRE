@@ -1,5 +1,5 @@
 {
-  "catalogVersion": "2026110805",
+  "catalogVersion": "2026110806",
   "versionUrl": "",
   "catalogUrl": "https://tv-livre-catalog.jonatas-amaro2.workers.dev/catalog.json",
   "animeRefreshHours": 6,
@@ -14160,7 +14160,7 @@
               "title": "O Protetor",
               "year": "2014",
               "poster": "https://image.tmdb.org/t/p/w500/xTSOdJ0Ljs439lnKB7NsWlTibZN.jpg",
-              "url": "https://tv-livre-catalog.jonatas-amaro2.workers.dev/tokyvideo?mode=redirect&url=https%3A%2F%2Fwww.tokyvideo.com%2Fbr%2Fvideo%2Fo-protetor",
+              "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=http%3A%2F%2Fdbonline.tech-cdn.top%3A80%2Fmovie%2Fke-vin-0928392083%2FPZjF6XATTZ%2F5940.mp4",
               "summary": "O ex-agente secreto Robert McCall acredita que seu passado ficou para trás e tenta viver uma nova vida. Porém, quando ele conhece Teri, uma jovem que está em poder de uma quadrilha russa, ele simplesmente não consegue ignorá-la. Munido de suas extraordinárias habilidades, ele ressurge como um verdadeiro anjo vingador. Fora da aposentadoria e com um novo desejo de fazer justiça, McCall decide ajudar quem foi brutalizado e oprimido.",
               "imdb": "tt2671706",
               "banner": "https://image.tmdb.org/t/p/w1280/9vAoubhoZE8aSkUZoSfxs3UWZhO.jpg"
@@ -14170,7 +14170,7 @@
               "title": "O Protetor 2",
               "year": "2018",
               "poster": "https://image.tmdb.org/t/p/w500/xl3oO2j1vfKasDLyUNwghWjl4jV.jpg",
-              "url": "https://tv-livre-catalog.jonatas-amaro2.workers.dev/tokyvideo?mode=redirect&url=https%3A%2F%2Fwww.tokyvideo.com%2Fbr%2Fvideo%2Fo-protetor-2-2018-1080p-dublado",
+              "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=http%3A%2F%2Fdbonline.tech-cdn.top%3A80%2Fmovie%2Fke-vin-0928392083%2FPZjF6XATTZ%2F5936.mp4",
               "summary": "Criminosos assassinam Susan Plummer, a melhor amiga de Robert McCall e sua ex-colega de trabalho. Obcecado, Robert pensa apenas em eliminar o bando de assassinos profissionais que destruiu sua vida.",
               "imdb": "tt3766354",
               "banner": "https://image.tmdb.org/t/p/w1280/z7noaCJ4KtmhwHw7QcNtnMMo4Qy.jpg"
@@ -14180,7 +14180,7 @@
               "title": "O Protetor: Capítulo Final",
               "year": "2023",
               "poster": "https://image.tmdb.org/t/p/w500/eq2Ytq08C9KddMiOzQ74g36Tdpg.jpg",
-              "url": "https://tv-livre-catalog.jonatas-amaro2.workers.dev/tokyvideo?mode=redirect&url=https%3A%2F%2Fwww.tokyvideo.com%2Fbr%2Fvideo%2Fo-protetor-3",
+              "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=http%3A%2F%2Fdbonline.tech-cdn.top%3A80%2Fmovie%2Fke-vin-0928392083%2FPZjF6XATTZ%2F5960.mp4",
               "summary": "Sentindo-se em casa no sul da Itália, o ex-agente Robert McCall logo descobre que seus novos amigos estão sob o controle dos chefes do crime local. À medida que os acontecimentos se tornam mortais, McCall sabe o que tem de fazer: tornar-se o protetor dos seus amigos, enfrentando a máfia.",
               "imdb": "tt17024450",
               "banner": "https://image.tmdb.org/t/p/w1280/gystuaqp5AkVqqu3Nf0564zeOv4.jpg"
