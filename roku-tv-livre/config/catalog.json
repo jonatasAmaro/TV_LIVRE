@@ -1,5 +1,5 @@
 {
-  "catalogVersion": "2026110803",
+  "catalogVersion": "2026110804",
   "versionUrl": "",
   "catalogUrl": "https://tv-livre-catalog.jonatas-amaro2.workers.dev/catalog.json",
   "animeRefreshHours": 6,
@@ -8556,7 +8556,7 @@
               "glyph": "SÉRIES",
               "color": "0xE76F51FF",
               "tab": "SÉRIES",
-              "poster": "https://image.tmdb.org/t/p/w342/lKb0yyEnQnIMYJr5M2yGLrjBhjM.jpg",
+              "poster": "https://image.tmdb.org/t/p/w500/5emQ8S4S4dGIQO7aIv7EbsvbslZ.jpg",
               "banner": "https://image.tmdb.org/t/p/w1280/rPVTq8LOFwz3yT8YGQoE2gYD0TU.jpg",
               "summary": "Colt Bennett retorna ao rancho da família no Colorado após uma fracassada carreira no futebol americano. Ele tenta se reconectar com seu irmão e seu pai alcoólatra.",
               "year": "2016",
@@ -8983,7 +8983,8 @@
                     }
                   ]
                 }
-              ]
+              ],
+              "background": "https://image.tmdb.org/t/p/w1280/rIycDdkLET20EVW2LPytLNuyOp3.jpg"
             }
           ]
         },
