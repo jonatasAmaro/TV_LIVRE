@@ -1,5 +1,5 @@
 {
-  "catalogVersion": "2026111001",
+  "catalogVersion": "2026111101",
   "versionUrl": "",
   "catalogUrl": "https://tv-livre-catalog.jonatas-amaro2.workers.dev/catalog.json",
   "animeRefreshHours": 6,
@@ -8990,7 +8990,7 @@
           ]
         },
         {
-          "title": "TOP SÉRIES",
+          "title": "AÇÃO",
           "items": [
             {
               "id": "o_continental",
@@ -9042,7 +9042,7 @@
           ]
         },
         {
-          "title": "RELIGIOSA",
+          "title": "RELIGIOSOS",
           "items": [
             {
               "id": "casa_de_davi",
