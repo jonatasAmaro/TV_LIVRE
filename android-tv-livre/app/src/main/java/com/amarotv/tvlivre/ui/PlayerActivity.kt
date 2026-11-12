@@ -10,6 +10,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.media3.common.MediaItem
+import androidx.media3.common.MimeTypes
 import androidx.media3.common.Player
 import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.ui.PlayerView
@@ -19,6 +20,7 @@ import com.amarotv.tvlivre.data.Episode
 import org.json.JSONObject
 import java.net.HttpURLConnection
 import java.net.URL
+import java.net.URLDecoder
 import kotlin.concurrent.thread
 
 class PlayerActivity : AppCompatActivity() {
@@ -39,6 +41,8 @@ class PlayerActivity : AppCompatActivity() {
         var episodeList: List<Episode> = emptyList()
         var episodeIndex: Int = 0
         var saimoId: String = ""
+        var tmdbId: String = ""
+        var seriesTitle: String = ""
         var seasonIndex: Int = 0
     }
 
@@ -58,7 +62,8 @@ class PlayerActivity : AppCompatActivity() {
         playerView.useController = !isLive
 
         val url = intent.getStringExtra("url") ?: return finish()
-        playUrl(url)
+        val format = intent.getStringExtra("format") ?: ""
+        playUrl(url, format)
 
         if (isLive && liveChannels.isNotEmpty()) {
             showChannelInfo()
@@ -74,10 +79,21 @@ class PlayerActivity : AppCompatActivity() {
         }
     }
 
-    private fun playUrl(url: String) {
-        player.setMediaItem(MediaItem.fromUri(url))
+    private fun playUrl(url: String, format: String = "") {
+        val item = if (format == "hls" || url.contains(".m3u8") || url.contains("master.txt")) {
+            MediaItem.Builder().setUri(url).setMimeType(MimeTypes.APPLICATION_M3U8).build()
+        } else {
+            MediaItem.fromUri(unwrapRokuProxy(url))
+        }
+        player.setMediaItem(item)
         player.prepare()
         player.playWhenReady = true
+    }
+
+    private fun unwrapRokuProxy(url: String): String {
+        if (!url.contains("roku-proxy")) return url
+        val match = Regex("[?&]url=([^&]+)").find(url) ?: return url
+        return try { URLDecoder.decode(match.groupValues[1], "UTF-8") } catch (_: Exception) { url }
     }
 
     // ── Live channel info ──
@@ -134,29 +150,35 @@ class PlayerActivity : AppCompatActivity() {
         }
         episodeIndex = newIdx
         val ep = episodeList[episodeIndex]
+
         if (ep.source == "saimo" && saimoId.isNotEmpty() && ep.url.isEmpty()) {
-            resolveSaimoAndPlay(saimoId, seasonIndex, episodeIndex)
+            val endpoint = "https://tv-livre-catalog.jonatas-amaro2.workers.dev/saimo?id=$saimoId&season=${seasonIndex + 1}&episode=${episodeIndex + 1}"
+            resolveAndPlay(endpoint, episodeIndex)
+        } else if (ep.source == "kairou" && tmdbId.isNotEmpty() && ep.url.isEmpty()) {
+            val encoded = java.net.URLEncoder.encode(seriesTitle, "UTF-8")
+            val endpoint = "https://tv-livre-catalog.jonatas-amaro2.workers.dev/kairou?tmdbId=$tmdbId&season=${seasonIndex + 1}&episode=${episodeIndex + 1}&title=$encoded"
+            resolveAndPlay(endpoint, episodeIndex)
         } else {
-            playUrl(ep.url)
+            playUrl(ep.url, ep.format)
         }
         showEpisodeInfo()
     }
 
-    private fun resolveSaimoAndPlay(saimoId: String, season: Int, episode: Int) {
+    private fun resolveAndPlay(endpoint: String, epIdx: Int) {
         thread {
             try {
-                val conn = URL(
-                    "https://tv-livre-catalog.jonatas-amaro2.workers.dev/saimo?id=$saimoId&season=${season + 1}&episode=${episode + 1}"
-                ).openConnection() as HttpURLConnection
-                conn.connectTimeout = 10000
-                conn.readTimeout = 10000
+                val conn = URL(endpoint).openConnection() as HttpURLConnection
+                conn.connectTimeout = 15000
+                conn.readTimeout = 15000
                 val body = conn.inputStream.bufferedReader().readText()
                 val json = JSONObject(body)
                 if (json.optBoolean("ok")) {
                     val url = json.optString("url", "")
+                    val format = json.optString("format", "")
                     if (url.isNotEmpty()) {
-                        episodeList[episode].url = url
-                        runOnUiThread { playUrl(url) }
+                        episodeList[epIdx].url = url
+                        episodeList[epIdx].format = format
+                        runOnUiThread { playUrl(url, format) }
                         return@thread
                     }
                 }

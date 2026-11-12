@@ -47,7 +47,8 @@ data class ContentItem(
     val seasons: List<Season>? = null,
     val url: String = "",
     val sources: List<Source>? = null,
-    val saimoId: String = ""
+    val saimoId: String = "",
+    val tmdbId: String = ""
 )
 
 data class Season(
@@ -60,7 +61,8 @@ data class Episode(
     val title: String = "",
     var url: String = "",
     val sources: List<Source>? = null,
-    val source: String = ""
+    val source: String = "",
+    var format: String = ""
 )
 
 data class Source(
