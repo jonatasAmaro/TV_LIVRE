@@ -270,35 +270,65 @@ async function handleSaimo(seriesId, season, episode) {
     'Accept': 'application/json',
   };
 
+  let proxyFallbackUrl = null;
+
   for (const versao of ['dub', 'leg']) {
     const streamUrl =
       `https://saimo-tv.pages.dev/api/stream?tipo=series&id=${seriesId}&s=${season}&e=${episode}&versao=${versao}&json=1`;
 
-    const resp = await fetch(streamUrl, { headers });
-    if (!resp.ok) continue;
+    try {
+      const resp = await fetch(streamUrl, { headers });
+      if (!resp.ok) continue;
 
-    const data = await resp.json();
-    if (!data || !data.url) continue;
+      const data = await resp.json();
+      if (!data || !data.url) continue;
 
-    // Skip proxy URLs that return errors
-    if (data.url.includes('/api/proxy?')) {
-      try {
-        const check = await fetch(data.url, { method: 'HEAD', headers });
-        if (!check.ok) continue;
-      } catch {
-        continue;
+      // If proxy URL, validate it works; save raw target as fallback
+      if (data.url.includes('/api/proxy?')) {
+        const rawTarget = extractProxyTarget(data.url);
+        if (rawTarget && !proxyFallbackUrl) proxyFallbackUrl = rawTarget;
+
+        try {
+          const check = await fetch(data.url, { method: 'HEAD', headers });
+          if (!check.ok) continue;
+        } catch {
+          continue;
+        }
       }
-    }
 
+      return json({
+        ok: true,
+        url: data.url,
+        format: detectFormat(data.url),
+        versao,
+      });
+    } catch {
+      continue;
+    }
+  }
+
+  // Fallback: use the raw HTTP URL extracted from the broken proxy
+  if (proxyFallbackUrl) {
     return json({
       ok: true,
-      url: data.url,
-      format: data.url.endsWith('.m3u8') || data.url.includes('master.txt') ? 'hls' : 'mp4',
-      versao,
+      url: proxyFallbackUrl,
+      format: detectFormat(proxyFallbackUrl),
+      versao: 'dub',
     });
   }
 
   return json({ ok: false, error: 'no working stream found' }, 404);
+}
+
+function detectFormat(url) {
+  if (url.endsWith('.m3u8') || url.includes('master.txt') || url.includes('/hls/')) return 'hls';
+  return 'mp4';
+}
+
+function extractProxyTarget(proxyUrl) {
+  const match = proxyUrl.match(/[?&]url=([^&]+)/);
+  if (!match) return null;
+  return decodeURIComponent(match[1]);
 }
 
 // ---------- Helpers ----------
