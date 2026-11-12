@@ -1,5 +1,5 @@
 {
-  "catalogVersion": "2026111204",
+  "catalogVersion": "2026111205",
   "versionUrl": "",
   "catalogUrl": "https://tv-livre-catalog.jonatas-amaro2.workers.dev/catalog.json",
   "animeRefreshHours": 6,
@@ -10068,6 +10068,36 @@
               "poster": "https://sm.ign.com/ign_br/screenshot/default/captura-de-tela-2025-11-17-094111_du42.png",
               "malId": 31240,
               "seasons": [
+                {
+                  "title": "Temporada 1",
+                  "episodes": [
+                    { "title": "Episódio 1", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-dublado/01.mp4/index.m3u8" },
+                    { "title": "Episódio 2", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-dublado/02.mp4/index.m3u8" },
+                    { "title": "Episódio 3", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-dublado/03.mp4/index.m3u8" },
+                    { "title": "Episódio 4", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-dublado/04.mp4/index.m3u8" },
+                    { "title": "Episódio 5", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-dublado/05.mp4/index.m3u8" },
+                    { "title": "Episódio 6", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-dublado/06.mp4/index.m3u8" },
+                    { "title": "Episódio 7", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-dublado/07.mp4/index.m3u8" },
+                    { "title": "Episódio 8", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-dublado/08.mp4/index.m3u8" },
+                    { "title": "Episódio 9", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-dublado/09.mp4/index.m3u8" },
+                    { "title": "Episódio 10", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-dublado/10.mp4/index.m3u8" },
+                    { "title": "Episódio 11", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-dublado/11.mp4/index.m3u8" },
+                    { "title": "Episódio 12", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-dublado/12.mp4/index.m3u8" },
+                    { "title": "Episódio 13", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-dublado/13.mp4/index.m3u8" },
+                    { "title": "Episódio 14", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-dublado/14.mp4/index.m3u8" },
+                    { "title": "Episódio 15", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-dublado/15.mp4/index.m3u8" },
+                    { "title": "Episódio 16", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-dublado/16.mp4/index.m3u8" },
+                    { "title": "Episódio 17", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-dublado/17.mp4/index.m3u8" },
+                    { "title": "Episódio 18", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-dublado/18.mp4/index.m3u8" },
+                    { "title": "Episódio 19", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-dublado/19.mp4/index.m3u8" },
+                    { "title": "Episódio 20", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-dublado/20.mp4/index.m3u8" },
+                    { "title": "Episódio 21", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-dublado/21.mp4/index.m3u8" },
+                    { "title": "Episódio 22", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-dublado/22.mp4/index.m3u8" },
+                    { "title": "Episódio 23", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-dublado/23.mp4/index.m3u8" },
+                    { "title": "Episódio 24", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-dublado/24.mp4/index.m3u8" },
+                    { "title": "Episódio 25", "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-dublado/25.mp4/index.m3u8" }
+                  ]
+                },
                 {
                   "title": "Temporada 2 - Parte 1",
                   "episodes": [
