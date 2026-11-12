@@ -1,5 +1,5 @@
 {
-  "catalogVersion": "2026111201",
+  "catalogVersion": "2026111202",
   "versionUrl": "",
   "catalogUrl": "https://tv-livre-catalog.jonatas-amaro2.workers.dev/catalog.json",
   "animeRefreshHours": 6,
@@ -10982,6 +10982,757 @@
                     },
                     {
                       "title": "EP 8",
+                      "source": "saimo"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "jujutsu_kaisen",
+              "kind": "series",
+              "title": "Jujutsu Kaisen",
+              "subtitle": "Jujutsu Kaisen",
+              "glyph": "ANIMES",
+              "color": "0x00BFA5FF",
+              "tab": "ANIMES",
+              "poster": "https://image.tmdb.org/t/p/w342/8R1mMSC1gX1cg5ed7ns49JOEqw3.jpg",
+              "banner": "https://image.tmdb.org/t/p/w1280/3US5UXJSStOVozc6EwhGSMDguol.jpg",
+              "background": "https://image.tmdb.org/t/p/w1280/3US5UXJSStOVozc6EwhGSMDguol.jpg",
+              "summary": "Sofrimento, arrependimento, vergonha: os sentimentos negativos dos humanos tornam-se Maldições, causando terríveis acidentes que podem levar até mesmo à morte. Yuji Itadori engole o dedo do Ryomen-Sukuna, absorvendo sua Maldição. Ele então decide se matricular no Colégio Técnico de Feitiçaria de Tóquio, uma organização que combate as Maldições.",
+              "year": "2020",
+              "rating": "8.6",
+              "genres": "Animação, Ação, Fantasia",
+              "saimoId": "95479",
+              "imdb": "tt12343534",
+              "seasons": [
+                {
+                  "title": "Temporada 1",
+                  "episodes": [
+                    {
+                      "title": "EP 1",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 2",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 3",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 4",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 5",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 6",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 7",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 8",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 9",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 10",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 11",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 12",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 13",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 14",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 15",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 16",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 17",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 18",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 19",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 20",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 21",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 22",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 23",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 24",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 25",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 26",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 27",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 28",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 29",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 30",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 31",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 32",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 33",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 34",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 35",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 36",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 37",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 38",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 39",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 40",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 41",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 42",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 43",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 44",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 45",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 46",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 47",
+                      "source": "saimo"
+                    }
+                  ]
+                },
+                {
+                  "title": "Temporada 2",
+                  "episodes": [
+                    {
+                      "title": "EP 1",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 2",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 3",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 4",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 5",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 6",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 7",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 8",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 9",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 10",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 11",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 12",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 13",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 14",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 15",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 16",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 17",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 18",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 19",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 20",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 21",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 22",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 23",
+                      "source": "saimo"
+                    }
+                  ]
+                },
+                {
+                  "title": "Temporada 3",
+                  "episodes": [
+                    {
+                      "title": "EP 1",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 2",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 3",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 4",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 5",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 6",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 7",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 8",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 9",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 10",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 11",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 12",
+                      "source": "saimo"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "attack_on_titan",
+              "kind": "series",
+              "title": "Attack on Titan / Ataque dos Titãs",
+              "subtitle": "Shingeki no Kyojin",
+              "glyph": "ANIMES",
+              "color": "0x00BFA5FF",
+              "tab": "ANIMES",
+              "poster": "https://image.tmdb.org/t/p/w342/8aMqmB5xSblsZc7bLMEhE28yHa2.jpg",
+              "banner": "https://image.tmdb.org/t/p/w1280/rqbCbjB19amtOtFQbb3K2lgm2zv.jpg",
+              "background": "https://image.tmdb.org/t/p/w1280/rqbCbjB19amtOtFQbb3K2lgm2zv.jpg",
+              "summary": "Titãs estão quase exterminando a raça humana. Porém alguns estão dispostos a formar um exército de ataque aos seres assassinos. O jovem Eren, após ver sua mãe ser devorada por um titã, decide que não deixará nenhum deles vivo e se junta ao Corpo de Exploração para lutar pela humanidade.",
+              "year": "2013",
+              "rating": "8.7",
+              "genres": "Animação, Ação, Fantasia",
+              "saimoId": "1429",
+              "imdb": "tt2560140",
+              "seasons": [
+                {
+                  "title": "Temporada 1",
+                  "episodes": [
+                    {
+                      "title": "EP 1",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 2",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 3",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 4",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 5",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 6",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 7",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 8",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 9",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 10",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 11",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 12",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 13",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 14",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 15",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 16",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 17",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 18",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 19",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 20",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 21",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 22",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 23",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 24",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 25",
+                      "source": "saimo"
+                    }
+                  ]
+                },
+                {
+                  "title": "Temporada 2",
+                  "episodes": [
+                    {
+                      "title": "EP 1",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 2",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 3",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 4",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 5",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 6",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 7",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 8",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 9",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 10",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 11",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 12",
+                      "source": "saimo"
+                    }
+                  ]
+                },
+                {
+                  "title": "Temporada 3",
+                  "episodes": [
+                    {
+                      "title": "EP 1",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 2",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 3",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 4",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 5",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 6",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 7",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 8",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 9",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 10",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 11",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 12",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 13",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 14",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 15",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 16",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 17",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 18",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 19",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 20",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 21",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 22",
+                      "source": "saimo"
+                    }
+                  ]
+                },
+                {
+                  "title": "Temporada 4",
+                  "episodes": [
+                    {
+                      "title": "EP 1",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 2",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 3",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 4",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 5",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 6",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 7",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 8",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 9",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 10",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 11",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 12",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 13",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 14",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 15",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 16",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 17",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 18",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 19",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 20",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 21",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 22",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 23",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 24",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 25",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 26",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 27",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 28",
                       "source": "saimo"
                     }
                   ]
