@@ -1,5 +1,5 @@
 {
-  "catalogVersion": "2026111203",
+  "catalogVersion": "2026111204",
   "versionUrl": "",
   "catalogUrl": "https://tv-livre-catalog.jonatas-amaro2.workers.dev/catalog.json",
   "animeRefreshHours": 6,
@@ -11287,151 +11287,46 @@
                 {
                   "title": "Temporada 2",
                   "episodes": [
-                    {
-                      "title": "EP 1",
-                      "source": "saimo"
-                    },
-                    {
-                      "title": "EP 2",
-                      "source": "saimo"
-                    },
-                    {
-                      "title": "EP 3",
-                      "source": "saimo"
-                    },
-                    {
-                      "title": "EP 4",
-                      "source": "saimo"
-                    },
-                    {
-                      "title": "EP 5",
-                      "source": "saimo"
-                    },
-                    {
-                      "title": "EP 6",
-                      "source": "saimo"
-                    },
-                    {
-                      "title": "EP 7",
-                      "source": "saimo"
-                    },
-                    {
-                      "title": "EP 8",
-                      "source": "saimo"
-                    },
-                    {
-                      "title": "EP 9",
-                      "source": "saimo"
-                    },
-                    {
-                      "title": "EP 10",
-                      "source": "saimo"
-                    },
-                    {
-                      "title": "EP 11",
-                      "source": "saimo"
-                    },
-                    {
-                      "title": "EP 12",
-                      "source": "saimo"
-                    },
-                    {
-                      "title": "EP 13",
-                      "source": "saimo"
-                    },
-                    {
-                      "title": "EP 14",
-                      "source": "saimo"
-                    },
-                    {
-                      "title": "EP 15",
-                      "source": "saimo"
-                    },
-                    {
-                      "title": "EP 16",
-                      "source": "saimo"
-                    },
-                    {
-                      "title": "EP 17",
-                      "source": "saimo"
-                    },
-                    {
-                      "title": "EP 18",
-                      "source": "saimo"
-                    },
-                    {
-                      "title": "EP 19",
-                      "source": "saimo"
-                    },
-                    {
-                      "title": "EP 20",
-                      "source": "saimo"
-                    },
-                    {
-                      "title": "EP 21",
-                      "source": "saimo"
-                    },
-                    {
-                      "title": "EP 22",
-                      "source": "saimo"
-                    },
-                    {
-                      "title": "EP 23",
-                      "source": "saimo"
-                    }
+                    { "title": "EP 1", "url": "https://cdn-sv01.maximaimg.online/stream/j/jujutsu-kaisen-2-dublado/01.mp4/index.m3u8" },
+                    { "title": "EP 2", "url": "https://cdn-sv01.maximaimg.online/stream/j/jujutsu-kaisen-2-dublado/02.mp4/index.m3u8" },
+                    { "title": "EP 3", "url": "https://cdn-sv01.maximaimg.online/stream/j/jujutsu-kaisen-2-dublado/03.mp4/index.m3u8" },
+                    { "title": "EP 4", "url": "https://cdn-sv01.maximaimg.online/stream/j/jujutsu-kaisen-2-dublado/04.mp4/index.m3u8" },
+                    { "title": "EP 5", "url": "https://cdn-sv01.maximaimg.online/stream/j/jujutsu-kaisen-2-dublado/05.mp4/index.m3u8" },
+                    { "title": "EP 6", "url": "https://cdn-sv01.maximaimg.online/stream/j/jujutsu-kaisen-2-dublado/06.mp4/index.m3u8" },
+                    { "title": "EP 7", "url": "https://cdn-sv01.maximaimg.online/stream/j/jujutsu-kaisen-2-dublado/07.mp4/index.m3u8" },
+                    { "title": "EP 8", "url": "https://cdn-sv01.maximaimg.online/stream/j/jujutsu-kaisen-2-dublado/08.mp4/index.m3u8" },
+                    { "title": "EP 9", "url": "https://cdn-sv01.maximaimg.online/stream/j/jujutsu-kaisen-2-dublado/09.mp4/index.m3u8" },
+                    { "title": "EP 10", "url": "https://cdn-sv01.maximaimg.online/stream/j/jujutsu-kaisen-2-dublado/10.mp4/index.m3u8" },
+                    { "title": "EP 11", "url": "https://cdn-sv01.maximaimg.online/stream/j/jujutsu-kaisen-2-dublado/11.mp4/index.m3u8" },
+                    { "title": "EP 12", "url": "https://cdn-sv01.maximaimg.online/stream/j/jujutsu-kaisen-2-dublado/12.mp4/index.m3u8" },
+                    { "title": "EP 13", "url": "https://cdn-sv01.maximaimg.online/stream/j/jujutsu-kaisen-2-dublado/13.mp4/index.m3u8" },
+                    { "title": "EP 14", "url": "https://cdn-sv01.maximaimg.online/stream/j/jujutsu-kaisen-2-dublado/14.mp4/index.m3u8" },
+                    { "title": "EP 15", "url": "https://cdn-sv01.maximaimg.online/stream/j/jujutsu-kaisen-2-dublado/15.mp4/index.m3u8" },
+                    { "title": "EP 16", "url": "https://cdn-sv01.maximaimg.online/stream/j/jujutsu-kaisen-2-dublado/16.mp4/index.m3u8" },
+                    { "title": "EP 17", "url": "https://cdn-sv01.maximaimg.online/stream/j/jujutsu-kaisen-2-dublado/17.mp4/index.m3u8" },
+                    { "title": "EP 18", "url": "https://cdn-sv01.maximaimg.online/stream/j/jujutsu-kaisen-2-dublado/18.mp4/index.m3u8" },
+                    { "title": "EP 19", "url": "https://cdn-sv01.maximaimg.online/stream/j/jujutsu-kaisen-2-dublado/19.mp4/index.m3u8" },
+                    { "title": "EP 20", "url": "https://cdn-sv01.maximaimg.online/stream/j/jujutsu-kaisen-2-dublado/20.mp4/index.m3u8" },
+                    { "title": "EP 21", "url": "https://cdn-sv01.maximaimg.online/stream/j/jujutsu-kaisen-2-dublado/21.mp4/index.m3u8" },
+                    { "title": "EP 22", "url": "https://cdn-sv01.maximaimg.online/stream/j/jujutsu-kaisen-2-dublado/22.mp4/index.m3u8" },
+                    { "title": "EP 23", "url": "https://cdn-sv01.maximaimg.online/stream/j/jujutsu-kaisen-2-dublado/23.mp4/index.m3u8" }
                   ]
                 },
                 {
                   "title": "Temporada 3",
                   "episodes": [
-                    {
-                      "title": "EP 1",
-                      "source": "saimo"
-                    },
-                    {
-                      "title": "EP 2",
-                      "source": "saimo"
-                    },
-                    {
-                      "title": "EP 3",
-                      "source": "saimo"
-                    },
-                    {
-                      "title": "EP 4",
-                      "source": "saimo"
-                    },
-                    {
-                      "title": "EP 5",
-                      "source": "saimo"
-                    },
-                    {
-                      "title": "EP 6",
-                      "source": "saimo"
-                    },
-                    {
-                      "title": "EP 7",
-                      "source": "saimo"
-                    },
-                    {
-                      "title": "EP 8",
-                      "source": "saimo"
-                    },
-                    {
-                      "title": "EP 9",
-                      "source": "saimo"
-                    },
-                    {
-                      "title": "EP 10",
-                      "source": "saimo"
-                    },
-                    {
-                      "title": "EP 11",
-                      "source": "saimo"
-                    },
-                    {
-                      "title": "EP 12",
-                      "source": "saimo"
-                    }
+                    { "title": "EP 1", "url": "https://cdn-sv01.maximaimg.online/stream/j/jujutsu-kaisen-3-dublado/01.mp4/index.m3u8" },
+                    { "title": "EP 2", "url": "https://cdn-sv01.maximaimg.online/stream/j/jujutsu-kaisen-3-dublado/02.mp4/index.m3u8" },
+                    { "title": "EP 3", "url": "https://cdn-sv01.maximaimg.online/stream/j/jujutsu-kaisen-3-dublado/03.mp4/index.m3u8" },
+                    { "title": "EP 4", "url": "https://cdn-sv01.maximaimg.online/stream/j/jujutsu-kaisen-3-dublado/04.mp4/index.m3u8" },
+                    { "title": "EP 5", "url": "https://cdn-sv01.maximaimg.online/stream/j/jujutsu-kaisen-3-dublado/05.mp4/index.m3u8" },
+                    { "title": "EP 6", "url": "https://cdn-sv01.maximaimg.online/stream/j/jujutsu-kaisen-3-dublado/06.mp4/index.m3u8" },
+                    { "title": "EP 7", "url": "https://cdn-sv01.maximaimg.online/stream/j/jujutsu-kaisen-3-dublado/07.mp4/index.m3u8" },
+                    { "title": "EP 8", "url": "https://cdn-sv01.maximaimg.online/stream/j/jujutsu-kaisen-3-dublado/08.mp4/index.m3u8" },
+                    { "title": "EP 9", "url": "https://cdn-sv01.maximaimg.online/stream/j/jujutsu-kaisen-3-dublado/09.mp4/index.m3u8" },
+                    { "title": "EP 10", "url": "https://cdn-sv01.maximaimg.online/stream/j/jujutsu-kaisen-3-dublado/10.mp4/index.m3u8" },
+                    { "title": "EP 11", "url": "https://cdn-sv01.maximaimg.online/stream/j/jujutsu-kaisen-3-dublado/11.mp4/index.m3u8" },
+                    { "title": "EP 12", "url": "https://cdn-sv01.maximaimg.online/stream/j/jujutsu-kaisen-3-dublado/12.mp4/index.m3u8" }
                   ]
                 }
               ]
