@@ -264,31 +264,41 @@ async function handleTokyvideo(pageUrl, mode, clientReq) {
 // ---------- Saimo Stream Resolver ----------
 
 async function handleSaimo(seriesId, season, episode) {
-  const streamUrl =
-    `https://saimo-tv.pages.dev/api/stream?tipo=series&id=${seriesId}&s=${season}&e=${episode}&versao=dub&json=1`;
+  const headers = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+    'Referer': 'https://saimo-tv.pages.dev/',
+    'Accept': 'application/json',
+  };
 
-  const resp = await fetch(streamUrl, {
-    headers: {
-      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
-      'Referer': 'https://saimo-tv.pages.dev/',
-      'Accept': 'application/json',
-    },
-  });
+  for (const versao of ['dub', 'leg']) {
+    const streamUrl =
+      `https://saimo-tv.pages.dev/api/stream?tipo=series&id=${seriesId}&s=${season}&e=${episode}&versao=${versao}&json=1`;
 
-  if (!resp.ok) {
-    return json({ ok: false, error: 'saimo upstream error', status: resp.status }, 502);
+    const resp = await fetch(streamUrl, { headers });
+    if (!resp.ok) continue;
+
+    const data = await resp.json();
+    if (!data || !data.url) continue;
+
+    // Skip proxy URLs that return errors
+    if (data.url.includes('/api/proxy?')) {
+      try {
+        const check = await fetch(data.url, { method: 'HEAD', headers });
+        if (!check.ok) continue;
+      } catch {
+        continue;
+      }
+    }
+
+    return json({
+      ok: true,
+      url: data.url,
+      format: data.url.endsWith('.m3u8') || data.url.includes('master.txt') ? 'hls' : 'mp4',
+      versao,
+    });
   }
 
-  const data = await resp.json();
-  if (!data || !data.url) {
-    return json({ ok: false, error: 'no stream found' }, 404);
-  }
-
-  return json({
-    ok: true,
-    url: data.url,
-    format: 'mp4',
-  });
+  return json({ ok: false, error: 'no working stream found' }, 404);
 }
 
 // ---------- Helpers ----------
