@@ -1,5 +1,5 @@
 {
-  "catalogVersion": "2026111101",
+  "catalogVersion": "2026111102",
   "versionUrl": "",
   "catalogUrl": "https://tv-livre-catalog.jonatas-amaro2.workers.dev/catalog.json",
   "animeRefreshHours": 6,
@@ -3301,6 +3301,454 @@
           "group": "Geral",
           "title": "WooHoo (720p)",
           "url": "http://45.162.64.114/WOOHOO/index.m3u8"
+        },
+        {
+          "id": "ch_saimo_00002",
+          "title": "Megapix",
+          "info": "Filmes e Séries",
+          "logo": "https://img.faz-o-eli.online/megapix.png",
+          "url": "http://45.185.11.126:8000/play/a057/index.m3u8",
+          "group": "Filmes e Séries"
+        },
+        {
+          "id": "ch_saimo_00008",
+          "title": "Premiere 6",
+          "info": "Esportes",
+          "logo": "https://mondrian.claro.com.br/channels/inverse/premiere.png",
+          "url": "http://45.185.11.126:8000/play/a05j/index.m3u8",
+          "group": "Esportes"
+        },
+        {
+          "id": "ch_saimo_00009",
+          "title": "Premiere 7",
+          "info": "Esportes",
+          "logo": "https://img.faz-o-eli.online/premiere.png",
+          "url": "http://45.185.11.126:8000/play/a05k/index.m3u8",
+          "group": "Esportes"
+        },
+        {
+          "id": "ch_saimo_00010",
+          "title": "Premiere 8",
+          "info": "Esportes",
+          "logo": "https://mondrian.claro.com.br/channels/inverse/premiere.png",
+          "url": "http://45.185.11.126:8000/play/a05l/index.m3u8",
+          "group": "Esportes"
+        },
+        {
+          "id": "ch_saimo_00011",
+          "title": "Premiere Clubes",
+          "info": "Esportes",
+          "logo": "https://img.faz-o-eli.online/premiere.png",
+          "url": "http://45.185.11.126:8000/play/a06g/index.m3u8",
+          "group": "Esportes"
+        },
+        {
+          "id": "ch_saimo_00012",
+          "title": "Telecine Pipoca",
+          "info": "Filmes e Séries",
+          "logo": "https://img.faz-o-eli.online/telecinepipoca.png",
+          "url": "http://45.185.11.126:8000/play/a08g/index.m3u8",
+          "group": "Filmes e Séries"
+        },
+        {
+          "id": "ch_saimo_00014",
+          "title": "Universal Reality",
+          "info": "Filmes e Séries",
+          "logo": "https://mondrian.claro.com.br/channels/inverse/universal-reality.png",
+          "url": "http://45.185.11.126:8000/play/a08c/index.m3u8",
+          "group": "Filmes e Séries"
+        },
+        {
+          "id": "ch_saimo_00016",
+          "title": "IMPD",
+          "info": "Variedades",
+          "logo": "https://d5pgibznjcs0s.cloudfront.net/46d92cf6-4807-45c6-9bfd-b38f80288c86/en/images/logo_full.png",
+          "url": "https://igrejamundial.nuvemplay.live/hls/stream.m3u8",
+          "group": "Variedades"
+        },
+        {
+          "id": "ch_saimo_00019",
+          "title": "Cinemax",
+          "info": "Filmes e Séries",
+          "logo": "https://img.faz-o-eli.online/cinemax.png",
+          "url": "http://138.204.86.4:8080/CINEMAX/index.m3u8",
+          "group": "Filmes e Séries"
+        },
+        {
+          "id": "ch_saimo_00020",
+          "title": "Discovery Channel",
+          "info": "Documentários",
+          "logo": "https://img.faz-o-eli.online/discoverychannel.png",
+          "url": "http://138.204.86.4:8080/DISCOVERY_HD/index.m3u8",
+          "group": "Documentários"
+        },
+        {
+          "id": "ch_saimo_00021",
+          "title": "Discovery Theater",
+          "info": "Documentários",
+          "logo": "https://img.faz-o-eli.online/discoverytheater.png",
+          "url": "http://138.204.86.4:8080/DISCOVERY_THEATER_HD/index.m3u8",
+          "group": "Documentários"
+        },
+        {
+          "id": "ch_saimo_00022",
+          "title": "ESPN 2",
+          "info": "Esportes",
+          "logo": "https://img.faz-o-eli.online/espn2.png",
+          "url": "http://138.204.86.4:8080/ESPN2_HD/index.m3u8",
+          "group": "Esportes"
+        },
+        {
+          "id": "ch_saimo_00023",
+          "title": "ESPN 5",
+          "info": "Esportes",
+          "logo": "https://img.faz-o-eli.online/espn5.png",
+          "url": "http://45.185.11.126:8000/play/a05n/index.m3u8",
+          "group": "Esportes"
+        },
+        {
+          "id": "ch_saimo_00024",
+          "title": "ESPN 6",
+          "info": "Esportes",
+          "logo": "https://img.faz-o-eli.online/espn6.png",
+          "url": "http://45.185.11.126:8000/play/a084/index.m3u8",
+          "group": "Esportes"
+        },
+        {
+          "id": "ch_saimo_00025",
+          "title": "HBO",
+          "info": "Filmes e Séries",
+          "logo": "https://img.faz-o-eli.online/hbo.png",
+          "url": "http://138.204.86.4:8080/HBO/index.m3u8",
+          "group": "Filmes e Séries"
+        },
+        {
+          "id": "ch_saimo_00026",
+          "title": "HBO2",
+          "info": "Filmes e Séries",
+          "logo": "https://img.faz-o-eli.online/hbo2.png",
+          "url": "http://138.204.86.4:8080/HBO2/index.m3u8",
+          "group": "Filmes e Séries"
+        },
+        {
+          "id": "ch_saimo_00027",
+          "title": "HBO Family",
+          "info": "Filmes e Séries",
+          "logo": "https://img.faz-o-eli.online/hbofamily.png",
+          "url": "http://138.204.86.4:8080/HBO_FAMILY/index.m3u8",
+          "group": "Filmes e Séries"
+        },
+        {
+          "id": "ch_saimo_00028",
+          "title": "HBO Mundi",
+          "info": "Filmes e Séries",
+          "logo": "https://img.faz-o-eli.online/hbomundi.png",
+          "url": "http://138.204.86.4:8080/HBO_MUNDI_HD/index.m3u8",
+          "group": "Filmes e Séries"
+        },
+        {
+          "id": "ch_saimo_00029",
+          "title": "HBO Plus",
+          "info": "Filmes e Séries",
+          "logo": "https://img.faz-o-eli.online/hboplus.png",
+          "url": "http://138.204.86.4:8080/HBO_PLUS/index.m3u8",
+          "group": "Filmes e Séries"
+        },
+        {
+          "id": "ch_saimo_00030",
+          "title": "HBO Pop",
+          "info": "Filmes e Séries",
+          "logo": "https://img.faz-o-eli.online/hbopop.png",
+          "url": "http://138.204.86.4:8080/HBO_POP_HD/index.m3u8",
+          "group": "Filmes e Séries"
+        },
+        {
+          "id": "ch_saimo_00031",
+          "title": "HBO Signature",
+          "info": "Filmes e Séries",
+          "logo": "https://mondrian.claro.com.br/channels/inverse/hbo-signature.png",
+          "url": "http://138.204.86.4:8080/HBO_SIGNATURE/index.m3u8",
+          "group": "Filmes e Séries"
+        },
+        {
+          "id": "ch_saimo_00032",
+          "title": "HBO Xtreme",
+          "info": "Filmes e Séries",
+          "logo": "https://mondrian.claro.com.br/channels/inverse/hbo-xtreme.png",
+          "url": "http://45.185.11.126:8000/play/a083/index.m3u8",
+          "group": "Filmes e Séries"
+        },
+        {
+          "id": "ch_saimo_00034",
+          "title": "Universal TV",
+          "info": "Filmes e Séries",
+          "logo": "https://img.faz-o-eli.online/universaltv.png",
+          "url": "http://45.185.11.126:8000/play/a0af/index.m3u8",
+          "group": "Filmes e Séries"
+        },
+        {
+          "id": "ch_saimo_00035",
+          "title": "Discovery Turbo",
+          "info": "Documentários",
+          "logo": "https://img.faz-o-eli.online/discoveryturbo.png",
+          "url": "http://138.204.86.4:8080/DISCOVERY_TURBO_HD/index.m3u8",
+          "group": "Documentários"
+        },
+        {
+          "id": "ch_saimo_00037",
+          "title": "Telecine Fun",
+          "info": "Filmes e Séries",
+          "logo": "https://img.faz-o-eli.online/telecinefun.png",
+          "url": "http://45.185.11.126:8000/play/a059/index.m3u8",
+          "group": "Filmes e Séries"
+        },
+        {
+          "id": "ch_saimo_00038",
+          "title": "Telecine Cult",
+          "info": "Filmes e Séries",
+          "logo": "https://img.faz-o-eli.online/telecinecult.png",
+          "url": "http://45.185.11.126:8000/play/a05a/index.m3u8",
+          "group": "Filmes e Séries"
+        },
+        {
+          "id": "ch_saimo_00040",
+          "title": "Tooncast",
+          "info": "Infantil",
+          "logo": "https://mondrian.claro.com.br/channels/inverse/tooncast.png",
+          "url": "http://170.83.16.50:80/TOONCAST/index.m3u8",
+          "group": "Infantil"
+        },
+        {
+          "id": "ch_saimo_00041",
+          "title": "Discovery Science",
+          "info": "Documentários",
+          "logo": "https://img.faz-o-eli.online/discoveryscience.png",
+          "url": "http://138.204.86.4:8080/DISCOVERY_SCIENCE_HD/index.m3u8",
+          "group": "Documentários"
+        },
+        {
+          "id": "ch_saimo_00042",
+          "title": "Discovery ID",
+          "info": "Documentários",
+          "logo": "https://mondrian.claro.com.br/channels/inverse/investigacao-discovery.png",
+          "url": "http://138.204.86.4:8080/ID_HD/index.m3u8",
+          "group": "Documentários"
+        },
+        {
+          "id": "ch_saimo_00045",
+          "title": "PlayTV",
+          "info": "TV Aberta",
+          "logo": "https://i.imgur.com/Ikrj3lk.png",
+          "url": "https://isaocorp.cloudecast.com/playtv/index.m3u8",
+          "group": "TV Aberta"
+        },
+        {
+          "id": "ch_saimo_00046",
+          "title": "TV Câmara",
+          "info": "TV Aberta",
+          "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/brazil/tv-camara-br.png",
+          "url": "https://stream3.camara.gov.br/tv1/manifest.m3u8",
+          "group": "TV Aberta"
+        },
+        {
+          "id": "ch_saimo_00047",
+          "title": "TV Justiça",
+          "info": "TV Aberta",
+          "logo": "https://mondrian.claro.com.br/channels/inverse/tv-justica.png",
+          "url": "http://170.83.16.50/TV_JUSTICA/index.m3u8",
+          "group": "TV Aberta"
+        },
+        {
+          "id": "ch_saimo_00049",
+          "title": "Canal Agro",
+          "info": "Variedades",
+          "logo": "https://mondrian.claro.com.br/channels/inverse/agromais.png",
+          "url": "https://aovivo.equipea.com.br:5443/aovivort/streams/pshRLrnv6isXq7RG4747567774043229.m3u8",
+          "group": "Variedades"
+        },
+        {
+          "id": "ch_saimo_00050",
+          "title": "Blits TV",
+          "info": "Variedades",
+          "logo": "https://i.imgur.com/FO4QTRf.jpeg",
+          "url": "https://stmv1.transmissaodigital.com/blitstv/blitstv/playlist.m3u8",
+          "group": "Variedades"
+        },
+        {
+          "id": "ch_saimo_00051",
+          "title": "NickToons Brasil",
+          "info": "Infantil",
+          "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Nicktoons_logo_%282023%29.svg/330px-Nicktoons_logo_%282023%29.svg.png",
+          "url": "https://stmv2.srvif.com/nicktoons/nicktoons/playlist.m3u8",
+          "group": "Infantil"
+        },
+        {
+          "id": "ch_saimo_00063",
+          "title": "BIS",
+          "info": "Variedades",
+          "logo": "http://www.fontedecanais.me/logos/canais/bis.png",
+          "url": "http://45.185.11.126:8000/play/a07w/index.m3u8",
+          "group": "Variedades"
+        },
+        {
+          "id": "ch_saimo_00075",
+          "title": "Anime Channel TV",
+          "info": "Infantil",
+          "logo": "https://i.imgur.com/eHw2M6p.png",
+          "url": "https://stmv2.painelvideocast.com.br/animetv/animetv/playlist.m3u8",
+          "group": "Infantil"
+        },
+        {
+          "id": "ch_saimo_00076",
+          "title": "Otaku Sign TV",
+          "info": "Infantil",
+          "logo": "https://i.imgur.com/eHw2M6p.png",
+          "url": "https://stmv1.srvif.com/anime/anime/playlist.m3u8",
+          "group": "Infantil"
+        },
+        {
+          "id": "ch_saimo_00077",
+          "title": "NBX TV Kids",
+          "info": "Infantil",
+          "logo": "https://i.imgur.com/SRX6EPY.png",
+          "url": "https://stmv4.voxtvhd.com.br/bnxkids/bnxkids/playlist.m3u8",
+          "group": "Infantil"
+        },
+        {
+          "id": "ch_saimo_00078",
+          "title": "SBC Kids",
+          "info": "Infantil",
+          "logo": "https://i.imgur.com/SRX6EPY.png",
+          "url": "https://video01.brascast.com/rede1220/rede1220/playlist.m3u8",
+          "group": "Infantil"
+        },
+        {
+          "id": "ch_saimo_00079",
+          "title": "Rede Crianças",
+          "info": "Infantil",
+          "logo": "https://i.imgur.com/SRX6EPY.png",
+          "url": "https://video08.logicahost.com.br/kanucatv/kanucatv/playlist.m3u8",
+          "group": "Infantil"
+        },
+        {
+          "id": "ch_saimo_00080",
+          "title": "Jetsons TV",
+          "info": "Infantil",
+          "logo": "https://i.imgur.com/PZcTfqV.png",
+          "url": "https://stmv1.srvif.com/jetsontv/jetsontv/playlist.m3u8",
+          "group": "Infantil"
+        },
+        {
+          "id": "ch_saimo_00081",
+          "title": "24H Os Smurfs",
+          "info": "24 Horas",
+          "logo": "https://img.faz-o-eli.online/24h.png",
+          "url": "https://d144py1prrd7ns.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-affg2ev32s0dq/smrfe.m3u8",
+          "group": "24 Horas"
+        },
+        {
+          "id": "ch_saimo_00082",
+          "title": "TV A Crítica",
+          "info": "TV Aberta",
+          "logo": "https://i.imgur.com/j51rBro.png",
+          "url": "https://video01.brascast.com/bdctv/bdctv/playlist.m3u8",
+          "group": "TV Aberta"
+        },
+        {
+          "id": "ch_saimo_00083",
+          "title": "FIFA+ Português",
+          "info": "Esportes",
+          "logo": "https://mondrian.claro.com.br/channels/inverse/fifa-plus.png",
+          "url": "https://c2657533.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/UGxleC1icl9GSUZBUGx1c1BvcnR1Z3Vlc2VfSExT/playlist.m3u8",
+          "group": "Esportes"
+        },
+        {
+          "id": "ch_saimo_00084",
+          "title": "Globo Bahia",
+          "info": "TV Aberta",
+          "logo": "https://img.faz-o-eli.online/globo.png",
+          "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
+          "group": "TV Aberta"
+        },
+        {
+          "id": "ch_saimo_00085",
+          "title": "Runtime Ação",
+          "info": "Filmes e Séries",
+          "logo": "https://i.imgur.com/3rM8nL2.png",
+          "url": "https://run-rt-ra.otteravision.com/run/rt_ra/rt_ra_720.m3u8",
+          "group": "Filmes e Séries"
+        },
+        {
+          "id": "ch_saimo_00086",
+          "title": "Top TV",
+          "info": "Músicas",
+          "logo": "https://i.imgur.com/aKbHjFO.png",
+          "url": "https://isaocorp.cloudecast.com/toptv/index.m3u8",
+          "group": "Músicas"
+        },
+        {
+          "id": "ch_saimo_00087",
+          "title": "MovieSphere Brazil",
+          "info": "Filmes e Séries",
+          "logo": "https://i.imgur.com/c6uFj7A.png",
+          "url": "https://amg00353-amg00353c29-plex-us-3205.playouts.now.amagi.tv/ts-us-e2-n2/playlist/amg00353-lionsgatetvfast-moviespherebrazil-plexus/playlist.m3u8",
+          "group": "Filmes e Séries"
+        },
+        {
+          "id": "ch_saimo_00088",
+          "title": "Trace Urban",
+          "info": "Músicas",
+          "logo": "https://i.imgur.com/DLIbUMx.png",
+          "url": "https://amg01076-lightningintern-traceurban-xiaomi-m78n3.amagi.tv/playlist/amg01076-lightningintern-traceurban-xiaomi/playlist.m3u8",
+          "group": "Músicas"
+        },
+        {
+          "id": "ch_saimo_00089",
+          "title": "Sony One Classics",
+          "info": "Filmes e Séries",
+          "logo": "https://mondrian.claro.com.br/channels/inverse/sony-movies.png",
+          "url": "https://spt-sonyoneclassicas-1-br.samsung.wurl.tv/playlist.m3u8",
+          "group": "Filmes e Séries"
+        },
+        {
+          "id": "ch_saimo_00090",
+          "title": "Classique Faroeste",
+          "info": "Filmes e Séries",
+          "logo": "https://i.imgur.com/c6uFj7A.png",
+          "url": "https://amogonetworx-grjngo-1-eu.plex.wurl.tv/playlist.m3u8",
+          "group": "Filmes e Séries"
+        },
+        {
+          "id": "ch_saimo_00091",
+          "title": "Retrô Cartoon",
+          "info": "Infantil",
+          "logo": "https://i.imgur.com/hIlEfhl.png",
+          "url": "https://stmv1.video.brstream.com.br/retrotv/retrotv/playlist.m3u8",
+          "group": "Infantil"
+        },
+        {
+          "id": "ch_saimo_00092",
+          "title": "Retro Music",
+          "info": "Músicas",
+          "logo": "https://i.imgur.com/pyOjdZs.png",
+          "url": "https://newstream.mediawork.cz/retrotv/smil:retrotv_new.smil/playlist.m3u8",
+          "group": "Músicas"
+        },
+        {
+          "id": "ch_saimo_00093",
+          "title": "Now Rock",
+          "info": "Músicas",
+          "logo": "https://i.imgur.com/GuM4GnX.png",
+          "url": "https://lightning-now90s-rakuten.amagi.tv/playlist.m3u8",
+          "group": "Músicas"
+        },
+        {
+          "id": "ch_saimo_00094",
+          "title": "TV Clássicos",
+          "info": "Filmes e Séries",
+          "logo": "https://i.imgur.com/c6uFj7A.png",
+          "url": "https://stmv2.painelvideocast.com.br/multicanais/multicanais/playlist.m3u8",
+          "group": "Filmes e Séries"
         }
       ]
     },
