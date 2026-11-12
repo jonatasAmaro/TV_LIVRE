@@ -1,5 +1,5 @@
 {
-  "catalogVersion": "2026111202",
+  "catalogVersion": "2026111203",
   "versionUrl": "",
   "catalogUrl": "https://tv-livre-catalog.jonatas-amaro2.workers.dev/catalog.json",
   "animeRefreshHours": 6,
@@ -9486,6 +9486,91 @@
               ],
               "imdb": "tt21084296",
               "banner": "https://image.tmdb.org/t/p/w1280/1gajPADcRyzmYvfAefbJwhCy4bk.jpg"
+            },
+            {
+              "id": "peaky_blinders",
+              "kind": "series",
+              "title": "Peaky Blinders",
+              "subtitle": "Londres é para tomar",
+              "glyph": "SÉRIES",
+              "color": "0xE76F51FF",
+              "tab": "SÉRIES",
+              "poster": "https://image.tmdb.org/t/p/w500/pE8CScObQURsFZ723PH1BOSGi30.jpg",
+              "summary": "Thomas Shelby e seus irmãos retornam a Birmingham depois de servir no exército britânico durante a Primeira Guerra Mundial. Os Peaky Blinders, a gangue na qual Thomas é líder, controlam a cidade de Birmingham.",
+              "year": "2013",
+              "rating": "8.5",
+              "genres": "Drama, Crime",
+              "saimoId": "60574",
+              "imdb": "tt2442560",
+              "seasons": [
+                {
+                  "title": "Temporada 1",
+                  "episodes": [
+                    { "title": "EP 1", "source": "saimo" },
+                    { "title": "EP 2", "source": "saimo" },
+                    { "title": "EP 3", "source": "saimo" },
+                    { "title": "EP 4", "source": "saimo" },
+                    { "title": "EP 5", "source": "saimo" },
+                    { "title": "EP 6", "source": "saimo" }
+                  ]
+                },
+                {
+                  "title": "Temporada 2",
+                  "episodes": [
+                    { "title": "EP 1", "source": "saimo" },
+                    { "title": "EP 2", "source": "saimo" },
+                    { "title": "EP 3", "source": "saimo" },
+                    { "title": "EP 4", "source": "saimo" },
+                    { "title": "EP 5", "source": "saimo" },
+                    { "title": "EP 6", "source": "saimo" }
+                  ]
+                },
+                {
+                  "title": "Temporada 3",
+                  "episodes": [
+                    { "title": "EP 1", "source": "saimo" },
+                    { "title": "EP 2", "source": "saimo" },
+                    { "title": "EP 3", "source": "saimo" },
+                    { "title": "EP 4", "source": "saimo" },
+                    { "title": "EP 5", "source": "saimo" },
+                    { "title": "EP 6", "source": "saimo" }
+                  ]
+                },
+                {
+                  "title": "Temporada 4",
+                  "episodes": [
+                    { "title": "EP 1", "source": "saimo" },
+                    { "title": "EP 2", "source": "saimo" },
+                    { "title": "EP 3", "source": "saimo" },
+                    { "title": "EP 4", "source": "saimo" },
+                    { "title": "EP 5", "source": "saimo" },
+                    { "title": "EP 6", "source": "saimo" }
+                  ]
+                },
+                {
+                  "title": "Temporada 5",
+                  "episodes": [
+                    { "title": "EP 1", "source": "saimo" },
+                    { "title": "EP 2", "source": "saimo" },
+                    { "title": "EP 3", "source": "saimo" },
+                    { "title": "EP 4", "source": "saimo" },
+                    { "title": "EP 5", "source": "saimo" },
+                    { "title": "EP 6", "source": "saimo" }
+                  ]
+                },
+                {
+                  "title": "Temporada 6",
+                  "episodes": [
+                    { "title": "EP 1", "source": "saimo" },
+                    { "title": "EP 2", "source": "saimo" },
+                    { "title": "EP 3", "source": "saimo" },
+                    { "title": "EP 4", "source": "saimo" },
+                    { "title": "EP 5", "source": "saimo" },
+                    { "title": "EP 6", "source": "saimo" }
+                  ]
+                }
+              ],
+              "banner": "https://image.tmdb.org/t/p/w1280/wiE9doxiLwq3WCGamDIOb2PqBqc.jpg"
             }
           ]
         },
