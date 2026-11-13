@@ -53,10 +53,11 @@ export default {
         const tipo = url.searchParams.get('tipo') || 'series';
         const season = url.searchParams.get('season') || '1';
         const episode = url.searchParams.get('episode') || '1';
+        const fonte = url.searchParams.get('fonte') || '';
         if (!seriesId) {
           return corsResponse(json({ error: 'missing ?id= param' }, 400));
         }
-        return corsResponse(await handleSaimo(seriesId, season, episode, tipo));
+        return corsResponse(await handleSaimo(seriesId, season, episode, tipo, fonte));
       }
 
       if (url.pathname === '/health') {
@@ -270,19 +271,20 @@ async function handleTokyvideo(pageUrl, mode, clientReq) {
 
 // ---------- Saimo Stream Resolver ----------
 
-async function handleSaimo(seriesId, season, episode, tipo = 'series') {
+async function handleSaimo(seriesId, season, episode, tipo = 'series', fonte = '') {
   const headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
     'Referer': 'https://saimo-tv.pages.dev/',
     'Accept': 'application/json',
   };
 
+  const fonteParam = fonte ? `&fonte=${fonte}` : '';
   let proxyFallbackUrl = null;
 
   for (const versao of ['dub', 'leg']) {
     const streamUrl = tipo === 'filmes'
-      ? `https://saimo-tv.pages.dev/api/stream?tipo=filmes&id=${seriesId}&versao=${versao}&json=1`
-      : `https://saimo-tv.pages.dev/api/stream?tipo=series&id=${seriesId}&s=${season}&e=${episode}&versao=${versao}&json=1`;
+      ? `https://saimo-tv.pages.dev/api/stream?tipo=filmes&id=${seriesId}&versao=${versao}${fonteParam}&json=1`
+      : `https://saimo-tv.pages.dev/api/stream?tipo=series&id=${seriesId}&s=${season}&e=${episode}&versao=${versao}${fonteParam}&json=1`;
 
     try {
       const resp = await fetch(streamUrl, { headers });

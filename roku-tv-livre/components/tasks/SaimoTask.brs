@@ -7,6 +7,7 @@ sub execute()
     season = m.top.season
     episode = m.top.episode
     tipo = m.top.tipo
+    fonte = m.top.fonte
 
     if seriesId = "" or seriesId = invalid
         m.top.result = { ok: false, url: "", format: "" }
@@ -18,6 +19,9 @@ sub execute()
     if tipo <> "filmes"
         url = url + "&season=" + season.ToStr()
         url = url + "&episode=" + episode.ToStr()
+    end if
+    if fonte <> "" and fonte <> invalid
+        url = url + "&fonte=" + fonte
     end if
 
     data = Http_GetJson(url)

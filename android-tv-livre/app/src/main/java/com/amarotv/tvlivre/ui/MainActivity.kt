@@ -828,7 +828,8 @@ class MainActivity : AppCompatActivity() {
         Toast.makeText(this, "Carregando ${item.title}...", Toast.LENGTH_SHORT).show()
         thread {
             try {
-                val endpoint = "https://tv-livre-catalog.jonatas-amaro2.workers.dev/saimo?id=${item.saimoId}&tipo=filmes"
+                val fonteParam = if (item.saimoFonte.isNotEmpty()) "&fonte=${item.saimoFonte}" else ""
+                val endpoint = "https://tv-livre-catalog.jonatas-amaro2.workers.dev/saimo?id=${item.saimoId}&tipo=filmes$fonteParam"
                 val conn = URL(endpoint).openConnection() as HttpURLConnection
                 conn.connectTimeout = 15000
                 conn.readTimeout = 15000

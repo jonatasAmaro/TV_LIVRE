@@ -118,12 +118,15 @@ sub watch(fromStart as Boolean)
     url = To_Str(it.url)
     saimoId = To_Str(it.saimoId)
 
+    saimoFonte = To_Str(it.saimoFonte)
+
     if url = "" and saimoId <> ""
         m.status.text = "Carregando stream..."
         m.watchFromStart = fromStart
         task = CreateObject("roSGNode", "SaimoTask")
         task.seriesId = saimoId
         task.tipo = "filmes"
+        if saimoFonte <> "" then task.fonte = saimoFonte
         task.observeField("result", "onSaimoMovieResult")
         task.control = "run"
         m.saimoTask = task

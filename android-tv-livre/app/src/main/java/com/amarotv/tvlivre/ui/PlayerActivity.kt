@@ -83,15 +83,15 @@ class PlayerActivity : AppCompatActivity() {
         val item = if (format == "hls" || url.contains(".m3u8") || url.contains("master.txt")) {
             MediaItem.Builder().setUri(url).setMimeType(MimeTypes.APPLICATION_M3U8).build()
         } else {
-            MediaItem.fromUri(unwrapRokuProxy(url))
+            MediaItem.fromUri(unwrapProxy(url))
         }
         player.setMediaItem(item)
         player.prepare()
         player.playWhenReady = true
     }
 
-    private fun unwrapRokuProxy(url: String): String {
-        if (!url.contains("roku-proxy")) return url
+    private fun unwrapProxy(url: String): String {
+        if (!url.contains("roku-proxy") && !url.contains("kairou.space/api/proxy")) return url
         val match = Regex("[?&]url=([^&]+)").find(url) ?: return url
         return try { URLDecoder.decode(match.groupValues[1], "UTF-8") } catch (_: Exception) { url }
     }

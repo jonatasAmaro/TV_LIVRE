@@ -5,6 +5,7 @@
     <field id="season" type="integer" value="1"/>
     <field id="episode" type="integer" value="1"/>
     <field id="tipo" type="string" value="series"/>
+    <field id="fonte" type="string" value=""/>
     <field id="result" type="assocarray"/>
   </interface>
   <script type="text/brightscript" uri="pkg:/components/utils.brs"/>

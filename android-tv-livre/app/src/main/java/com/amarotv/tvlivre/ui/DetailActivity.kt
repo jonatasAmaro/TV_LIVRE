@@ -2,6 +2,7 @@ package com.amarotv.tvlivre.ui
 
 import android.content.Intent
 import android.graphics.Color
+import android.util.Log
 import android.graphics.Typeface
 import android.os.Bundle
 import android.view.Gravity
@@ -162,21 +163,26 @@ class DetailActivity : AppCompatActivity() {
     }
 
     private fun resolveWorkerUrl(endpoint: String, callback: (String?, String?) -> Unit) {
+        Log.d("TVLivre", "resolveWorkerUrl: $endpoint")
         thread {
             try {
                 val conn = URL(endpoint).openConnection() as HttpURLConnection
                 conn.connectTimeout = 15000
                 conn.readTimeout = 15000
                 val body = conn.inputStream.bufferedReader().readText()
+                Log.d("TVLivre", "resolveWorkerUrl response: $body")
                 val json = JSONObject(body)
                 if (json.optBoolean("ok")) {
                     val url = json.optString("url", "")
                     val format = json.optString("format", "")
+                    Log.d("TVLivre", "resolveWorkerUrl OK: url=$url format=$format")
                     runOnUiThread { callback(url.ifEmpty { null }, format) }
                 } else {
+                    Log.d("TVLivre", "resolveWorkerUrl: ok=false")
                     runOnUiThread { callback(null, null) }
                 }
-            } catch (_: Exception) {
+            } catch (e: Exception) {
+                Log.e("TVLivre", "resolveWorkerUrl error: ${e.message}", e)
                 runOnUiThread { callback(null, null) }
             }
         }
@@ -184,6 +190,7 @@ class DetailActivity : AppCompatActivity() {
 
     private fun resolveEpisodeUrl(ep: Episode, seasonIdx: Int, epIdx: Int, callback: (String) -> Unit) {
         val item = currentItem ?: return
+        Log.d("TVLivre", "resolveEpisodeUrl: title=${item.title} source=${ep.source} saimoId=${item.saimoId} tmdbId=${item.tmdbId} url=${ep.url}")
 
         if (ep.source == "saimo" && item.saimoId.isNotEmpty()) {
             val endpoint = "https://tv-livre-catalog.jonatas-amaro2.workers.dev/saimo?id=${item.saimoId}&season=${seasonIdx + 1}&episode=${epIdx + 1}"
@@ -214,12 +221,12 @@ class DetailActivity : AppCompatActivity() {
             return
         }
 
-        val finalUrl = unwrapRokuProxy(ep.url)
+        val finalUrl = unwrapProxy(ep.url)
         callback(finalUrl)
     }
 
-    private fun unwrapRokuProxy(url: String): String {
-        if (!url.contains("roku-proxy")) return url
+    private fun unwrapProxy(url: String): String {
+        if (!url.contains("roku-proxy") && !url.contains("kairou.space/api/proxy")) return url
         val match = Regex("[?&]url=([^&]+)").find(url) ?: return url
         return try { URLDecoder.decode(match.groupValues[1], "UTF-8") } catch (_: Exception) { url }
     }
