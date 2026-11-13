@@ -9,8 +9,10 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import android.util.Log
 import androidx.media3.common.MediaItem
 import androidx.media3.common.MimeTypes
+import androidx.media3.common.PlaybackException
 import androidx.media3.common.Player
 import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.ui.PlayerView
@@ -64,6 +66,13 @@ class PlayerActivity : AppCompatActivity() {
         val url = intent.getStringExtra("url") ?: return finish()
         val format = intent.getStringExtra("format") ?: ""
         playUrl(url, format)
+
+        player.addListener(object : Player.Listener {
+            override fun onPlayerError(error: PlaybackException) {
+                Log.e("TVLivre", "Playback error: ${error.message}", error)
+                Toast.makeText(this@PlayerActivity, "Erro: ${error.message}", Toast.LENGTH_LONG).show()
+            }
+        })
 
         if (isLive && liveChannels.isNotEmpty()) {
             showChannelInfo()

@@ -120,6 +120,19 @@ sub watch(fromStart as Boolean)
 
     saimoFonte = To_Str(it.saimoFonte)
 
+    tokyUrl = To_Str(it.tokyUrl)
+
+    if url = "" and tokyUrl <> ""
+        m.status.text = "Carregando stream..."
+        m.watchFromStart = fromStart
+        task = CreateObject("roSGNode", "TokyVideoTask")
+        task.pageUrl = tokyUrl
+        task.observeField("result", "onTokyMovieResult")
+        task.control = "run"
+        m.tokyTask = task
+        return
+    end if
+
     if url = "" and saimoId <> ""
         m.status.text = "Carregando stream..."
         m.watchFromStart = fromStart
@@ -138,6 +151,17 @@ sub watch(fromStart as Boolean)
         return
     end if
     playMovie(url, fromStart)
+end sub
+
+sub onTokyMovieResult()
+    res = m.tokyTask.result
+    m.tokyTask = invalid
+    if res = invalid or not Is_True(res.ok) or To_Str(res.url) = ""
+        m.status.text = "Stream indisponível."
+        return
+    end if
+    m.status.text = ""
+    playMovie(To_Str(res.url), m.watchFromStart)
 end sub
 
 sub onSaimoMovieResult()

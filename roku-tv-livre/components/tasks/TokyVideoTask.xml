@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component name="TokyVideoTask" extends="Task">
+  <interface>
+    <field id="pageUrl" type="string" value=""/>
+    <field id="result" type="assocarray"/>
+  </interface>
+  <script type="text/brightscript" uri="pkg:/components/utils.brs"/>
+  <script type="text/brightscript" uri="pkg:/components/tasks/TokyVideoTask.brs"/>
+</component>

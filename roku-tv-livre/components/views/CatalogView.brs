@@ -260,7 +260,7 @@ sub loadMovies(rows as Object)
                 it.title = To_Str(mv.title)
                 it.shortDescriptionLine1 = To_Str(mv.year)
                 it.hdPosterUrl = To_Str(mv.poster)
-                it.addFields({ itype: "movie", itemId: To_Str(mv.id), streamUrl: To_Str(mv.url), saimoId: To_Str(mv.saimoId), saimoFonte: To_Str(mv.saimoFonte), summary: To_Str(mv.summary), fit: true, banner: To_Str(mv.banner) })
+                it.addFields({ itype: "movie", itemId: To_Str(mv.id), streamUrl: To_Str(mv.url), saimoId: To_Str(mv.saimoId), saimoFonte: To_Str(mv.saimoFonte), tokyUrl: To_Str(mv.tokyUrl), summary: To_Str(mv.summary), fit: true, banner: To_Str(mv.banner) })
                 m.allMovieItems.Push(mv)
             end for
         end if
@@ -453,7 +453,7 @@ sub filterMovies(query as String)
                     it.title = To_Str(mv.title)
                     it.shortDescriptionLine1 = To_Str(mv.year)
                     it.hdPosterUrl = To_Str(mv.poster)
-                    it.addFields({ itype: "movie", itemId: To_Str(mv.id), streamUrl: To_Str(mv.url), saimoId: To_Str(mv.saimoId), saimoFonte: To_Str(mv.saimoFonte), summary: To_Str(mv.summary), fit: true, banner: To_Str(mv.banner) })
+                    it.addFields({ itype: "movie", itemId: To_Str(mv.id), streamUrl: To_Str(mv.url), saimoId: To_Str(mv.saimoId), saimoFonte: To_Str(mv.saimoFonte), tokyUrl: To_Str(mv.tokyUrl), summary: To_Str(mv.summary), fit: true, banner: To_Str(mv.banner) })
                     m.allMovieItems.Push(mv)
                 end if
             end for
@@ -518,7 +518,7 @@ sub onItemSelected()
 end sub
 
 sub playMovie(item as Object)
-    m.top.navigate = { to: "movieDetail", item: { id: item.itemId, title: item.title, poster: item.hdPosterUrl, url: item.streamUrl, saimoId: item.saimoId, saimoFonte: item.saimoFonte, summary: item.summary } }
+    m.top.navigate = { to: "movieDetail", item: { id: item.itemId, title: item.title, poster: item.hdPosterUrl, url: item.streamUrl, saimoId: item.saimoId, saimoFonte: item.saimoFonte, tokyUrl: item.tokyUrl, summary: item.summary } }
 end sub
 
 ' ---------- YouTube (official app via deep link) ----------

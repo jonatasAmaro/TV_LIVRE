@@ -1,5 +1,5 @@
 {
-  "catalogVersion": "2026111210",
+  "catalogVersion": "2026111312",
   "versionUrl": "",
   "catalogUrl": "https://tv-livre-catalog.jonatas-amaro2.workers.dev/catalog.json",
   "animeRefreshHours": 6,
@@ -17222,8 +17222,7 @@
               "title": "O Protetor 2",
               "year": "2018",
               "poster": "https://image.tmdb.org/t/p/w500/xl3oO2j1vfKasDLyUNwghWjl4jV.jpg",
-              "saimoId": "345887",
-              "saimoFonte": "4",
+              "tokyUrl": "https://www.tokyvideo.com/br/video/o-protetor-2-2018-1080p-dublado",
               "summary": "Criminosos assassinam Susan Plummer, a melhor amiga de Robert McCall e sua ex-colega de trabalho. Obcecado, Robert pensa apenas em eliminar o bando de assassinos profissionais que destruiu sua vida.",
               "imdb": "tt3766354",
               "banner": "https://image.tmdb.org/t/p/w1280/z7noaCJ4KtmhwHw7QcNtnMMo4Qy.jpg"

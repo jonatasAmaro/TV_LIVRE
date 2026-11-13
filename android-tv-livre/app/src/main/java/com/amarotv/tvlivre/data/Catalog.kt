@@ -49,6 +49,7 @@ data class ContentItem(
     val sources: List<Source>? = null,
     val saimoId: String = "",
     val saimoFonte: String = "",
+    val tokyUrl: String = "",
     val tmdbId: String = ""
 )
 

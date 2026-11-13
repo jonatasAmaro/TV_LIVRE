@@ -464,6 +464,8 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("title", item.title)
                 intent.putExtra("live", false)
                 startActivity(intent)
+            } else if (item.tokyUrl.isNotEmpty()) {
+                resolveTokyMovie(item)
             } else if (item.saimoId.isNotEmpty()) {
                 resolveSaimoMovie(item)
             }
@@ -822,6 +824,39 @@ class MainActivity : AppCompatActivity() {
         }
 
         override fun getItemCount() = channels.size
+    }
+
+    private fun resolveTokyMovie(item: ContentItem) {
+        Toast.makeText(this, "Carregando ${item.title}...", Toast.LENGTH_SHORT).show()
+        thread {
+            try {
+                val encoded = java.net.URLEncoder.encode(item.tokyUrl, "UTF-8")
+                val endpoint = "https://tv-livre-catalog.jonatas-amaro2.workers.dev/tokyvideo?url=$encoded"
+                val conn = URL(endpoint).openConnection() as HttpURLConnection
+                conn.connectTimeout = 15000
+                conn.readTimeout = 15000
+                val body = conn.inputStream.bufferedReader().readText()
+                val json = JSONObject(body)
+                if (json.optBoolean("ok")) {
+                    val url = json.optString("url", "")
+                    val format = json.optString("format", "")
+                    runOnUiThread {
+                        PlayerActivity.episodeList = emptyList()
+                        val intent = Intent(this, PlayerActivity::class.java)
+                        intent.putExtra("url", url)
+                        intent.putExtra("format", format)
+                        intent.putExtra("title", item.title)
+                        intent.putExtra("live", false)
+                        startActivity(intent)
+                    }
+                } else {
+                    runOnUiThread { Toast.makeText(this, "Stream indisponível", Toast.LENGTH_SHORT).show() }
+                }
+            } catch (e: Exception) {
+                Log.e("TVLivre", "resolveTokyMovie error: ${e.message}", e)
+                runOnUiThread { Toast.makeText(this, "Erro ao carregar stream", Toast.LENGTH_SHORT).show() }
+            }
+        }
     }
 
     private fun resolveSaimoMovie(item: ContentItem) {
