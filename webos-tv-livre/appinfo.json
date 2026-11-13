@@ -1,0 +1,15 @@
+{
+  "id": "com.amarotv.app",
+  "version": "1.0.0",
+  "vendor": "Amaro TV",
+  "type": "web",
+  "main": "index.html",
+  "title": "Amaro TV",
+  "icon": "icon.png",
+  "largeIcon": "largeIcon.png",
+  "resolution": "1920x1080",
+  "transparent": false,
+  "handlesRelaunch": false,
+  "disableBackHistoryAPI": false,
+  "requiredACG": []
+}

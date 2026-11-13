@@ -1,0 +1,28 @@
+
+
+function loadCustomChannels() as Object
+    localChannels = []
+    fileSystem = CreateObject("roFileSystem")
+    
+    ' 1. Tenta ler do pendrive (ext1:/custom_channels.json)
+    usbPath = "ext1:/custom_channels.json"
+    jsonString = ""
+    
+    if fileSystem.Exists(usbPath)
+        jsonString = ReadAsciiFile(usbPath)
+    else if fileSystem.Exists("tmp:/custom_channels.json")
+        ' 2. Fallback para cache local em tmp:/
+        jsonString = ReadAsciiFile("tmp:/custom_channels.json")
+    end if
+    
+    if jsonString <> "" and jsonString <> invalid
+        parsed = ParseJson(jsonString)
+        if parsed <> invalid and type(parsed) = "roArray"
+            return parsed
+        else if parsed <> invalid and parsed.channels <> invalid
+            return parsed.channels
+        end if
+    end if
+    
+    return localChannels
+end function

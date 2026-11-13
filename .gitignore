@@ -2,3 +2,25 @@
 *.apk
 out/
 .roku-deploy-password
+
+# Android
+android-tv-livre/.gradle/
+android-tv-livre/app/build/
+android-tv-livre/local.properties
+
+# Node
+node_modules/
+cloudflare-worker/node_modules/
+
+# IDE / Claude
+.claude/settings.local.json
+
+# Build artifacts
+*.ipk
+
+# Backups and temp files
+deploy-response.html
+catalog.antes-da-restauracao.json
+backup canais.txt
+ranch_info.json
+mirage-backup/

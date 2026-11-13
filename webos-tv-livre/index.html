@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1920, initial-scale=1.0">
+<title>Amaro TV</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body {
+  background: #0B0F1A; color: #fff;
+  font-family: 'LG Smart UI', -apple-system, 'Segoe UI', Arial, sans-serif;
+  overflow: hidden; width: 1920px; height: 1080px;
+  user-select: none;
+}
+
+/* ── Loading ── */
+#loading {
+  position: fixed; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  background: #0B0F1A; z-index: 200;
+}
+#loading h1 { font-size: 3rem; color: #E67E22; margin-bottom: .5rem; }
+#loading p  { font-size: 1.2rem; color: #9AA4B2; }
+.spinner {
+  width: 50px; height: 50px; margin-top: 1.2rem;
+  border: 4px solid #1E2738; border-top-color: #E67E22;
+  border-radius: 50%; animation: spin .8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Home ── */
+#home { position: relative; width: 1920px; height: 1080px; display: none; }
+
+/* Hero background */
+#heroBg {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  opacity: 0.4; transition: background-image 0.5s;
+}
+/* Gradients */
+.grad1 { position: absolute; top: 0; width: 1920px; height: 300px; background: #0B0F1A; opacity: 0.8; }
+.grad2 { position: absolute; top: 300px; width: 1920px; height: 200px; background: #0B0F1A; opacity: 0.3; }
+.grad3 { position: absolute; top: 600px; width: 1920px; height: 480px; background: #0B0F1A; opacity: 0.85; }
+
+/* Top bar */
+#topBar {
+  position: absolute; top: 30px; left: 0; width: 1920px; height: 50px;
+  display: flex; align-items: center; z-index: 10;
+}
+#logoA {
+  position: absolute; left: 60px; top: 2px;
+  font-size: 40px; font-weight: 700; color: #FF6B00;
+}
+#searchIcon {
+  position: absolute; left: 130px; top: 7px;
+  font-size: 28px; color: #9AA4B2; cursor: pointer;
+}
+#searchIcon.focused { color: #FFF; }
+#tabBar {
+  position: absolute; left: 384px; top: 0;
+  display: flex; gap: 12px; align-items: center;
+}
+.tab {
+  padding: 8px 16px; font-size: 24px; font-weight: 500;
+  color: #9AA4B2; border-radius: 20px; white-space: nowrap;
+  transition: all 0.2s;
+}
+.tab.active { color: #C8D0DC; }
+.tab.focused { color: #FFF; background: rgba(230,126,34,0.7); }
+#gearIcon {
+  position: absolute; right: 190px; top: 7px;
+  font-size: 28px; color: #9AA4B2; cursor: pointer;
+}
+#gearIcon.focused { color: #FFF; }
+#clock {
+  position: absolute; right: 20px; top: 4px;
+  font-size: 34px; font-weight: 500; color: #9AA4B2;
+  width: 120px; text-align: right;
+}
+
+/* Hero info */
+#heroInfo {
+  position: absolute; top: 200px; left: 80px; z-index: 5;
+}
+#heroTitle {
+  font-size: 56px; font-weight: 700; color: #FFF;
+  max-width: 900px; line-height: 1.15;
+  overflow: hidden; text-overflow: ellipsis;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+}
+#heroMeta { font-size: 24px; color: #9AA4B2; margin-top: 10px; }
+#heroDesc {
+  font-size: 26px; color: #C8D0DC; margin-top: 8px;
+  max-width: 800px; line-height: 1.35;
+  overflow: hidden; text-overflow: ellipsis;
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
+}
+
+/* Content area */
+#content {
+  position: absolute; left: 0; width: 1920px;
+  top: 440px; bottom: 0; z-index: 5;
+  overflow: hidden;
+}
+
+/* ── Live Tab ── */
+#liveTab { display: none; width: 1920px; height: 1080px; position: relative; }
+#liveListPanel {
+  position: absolute; left: 80px; top: 222px;
+  width: 600px; height: 800px;
+}
+#liveListTitle {
+  font-size: 30px; font-weight: 700; color: #FFF; margin-bottom: 12px;
+}
+#liveListBg {
+  width: 600px; height: 730px; background: #141A29;
+  border-radius: 4px; overflow: hidden;
+}
+#liveList {
+  width: 600px; height: 730px; overflow: hidden;
+  padding: 12px;
+}
+.ch-item {
+  padding: 10px 16px; font-size: 28px; color: #C8D0DC;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  border-radius: 4px; height: 62px; line-height: 42px;
+  transition: background 0.15s;
+}
+.ch-item.focused {
+  background: #E67E22; color: #0B0F1A; font-weight: 700;
+}
+
+/* Video preview */
+#livePreview {
+  position: absolute; left: 720px; top: 270px;
+  width: 1120px; height: 630px;
+  background: #000; border-radius: 4px; overflow: hidden;
+}
+#livePreview video { width: 100%; height: 100%; object-fit: contain; }
+#livePreview.ring { box-shadow: 0 0 0 3px #FFF; }
+#liveInfo {
+  position: absolute; left: 720px; top: 900px;
+  width: 1120px; height: 150px; padding: 14px 28px;
+  background: #141A29;
+}
+#liveChName { font-size: 34px; font-weight: 700; color: #FFF; }
+#liveChInfo { font-size: 24px; color: #9AA4B2; margin-top: 4px; }
+#liveHint {
+  position: absolute; right: 28px; top: 20px;
+  font-size: 24px; color: #9AA4B2; text-align: right;
+}
+
+/* Live status */
+#liveStatus {
+  position: absolute; left: 720px; top: 560px;
+  width: 1120px; text-align: center;
+  font-size: 30px; color: #FFF; z-index: 2;
+  display: none;
+}
+
+/* OSD overlay (fullscreen) */
+#osd {
+  position: fixed; top: 50px; left: 60px;
+  width: 900px; padding: 16px 30px;
+  background: rgba(11,15,26,0.8); border-radius: 8px;
+  z-index: 100; display: none;
+}
+#osdName { font-size: 42px; font-weight: 700; color: #FFF; }
+#osdInfo { font-size: 26px; color: #C8D0DC; margin-top: 4px; }
+
+/* ── Grid Tab (Séries/Animes/Desenhos) ── */
+#gridTab { display: none; position: relative; width: 1920px; }
+#gridTitle { font-size: 60px; font-weight: 700; color: #FFF; margin: 56px 0 0 80px; }
+#gridSubtitle { font-size: 28px; color: #9AA4B2; margin: 8px 0 0 82px; }
+#gridRows {
+  margin-top: 30px; padding-left: 80px;
+  overflow: hidden;
+}
+.cat-row { margin-bottom: 40px; }
+.cat-row-title {
+  font-size: 32px; font-weight: 700; color: #FFF;
+  margin-bottom: 14px;
+}
+.cat-row-items {
+  display: flex; gap: 24px; overflow: hidden;
+}
+.poster-card {
+  width: 200px; min-width: 200px; cursor: pointer;
+  transition: transform 0.2s;
+}
+.poster-card.focused { transform: scale(1.08); }
+.poster-card .poster-img {
+  width: 200px; height: 296px; border-radius: 6px;
+  background: #1C2333; overflow: hidden;
+  position: relative;
+}
+.poster-card .poster-img img {
+  width: 100%; height: 100%; object-fit: cover;
+}
+.poster-card.focused .poster-img {
+  box-shadow: 0 0 0 3px #FFF;
+}
+.poster-card .poster-title {
+  font-size: 22px; font-weight: 700; color: #FFF;
+  margin-top: 8px; white-space: nowrap;
+  overflow: hidden; text-overflow: ellipsis;
+}
+.poster-card .poster-sub {
+  font-size: 18px; color: #9AA4B2;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+
+/* Movie cards (wider) */
+.poster-card.movie { width: 400px; min-width: 400px; }
+.poster-card.movie .poster-img { width: 400px; height: 240px; }
+
+/* ── Detail View ── */
+#detailView {
+  position: fixed; inset: 0; background: #0B0F1A; z-index: 50;
+  display: none;
+}
+#detailBg {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  opacity: 0.25;
+}
+#detailContent {
+  position: absolute; top: 60px; left: 80px; right: 80px; bottom: 40px;
+  display: flex; gap: 60px;
+}
+#detailPoster {
+  width: 350px; min-width: 350px; height: 520px;
+  border-radius: 8px; overflow: hidden; background: #1C2333;
+}
+#detailPoster img { width: 100%; height: 100%; object-fit: cover; }
+#detailInfo { flex: 1; overflow: hidden; }
+#detailTitle { font-size: 48px; font-weight: 700; color: #FFF; margin-bottom: 12px; }
+#detailMeta { font-size: 24px; color: #9AA4B2; margin-bottom: 16px; }
+#detailDesc { font-size: 24px; color: #C8D0DC; line-height: 1.4; margin-bottom: 24px; max-height: 120px; overflow: hidden; }
+
+/* Season tabs */
+#seasonTabs { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+.season-tab {
+  padding: 8px 20px; font-size: 22px; color: #9AA4B2;
+  background: #1C2333; border-radius: 20px;
+  transition: all 0.2s;
+}
+.season-tab.active { color: #FFF; background: #E67E22; }
+.season-tab.focused { box-shadow: 0 0 0 2px #FFF; }
+
+/* Episode list */
+#episodeList {
+  display: flex; flex-direction: column; gap: 6px;
+  max-height: 420px; overflow: hidden;
+}
+.ep-item {
+  padding: 10px 20px; font-size: 24px; color: #C8D0DC;
+  background: #141A29; border-radius: 6px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  transition: background 0.15s;
+}
+.ep-item.focused { background: #E67E22; color: #0B0F1A; font-weight: 700; }
+
+/* Movie play button */
+.play-btn {
+  display: inline-block; padding: 14px 40px;
+  font-size: 28px; font-weight: 700; color: #FFF;
+  background: #E67E22; border-radius: 8px;
+  margin-top: 16px; transition: all 0.2s;
+}
+.play-btn.focused { background: #FF8C00; box-shadow: 0 0 0 3px #FFF; }
+
+/* ── Fullscreen Player ── */
+#player {
+  position: fixed; inset: 0; background: #000; z-index: 100;
+  display: none;
+}
+#player video { width: 100%; height: 100%; object-fit: contain; }
+#playerStatus {
+  position: absolute; bottom: 80px; left: 0; right: 0;
+  text-align: center; font-size: 30px; color: #FFF;
+  display: none;
+}
+</style>
+</head>
+<body>
+
+<!-- Loading -->
+<div id="loading">
+  <h1>Amaro TV</h1>
+  <p id="loadingMsg">Carregando catálogo...</p>
+  <div class="spinner"></div>
+</div>
+
+<!-- Home -->
+<div id="home">
+  <div id="heroBg"></div>
+  <div class="grad1"></div>
+  <div class="grad2"></div>
+  <div class="grad3"></div>
+
+  <div id="topBar">
+    <div id="logoA">A</div>
+    <div id="searchIcon">🔍</div>
+    <div id="tabBar"></div>
+    <div id="gearIcon">⚙</div>
+    <div id="clock"></div>
+  </div>
+
+  <div id="heroInfo">
+    <div id="heroTitle"></div>
+    <div id="heroMeta"></div>
+    <div id="heroDesc"></div>
+  </div>
+
+  <div id="content"></div>
+</div>
+
+<!-- Detail View -->
+<div id="detailView">
+  <div id="detailBg"></div>
+  <div id="detailContent">
+    <div id="detailPoster"><img src="" alt=""></div>
+    <div id="detailInfo">
+      <div id="detailTitle"></div>
+      <div id="detailMeta"></div>
+      <div id="detailDesc"></div>
+      <div id="seasonTabs"></div>
+      <div id="episodeList"></div>
+      <div id="moviePlayBtn" class="play-btn" style="display:none">▶ Assistir</div>
+    </div>
+  </div>
+</div>
+
+<!-- Fullscreen Player -->
+<div id="player">
+  <video id="vid" autoplay></video>
+  <div id="osd">
+    <div id="osdName"></div>
+    <div id="osdInfo"></div>
+  </div>
+  <div id="playerStatus"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.7/dist/hls.min.js"></script>
+<script>
+'use strict';
+
+const CATALOG_URL = 'https://tv-livre-catalog.jonatas-amaro2.workers.dev/catalog.json';
+const ALLOWED_TABS = ['TV AO VIVO','SÉRIES','CANAIS 24 HS','FILMES','ANIMES','DESENHOS'];
+
+let catalog = null;
+let sections = [];
+let tabIndex = 0;
+let focusZone = 'tabs'; // tabs | content | detail | player
+let liveState = { idx: 0, channels: [], scrollTop: 0, mode: 'list', hls: null };
+let gridState = { rowIdx: 0, colIdx: 0, items: [], catItems: [] };
+let detailState = { item: null, seasonIdx: 0, epIdx: 0, zone: 'episodes', isMovie: false };
+let osdTimer = null;
+
+// ── Init ──
+async function init() {
+  updateClock();
+  setInterval(updateClock, 20000);
+  try {
+    const r = await fetch(CATALOG_URL);
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    catalog = await r.json();
+    sections = (catalog.sections || []).filter(s => {
+      const t = s.tab || s.title || '';
+      return ALLOWED_TABS.includes(t);
+    });
+    buildTabs();
+    showTab(0);
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('home').style.display = 'block';
+    focusZone = 'tabs';
+    refreshTabUI();
+  } catch (e) {
+    document.getElementById('loadingMsg').textContent =
+      'Erro ao carregar: ' + e.message + '\nVerifique sua conexão.';
+  }
+}
+
+function updateClock() {
+  const d = new Date();
+  const h = String(d.getHours()).padStart(2, '0');
+  const m = String(d.getMinutes()).padStart(2, '0');
+  const el = document.getElementById('clock');
+  if (el) el.textContent = h + ':' + m;
+}
+
+// ── Tabs ──
+function buildTabs() {
+  const bar = document.getElementById('tabBar');
+  bar.innerHTML = '';
+  sections.forEach((s, i) => {
+    const div = document.createElement('div');
+    div.className = 'tab' + (i === 0 ? ' active focused' : '');
+    div.textContent = s.tab || s.title;
+    div.dataset.idx = i;
+    bar.appendChild(div);
+  });
+}
+
+function refreshTabUI() {
+  document.querySelectorAll('.tab').forEach((el, i) => {
+    el.className = 'tab';
+    if (i === tabIndex) {
+      el.classList.add('active');
+      if (focusZone === 'tabs') el.classList.add('focused');
+    }
+  });
+}
+
+function showTab(idx) {
+  if (idx < 0 || idx >= sections.length) return;
+  tabIndex = idx;
+  refreshTabUI();
+  const s = sections[idx];
+  const kind = s.kind || '';
+  const title = s.tab || s.title || '';
+  const contentEl = document.getElementById('content');
+
+  // Update hero
+  document.getElementById('heroTitle').textContent = title;
+  document.getElementById('heroMeta').textContent = '';
+  document.getElementById('heroDesc').textContent = '';
+  document.getElementById('heroBg').style.backgroundImage = '';
+
+  if (kind === 'live') {
+    contentEl.style.top = '0px';
+    document.querySelector('.grad3').style.top = '600px';
+    document.getElementById('heroInfo').style.display = 'none';
+    renderLiveTab(s);
+  } else {
+    contentEl.style.top = '440px';
+    document.querySelector('.grad3').style.top = '600px';
+    document.getElementById('heroInfo').style.display = 'block';
+    if (kind === 'grid') renderGridTab(s);
+    else if (kind === 'movies') renderGridTab(s);
+    else if (kind === 'youtube') renderYoutubeTab(s);
+    else contentEl.innerHTML = '<div style="padding:80px;font-size:30px;color:#9AA4B2">Em breve...</div>';
+  }
+}
+
+// ── Live Tab ──
+function renderLiveTab(section) {
+  const chs = section.channels || [];
+  liveState.channels = chs;
+  liveState.idx = 0;
+  liveState.scrollTop = 0;
+  liveState.mode = 'list';
+
+  const contentEl = document.getElementById('content');
+  contentEl.innerHTML = `
+    <div id="liveTab" style="display:block">
+      <div id="liveListPanel">
+        <div id="liveListTitle">Lista de canais</div>
+        <div id="liveListBg">
+          <div id="liveList"></div>
+        </div>
+      </div>
+      <div id="livePreview"><video id="liveVid" muted></video></div>
+      <div id="liveInfo">
+        <div id="liveChName"></div>
+        <div id="liveChInfo"></div>
+        <div id="liveHint">OK: tela cheia • ↑↓: navegar</div>
+      </div>
+      <div id="liveStatus"></div>
+    </div>
+  `;
+
+  renderChannelList();
+  if (chs.length > 0) {
+    focusChannel(0);
+    playChannel(0);
+  }
+}
+
+function renderChannelList() {
+  const list = document.getElementById('liveList');
+  if (!list) return;
+  const chs = liveState.channels;
+  list.innerHTML = '';
+  chs.forEach((ch, i) => {
+    const div = document.createElement('div');
+    div.className = 'ch-item' + (i === liveState.idx ? ' focused' : '');
+    div.textContent = String(i + 1).padStart(2, '0') + '    ' + ch.title;
+    div.dataset.idx = i;
+    list.appendChild(div);
+  });
+  scrollChannelList();
+}
+
+function focusChannel(idx) {
+  const chs = liveState.channels;
+  if (idx < 0 || idx >= chs.length) return;
+  liveState.idx = idx;
+
+  document.querySelectorAll('.ch-item').forEach((el, i) => {
+    el.className = 'ch-item' + (i === idx ? ' focused' : '');
+  });
+  scrollChannelList();
+
+  const ch = chs[idx];
+  const name = document.getElementById('liveChName');
+  const info = document.getElementById('liveChInfo');
+  if (name) name.textContent = ch.title;
+  if (info) info.textContent = [ch.info, ch.group].filter(Boolean).join('   •   ');
+}
+
+function scrollChannelList() {
+  const list = document.getElementById('liveList');
+  if (!list) return;
+  const itemH = 66;
+  const visibleCount = 11;
+  const target = liveState.idx * itemH - (visibleCount / 2 - 1) * itemH;
+  list.scrollTop = Math.max(0, target);
+}
+
+function playChannel(idx) {
+  const chs = liveState.channels;
+  if (idx < 0 || idx >= chs.length) return;
+  const ch = chs[idx];
+  const vid = document.getElementById('liveVid');
+  if (!vid) return;
+
+  showLiveStatus('Carregando ' + ch.title + '...');
+  stopLiveHls();
+
+  const url = ch.url || '';
+  if (url.includes('.m3u8') && Hls.isSupported()) {
+    liveState.hls = new Hls({ maxBufferLength: 10, maxMaxBufferLength: 30 });
+    liveState.hls.loadSource(url);
+    liveState.hls.attachMedia(vid);
+    liveState.hls.on(Hls.Events.MANIFEST_PARSED, () => {
+      vid.play().catch(() => {});
+      hideLiveStatus();
+    });
+    liveState.hls.on(Hls.Events.ERROR, (_, data) => {
+      if (data.fatal) showLiveStatus('Canal indisponível no momento.');
+    });
+  } else if (vid.canPlayType('application/vnd.apple.mpegurl')) {
+    vid.src = url;
+    vid.play().catch(() => {});
+    vid.onplaying = () => hideLiveStatus();
+    vid.onerror = () => showLiveStatus('Canal indisponível no momento.');
+  } else {
+    vid.src = url;
+    vid.play().catch(() => {});
+    vid.onplaying = () => hideLiveStatus();
+    vid.onerror = () => showLiveStatus('Canal indisponível no momento.');
+  }
+}
+
+function stopLiveHls() {
+  if (liveState.hls) { liveState.hls.destroy(); liveState.hls = null; }
+}
+
+function showLiveStatus(msg) {
+  const el = document.getElementById('liveStatus');
+  if (el) { el.textContent = msg; el.style.display = 'block'; }
+}
+function hideLiveStatus() {
+  const el = document.getElementById('liveStatus');
+  if (el) el.style.display = 'none';
+}
+
+// ── Grid Tab (Séries / Animes / Desenhos / Filmes) ──
+function renderGridTab(section) {
+  const isMovies = section.kind === 'movies';
+  const cats = section.categories || section.rows || [];
+  gridState.catItems = cats;
+  gridState.rowIdx = 0;
+  gridState.colIdx = 0;
+
+  const contentEl = document.getElementById('content');
+  let html = '<div id="gridTab" style="display:block"><div id="gridRows">';
+
+  cats.forEach((cat, ri) => {
+    const items = cat.items || [];
+    html += `<div class="cat-row" data-row="${ri}">`;
+    html += `<div class="cat-row-title">${esc(cat.title)}</div>`;
+    html += `<div class="cat-row-items">`;
+    items.forEach((item, ci) => {
+      const cls = isMovies ? 'poster-card movie' : 'poster-card';
+      const focused = (ri === 0 && ci === 0) ? ' focused' : '';
+      const poster = item.poster || item.logo || '';
+      html += `<div class="${cls}${focused}" data-row="${ri}" data-col="${ci}">`;
+      html += `<div class="poster-img"><img src="${esc(poster)}" loading="lazy" onerror="this.src=''"></div>`;
+      html += `<div class="poster-title">${esc(item.title)}</div>`;
+      html += `<div class="poster-sub">${esc(item.subtitle || item.year || item.genres || '')}</div>`;
+      html += `</div>`;
+    });
+    html += `</div></div>`;
+  });
+
+  html += '</div></div>';
+  contentEl.innerHTML = html;
+
+  // Update hero for first item
+  if (cats.length > 0 && cats[0].items && cats[0].items.length > 0) {
+    updateHeroFromItem(cats[0].items[0]);
+  }
+}
+
+function updateHeroFromItem(item) {
+  if (!item) return;
+  const bg = item.background || item.poster || '';
+  if (bg) document.getElementById('heroBg').style.backgroundImage = `url(${bg})`;
+  document.getElementById('heroTitle').textContent = item.title || '';
+  document.getElementById('heroMeta').textContent = [item.year, item.rating, item.genres].filter(Boolean).join('   •   ');
+  document.getElementById('heroDesc').textContent = item.description || item.summary || '';
+}
+
+function refreshGridFocus() {
+  document.querySelectorAll('.poster-card').forEach(el => {
+    const r = parseInt(el.dataset.row);
+    const c = parseInt(el.dataset.col);
+    el.classList.toggle('focused', r === gridState.rowIdx && c === gridState.colIdx);
+  });
+  // Scroll row into view
+  const row = document.querySelector(`.cat-row[data-row="${gridState.rowIdx}"]`);
+  if (row) row.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  // Scroll item into view horizontally
+  const card = document.querySelector(`.poster-card[data-row="${gridState.rowIdx}"][data-col="${gridState.colIdx}"]`);
+  if (card) card.scrollIntoView({ inline: 'nearest', behavior: 'smooth' });
+  // Update hero
+  const cats = gridState.catItems;
+  if (cats[gridState.rowIdx] && cats[gridState.rowIdx].items) {
+    updateHeroFromItem(cats[gridState.rowIdx].items[gridState.colIdx]);
+  }
+}
+
+// ── YouTube Tab ──
+function renderYoutubeTab(section) {
+  const chs = section.channels || [];
+  const contentEl = document.getElementById('content');
+  contentEl.innerHTML = `<div style="padding:80px;font-size:30px;color:#9AA4B2">
+    YouTube — ${chs.length} canais (requer app YouTube na TV)</div>`;
+}
+
+// ── Detail View ──
+function openDetail(item) {
+  detailState.item = item;
+  detailState.seasonIdx = 0;
+  detailState.epIdx = 0;
+  detailState.isMovie = !item.seasons;
+  detailState.zone = detailState.isMovie ? 'playBtn' : 'seasons';
+
+  document.getElementById('detailView').style.display = 'block';
+  document.getElementById('detailBg').style.backgroundImage =
+    `url(${item.background || item.poster || ''})`;
+  document.getElementById('detailPoster').querySelector('img').src = item.poster || '';
+  document.getElementById('detailTitle').textContent = item.title || '';
+  document.getElementById('detailMeta').textContent =
+    [item.year, item.rating, item.genres].filter(Boolean).join('   •   ');
+  document.getElementById('detailDesc').textContent = item.description || item.summary || '';
+
+  const seasonTabs = document.getElementById('seasonTabs');
+  const epList = document.getElementById('episodeList');
+  const playBtn = document.getElementById('moviePlayBtn');
+
+  if (item.seasons && item.seasons.length > 0) {
+    playBtn.style.display = 'none';
+    seasonTabs.innerHTML = '';
+    item.seasons.forEach((s, i) => {
+      const div = document.createElement('div');
+      div.className = 'season-tab' + (i === 0 ? ' active focused' : '');
+      div.textContent = s.title || ('Temp. ' + (i + 1));
+      div.dataset.idx = i;
+      seasonTabs.appendChild(div);
+    });
+    renderEpisodes(0);
+    detailState.zone = 'seasons';
+  } else {
+    seasonTabs.innerHTML = '';
+    epList.innerHTML = '';
+    playBtn.style.display = 'inline-block';
+    playBtn.className = 'play-btn focused';
+    detailState.zone = 'playBtn';
+  }
+
+  focusZone = 'detail';
+}
+
+function renderEpisodes(seasonIdx) {
+  detailState.seasonIdx = seasonIdx;
+  detailState.epIdx = 0;
+  const item = detailState.item;
+  const season = item.seasons[seasonIdx];
+  if (!season) return;
+
+  // Update season tabs
+  document.querySelectorAll('.season-tab').forEach((el, i) => {
+    el.classList.toggle('active', i === seasonIdx);
+  });
+
+  const epList = document.getElementById('episodeList');
+  epList.innerHTML = '';
+  (season.episodes || []).forEach((ep, i) => {
+    const div = document.createElement('div');
+    div.className = 'ep-item' + (i === 0 ? ' focused' : '');
+    div.textContent = (ep.episode ? ep.episode + ' — ' : '') + (ep.title || 'Episódio ' + (i + 1));
+    div.dataset.idx = i;
+    epList.appendChild(div);
+  });
+}
+
+function refreshDetailFocus() {
+  if (detailState.zone === 'seasons') {
+    document.querySelectorAll('.season-tab').forEach((el, i) => {
+      el.classList.toggle('focused', i === detailState.seasonIdx);
+    });
+    document.querySelectorAll('.ep-item').forEach(el => el.classList.remove('focused'));
+    document.getElementById('moviePlayBtn').classList.remove('focused');
+  } else if (detailState.zone === 'episodes') {
+    document.querySelectorAll('.season-tab').forEach(el => el.classList.remove('focused'));
+    document.querySelectorAll('.ep-item').forEach((el, i) => {
+      el.classList.toggle('focused', i === detailState.epIdx);
+    });
+    // Scroll episode into view
+    const ep = document.querySelector(`.ep-item[data-idx="${detailState.epIdx}"]`);
+    if (ep) ep.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+    document.getElementById('moviePlayBtn').classList.remove('focused');
+  } else if (detailState.zone === 'playBtn') {
+    document.querySelectorAll('.season-tab').forEach(el => el.classList.remove('focused'));
+    document.querySelectorAll('.ep-item').forEach(el => el.classList.remove('focused'));
+    document.getElementById('moviePlayBtn').classList.add('focused');
+  }
+}
+
+function closeDetail() {
+  document.getElementById('detailView').style.display = 'none';
+  focusZone = 'content';
+  refreshGridFocus();
+}
+
+// ── Player ──
+let playerHls = null;
+
+function openPlayer(url, title) {
+  stopLiveHls();
+  document.getElementById('player').style.display = 'block';
+  const vid = document.getElementById('vid');
+  focusZone = 'player';
+
+  showPlayerStatus('Carregando ' + (title || '') + '...');
+  showOsd(title, '');
+
+  if (playerHls) { playerHls.destroy(); playerHls = null; }
+
+  if (url.includes('.m3u8') && Hls.isSupported()) {
+    playerHls = new Hls({ maxBufferLength: 30 });
+    playerHls.loadSource(url);
+    playerHls.attachMedia(vid);
+    playerHls.on(Hls.Events.MANIFEST_PARSED, () => {
+      vid.play().catch(() => {});
+      hidePlayerStatus();
+    });
+    playerHls.on(Hls.Events.ERROR, (_, d) => {
+      if (d.fatal) showPlayerStatus('Erro ao reproduzir.');
+    });
+  } else {
+    vid.src = url;
+    vid.play().catch(() => {});
+    vid.onplaying = () => hidePlayerStatus();
+    vid.onerror = () => showPlayerStatus('Erro ao reproduzir.');
+  }
+}
+
+function closePlayer() {
+  const vid = document.getElementById('vid');
+  vid.pause(); vid.src = '';
+  if (playerHls) { playerHls.destroy(); playerHls = null; }
+  document.getElementById('player').style.display = 'none';
+  document.getElementById('osd').style.display = 'none';
+
+  if (detailState.item) {
+    focusZone = 'detail';
+  } else {
+    focusZone = 'content';
+    // Re-play live channel if on live tab
+    if (sections[tabIndex] && sections[tabIndex].kind === 'live') {
+      playChannel(liveState.idx);
+    }
+  }
+}
+
+function showOsd(name, info) {
+  document.getElementById('osdName').textContent = name || '';
+  document.getElementById('osdInfo').textContent = info || '';
+  document.getElementById('osd').style.display = 'block';
+  clearTimeout(osdTimer);
+  osdTimer = setTimeout(() => { document.getElementById('osd').style.display = 'none'; }, 4000);
+}
+
+function showPlayerStatus(msg) {
+  const el = document.getElementById('playerStatus');
+  if (el) { el.textContent = msg; el.style.display = 'block'; }
+}
+function hidePlayerStatus() {
+  const el = document.getElementById('playerStatus');
+  if (el) el.style.display = 'none';
+}
+
+// ── Open live fullscreen ──
+function openLiveFullscreen() {
+  const ch = liveState.channels[liveState.idx];
+  if (!ch) return;
+  const vid = document.getElementById('liveVid');
+
+  document.getElementById('player').style.display = 'block';
+  const playerVid = document.getElementById('vid');
+  focusZone = 'player';
+
+  // Transfer HLS to fullscreen player
+  if (liveState.hls) {
+    liveState.hls.detachMedia();
+    liveState.hls.attachMedia(playerVid);
+    playerVid.play().catch(() => {});
+  } else {
+    playerVid.src = vid.src;
+    playerVid.play().catch(() => {});
+  }
+  showOsd(ch.title, ch.info || '');
+  liveState.mode = 'full';
+}
+
+// ── Navigation ──
+document.addEventListener('keydown', function(e) {
+  const key = e.keyCode;
+  e.preventDefault();
+  e.stopPropagation();
+
+  // Back button (webOS 461, Escape 27, Backspace 8)
+  if (key === 461 || key === 27 || key === 8) {
+    handleBack();
+    return;
+  }
+
+  if (focusZone === 'player') {
+    handlePlayerKey(key);
+  } else if (focusZone === 'detail') {
+    handleDetailKey(key);
+  } else if (focusZone === 'tabs') {
+    handleTabKey(key);
+  } else if (focusZone === 'content') {
+    handleContentKey(key);
+  }
+});
+
+function handleBack() {
+  if (focusZone === 'player') {
+    closePlayer();
+  } else if (focusZone === 'detail') {
+    closeDetail();
+  } else if (focusZone === 'content') {
+    focusZone = 'tabs';
+    refreshTabUI();
+  } else {
+    // Already on tabs — could exit app
+  }
+}
+
+function handleTabKey(key) {
+  if (key === 37) { // Left
+    if (tabIndex > 0) { tabIndex--; showTab(tabIndex); }
+  } else if (key === 39) { // Right
+    if (tabIndex < sections.length - 1) { tabIndex++; showTab(tabIndex); }
+  } else if (key === 40 || key === 13) { // Down or OK
+    focusZone = 'content';
+    refreshTabUI();
+    focusContent();
+  }
+}
+
+function handleContentKey(key) {
+  const s = sections[tabIndex];
+  if (!s) return;
+
+  if (s.kind === 'live') {
+    handleLiveKey(key);
+  } else {
+    handleGridKey(key);
+  }
+}
+
+function focusContent() {
+  const s = sections[tabIndex];
+  if (!s) return;
+  if (s.kind === 'live') {
+    focusChannel(liveState.idx);
+  } else {
+    refreshGridFocus();
+  }
+}
+
+// ── Live keys ──
+let zapTimer = null;
+function handleLiveKey(key) {
+  const chs = liveState.channels;
+  if (key === 38) { // Up
+    if (liveState.idx > 0) {
+      focusChannel(liveState.idx - 1);
+      clearTimeout(zapTimer);
+      zapTimer = setTimeout(() => playChannel(liveState.idx), 700);
+    } else {
+      focusZone = 'tabs';
+      refreshTabUI();
+    }
+  } else if (key === 40) { // Down
+    if (liveState.idx < chs.length - 1) {
+      focusChannel(liveState.idx + 1);
+      clearTimeout(zapTimer);
+      zapTimer = setTimeout(() => playChannel(liveState.idx), 700);
+    }
+  } else if (key === 13) { // OK — fullscreen
+    openLiveFullscreen();
+  } else if (key === 38 && liveState.idx === 0) {
+    focusZone = 'tabs';
+    refreshTabUI();
+  }
+}
+
+// ── Grid keys ──
+function handleGridKey(key) {
+  const cats = gridState.catItems;
+  if (!cats.length) return;
+
+  if (key === 38) { // Up
+    if (gridState.rowIdx > 0) {
+      gridState.rowIdx--;
+      const maxCol = (cats[gridState.rowIdx].items || []).length - 1;
+      if (gridState.colIdx > maxCol) gridState.colIdx = maxCol;
+      refreshGridFocus();
+    } else {
+      focusZone = 'tabs';
+      refreshTabUI();
+    }
+  } else if (key === 40) { // Down
+    if (gridState.rowIdx < cats.length - 1) {
+      gridState.rowIdx++;
+      const maxCol = (cats[gridState.rowIdx].items || []).length - 1;
+      if (gridState.colIdx > maxCol) gridState.colIdx = maxCol;
+      refreshGridFocus();
+    }
+  } else if (key === 37) { // Left
+    if (gridState.colIdx > 0) {
+      gridState.colIdx--;
+      refreshGridFocus();
+    }
+  } else if (key === 39) { // Right
+    const maxCol = (cats[gridState.rowIdx].items || []).length - 1;
+    if (gridState.colIdx < maxCol) {
+      gridState.colIdx++;
+      refreshGridFocus();
+    }
+  } else if (key === 13) { // OK
+    const item = cats[gridState.rowIdx]?.items?.[gridState.colIdx];
+    if (item) {
+      if (item.seasons || item.url) {
+        openDetail(item);
+      }
+    }
+  }
+}
+
+// ── Detail keys ──
+function handleDetailKey(key) {
+  const item = detailState.item;
+  if (!item) return;
+
+  if (detailState.isMovie) {
+    // Movie: play button
+    if (key === 13) {
+      openPlayer(item.url, item.title);
+    }
+    return;
+  }
+
+  if (detailState.zone === 'seasons') {
+    if (key === 37) { // Left
+      if (detailState.seasonIdx > 0) {
+        detailState.seasonIdx--;
+        renderEpisodes(detailState.seasonIdx);
+        refreshDetailFocus();
+      }
+    } else if (key === 39) { // Right
+      if (detailState.seasonIdx < item.seasons.length - 1) {
+        detailState.seasonIdx++;
+        renderEpisodes(detailState.seasonIdx);
+        refreshDetailFocus();
+      }
+    } else if (key === 40 || key === 13) { // Down or OK
+      detailState.zone = 'episodes';
+      detailState.epIdx = 0;
+      refreshDetailFocus();
+    }
+  } else if (detailState.zone === 'episodes') {
+    const season = item.seasons[detailState.seasonIdx];
+    const eps = season ? season.episodes || [] : [];
+
+    if (key === 38) { // Up
+      if (detailState.epIdx > 0) {
+        detailState.epIdx--;
+        refreshDetailFocus();
+      } else {
+        detailState.zone = 'seasons';
+        refreshDetailFocus();
+      }
+    } else if (key === 40) { // Down
+      if (detailState.epIdx < eps.length - 1) {
+        detailState.epIdx++;
+        refreshDetailFocus();
+      }
+    } else if (key === 13) { // OK — play
+      const ep = eps[detailState.epIdx];
+      if (ep && ep.url) {
+        const epTitle = item.title + ' — ' + (ep.episode || '') + ' ' + (ep.title || '');
+        openPlayer(ep.url, epTitle);
+      }
+    }
+  }
+}
+
+// ── Player keys ──
+function handlePlayerKey(key) {
+  if (key === 13) { // OK — show OSD
+    const ch = liveState.channels[liveState.idx];
+    if (liveState.mode === 'full' && ch) {
+      showOsd(ch.title, ch.info || '');
+    }
+  } else if (key === 38) { // Up — zap up (live)
+    if (liveState.mode === 'full') {
+      zapLive(-1);
+    }
+  } else if (key === 40) { // Down — zap down (live)
+    if (liveState.mode === 'full') {
+      zapLive(1);
+    }
+  }
+}
+
+function zapLive(delta) {
+  const chs = liveState.channels;
+  if (chs.length === 0) return;
+  let idx = liveState.idx + delta;
+  if (idx < 0) idx = chs.length - 1;
+  if (idx >= chs.length) idx = 0;
+  liveState.idx = idx;
+
+  const ch = chs[idx];
+  if (!ch) return;
+
+  const vid = document.getElementById('vid');
+  if (playerHls) { playerHls.destroy(); playerHls = null; }
+
+  if (ch.url.includes('.m3u8') && Hls.isSupported()) {
+    playerHls = new Hls({ maxBufferLength: 10, maxMaxBufferLength: 30 });
+    playerHls.loadSource(ch.url);
+    playerHls.attachMedia(vid);
+    playerHls.on(Hls.Events.MANIFEST_PARSED, () => vid.play().catch(() => {}));
+  } else {
+    vid.src = ch.url;
+    vid.play().catch(() => {});
+  }
+  showOsd(ch.title, ch.info || '');
+}
+
+// ── Utils ──
+function esc(s) {
+  if (!s) return '';
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ── Start ──
+init();
+</script>
+</body>
+</html>

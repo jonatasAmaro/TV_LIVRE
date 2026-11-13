@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg_dark">#0B0F1A</color>
+    <color name="tab_bg">#1A1F2E</color>
+    <color name="tab_selected">#FFB800</color>
+    <color name="tab_text">#FFFFFF</color>
+    <color name="accent_orange">#FF8C00</color>
+    <color name="hero_overlay">#80000000</color>
+</resources>

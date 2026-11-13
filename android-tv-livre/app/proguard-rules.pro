@@ -1,0 +1,2 @@
+-keep class com.amarotv.tvlivre.data.** { *; }
+-keepclassmembers class com.amarotv.tvlivre.data.** { *; }
