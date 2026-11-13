@@ -1,5 +1,5 @@
 {
-  "catalogVersion": "2026111208",
+  "catalogVersion": "2026111209",
   "versionUrl": "",
   "catalogUrl": "https://tv-livre-catalog.jonatas-amaro2.workers.dev/catalog.json",
   "animeRefreshHours": 6,
@@ -17242,16 +17242,6 @@
         {
           "title": "Religiosos",
           "items": [
-            {
-              "id": "a_forja",
-              "title": "A Forja – O Poder da Transformação",
-              "year": "2024",
-              "poster": "https://image.tmdb.org/t/p/w500/uMM2o08s3BFUic2nWIEdHgQsG8Z.jpg",
-              "saimoId": "1186532",
-              "summary": "Um ano depois de terminar o ensino médio, Isaiah Wright não tem planos para o futuro e é desafiado por sua mãe solo e um empresário a começar a se preparar para liderar. Precisa de um mentor para forjá-lo.",
-              "imdb": "tt26731216",
-              "banner": "https://image.tmdb.org/t/p/w1280/uMM2o08s3BFUic2nWIEdHgQsG8Z.jpg"
-            },
             {
               "id": "quarto_de_guerra",
               "title": "Quarto de Guerra",
