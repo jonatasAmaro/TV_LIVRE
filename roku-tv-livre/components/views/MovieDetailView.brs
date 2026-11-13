@@ -116,10 +116,40 @@ end sub
 sub watch(fromStart as Boolean)
     it = m.top.item
     url = To_Str(it.url)
+    saimoId = To_Str(it.saimoId)
+
+    if url = "" and saimoId <> ""
+        m.status.text = "Carregando stream..."
+        m.watchFromStart = fromStart
+        task = CreateObject("roSGNode", "SaimoTask")
+        task.seriesId = saimoId
+        task.tipo = "filmes"
+        task.observeField("result", "onSaimoMovieResult")
+        task.control = "run"
+        m.saimoTask = task
+        return
+    end if
+
     if url = ""
         m.status.text = "Este filme ainda não tem URL configurada."
         return
     end if
+    playMovie(url, fromStart)
+end sub
+
+sub onSaimoMovieResult()
+    res = m.saimoTask.result
+    m.saimoTask = invalid
+    if res = invalid or not Is_True(res.ok) or To_Str(res.url) = ""
+        m.status.text = "Stream indisponível."
+        return
+    end if
+    m.status.text = ""
+    playMovie(To_Str(res.url), m.watchFromStart)
+end sub
+
+sub playMovie(url as String, fromStart as Boolean)
+    it = m.top.item
     start = m.resumeAt
     if fromStart then start = 0
     m.top.navigate = {

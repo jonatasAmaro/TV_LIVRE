@@ -6,6 +6,7 @@ sub execute()
     seriesId = m.top.seriesId
     season = m.top.season
     episode = m.top.episode
+    tipo = m.top.tipo
 
     if seriesId = "" or seriesId = invalid
         m.top.result = { ok: false, url: "", format: "" }
@@ -13,9 +14,11 @@ sub execute()
     end if
 
     workerBase = "https://tv-livre-catalog.jonatas-amaro2.workers.dev"
-    url = workerBase + "/saimo?id=" + seriesId
-    url = url + "&season=" + season.ToStr()
-    url = url + "&episode=" + episode.ToStr()
+    url = workerBase + "/saimo?id=" + seriesId + "&tipo=" + tipo
+    if tipo <> "filmes"
+        url = url + "&season=" + season.ToStr()
+        url = url + "&episode=" + episode.ToStr()
+    end if
 
     data = Http_GetJson(url)
     if data = invalid or not Is_True(data.ok)
