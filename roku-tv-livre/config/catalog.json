@@ -1,5 +1,5 @@
 {
-  "catalogVersion": "2026111312",
+  "catalogVersion": "2026111313",
   "versionUrl": "",
   "catalogUrl": "https://tv-livre-catalog.jonatas-amaro2.workers.dev/catalog.json",
   "animeRefreshHours": 6,
@@ -17150,7 +17150,7 @@
       "tab": "FILMES",
       "rows": [
         {
-          "title": "John Wick",
+          "title": "LENDÁRIOS",
           "items": [
             {
               "id": "john_wick_1",
@@ -17194,19 +17194,14 @@
             },
             {
               "id": "bailarina",
-              "title": "Bailarina - Do Universo de John Wick",
+              "title": "Bailarina: Do Universo de John Wick",
               "year": "2025",
               "poster": "https://image.tmdb.org/t/p/w500/by5hjYJp3OJ8GW118kPeURp1rFo.jpg",
               "url": "https://roku-proxy.jonatas-amaro2.workers.dev/?url=http%3A%2F%2Fdbonline.tech-cdn.top%3A80%2Fmovie%2Fke-vin-0928392083%2FPZjF6XATTZ%2F4414.mp4",
               "summary": "Bailarina se passa durante os eventos de 'John Wick 3: Parabellum' e acompanha Eve Macarro, que está começando seu treinamento nas tradições da organização Ruska Roma para se tornar uma assassina que buscará vingança contra aqueles que destruíram sua família.",
               "imdb": "tt8344790",
               "banner": "https://image.tmdb.org/t/p/w1280/1yktYsxkmUtUFTUnCAUaqG6FEiz.jpg"
-            }
-          ]
-        },
-        {
-          "title": "O Protetor",
-          "items": [
+            },
             {
               "id": "o_protetor_1",
               "title": "O Protetor",
@@ -17236,6 +17231,16 @@
               "summary": "Sentindo-se em casa no sul da Itália, o ex-agente Robert McCall logo descobre que seus novos amigos estão sob o controle dos chefes do crime local. À medida que os acontecimentos se tornam mortais, McCall sabe o que tem de fazer: tornar-se o protetor dos seus amigos, enfrentando a máfia.",
               "imdb": "tt17024450",
               "banner": "https://image.tmdb.org/t/p/w1280/gystuaqp5AkVqqu3Nf0564zeOv4.jpg"
+            },
+            {
+              "id": "peaky_blinders",
+              "title": "Peaky Blinders: O Homem Imortal",
+              "year": "2026",
+              "poster": "https://image.tmdb.org/t/p/w500/8XLNDeumvz0cXa6sntZJ6p4zfLb.jpg",
+              "saimoId": "875828",
+              "summary": "Depois que o filho se envolve em uma trama nazista, o gângster Tommy Shelby deixa o exílio e volta a Birmingham para proteger a família e o país.",
+              "imdb": "tt15574124",
+              "banner": "https://image.tmdb.org/t/p/w1280/1fkuBPid72KGS6WmtkEXMftZtkE.jpg"
             }
           ]
         },
