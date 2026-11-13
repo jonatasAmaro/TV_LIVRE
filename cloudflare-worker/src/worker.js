@@ -50,12 +50,13 @@ export default {
 
       if (url.pathname === '/saimo') {
         const seriesId = url.searchParams.get('id');
+        const tipo = url.searchParams.get('tipo') || 'series';
         const season = url.searchParams.get('season') || '1';
         const episode = url.searchParams.get('episode') || '1';
         if (!seriesId) {
           return corsResponse(json({ error: 'missing ?id= param' }, 400));
         }
-        return corsResponse(await handleSaimo(seriesId, season, episode));
+        return corsResponse(await handleSaimo(seriesId, season, episode, tipo));
       }
 
       if (url.pathname === '/health') {
@@ -167,6 +168,12 @@ async function handleKairou(tmdbId, season, episode, title) {
     streamUrl = 'https://kairou.space' + streamUrl;
   }
 
+  // Unwrap kairou proxy to get direct URL (Android can't play through kairou proxy)
+  const directUrl = extractProxyTarget(streamUrl);
+  if (directUrl) {
+    streamUrl = directUrl;
+  }
+
   // Extract subtitles
   const subs = [];
   if (data.subtitles && Array.isArray(data.subtitles)) {
@@ -263,7 +270,7 @@ async function handleTokyvideo(pageUrl, mode, clientReq) {
 
 // ---------- Saimo Stream Resolver ----------
 
-async function handleSaimo(seriesId, season, episode) {
+async function handleSaimo(seriesId, season, episode, tipo = 'series') {
   const headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
     'Referer': 'https://saimo-tv.pages.dev/',
@@ -273,8 +280,9 @@ async function handleSaimo(seriesId, season, episode) {
   let proxyFallbackUrl = null;
 
   for (const versao of ['dub', 'leg']) {
-    const streamUrl =
-      `https://saimo-tv.pages.dev/api/stream?tipo=series&id=${seriesId}&s=${season}&e=${episode}&versao=${versao}&json=1`;
+    const streamUrl = tipo === 'filmes'
+      ? `https://saimo-tv.pages.dev/api/stream?tipo=filmes&id=${seriesId}&versao=${versao}&json=1`
+      : `https://saimo-tv.pages.dev/api/stream?tipo=series&id=${seriesId}&s=${season}&e=${episode}&versao=${versao}&json=1`;
 
     try {
       const resp = await fetch(streamUrl, { headers });

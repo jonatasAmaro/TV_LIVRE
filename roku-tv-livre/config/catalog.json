@@ -1,5 +1,5 @@
 {
-  "catalogVersion": "2026111206",
+  "catalogVersion": "2026111207",
   "versionUrl": "",
   "catalogUrl": "https://tv-livre-catalog.jonatas-amaro2.workers.dev/catalog.json",
   "animeRefreshHours": 6,
@@ -17236,6 +17236,61 @@
               "summary": "Sentindo-se em casa no sul da Itália, o ex-agente Robert McCall logo descobre que seus novos amigos estão sob o controle dos chefes do crime local. À medida que os acontecimentos se tornam mortais, McCall sabe o que tem de fazer: tornar-se o protetor dos seus amigos, enfrentando a máfia.",
               "imdb": "tt17024450",
               "banner": "https://image.tmdb.org/t/p/w1280/gystuaqp5AkVqqu3Nf0564zeOv4.jpg"
+            }
+          ]
+        },
+        {
+          "title": "Religiosos",
+          "items": [
+            {
+              "id": "a_forja",
+              "title": "A Forja – O Poder da Transformação",
+              "year": "2024",
+              "poster": "https://image.tmdb.org/t/p/w500/uMM2o08s3BFUic2nWIEdHgQsG8Z.jpg",
+              "saimoId": "1186532",
+              "summary": "Um ano depois de terminar o ensino médio, Isaiah Wright não tem planos para o futuro e é desafiado por sua mãe solo e um empresário a começar a se preparar para liderar. Precisa de um mentor para forjá-lo.",
+              "imdb": "tt26731216",
+              "banner": "https://image.tmdb.org/t/p/w1280/uMM2o08s3BFUic2nWIEdHgQsG8Z.jpg"
+            },
+            {
+              "id": "quarto_de_guerra",
+              "title": "Quarto de Guerra",
+              "year": "2015",
+              "poster": "https://image.tmdb.org/t/p/w500/kyssvvCXc13c9VC7QTWjRo12FyE.jpg",
+              "saimoId": "323272",
+              "summary": "Tony e Elizabeth Jordan aparentam ter tudo — bons empregos, uma filha adorável e uma bela casa. Mas as aparências enganam. Seu casamento está desmoronando, até que uma idosa sábia ensina Elizabeth o poder da oração.",
+              "imdb": "tt3832914",
+              "banner": "https://image.tmdb.org/t/p/w1280/kyssvvCXc13c9VC7QTWjRo12FyE.jpg"
+            },
+            {
+              "id": "deus_nao_esta_morto",
+              "title": "Deus Não Está Morto",
+              "year": "2014",
+              "poster": "https://image.tmdb.org/t/p/w500/f9whWUktQSg3kdM7xg6HJ6PnoJR.jpg",
+              "saimoId": "249660",
+              "summary": "Josh Wheaton, um estudante universitário cristão, tem sua fé desafiada pelo professor de filosofia que exige que seus alunos assinem uma declaração de que 'Deus está morto'. Josh se recusa e aceita o desafio de provar a existência de Deus.",
+              "imdb": "tt2528814",
+              "banner": "https://image.tmdb.org/t/p/w1280/f9whWUktQSg3kdM7xg6HJ6PnoJR.jpg"
+            },
+            {
+              "id": "deus_nao_esta_morto_2",
+              "title": "Deus Não Está Morto 2",
+              "year": "2016",
+              "poster": "https://image.tmdb.org/t/p/w500/c9xXefsaYEp5cg9Gdjq0jZeX0g9.jpg",
+              "saimoId": "347126",
+              "summary": "Quando uma professora do ensino médio responde a pergunta de uma aluna sobre Jesus, ela é levada a julgamento e arrisca tudo para defender sua fé.",
+              "imdb": "tt4824308",
+              "banner": "https://image.tmdb.org/t/p/w1280/c9xXefsaYEp5cg9Gdjq0jZeX0g9.jpg"
+            },
+            {
+              "id": "a_cabana",
+              "title": "A Cabana",
+              "year": "2017",
+              "poster": "https://image.tmdb.org/t/p/w500/yf2WNfO1b0E1IcJDLUiGj7ccKRm.jpg",
+              "saimoId": "345938",
+              "summary": "Após a trágica morte de sua filha mais nova, Mack Phillips mergulha em uma profunda depressão. Um misterioso bilhete o atrai de volta à cabana onde a tragédia aconteceu, onde ele encontra Deus e tem uma experiência transformadora.",
+              "imdb": "tt2872518",
+              "banner": "https://image.tmdb.org/t/p/w1280/yf2WNfO1b0E1IcJDLUiGj7ccKRm.jpg"
             }
           ]
         }
