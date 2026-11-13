@@ -53,7 +53,8 @@ sub startUrl(startPos as Integer)
     else
         ' Archive files are MP4; configured movie URLs may also be HLS playlists.
         c.streamFormat = "mp4"
-        if Instr(1, LCase(c.url), ".m3u8") > 0 then c.streamFormat = "hls"
+        lowUrl = LCase(c.url)
+        if Instr(1, lowUrl, ".m3u8") > 0 or Instr(1, lowUrl, "master.txt") > 0 or Instr(1, lowUrl, "/hls/") > 0 then c.streamFormat = "hls"
         if startPos > 0 then c.playStart = startPos
     end if
     m.video.content = c
