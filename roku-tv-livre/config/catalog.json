@@ -1,5 +1,5 @@
 {
-  "catalogVersion": "2026111205",
+  "catalogVersion": "2026111206",
   "versionUrl": "",
   "catalogUrl": "https://tv-livre-catalog.jonatas-amaro2.workers.dev/catalog.json",
   "animeRefreshHours": 6,
@@ -9925,6 +9925,33 @@
                 }
               ],
               "banner": "https://image.tmdb.org/t/p/w1280/3siv3RaQrdr2tQiv9jHq71sLlzo.jpg"
+            },
+            {
+              "id": "testamento_historia_moises",
+              "kind": "series",
+              "title": "Testamento: A História de Moisés",
+              "subtitle": "Testament: The Story of Moses",
+              "glyph": "SÉRIES",
+              "color": "0xD4A373FF",
+              "tab": "SÉRIES",
+              "poster": "https://image.tmdb.org/t/p/w500/uVfRj5YElE42h4xBq1IyLnH9YTT.jpg",
+              "summary": "Docudrama que mistura entrevistas com especialistas e recriações ficcionais, contando a jornada de Moisés desde sua criação no Egito até liderar os israelitas à Terra Prometida.",
+              "year": "2024",
+              "rating": "7.2",
+              "genres": "Documentário, Drama",
+              "saimoId": "247441",
+              "imdb": "tt27157026",
+              "seasons": [
+                {
+                  "title": "Temporada 1",
+                  "episodes": [
+                    { "title": "EP 1", "source": "saimo" },
+                    { "title": "EP 2", "source": "saimo" },
+                    { "title": "EP 3", "source": "saimo" }
+                  ]
+                }
+              ],
+              "banner": "https://image.tmdb.org/t/p/w1280/2Nti6JfqkclYMQIBbp5oI8mOi0j.jpg"
             }
           ]
         }
