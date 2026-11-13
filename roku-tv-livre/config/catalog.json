@@ -1,5 +1,5 @@
 {
-  "catalogVersion": "2026111313",
+  "catalogVersion": "2026111314",
   "versionUrl": "",
   "catalogUrl": "https://tv-livre-catalog.jonatas-amaro2.workers.dev/catalog.json",
   "animeRefreshHours": 6,
@@ -17238,6 +17238,7 @@
               "year": "2026",
               "poster": "https://image.tmdb.org/t/p/w500/8XLNDeumvz0cXa6sntZJ6p4zfLb.jpg",
               "saimoId": "875828",
+              "saimoFonte": "2",
               "summary": "Depois que o filho se envolve em uma trama nazista, o gângster Tommy Shelby deixa o exílio e volta a Birmingham para proteger a família e o país.",
               "imdb": "tt15574124",
               "banner": "https://image.tmdb.org/t/p/w1280/1fkuBPid72KGS6WmtkEXMftZtkE.jpg"
