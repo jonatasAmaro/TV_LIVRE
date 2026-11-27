@@ -1,5 +1,5 @@
 {
-  "catalogVersion": "2026111401",
+  "catalogVersion": "2026112701",
   "versionUrl": "",
   "catalogUrl": "https://tv-livre-catalog.jonatas-amaro2.workers.dev/catalog.json",
   "animeRefreshHours": 6,
@@ -10209,221 +10209,456 @@
             {
               "id": "re_zero_dub",
               "title": "Re:Zero kara Hajimeru Isekai Seikatsu Dublado",
-              "poster": "https://sm.ign.com/ign_br/screenshot/default/captura-de-tela-2025-11-17-094111_du42.png",
+              "poster": "https://image.tmdb.org/t/p/w342/oHqYrPAsIiTD5m4DuxumV4er8BU.jpg",
               "malId": 31240,
               "seasons": [
                 {
                   "title": "Temporada 1",
                   "episodes": [
                     {
-                      "title": "Episódio 1",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-dublado/01.mp4/index.m3u8"
+                      "title": "EP 1",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 2",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-dublado/02.mp4/index.m3u8"
+                      "title": "EP 2",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 3",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-dublado/03.mp4/index.m3u8"
+                      "title": "EP 3",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 4",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-dublado/04.mp4/index.m3u8"
+                      "title": "EP 4",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 5",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-dublado/05.mp4/index.m3u8"
+                      "title": "EP 5",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 6",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-dublado/06.mp4/index.m3u8"
+                      "title": "EP 6",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 7",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-dublado/07.mp4/index.m3u8"
+                      "title": "EP 7",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 8",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-dublado/08.mp4/index.m3u8"
+                      "title": "EP 8",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 9",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-dublado/09.mp4/index.m3u8"
+                      "title": "EP 9",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 10",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-dublado/10.mp4/index.m3u8"
+                      "title": "EP 10",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 11",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-dublado/11.mp4/index.m3u8"
+                      "title": "EP 11",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 12",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-dublado/12.mp4/index.m3u8"
+                      "title": "EP 12",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 13",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-dublado/13.mp4/index.m3u8"
+                      "title": "EP 13",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 14",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-dublado/14.mp4/index.m3u8"
+                      "title": "EP 14",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 15",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-dublado/15.mp4/index.m3u8"
+                      "title": "EP 15",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 16",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-dublado/16.mp4/index.m3u8"
+                      "title": "EP 16",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 17",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-dublado/17.mp4/index.m3u8"
+                      "title": "EP 17",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 18",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-dublado/18.mp4/index.m3u8"
+                      "title": "EP 18",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 19",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-dublado/19.mp4/index.m3u8"
+                      "title": "EP 19",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 20",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-dublado/20.mp4/index.m3u8"
+                      "title": "EP 20",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 21",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-dublado/21.mp4/index.m3u8"
+                      "title": "EP 21",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 22",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-dublado/22.mp4/index.m3u8"
+                      "title": "EP 22",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 23",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-dublado/23.mp4/index.m3u8"
+                      "title": "EP 23",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 24",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-dublado/24.mp4/index.m3u8"
+                      "title": "EP 24",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 25",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-dublado/25.mp4/index.m3u8"
+                      "title": "EP 25",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 26",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 27",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 28",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 29",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 30",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 31",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 32",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 33",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 34",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 35",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 36",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 37",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 38",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 39",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 40",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 41",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 42",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 43",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 44",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 45",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 46",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 47",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 48",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 49",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 50",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 51",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 52",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 53",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 54",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 55",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 56",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 57",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 58",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 59",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 60",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 61",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 62",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 63",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 64",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 65",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 66",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 67",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 68",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 69",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 70",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 71",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 72",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 73",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 74",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 75",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 76",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 77",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 78",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 79",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 80",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 81",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 82",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 83",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 84",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 85",
+                      "source": "saimo"
                     }
                   ]
                 },
                 {
-                  "title": "Temporada 2 - Parte 1",
+                  "title": "Temporada 2",
                   "episodes": [
                     {
-                      "title": "Episódio 1",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-2-dublado/01.mp4/index.m3u8"
+                      "title": "EP 1",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 2",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-2-dublado/02.mp4/index.m3u8"
+                      "title": "EP 2",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 3",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-2-dublado/03.mp4/index.m3u8"
+                      "title": "EP 3",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 4",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-2-dublado/04.mp4/index.m3u8"
+                      "title": "EP 4",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 5",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-2-dublado/05.mp4/index.m3u8"
+                      "title": "EP 5",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 6",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-2-dublado/06.mp4/index.m3u8"
+                      "title": "EP 6",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 7",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-2-dublado/07.mp4/index.m3u8"
+                      "title": "EP 7",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 8",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-2-dublado/08.mp4/index.m3u8"
+                      "title": "EP 8",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 9",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-2-dublado/09.mp4/index.m3u8"
+                      "title": "EP 9",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 10",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-2-dublado/10.mp4/index.m3u8"
+                      "title": "EP 10",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 11",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-2-dublado/11.mp4/index.m3u8"
+                      "title": "EP 11",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 12",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-2-dublado/12.mp4/index.m3u8"
+                      "title": "EP 12",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 13",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-2-dublado/13.mp4/index.m3u8"
-                    }
-                  ]
-                },
-                {
-                  "title": "Temporada 2 - Parte 2",
-                  "episodes": [
-                    {
-                      "title": "Episódio 1",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-2-part-2-dublado/01.mp4/index.m3u8"
+                      "title": "EP 13",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 2",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-2-part-2-dublado/02.mp4/index.m3u8"
+                      "title": "EP 14",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 3",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-2-part-2-dublado/03.mp4/index.m3u8"
+                      "title": "EP 15",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 4",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-2-part-2-dublado/04.mp4/index.m3u8"
+                      "title": "EP 16",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 5",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-2-part-2-dublado/05.mp4/index.m3u8"
+                      "title": "EP 17",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 6",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-2-part-2-dublado/06.mp4/index.m3u8"
+                      "title": "EP 18",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 7",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-2-part-2-dublado/07.mp4/index.m3u8"
+                      "title": "EP 19",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 8",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-2-part-2-dublado/08.mp4/index.m3u8"
+                      "title": "EP 20",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 9",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-2-part-2-dublado/09.mp4/index.m3u8"
+                      "title": "EP 21",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 10",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-2-part-2-dublado/10.mp4/index.m3u8"
+                      "title": "EP 22",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 11",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-2-part-2-dublado/11.mp4/index.m3u8"
+                      "title": "EP 23",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 12",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-2-part-2-dublado/12.mp4/index.m3u8"
+                      "title": "EP 24",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 25",
+                      "source": "saimo"
                     }
                   ]
                 },
@@ -10431,68 +10666,68 @@
                   "title": "Temporada 3",
                   "episodes": [
                     {
-                      "title": "Episódio 1",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-3-dublado/01.mp4/index.m3u8"
+                      "title": "EP 1",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 2",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-3-dublado/02.mp4/index.m3u8"
+                      "title": "EP 2",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 3",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-3-dublado/03.mp4/index.m3u8"
+                      "title": "EP 3",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 4",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-3-dublado/04.mp4/index.m3u8"
+                      "title": "EP 4",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 5",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-3-dublado/05.mp4/index.m3u8"
+                      "title": "EP 5",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 6",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-3-dublado/06.mp4/index.m3u8"
+                      "title": "EP 6",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 7",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-3-dublado/07.mp4/index.m3u8"
+                      "title": "EP 7",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 8",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-3-dublado/08.mp4/index.m3u8"
+                      "title": "EP 8",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 9",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-3-dublado/09.mp4/index.m3u8"
+                      "title": "EP 9",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 10",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-3-dublado/10.mp4/index.m3u8"
+                      "title": "EP 10",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 11",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-3-dublado/11.mp4/index.m3u8"
+                      "title": "EP 11",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 12",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-3-dublado/12.mp4/index.m3u8"
+                      "title": "EP 12",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 13",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-3-dublado/13.mp4/index.m3u8"
+                      "title": "EP 13",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 14",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-3-dublado/14.mp4/index.m3u8"
+                      "title": "EP 14",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 15",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-3-dublado/15.mp4/index.m3u8"
+                      "title": "EP 15",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 16",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-3-dublado/16.mp4/index.m3u8"
+                      "title": "EP 16",
+                      "source": "saimo"
                     }
                   ]
                 },
@@ -10500,53 +10735,64 @@
                   "title": "Temporada 4",
                   "episodes": [
                     {
-                      "title": "Episódio 1",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-4-dublado/01.mp4/index.m3u8"
+                      "title": "EP 1",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 2",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-4-dublado/02.mp4/index.m3u8"
+                      "title": "EP 2",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 3",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-4-dublado/03.mp4/index.m3u8"
+                      "title": "EP 3",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 4",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-4-dublado/04.mp4/index.m3u8"
+                      "title": "EP 4",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 5",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-4-dublado/05.mp4/index.m3u8"
+                      "title": "EP 5",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 6",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-4-dublado/06.mp4/index.m3u8"
+                      "title": "EP 6",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 7",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-4-dublado/07.mp4/index.m3u8"
+                      "title": "EP 7",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 8",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-4-dublado/08.mp4/index.m3u8"
+                      "title": "EP 8",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 9",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-4-dublado/09.mp4/index.m3u8"
+                      "title": "EP 9",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 10",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-4-dublado/10.mp4/index.m3u8"
+                      "title": "EP 10",
+                      "source": "saimo"
                     },
                     {
-                      "title": "Episódio 11",
-                      "url": "https://cdn-sv01.maximaimg.online/stream/r/re-zero-4-dublado/11.mp4/index.m3u8"
+                      "title": "EP 11",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 12",
+                      "source": "saimo"
+                    },
+                    {
+                      "title": "EP 13",
+                      "source": "saimo"
                     }
                   ]
                 }
               ],
-              "banner": "https://image.tmdb.org/t/p/w1280/7ZruEnSnHD6Jx5mF0hBt1E306Vt.jpg"
+              "banner": "https://image.tmdb.org/t/p/w1280/blQAnnr142bJZVCqj7SdZV7UvCT.jpg",
+              "saimoId": "65942",
+              "kind": "series",
+              "background": "https://image.tmdb.org/t/p/w1280/blQAnnr142bJZVCqj7SdZV7UvCT.jpg"
             },
             {
               "id": "yu_yu_hakusho_dub",
