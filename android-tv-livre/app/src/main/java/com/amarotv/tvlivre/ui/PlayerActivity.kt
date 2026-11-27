@@ -46,6 +46,8 @@ class PlayerActivity : AppCompatActivity() {
         var tmdbId: String = ""
         var seriesTitle: String = ""
         var seasonIndex: Int = 0
+        var saimoSeasonOverride: Int = 0
+        var saimoEpisodeOffset: Int = 0
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -161,7 +163,9 @@ class PlayerActivity : AppCompatActivity() {
         val ep = episodeList[episodeIndex]
 
         if (ep.source == "saimo" && saimoId.isNotEmpty() && ep.url.isEmpty()) {
-            val endpoint = "https://tv-livre-catalog.jonatas-amaro2.workers.dev/saimo?id=$saimoId&season=${seasonIndex + 1}&episode=${episodeIndex + 1}"
+            val saimSeason = if (saimoSeasonOverride > 0) saimoSeasonOverride else seasonIndex + 1
+            val saimEpisode = episodeIndex + 1 + saimoEpisodeOffset
+            val endpoint = "https://tv-livre-catalog.jonatas-amaro2.workers.dev/saimo?id=$saimoId&season=$saimSeason&episode=$saimEpisode"
             resolveAndPlay(endpoint, episodeIndex)
         } else if (ep.source == "kairou" && tmdbId.isNotEmpty() && ep.url.isEmpty()) {
             val encoded = java.net.URLEncoder.encode(seriesTitle, "UTF-8")

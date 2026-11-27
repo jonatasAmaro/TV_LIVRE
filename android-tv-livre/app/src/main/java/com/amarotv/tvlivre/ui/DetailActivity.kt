@@ -22,6 +22,7 @@ import androidx.media3.ui.PlayerView
 import com.amarotv.tvlivre.R
 import com.amarotv.tvlivre.data.ContentItem
 import com.amarotv.tvlivre.data.Episode
+import com.amarotv.tvlivre.data.Season
 import com.bumptech.glide.Glide
 import androidx.media3.common.MimeTypes
 import org.json.JSONObject
@@ -45,6 +46,7 @@ class DetailActivity : AppCompatActivity() {
     private var selectedSeason = 0
     private var selectedEpisode = 0
     private var currentEpisodes: List<Episode> = emptyList()
+    private var currentSeasonData: Season? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -107,6 +109,7 @@ class DetailActivity : AppCompatActivity() {
         val seasons = item.seasons ?: return
         if (index >= seasons.size) return
         selectedSeason = index
+        currentSeasonData = seasons[index]
 
         currentEpisodes = seasons[index].episodes
         episodeCountLabel.text = "${currentEpisodes.size} episódio(s)"
@@ -193,7 +196,10 @@ class DetailActivity : AppCompatActivity() {
         Log.d("TVLivre", "resolveEpisodeUrl: title=${item.title} source=${ep.source} saimoId=${item.saimoId} tmdbId=${item.tmdbId} url=${ep.url}")
 
         if (ep.source == "saimo" && item.saimoId.isNotEmpty()) {
-            val endpoint = "https://tv-livre-catalog.jonatas-amaro2.workers.dev/saimo?id=${item.saimoId}&season=${seasonIdx + 1}&episode=${epIdx + 1}"
+            val sd = currentSeasonData
+            val saimSeason = if (sd != null && sd.saimoSeason > 0) sd.saimoSeason else seasonIdx + 1
+            val saimEpisode = epIdx + 1 + (sd?.saimoEpisodeOffset ?: 0)
+            val endpoint = "https://tv-livre-catalog.jonatas-amaro2.workers.dev/saimo?id=${item.saimoId}&season=$saimSeason&episode=$saimEpisode"
             resolveWorkerUrl(endpoint) { url, format ->
                 if (url != null) {
                     ep.url = url
@@ -265,6 +271,9 @@ class DetailActivity : AppCompatActivity() {
             PlayerActivity.tmdbId = item.tmdbId
             PlayerActivity.seriesTitle = item.title
             PlayerActivity.seasonIndex = selectedSeason
+            val sd = currentSeasonData
+            PlayerActivity.saimoSeasonOverride = sd?.saimoSeason ?: 0
+            PlayerActivity.saimoEpisodeOffset = sd?.saimoEpisodeOffset ?: 0
             val intent = Intent(this, PlayerActivity::class.java)
             intent.putExtra("url", url)
             intent.putExtra("format", ep.format)

@@ -292,8 +292,15 @@ sub playEpisode(idx as Integer, startAt as Integer)
         m.pendingStartAt = startAt
         m.saimoTask = CreateObject("roSGNode", "SaimoTask")
         m.saimoTask.seriesId = To_Str(m.top.item.saimoId)
-        m.saimoTask.season = m.currentSeason + 1
-        m.saimoTask.episode = idx + 1
+        sd = m.seasonData[m.currentSeason]
+        if sd.saimoSeason <> invalid and To_Int(sd.saimoSeason) > 0
+            m.saimoTask.season = To_Int(sd.saimoSeason)
+        else
+            m.saimoTask.season = m.currentSeason + 1
+        end if
+        offset = 0
+        if sd.saimoEpisodeOffset <> invalid then offset = To_Int(sd.saimoEpisodeOffset)
+        m.saimoTask.episode = idx + 1 + offset
         m.saimoTask.observeField("result", "onSaimoResolved")
         m.saimoTask.control = "run"
         return

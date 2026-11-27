@@ -55,7 +55,9 @@ data class ContentItem(
 
 data class Season(
     val number: Int = 1,
-    val episodes: List<Episode> = emptyList()
+    val episodes: List<Episode> = emptyList(),
+    val saimoSeason: Int = 0,
+    val saimoEpisodeOffset: Int = 0
 )
 
 data class Episode(
