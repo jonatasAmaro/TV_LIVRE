@@ -381,7 +381,7 @@ sub startPlayback(url as String, idx as Integer, startAt as Integer)
     c.url = url
     c.title = To_Str(m.top.item.title) + " - EP " + (idx + 1).ToStr()
     c.streamFormat = "mp4"
-    if Instr(1, LCase(url), ".m3u8") > 0 or Instr(1, LCase(url), "hls") > 0 then c.streamFormat = "hls"
+    if Instr(1, LCase(url), ".m3u8") > 0 or Instr(1, LCase(url), "hls") > 0 or Instr(1, LCase(url), "/anivideo") > 0 then c.streamFormat = "hls"
     if startAt > 0 then c.playStart = startAt
     m.video.control = "stop"
     m.video.content = c
