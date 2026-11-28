@@ -1,5 +1,5 @@
 {
-  "catalogVersion": "2026112707",
+  "catalogVersion": "2026112809",
   "versionUrl": "",
   "catalogUrl": "https://tv-livre-catalog.jonatas-amaro2.workers.dev/catalog.json",
   "animeRefreshHours": 6,
@@ -10431,72 +10431,23 @@
                   "saimoSeason": 3,
                   "saimoEpisodeOffset": 0,
                   "episodes": [
-                    {
-                      "title": "EP 1",
-                      "source": "anivideo"
-                    },
-                    {
-                      "title": "EP 2",
-                      "source": "anivideo"
-                    },
-                    {
-                      "title": "EP 3",
-                      "source": "anivideo"
-                    },
-                    {
-                      "title": "EP 4",
-                      "source": "anivideo"
-                    },
-                    {
-                      "title": "EP 5",
-                      "source": "anivideo"
-                    },
-                    {
-                      "title": "EP 6",
-                      "source": "anivideo"
-                    },
-                    {
-                      "title": "EP 7",
-                      "source": "anivideo"
-                    },
-                    {
-                      "title": "EP 8",
-                      "source": "anivideo"
-                    },
-                    {
-                      "title": "EP 9",
-                      "source": "anivideo"
-                    },
-                    {
-                      "title": "EP 10",
-                      "source": "anivideo"
-                    },
-                    {
-                      "title": "EP 11",
-                      "source": "anivideo"
-                    },
-                    {
-                      "title": "EP 12",
-                      "source": "anivideo"
-                    },
-                    {
-                      "title": "EP 13",
-                      "source": "anivideo"
-                    },
-                    {
-                      "title": "EP 14",
-                      "source": "anivideo"
-                    },
-                    {
-                      "title": "EP 15",
-                      "source": "anivideo"
-                    },
-                    {
-                      "title": "EP 16",
-                      "source": "anivideo"
-                    }
-                  ],
-                  "anivideoSlug": "re-zero-3-dublado"
+                    { "title": "EP 1", "source": "meusanimes" },
+                    { "title": "EP 2", "source": "meusanimes" },
+                    { "title": "EP 3", "source": "meusanimes" },
+                    { "title": "EP 4", "source": "meusanimes" },
+                    { "title": "EP 5", "source": "meusanimes" },
+                    { "title": "EP 6", "source": "meusanimes" },
+                    { "title": "EP 7", "source": "meusanimes" },
+                    { "title": "EP 8", "source": "meusanimes" },
+                    { "title": "EP 9", "source": "meusanimes" },
+                    { "title": "EP 10", "source": "meusanimes" },
+                    { "title": "EP 11", "source": "meusanimes" },
+                    { "title": "EP 12", "source": "meusanimes" },
+                    { "title": "EP 13", "source": "meusanimes" },
+                    { "title": "EP 14", "source": "meusanimes" },
+                    { "title": "EP 15", "source": "meusanimes" },
+                    { "title": "EP 16", "source": "meusanimes" }
+                  ]
                 },
                 {
                   "title": "Temporada 4",

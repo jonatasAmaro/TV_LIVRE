@@ -224,6 +224,22 @@ class DetailActivity : AppCompatActivity() {
             }
         }
 
+        if (ep.source == "meusanimes" && item.saimoId.isNotEmpty()) {
+            val sd = currentSeasonData
+            val maSeason = if (sd != null && sd.saimoSeason > 0) sd.saimoSeason else seasonIdx + 1
+            val endpoint = "https://tv-livre-catalog.jonatas-amaro2.workers.dev/meusanimes?tmdb=${item.saimoId}&season=$maSeason&episode=${epIdx + 1}"
+            resolveMeusanimes(endpoint, epIdx) { url ->
+                if (url != null) {
+                    ep.url = url
+                    ep.format = "mp4"
+                    callback(url)
+                } else {
+                    Toast.makeText(this, "Erro ao carregar stream", Toast.LENGTH_SHORT).show()
+                }
+            }
+            return
+        }
+
         if (ep.source == "kairou" && item.tmdbId.isNotEmpty()) {
             val encoded = java.net.URLEncoder.encode(item.title, "UTF-8")
             val endpoint = "https://tv-livre-catalog.jonatas-amaro2.workers.dev/kairou?tmdbId=${item.tmdbId}&season=${seasonIdx + 1}&episode=${epIdx + 1}&title=$encoded"
@@ -241,6 +257,60 @@ class DetailActivity : AppCompatActivity() {
 
         val finalUrl = unwrapProxy(ep.url)
         callback(finalUrl)
+    }
+
+    private fun resolveMeusanimes(endpoint: String, epIdx: Int, callback: (String?) -> Unit) {
+        Log.d("TVLivre", "resolveMeusanimes: $endpoint")
+        thread {
+            try {
+                val conn = URL(endpoint).openConnection() as HttpURLConnection
+                conn.connectTimeout = 15000
+                conn.readTimeout = 15000
+                val body = conn.inputStream.bufferedReader().readText()
+                val json = JSONObject(body)
+                if (!json.optBoolean("ok") || json.optString("bloggerUrl", "").isEmpty()) {
+                    runOnUiThread { callback(null) }
+                    return@thread
+                }
+                val bloggerUrl = json.getString("bloggerUrl")
+                val blogConn = URL(bloggerUrl).openConnection() as HttpURLConnection
+                blogConn.connectTimeout = 15000
+                blogConn.readTimeout = 15000
+                blogConn.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36")
+                val html = blogConn.inputStream.bufferedReader().readText()
+                val videoUrl = extractGooglevideo(html)
+                Log.d("TVLivre", "resolveMeusanimes extracted: $videoUrl")
+                runOnUiThread { callback(videoUrl) }
+            } catch (e: Exception) {
+                Log.e("TVLivre", "resolveMeusanimes error: ${e.message}", e)
+                runOnUiThread { callback(null) }
+            }
+        }
+    }
+
+    private fun extractGooglevideo(html: String): String? {
+        for (itag in listOf("22", "18")) {
+            for (marker in listOf("itag\\u003d$itag", "itag=$itag")) {
+                val itagPos = html.indexOf(marker)
+                if (itagPos < 0) continue
+                val searchFrom = maxOf(0, itagPos - 600)
+                val urlStart = html.lastIndexOf("https://", itagPos)
+                if (urlStart < searchFrom) continue
+                var urlEnd = itagPos + marker.length
+                while (urlEnd < html.length) {
+                    val c = html[urlEnd]
+                    if (c == '"' || c == '\'' || c == ' ' || c == '\n' || c == '<' || c == '>') break
+                    if (c == '&' && html.startsWith("&quot;", urlEnd)) break
+                    if (c == '\\' && urlEnd + 1 < html.length && html[urlEnd + 1] == '"') break
+                    urlEnd++
+                }
+                return html.substring(urlStart, urlEnd)
+                    .replace("\\u003d", "=")
+                    .replace("\\u0026", "&")
+                    .replace("\\/", "/")
+            }
+        }
+        return null
     }
 
     private fun unwrapProxy(url: String): String {

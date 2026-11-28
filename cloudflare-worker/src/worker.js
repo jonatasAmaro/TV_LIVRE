@@ -69,6 +69,16 @@ export default {
         return corsResponse(await handleAnivideo(slug, episode));
       }
 
+      if (url.pathname === '/meusanimes') {
+        const tmdb = url.searchParams.get('tmdb');
+        const season = url.searchParams.get('season') || '1';
+        const episode = url.searchParams.get('episode') || '1';
+        if (!tmdb) {
+          return corsResponse(json({ error: 'missing ?tmdb= param' }, 400));
+        }
+        return corsResponse(await handleMeusanimes(tmdb, season, episode));
+      }
+
       if (url.pathname === '/health') {
         return corsResponse(json({ status: 'ok', ts: Date.now() }));
       }
@@ -366,6 +376,32 @@ async function handleAnivideo(slug, episode) {
       'Cache-Control': 'public, max-age=3600',
     },
   });
+}
+
+// ---------- MeusAnimes (meusdoramas.club → Blogger token URL) ----------
+// Worker resolves the Blogger video token; client fetches the Blogger page
+// directly so googlevideo URLs are bound to the client's own IP.
+
+async function handleMeusanimes(tmdb, season, episode) {
+  const apiUrl = `https://serv01.meusdoramas.club/posts/get-video.php?episode_number=${episode}&season_number=${season}&tmdb=${tmdb}`;
+
+  const apiResp = await fetch(apiUrl, {
+    headers: {
+      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+      'Referer': 'https://meusanimes.blog/',
+    },
+  });
+
+  if (!apiResp.ok) {
+    return json({ ok: false, error: 'api error' }, 502);
+  }
+
+  const data = await apiResp.json();
+  if (!data.success || !data.videoUrl) {
+    return json({ ok: false, error: 'no video found' }, 404);
+  }
+
+  return json({ ok: true, bloggerUrl: data.videoUrl });
 }
 
 function detectFormat(url) {

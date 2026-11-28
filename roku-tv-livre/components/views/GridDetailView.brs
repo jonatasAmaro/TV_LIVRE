@@ -320,6 +320,25 @@ sub playEpisode(idx as Integer, startAt as Integer)
         return
     end if
 
+    if source = "meusanimes"
+        m.videoStatus.text = "Resolvendo stream (MeusAnimes)..."
+        m.videoStatus.visible = true
+        m.video.control = "stop"
+        m.pendingStartAt = startAt
+        m.meusanimesTask = CreateObject("roSGNode", "MeusanimesTask")
+        m.meusanimesTask.tmdb = To_Str(m.top.item.saimoId)
+        sd = m.seasonData[m.currentSeason]
+        if sd.saimoSeason <> invalid and To_Int(sd.saimoSeason) > 0
+            m.meusanimesTask.season = To_Int(sd.saimoSeason)
+        else
+            m.meusanimesTask.season = m.currentSeason + 1
+        end if
+        m.meusanimesTask.episode = idx + 1
+        m.meusanimesTask.observeField("result", "onMeusanimesResolved")
+        m.meusanimesTask.control = "run"
+        return
+    end if
+
     url = To_Str(eps[idx].url)
     if url = ""
         m.video.control = "stop"
@@ -358,6 +377,18 @@ sub onAnivideoResolved()
     if m.anivideoTask = invalid then return
     r = m.anivideoTask.result
     m.anivideoTask = invalid
+    if r = invalid or not Is_True(r.ok) or r.url = ""
+        m.videoStatus.text = "Falha ao resolver stream"
+        m.videoStatus.visible = true
+        return
+    end if
+    startPlayback(r.url, m.currentEp, m.pendingStartAt)
+end sub
+
+sub onMeusanimesResolved()
+    if m.meusanimesTask = invalid then return
+    r = m.meusanimesTask.result
+    m.meusanimesTask = invalid
     if r = invalid or not Is_True(r.ok) or r.url = ""
         m.videoStatus.text = "Falha ao resolver stream"
         m.videoStatus.visible = true

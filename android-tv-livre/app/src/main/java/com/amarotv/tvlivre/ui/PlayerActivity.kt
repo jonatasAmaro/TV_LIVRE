@@ -172,6 +172,14 @@ class PlayerActivity : AppCompatActivity() {
             return
         }
 
+        if (ep.source == "meusanimes" && saimoId.isNotEmpty()) {
+            val maSeason = if (saimoSeasonOverride > 0) saimoSeasonOverride else seasonIndex + 1
+            val endpoint = "https://tv-livre-catalog.jonatas-amaro2.workers.dev/meusanimes?tmdb=$saimoId&season=$maSeason&episode=${episodeIndex + 1}"
+            resolveMeusanimesAndPlay(endpoint, episodeIndex)
+            showEpisodeInfo()
+            return
+        }
+
         if (ep.source == "saimo" && saimoId.isNotEmpty() && ep.url.isEmpty()) {
             val saimSeason = if (saimoSeasonOverride > 0) saimoSeasonOverride else seasonIndex + 1
             val saimEpisode = episodeIndex + 1 + saimoEpisodeOffset
@@ -185,6 +193,62 @@ class PlayerActivity : AppCompatActivity() {
             playUrl(ep.url, ep.format)
         }
         showEpisodeInfo()
+    }
+
+    private fun resolveMeusanimesAndPlay(endpoint: String, epIdx: Int) {
+        thread {
+            try {
+                val conn = URL(endpoint).openConnection() as HttpURLConnection
+                conn.connectTimeout = 15000
+                conn.readTimeout = 15000
+                val body = conn.inputStream.bufferedReader().readText()
+                val json = JSONObject(body)
+                if (!json.optBoolean("ok") || json.optString("bloggerUrl", "").isEmpty()) {
+                    runOnUiThread { Toast.makeText(this, "Erro ao carregar stream", Toast.LENGTH_SHORT).show() }
+                    return@thread
+                }
+                val blogConn = URL(json.getString("bloggerUrl")).openConnection() as HttpURLConnection
+                blogConn.connectTimeout = 15000
+                blogConn.readTimeout = 15000
+                blogConn.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36")
+                val html = blogConn.inputStream.bufferedReader().readText()
+                val videoUrl = extractGooglevideo(html)
+                if (videoUrl != null) {
+                    episodeList[epIdx].url = videoUrl
+                    episodeList[epIdx].format = "mp4"
+                    runOnUiThread { playUrl(videoUrl, "mp4") }
+                } else {
+                    runOnUiThread { Toast.makeText(this, "Erro ao extrair vídeo", Toast.LENGTH_SHORT).show() }
+                }
+            } catch (_: Exception) {
+                runOnUiThread { Toast.makeText(this, "Erro ao carregar stream", Toast.LENGTH_SHORT).show() }
+            }
+        }
+    }
+
+    private fun extractGooglevideo(html: String): String? {
+        for (itag in listOf("22", "18")) {
+            for (marker in listOf("itag\\u003d$itag", "itag=$itag")) {
+                val itagPos = html.indexOf(marker)
+                if (itagPos < 0) continue
+                val searchFrom = maxOf(0, itagPos - 600)
+                val urlStart = html.lastIndexOf("https://", itagPos)
+                if (urlStart < searchFrom) continue
+                var urlEnd = itagPos + marker.length
+                while (urlEnd < html.length) {
+                    val c = html[urlEnd]
+                    if (c == '"' || c == '\'' || c == ' ' || c == '\n' || c == '<' || c == '>') break
+                    if (c == '&' && html.startsWith("&quot;", urlEnd)) break
+                    if (c == '\\' && urlEnd + 1 < html.length && html[urlEnd + 1] == '"') break
+                    urlEnd++
+                }
+                return html.substring(urlStart, urlEnd)
+                    .replace("\\u003d", "=")
+                    .replace("\\u0026", "&")
+                    .replace("\\/", "/")
+            }
+        }
+        return null
     }
 
     private fun resolveAndPlay(endpoint: String, epIdx: Int) {
