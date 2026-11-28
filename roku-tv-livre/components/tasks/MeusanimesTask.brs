@@ -64,6 +64,8 @@ end sub
 
 function ExtractGV(html as String, itag as String) as String
     bs = Chr(92)
+    ' Blogger embeds URLs JSON-escaped twice (\\u003d)
+    html = html.Replace(bs + bs, bs)
     uEq = bs + "u003d"
     uAmp = bs + "u0026"
 
@@ -109,7 +111,8 @@ function ExtractGV(html as String, itag as String) as String
             end if
         end if
         if c = bs and i + 1 <= htmlLen
-            if Mid(html, i + 1, 1) = q
+            nx = Mid(html, i + 1, 1)
+            if nx = q or nx = "&"
                 urlEnd = i
                 found = true
                 exit for

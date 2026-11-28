@@ -77,7 +77,9 @@ class DetailActivity : AppCompatActivity() {
 
         // Preview player
         val playerView = findViewById<PlayerView>(R.id.detailPreviewPlayer)
-        previewPlayer = ExoPlayer.Builder(this).build()
+        // googlevideo URLs are bound to the UA that fetched the Blogger page
+        val http = androidx.media3.datasource.DefaultHttpDataSource.Factory().setUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36")
+        previewPlayer = ExoPlayer.Builder(this).setMediaSourceFactory(androidx.media3.exoplayer.source.DefaultMediaSourceFactory(http)).build()
         playerView.player = previewPlayer
         playerView.useController = false
 
@@ -288,7 +290,9 @@ class DetailActivity : AppCompatActivity() {
         }
     }
 
-    private fun extractGooglevideo(html: String): String? {
+    private fun extractGooglevideo(raw: String): String? {
+        // Blogger embeds URLs JSON-escaped twice (\\u003d)
+        val html = raw.replace("\\\\", "\\")
         for (itag in listOf("22", "18")) {
             for (marker in listOf("itag\\u003d$itag", "itag=$itag")) {
                 val itagPos = html.indexOf(marker)
@@ -301,7 +305,7 @@ class DetailActivity : AppCompatActivity() {
                     val c = html[urlEnd]
                     if (c == '"' || c == '\'' || c == ' ' || c == '\n' || c == '<' || c == '>') break
                     if (c == '&' && html.startsWith("&quot;", urlEnd)) break
-                    if (c == '\\' && urlEnd + 1 < html.length && html[urlEnd + 1] == '"') break
+                    if (c == '\\' && urlEnd + 1 < html.length && (html[urlEnd + 1] == '"' || html[urlEnd + 1] == '&')) break
                     urlEnd++
                 }
                 return html.substring(urlStart, urlEnd)
