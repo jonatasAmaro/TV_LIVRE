@@ -60,6 +60,15 @@ export default {
         return corsResponse(await handleSaimo(seriesId, season, episode, tipo, fonte));
       }
 
+      if (url.pathname === '/anivideo') {
+        const slug = url.searchParams.get('slug');
+        const episode = url.searchParams.get('episode') || '1';
+        if (!slug) {
+          return corsResponse(json({ error: 'missing ?slug= param' }, 400));
+        }
+        return corsResponse(await handleAnivideo(slug, episode));
+      }
+
       if (url.pathname === '/health') {
         return corsResponse(json({ status: 'ok', ts: Date.now() }));
       }
@@ -328,6 +337,35 @@ async function handleSaimo(seriesId, season, episode, tipo = 'series', fonte = '
   }
 
   return json({ ok: false, error: 'no working stream found' }, 404);
+}
+
+// ---------- Anivideo HLS Proxy ----------
+
+async function handleAnivideo(slug, episode) {
+  const ep = String(episode).padStart(2, '0');
+  const hlsUrl = `https://cdn-sv01.maximaimg.online/stream/r/${slug}/${ep}.mp4/index.m3u8`;
+
+  const resp = await fetch(hlsUrl, {
+    headers: {
+      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+      'Referer': 'https://animesdigital.org/',
+    },
+  });
+
+  if (!resp.ok) {
+    return json({ ok: false, error: 'stream not available' }, 404);
+  }
+
+  // Proxy the HLS manifest (segments don't need Referer)
+  const body = await resp.text();
+  return new Response(body, {
+    status: 200,
+    headers: {
+      'Content-Type': 'application/vnd.apple.mpegurl',
+      'Access-Control-Allow-Origin': '*',
+      'Cache-Control': 'public, max-age=3600',
+    },
+  });
 }
 
 function detectFormat(url) {

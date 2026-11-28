@@ -48,6 +48,7 @@ class PlayerActivity : AppCompatActivity() {
         var seasonIndex: Int = 0
         var saimoSeasonOverride: Int = 0
         var saimoEpisodeOffset: Int = 0
+        var anivideoSlug: String = ""
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -161,6 +162,15 @@ class PlayerActivity : AppCompatActivity() {
         }
         episodeIndex = newIdx
         val ep = episodeList[episodeIndex]
+
+        if (ep.source == "anivideo" && anivideoSlug.isNotEmpty()) {
+            val url = "https://tv-livre-catalog.jonatas-amaro2.workers.dev/anivideo?slug=$anivideoSlug&episode=${episodeIndex + 1}"
+            ep.url = url
+            ep.format = "hls"
+            playUrl(url, "hls")
+            showEpisodeInfo()
+            return
+        }
 
         if (ep.source == "saimo" && saimoId.isNotEmpty() && ep.url.isEmpty()) {
             val saimSeason = if (saimoSeasonOverride > 0) saimoSeasonOverride else seasonIndex + 1

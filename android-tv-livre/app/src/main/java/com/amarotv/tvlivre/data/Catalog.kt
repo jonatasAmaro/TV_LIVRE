@@ -57,7 +57,8 @@ data class Season(
     val number: Int = 1,
     val episodes: List<Episode> = emptyList(),
     val saimoSeason: Int = 0,
-    val saimoEpisodeOffset: Int = 0
+    val saimoEpisodeOffset: Int = 0,
+    val anivideoSlug: String = ""
 )
 
 data class Episode(

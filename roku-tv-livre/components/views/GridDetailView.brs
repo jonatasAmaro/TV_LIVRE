@@ -306,6 +306,20 @@ sub playEpisode(idx as Integer, startAt as Integer)
         return
     end if
 
+    if source = "anivideo"
+        m.videoStatus.text = "Resolvendo stream (Anivideo)..."
+        m.videoStatus.visible = true
+        m.video.control = "stop"
+        m.pendingStartAt = startAt
+        m.anivideoTask = CreateObject("roSGNode", "AnivideoTask")
+        sd = m.seasonData[m.currentSeason]
+        m.anivideoTask.slug = To_Str(sd.anivideoSlug)
+        m.anivideoTask.episode = idx + 1
+        m.anivideoTask.observeField("result", "onAnivideoResolved")
+        m.anivideoTask.control = "run"
+        return
+    end if
+
     url = To_Str(eps[idx].url)
     if url = ""
         m.video.control = "stop"
@@ -332,6 +346,18 @@ sub onSaimoResolved()
     if m.saimoTask = invalid then return
     r = m.saimoTask.result
     m.saimoTask = invalid
+    if r = invalid or not Is_True(r.ok) or r.url = ""
+        m.videoStatus.text = "Falha ao resolver stream"
+        m.videoStatus.visible = true
+        return
+    end if
+    startPlayback(r.url, m.currentEp, m.pendingStartAt)
+end sub
+
+sub onAnivideoResolved()
+    if m.anivideoTask = invalid then return
+    r = m.anivideoTask.result
+    m.anivideoTask = invalid
     if r = invalid or not Is_True(r.ok) or r.url = ""
         m.videoStatus.text = "Falha ao resolver stream"
         m.videoStatus.visible = true

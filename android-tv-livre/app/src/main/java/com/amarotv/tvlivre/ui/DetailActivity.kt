@@ -212,6 +212,18 @@ class DetailActivity : AppCompatActivity() {
             return
         }
 
+        if (ep.source == "anivideo") {
+            val sd = currentSeasonData
+            val slug = sd?.anivideoSlug ?: ""
+            if (slug.isNotEmpty()) {
+                val url = "https://tv-livre-catalog.jonatas-amaro2.workers.dev/anivideo?slug=$slug&episode=${epIdx + 1}"
+                ep.url = url
+                ep.format = "hls"
+                callback(url)
+                return
+            }
+        }
+
         if (ep.source == "kairou" && item.tmdbId.isNotEmpty()) {
             val encoded = java.net.URLEncoder.encode(item.title, "UTF-8")
             val endpoint = "https://tv-livre-catalog.jonatas-amaro2.workers.dev/kairou?tmdbId=${item.tmdbId}&season=${seasonIdx + 1}&episode=${epIdx + 1}&title=$encoded"
@@ -274,6 +286,7 @@ class DetailActivity : AppCompatActivity() {
             val sd = currentSeasonData
             PlayerActivity.saimoSeasonOverride = sd?.saimoSeason ?: 0
             PlayerActivity.saimoEpisodeOffset = sd?.saimoEpisodeOffset ?: 0
+            PlayerActivity.anivideoSlug = sd?.anivideoSlug ?: ""
             val intent = Intent(this, PlayerActivity::class.java)
             intent.putExtra("url", url)
             intent.putExtra("format", ep.format)
