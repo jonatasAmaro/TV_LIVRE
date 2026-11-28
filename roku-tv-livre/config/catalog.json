@@ -1,5 +1,5 @@
 {
-  "catalogVersion": "2026112704",
+  "catalogVersion": "2026112705",
   "versionUrl": "",
   "catalogUrl": "https://tv-livre-catalog.jonatas-amaro2.workers.dev/catalog.json",
   "animeRefreshHours": 6,
@@ -10321,8 +10321,8 @@
                 },
                 {
                   "title": "Temporada 2",
-                  "saimoSeason": 1,
-                  "saimoEpisodeOffset": 25,
+                  "saimoSeason": 2,
+                  "saimoEpisodeOffset": 0,
                   "episodes": [
                     {
                       "title": "EP 1",
@@ -10428,8 +10428,8 @@
                 },
                 {
                   "title": "Temporada 3",
-                  "saimoSeason": 1,
-                  "saimoEpisodeOffset": 50,
+                  "saimoSeason": 3,
+                  "saimoEpisodeOffset": 0,
                   "episodes": [
                     {
                       "title": "EP 1",
@@ -10499,8 +10499,8 @@
                 },
                 {
                   "title": "Temporada 4",
-                  "saimoSeason": 1,
-                  "saimoEpisodeOffset": 66,
+                  "saimoSeason": 4,
+                  "saimoEpisodeOffset": 0,
                   "episodes": [
                     {
                       "title": "EP 1",
@@ -10552,30 +10552,6 @@
                     },
                     {
                       "title": "EP 13",
-                      "source": "saimo"
-                    },
-                    {
-                      "title": "EP 14",
-                      "source": "saimo"
-                    },
-                    {
-                      "title": "EP 15",
-                      "source": "saimo"
-                    },
-                    {
-                      "title": "EP 16",
-                      "source": "saimo"
-                    },
-                    {
-                      "title": "EP 17",
-                      "source": "saimo"
-                    },
-                    {
-                      "title": "EP 18",
-                      "source": "saimo"
-                    },
-                    {
-                      "title": "EP 19",
                       "source": "saimo"
                     }
                   ]
