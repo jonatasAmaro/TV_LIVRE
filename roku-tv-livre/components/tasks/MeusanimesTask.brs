@@ -26,14 +26,19 @@ sub execute()
         return
     end if
 
-    json = ParseJSON(body)
-    if json = invalid or json.ok <> true or json.bloggerUrl = invalid or json.bloggerUrl = ""
+    json = ParseJson(body)
+    if json = invalid
+        m.top.result = { ok: false, url: "", format: "" }
+        return
+    end if
+    bloggerUrl = json.bloggerUrl
+    if bloggerUrl = invalid or bloggerUrl = ""
         m.top.result = { ok: false, url: "", format: "" }
         return
     end if
 
     blogXfer = CreateObject("roUrlTransfer")
-    blogXfer.SetUrl(json.bloggerUrl)
+    blogXfer.SetUrl(bloggerUrl)
     blogXfer.SetCertificatesFile("common:/certs/ca-bundle.crt")
     blogXfer.InitClientCertificates()
     blogXfer.AddHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36")
@@ -44,9 +49,9 @@ sub execute()
         return
     end if
 
-    videoUrl = extractGooglevideo(html, "22")
+    videoUrl = ExtractGV(html, "22")
     if videoUrl = ""
-        videoUrl = extractGooglevideo(html, "18")
+        videoUrl = ExtractGV(html, "18")
     end if
 
     if videoUrl = ""
@@ -57,50 +62,65 @@ sub execute()
     m.top.result = { ok: true, url: videoUrl, format: "mp4" }
 end sub
 
-function extractGooglevideo(html as String, itag as String) as String
-    uEq = Chr(92) + "u003d"
-    uAmp = Chr(92) + "u0026"
-    uSlash = Chr(92) + "/"
+function ExtractGV(html as String, itag as String) as String
+    bs = Chr(92)
+    uEq = bs + "u003d"
+    uAmp = bs + "u0026"
 
-    itagMarker = "itag" + uEq + itag
-    pos = Instr(1, html, itagMarker)
-    if pos = 0
-        itagMarker = "itag=" + itag
-        pos = Instr(1, html, itagMarker)
-    end if
-    if pos = 0 then return ""
+    marker1 = "itag" + uEq + itag
+    marker2 = "itag=" + itag
+
+    idx = Instr(1, html, marker1)
+    if idx = 0 then idx = Instr(1, html, marker2)
+    if idx = 0 then return ""
 
     urlStart = 0
-    s = pos
-    while s > 8
-        s = s - 1
-        if Mid(html, s, 8) = "https://"
-            urlStart = s
-            exit while
+    limit = idx - 600
+    if limit < 1 then limit = 1
+    for i = idx - 1 to limit step -1
+        if Mid(html, i, 8) = "https://"
+            urlStart = i
+            exit for
         end if
-        if s < pos - 600 then exit while
-    end while
+    end for
     if urlStart = 0 then return ""
 
-    urlEnd = pos + Len(itagMarker)
+    q = Chr(34)
+    urlEnd = idx + Len(marker1)
     htmlLen = Len(html)
-    while urlEnd <= htmlLen
-        c = Mid(html, urlEnd, 1)
-        if c = Chr(34) or c = "'" or c = " " or c = Chr(10) or c = Chr(13) or c = "<" or c = ">"
-            exit while
+    found = false
+    for i = urlEnd to htmlLen
+        c = Mid(html, i, 1)
+        if c = q or c = "'" or c = " " or c = "<" or c = ">"
+            urlEnd = i
+            found = true
+            exit for
         end if
-        if c = "&" and urlEnd + 5 <= htmlLen and Mid(html, urlEnd, 6) = "&quot;"
-            exit while
+        if c = Chr(10) or c = Chr(13)
+            urlEnd = i
+            found = true
+            exit for
         end if
-        if c = Chr(92) and urlEnd + 1 <= htmlLen and Mid(html, urlEnd + 1, 1) = Chr(34)
-            exit while
+        if c = "&" and i + 5 <= htmlLen
+            if Mid(html, i, 6) = "&quot;"
+                urlEnd = i
+                found = true
+                exit for
+            end if
         end if
-        urlEnd = urlEnd + 1
-    end while
+        if c = bs and i + 1 <= htmlLen
+            if Mid(html, i + 1, 1) = q
+                urlEnd = i
+                found = true
+                exit for
+            end if
+        end if
+    end for
+    if not found then urlEnd = htmlLen + 1
 
     url = Mid(html, urlStart, urlEnd - urlStart)
     url = url.Replace(uEq, "=")
     url = url.Replace(uAmp, "&")
-    url = url.Replace(uSlash, "/")
+    url = url.Replace(bs + "/", "/")
     return url
 end function
